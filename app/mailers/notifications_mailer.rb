@@ -1,0 +1,9 @@
+class NotificationsMailer < ActionMailer::Base
+  default :from => "contact@columbuspowdercoat.com"
+  default :to => "travis@columbuspowdercoat.com"
+
+  def new_message(message)
+    @message = message
+    mail(:subject => "[YourWebsite.tld] #{message.subject}")
+  end
+end

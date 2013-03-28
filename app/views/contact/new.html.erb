@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Drop us a line.</h2>
+  <%= simple_form_for @message, :url => contact_path do |form| %>
+
+      <%= form.input :name %>
+      <%= form.input :email %>
+      <%= form.input :subject %>
+      <%= form.input :body, as: :text, :input_html => { :rows => 10 } %>
+      <%= form.submit 'Send Raven', class: "btn btn-success" %>
+
+  <% end %>
+</div>
