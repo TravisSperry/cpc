@@ -1,21 +1,18 @@
 <div class = "home">
   <div class="container">
-	<span class "row">
-	  <%= link_to image_tag("cpclogo.png", alt: "Columbus Powder Coat"), static_pages_home_path, id: "logo" %> 		 
+    <center>
+      <p>
+        <%= link_to image_tag("cpc.png"), root_path ,class: "hide-for-small" %>
+      </p>
+      <br />
+      <br />
+      <p>
+        <%= link_to "Go ahead, push it.", contact_path, class: "large button" %>
+      </p>
+    </center>
 
-	  <h1><p class = "text-center" style = "color:#FFFFFF;">More For Less</p></h1>
-	  <h3><p class = "text-center" style = "color:#FFFFFF;">For information or a quote, click below...</p></h3>
-	  <br />
-	  <br />
-	  <center>
-		<%= link_to "Go ahead, push it.", contact_path, class: "btn btn-large btn-inverse" %>
-	  </center>
-	</span>
-  <br />
-  <br />
-	<span class="row">
-		<h1> <p class = "text-center">"Faster turnaround, guaranteed."</p></h1>
-	</span>
+
+      <h1> <p class = "text-center">"Faster turnaround, guaranteed."</p></h1>
   </div>
 </div>
 

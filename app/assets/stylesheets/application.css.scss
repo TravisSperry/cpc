@@ -11,14 +11,4 @@
  *= require_self
  *= require_tree .
  */
-
-.home{
-	padding-top: 55px;
-	background-image: url(image_path('gradientbackgroundcpc.svg'));
-    background-repeat:repeat-x;
-    height: 900px;
-}
-
-h1, h3{
-	text-shadow: black 0.1em 0.1em 0.2em;
-}
+ //= require foundation_and_overrides
