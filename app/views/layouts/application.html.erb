@@ -25,9 +25,9 @@
 <%= render 'layouts/header' %>
 
 <body>
-  <div class="container">
-    <%= yield %>
-  </div>
+  <div class="row"><div class="small-11 small-centered columns">
+      <%= yield %>
+    </div></div>
 
   <%= javascript_include_tag "application" %>
 </body>
