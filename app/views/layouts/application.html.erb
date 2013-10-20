@@ -27,8 +27,21 @@
 
 
   <div class="row">
-    <div class="small-11 large-11 small-centered large-centered columns">
-      <%= yield %>
+    <div class="small-12 small-centered columns">
+
+    <% if flash[:error] %>
+      <div data-alert class="alert-box error"><%= flash[:error] %><a href="#" class="close">&times;</a></div>
+    <% end %>
+
+    <%if flash[:notice] %>
+      <div data-alert class="alert-box success"><%= flash[:notice] %><a href="#" class="close">&times;</a></div>
+    <% end %>
+
+    <%if flash[:alert] %>
+      <div data-alert class="alert-box alert"><%= flash[:alert] %><a href="#" class="close">&times;</a></div>
+    <% end %>
+
+    <%= yield %>
     </div>
   </div>
 

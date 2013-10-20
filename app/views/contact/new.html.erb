@@ -1,15 +1,12 @@
-<div class="row">
-  <div class="small-9 small-centered large-10 small-off-set-2">
-     <h2><p class = "text" style = "color:white;">Contact Us</p></h2>
-     <%= simple_form_for @message, :url => contact_path do |f| %>
+<h2><p class = "text" style = "color:white;">Contact Us</p></h2>
+<%= simple_form_for @message, :url => contact_path do |f| %>
 
-         <%= f.input :name, label: false, placeholder: "Name" %>
-         <%= f.input :email, label: false, placeholder: "Email" %>
-         <%= f.input :subject, label: false, placeholder: "What's you message about?" %>
-         <%= f.input :body, as: :text, label: false, placeholder: "It's OK we have thick skin. Let us have it.", :input_html => { :rows => 10 } %>
-         <%= f.submit 'Send', class: "button" %>
+ <%= f.input :name, label: false, placeholder: "Name" %>
+ <%= f.input :email, label: false, placeholder: "Email" %>
+ <%= f.input :phone, label: false, placeholder: "Phone" %>
+ <%= f.input :subject, label: false, placeholder: "What's you message about?" %>
+ <%= f.input :body, as: :text, label: false, placeholder: "It's OK we have thick skin. Let us have it.", :input_html => { :rows => 10 } %>
+ <%= f.submit 'Send', class: "button" %>
 
-     <% end %>
-     <div class="push-8" style="color:white;"><p>Or feel free to call Paul at (614) 353-0302</p></div>
-  </div>
-</div>
+<% end %>
+<div class="push-8" style="color:white;"><p>Or feel free to call Paul at (614) 353-0302</p></div>
