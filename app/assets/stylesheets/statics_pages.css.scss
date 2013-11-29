@@ -21,3 +21,39 @@ h2 {
   margin-top: 25px;
   border: solid 1px black;
 }
+
+.retro_contact{
+  background: url('contact.png') no-repeat;
+  height:69px;
+  width:170px;
+}
+
+.retro_contact:hover{
+  background: url('contact_hover.png') no-repeat;
+  height:69px;
+  width:170px;
+}
+
+.retro_contact:active{
+  background: url('contact_pressed.png');
+  height:69px;
+  width:170px;
+}
+
+.retro_submit{
+  background: url('submit.png') no-repeat;
+  height:69px;
+  width:170px;
+}
+
+.retro_submit:hover{
+  background: url('submit_hover.png') no-repeat;
+  height:69px;
+  width:170px;
+}
+
+.retro_submit:active{
+  background: url('submit_pressed.png');
+  height:69px;
+  width:170px;
+}
