@@ -1,15 +1,16 @@
+<div style=" row large-8 columns small-4">
 <h2 style = "color:white; padding-top: 20px;">Request A Quote</h2>
-<%= simple_form_for @message, :url => contact_path do |f| %>
+  <%= simple_form_for @message, :url => contact_path do |f| %>
 
- <%= f.input :name, label: false, placeholder: "Your Name" %>
- <%= f.input :email, label: false, placeholder: "Your Email" %>
- <%= f.input :phone, label: false, placeholder: "Your Phone" %>
- <%= f.input :subject, label: false, placeholder: "Subject" %>
- <%= f.input :body, as: :text, label: false, placeholder: "How can we help you?", :input_html => { :rows => 10 } %>
- <%= f.submit 'Send', class: "retro_submit" %>
+   <%= f.input :name, label: false, placeholder: "Your Name" %>
+   <%= f.input :email, label: false, placeholder: "Your Email" %>
+   <%= f.input :phone, label: false, placeholder: "Your Phone" %>
+   <%= f.input :subject, label: false, placeholder: "Subject" %>
+   <%= f.input :body, as: :text, label: false, placeholder: "How can we help you?", :input_html => { :rows => 10 } %>
+   <%= f.submit '', class: "retro_submit" %>
 
-<% end %>
-<div class="push-8" style="color:white;"><p>Or feel free to call Paul at (614) 353-0302</p></div>
+  <% end %></div>
+<div class="push-8" style=""><p style="color:white;font-weight:200;">Or call Paul at (614) 353-0302</p></div>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
