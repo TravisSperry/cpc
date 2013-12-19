@@ -23,7 +23,7 @@
 //= require jquery.sticky
 //= require jquery.themepunch.revolution.min
 //= require jquery.themepunch.plugins.min
-//= require bootstrap
+//= require twitter/bootstrap
 //= require jflickrfeed
 //= require modernizr-2.6.2.min
 //= require modernizr.custom.04022
