@@ -13,7 +13,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails'
   gem 'font-awesome-sass-rails'
-  gem 'bootstrap-sass', '3.0.0'
+  gem 'bootstrap-sass', '~> 3.0.3.0'
   gem 'modernizr-rails'
 end
 
