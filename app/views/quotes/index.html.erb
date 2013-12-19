@@ -1,0 +1,73 @@
+<h1>Listing quotes</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Job title</th>
+    <th>Company name</th>
+    <th>Address 1</th>
+    <th>Address 2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Email</th>
+    <th>Telephone</th>
+    <th>Fax</th>
+    <th>Part number</th>
+    <th>Part description</th>
+    <th>Powder color</th>
+    <th>Powder product code</th>
+    <th>Powder product manufacturer</th>
+    <th>Part size</th>
+    <th>Substrate</th>
+    <th>Coating requirements</th>
+    <th>Paint specs</th>
+    <th>Masking requirements</th>
+    <th>Packaging requirements</th>
+    <th>Quantity year</th>
+    <th>Quantity run</th>
+    <th>Note</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @quotes.each do |quote| %>
+  <tr>
+    <td><%= quote.first_name %></td>
+    <td><%= quote.last_name %></td>
+    <td><%= quote.job_title %></td>
+    <td><%= quote.company_name %></td>
+    <td><%= quote.address_1 %></td>
+    <td><%= quote.address_2 %></td>
+    <td><%= quote.city %></td>
+    <td><%= quote.state %></td>
+    <td><%= quote.zip %></td>
+    <td><%= quote.email %></td>
+    <td><%= quote.telephone %></td>
+    <td><%= quote.fax %></td>
+    <td><%= quote.part_number %></td>
+    <td><%= quote.part_description %></td>
+    <td><%= quote.powder_color %></td>
+    <td><%= quote.powder_product_code %></td>
+    <td><%= quote.powder_product_manufacturer %></td>
+    <td><%= quote.part_size %></td>
+    <td><%= quote.substrate %></td>
+    <td><%= quote.coating_requirements %></td>
+    <td><%= quote.paint_specs %></td>
+    <td><%= quote.masking_requirements %></td>
+    <td><%= quote.packaging_requirements %></td>
+    <td><%= quote.quantity_year %></td>
+    <td><%= quote.quantity_run %></td>
+    <td><%= quote.note %></td>
+    <td><%= link_to 'Show', quote %></td>
+    <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
+    <td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Quote', new_quote_path %>
