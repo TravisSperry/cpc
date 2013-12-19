@@ -10,7 +10,26 @@
  *
  *= require jquery.ui.all
  *= require bootstrap
+ *= require animations
+ *= require font-awesome
+ *= require font-awesome-ie7
+ *= require graph
+ *= require ie
+ *= require nivo-slider
+ *= require prettyPhoto
+ *= require pricing-table
+ *= require settings
+ *= require style
+ *= require spectrum
+ *= require superfish
+ *= require switcher
+ *= require team-member
+ *= require theme-responsive
+ *= require colors/red
  *= require video-js
  *= require_self
- *= require_tree .
  */
+
+.contact{
+  padding-top: 50px;
+}

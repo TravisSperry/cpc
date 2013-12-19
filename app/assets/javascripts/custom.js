@@ -261,7 +261,6 @@ jQuery(window).load(function() {
 
 	jQuery('.portfolio-carousel').carousel({interval: false, wrap: false});
 
-
 	jQuery('.client-carousel').carousel({interval: false, wrap: false});
 
 	jQuery('.testimonials-carousel').carousel({interval: 5000, pause: "hover"});
@@ -457,7 +456,6 @@ jQuery(document).ready(function () {
 
 	jQuery('.client').parallax("50%", 0.1);
 	jQuery('.service-reasons').parallax("50%", 0.1);
-
 	jQuery("a[data-rel^='prettyPhoto']").prettyPhoto({overlay_gallery: false});
 
 

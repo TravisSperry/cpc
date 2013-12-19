@@ -19,19 +19,33 @@
  <%= javascript_include_tag "modernizr" %>
  <%= csrf_meta_tags %>
  <!-- Favicons -->
-      <link rel="shortcut icon" href="favicon.ico">
-      <link rel="apple-touch-icon" href="apple-touch-icon.png">
-      <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72.png">
-      <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114.png">
-      <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144.png">
+ <link rel="shortcut icon" href="favicon.ico">
+ <link rel="apple-touch-icon" href="apple-touch-icon.png">
+ <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72.png">
+ <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114.png">
+ <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144.png">
  <%= render 'layouts/shim' %>
 
 </head>
 
-
-<div class="row">
-  <%= yield %>
-</div>
+<body class="home">
+  <div class="wrap">
+   <%= render 'layouts/header' %>
+   <div class="row">
+    <% flash.each do |type, message| %>
+        <div class="alert alert-<%= flash_class type %>">
+            <button class="close" data-dismiss="alert">&times;</button>
+            <%= message %>
+        </div>
+      <% end %>
+    <%= yield %>
+  </div>
+  <%= render 'layouts/footer' %>
+  <!-- Scroll To Top -->
+    <a href="#" class="scrollup"><i class="icon-angle-up"></i></a>
+  </div>
+<!-- Wrap End -->
+</body>
 
 <%= javascript_include_tag "application" %>
 </body>
