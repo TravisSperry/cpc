@@ -1,4 +1,0 @@
-/*----------------------------------------------------*/
-/*	Isotope Portfolio Filter Section
-/*----------------------------------------------------*/
-jQuery(function(){var e=jQuery(".portfolio");e.isotope({itemSelector:".item"});var t=jQuery("#options .option-set"),n=t.find("a");n.click(function(){var t=jQuery(this);if(t.hasClass("selected"))return!1;var n=t.parents(".option-set");n.find(".selected").removeClass("selected"),t.addClass("selected");var r={},i=n.attr("data-option-key"),s=t.attr("data-option-value");return s=s==="false"?!1:s,r[i]=s,i==="layoutMode"&&typeof changeLayoutMode=="function"?changeLayoutMode(t,r):e.isotope(r),!1})});
