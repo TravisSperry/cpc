@@ -25,7 +25,6 @@
 //= require jquery.themepunch.plugins.min
 //= require bootstrap
 //= require jflickrfeed
-//= require modernizr
 //= require modernizr.custom.04022
 //= require portfolio
 //= require respond.min
