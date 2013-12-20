@@ -1,6 +1,7 @@
 Cpc::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-   config.assets.precompile << /(^[^_\/]|\/[^_])[^\/]*$/
+
+
   # Code is not reloaded between requests
   config.cache_classes = true
 
@@ -12,7 +13,7 @@ Cpc::Application.configure do
   config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
-  config.assets.compress = true
+  config.assets.compress = false
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false

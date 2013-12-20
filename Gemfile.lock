@@ -69,7 +69,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.21)
-    modernizr-rails (2.6.2.3)
+    modernizr-rails (2.6.2)
     multi_json (1.7.2)
     pg (0.15.0)
     polyglot (0.3.3)
