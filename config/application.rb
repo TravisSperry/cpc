@@ -63,8 +63,8 @@ module Cpc
       :address              => "smtp.gmail.com",
       :port                 => 587,
       :domain               => "columbuspowdercoat.com",
-      :user_name            => "contact@columbuspowdercoat.com",
-      :password             => "thedude614",
+      :user_name            => ENV['CPC_GMAIL_USERNAME'],
+      :password             => ENV['CPC_GMAIL_USERNAME'],
       :authentication       => :plain,
       :enable_starttls_auto => true
     }
