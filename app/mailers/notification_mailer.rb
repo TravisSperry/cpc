@@ -6,4 +6,9 @@ class NotificationMailer < ActionMailer::Base
     @message = message
     mail(subject: "[columbuspowdercoat.com] #{message.subject}")
   end
+
+  def new_quote(quote)
+    @quote = Quote.find(quote.id)
+    mail(subject: "CPC:You've recieved an RFQ!")
+  end
 end

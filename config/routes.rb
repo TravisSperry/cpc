@@ -2,8 +2,8 @@ Cpc::Application.routes.draw do
 
   resources :quotes
 
-
   get "static_pages/home"
+  get "static_pages/about"
 
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post

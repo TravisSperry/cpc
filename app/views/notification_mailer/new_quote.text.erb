@@ -1,0 +1,10 @@
+<%= @quote.first_name if @quote.first_name %> <%= @quote.last_name if @quote.last_name %> has sent you an RFQ.
+
+Job title: <%= @quote.job_title if @quote.job_title %>
+Company: <%= @quote.company_name if @quote.company_name %>
+Phone: <%= @quote.telephone if @quote.telephone %>
+Email: <%= @quote.email if @quote.email %>
+
+Here is a link you your new RFQ!
+
+<%= link_to "RFQ", @quote %>

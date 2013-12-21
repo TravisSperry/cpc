@@ -1,0 +1,11 @@
+<p>
+  <%= @quote.first_name if @quote.first_name %> <%= @quote.last_name if @quote.last_name %> has sent you an RFQ
+</p>
+<p>Job title: <%= @quote.job_title if @quote.job_title %></p>
+<p>Company: <%= @quote.company_name if @quote.company_name %></p>
+<p>Phone: <%= @quote.telephone if @quote.telephone %></p>
+<p>Email: <%= @quote.email if @quote.email %></p>
+
+Here is a link you your new RFQ!
+
+<%= url_for :controller => 'quotes', :action => 'show', :id => @quote.id, :only_path => false, :host => 'localhost', :port => 3000 %>

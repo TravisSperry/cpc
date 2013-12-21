@@ -44,6 +44,7 @@ class QuotesController < ApplicationController
 
     respond_to do |format|
       if @quote.save
+        NotificationMailer.new_quote(@quote).deliver
         format.html { redirect_to @quote, notice: 'Quote was successfully created.' }
         format.json { render json: @quote, status: :created, location: @quote }
       else

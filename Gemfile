@@ -2,9 +2,14 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 gem 'simple_form'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'therubyracer'
+gem 'videojs_rails'
 
 group :development, :test do
   gem 'sqlite3'
+  gem "letter_opener"
 end
 
 group :assets do
@@ -16,11 +21,6 @@ group :assets do
   gem 'bootstrap-sass', '~> 3.0.3.0'
   gem 'modernizr-rails'
 end
-
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem 'therubyracer'
-gem 'videojs_rails'
 
 group :production do
   gem 'pg'
