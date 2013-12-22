@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
 
   def home
     @new_quotes = Quote.where('status=?', 'New')
+    @activities = PublicActivity::Activity.all
   end
 
   def about
