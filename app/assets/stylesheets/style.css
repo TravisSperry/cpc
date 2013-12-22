@@ -1764,7 +1764,6 @@ input:focus, textarea:focus {
 .accordion-body,.panel-heading {
     background: #fff;
     border-radius: 3px;
-    padding: 0;
 }
 
 .accordionMod .panel-heading .accordion-toggle .icon:before {

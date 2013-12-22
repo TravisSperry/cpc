@@ -1,5 +1,7 @@
 Cpc::Application.routes.draw do
 
+  devise_for :users
+
   resources :quotes
 
   get "static_pages/home"
