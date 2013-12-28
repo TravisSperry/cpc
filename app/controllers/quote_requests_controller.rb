@@ -48,7 +48,7 @@ class QuoteRequestsController < ApplicationController
     respond_to do |format|
       if @quote_request.save
         NotificationMailer.new_quote(@quote_request).deliver
-        format.html { redirect_to root_url, notice: 'Request received. We contact you shortly.' }
+        format.html { redirect_to root_url, notice: 'Request received. We will contact you shortly.' }
         format.json { render json: @quote_request, status: :created, location: @quote_request }
       else
         format.html { render action: "new" }
