@@ -54,5 +54,5 @@ module QuoteRequestsHelper
       ['Wisconsin', 'WI'],
       ['Wyoming', 'WY']
     ]
-end
+  end
 end

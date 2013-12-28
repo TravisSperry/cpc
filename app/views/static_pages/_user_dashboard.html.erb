@@ -75,15 +75,15 @@
               </div>
               <div class="col-xs-6 text-right">
                 <p class="announcement-heading"><%= @new_quote_requests.count ? @new_quote_requests.count : 0 %></p>
-                <p class="announcement-text">New <%= pluralize_without_count(@new_quote_requests.count, 'Quote')%><%= @new_quote_requests.count == 0 ? "" : "!" %></p>
+                <p class="announcement-text">New Quote <%= pluralize_without_count(@new_quote_requests.count, 'Request')%><%= @new_quote_requests.count == 0 ? "" : "!" %></p>
               </div>
             </div>
           </div>
-          <a href="<%= quotes_path %>">
+          <a href="<%= quote_requests_path %>">
             <div class="panel-footer announcement-bottom">
               <div class="row">
                 <div class="col-xs-8">
-                  View Quotes
+                  View Quote Requests
                 </div>
                 <div class="col-xs-6 text-right">
                   <i class="icon icon-angle-down"></i>
