@@ -8,7 +8,7 @@ class NotificationMailer < ActionMailer::Base
   end
 
   def new_quote(quote_request)
-    @quote_request = QuoteRequest.find(quote.id)
+    @quote_request = QuoteRequest.find(quote_request.id)
     mail(subject: "CPC:You've recieved an RFQ!")
   end
 end
