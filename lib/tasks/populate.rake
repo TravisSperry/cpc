@@ -24,7 +24,7 @@ def make_users
 
   admin2 = User.create!(first_name:           "Paul",
                         last_name:            "Doucher",
-                        email:                "pauld@columbuspowdercoat.com",
+                        email:                "pdoucher@columbuspowdercoat.com",
                         password:             "password",
                         password_confirmation:"password")
 
