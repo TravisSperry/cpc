@@ -6,6 +6,8 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'therubyracer'
 gem 'videojs_rails'
+gem 'devise'
+gem 'public_activity'
 
 group :development, :test do
   gem 'sqlite3'

@@ -1,6 +1,8 @@
 Cpc::Application.routes.draw do
 
-  resources :quotes
+  devise_for :users
+
+  resources :quote_requests
 
   get "static_pages/home"
   get "static_pages/about"

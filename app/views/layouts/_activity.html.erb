@@ -1,0 +1,24 @@
+<% if activity.key == "quote.update" %>
+  <%= link_to quote_path(activity.trackable_id), class: "list-group-item" do %>
+    <span class="badge"><%= time_ago_in_words(activity.created_at) %> ago</span>
+    <%= activity.owner_id ? User.find(activity.owner_id).first_name : "User" %> updated quote #<%= activity.trackable_id %>.
+  <% end %>
+<% elsif activity.key == "quote.create" %>
+  <%= link_to quote_path(activity.trackable_id), class: "list-group-item" do %>
+    <span class="badge"><%= time_ago_in_words(activity.created_at) %> ago</span>
+    <% if activity.owner_id %>
+      <%= activity.owner_id ? User.find(activity.owner_id).first_name : "User" %> created quote #<%= activity.trackable_id %>
+    <% else %>
+      Quote #<%= activity.trackable_id %> was created on the web!
+    <% end %>
+  <% end %>
+<% elsif activity.key == "quote.update" %>
+  <%= link_to quote_path(activity.trackable_id), class: "list-group-item" do %>
+    <span class="badge"><%= time_ago_in_words(activity.created_at) %> ago</span>
+    <% if activity.owner_id %>
+      <%= activity.owner_id ? User.find(activity.owner_id).first_name : "User" %> created quote #<%= activity.trackable_id %>
+    <% else %>
+      Quote #<%= activity.trackable_id %> was created on the web!
+    <% end %>
+  <% end %>
+<% end %>

@@ -30,6 +30,10 @@
     <%= f.input :quantity_year, label: "Quantity Per Year" %>
     <%= f.input :quantity_run, label: "Quantity Per Run" %>
     <%= f.input :note, placeholder: "Anything additional you might want to add.", :input_html => { :rows => 5 } %>
+    <% if user_signed_in?%>
+    <%= f.input :status, collection: ["New", "Viewed", "Submitted", "Won", "Lost"] %>
+    <%= f.association :user, label_method: :email %>
+    <% end %>
   </div>
 
   <div class="form-actions">

@@ -1,6 +1,8 @@
 class QuotesController < ApplicationController
   # GET /quotes
   # GET /quotes.json
+  before_filter :authenticate_user!, except: [:new, :create]
+
   def index
     @quotes = Quote.all
 

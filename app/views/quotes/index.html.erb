@@ -2,39 +2,39 @@
 
 <table class="table table-bordered table-striped">
   <tr>
+    <th>Status</th>
     <th>First name</th>
     <th>Last name</th>
-    <th>Company name</th>
-    <th>Address 1</th>
-    <th>Address 2</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip</th>
+    <th>Company</th>
     <th>Email</th>
     <th>Telephone</th>
-    <th>Fax</th>
-    <th>Part number</th>
     <th>Part description</th>
+    <th>Assigned to</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @quotes.each do |quote| %>
-  <tr>
+  <% if quote.status == "New" %>
+    <tr style="background-color:#cccccc;">
+  <% elsif quote.status == "Viewed" %>
+    <tr style="background-color:#ffff99;">
+  <% elsif quote.status == "Submitted" %>
+    <tr style="background-color:#99ccff;">
+  <% elsif quote.status == "Won" %>
+    <tr style="background-color:#ccffcc;">
+  <% elsif quote.status == "Lost" %>
+    <tr style="background-color:#ff9999;">
+  <% end%>
+    <td><%= quote.status %></td>
     <td><%= quote.first_name %></td>
     <td><%= quote.last_name %></td>
     <td><%= quote.company_name %></td>
-    <td><%= quote.address_1 %></td>
-    <td><%= quote.address_2 %></td>
-    <td><%= quote.city %></td>
-    <td><%= quote.state %></td>
-    <td><%= quote.zip %></td>
     <td><%= quote.email %></td>
     <td><%= quote.telephone %></td>
-    <td><%= quote.fax %></td>
-    <td><%= quote.part_number %></td>
     <td><%= quote.part_description %></td>
+    <td><%= quote.user ? quote.user.first_name : "Not assigned." %></td>
     <td><%= link_to 'Show', quote %></td>
     <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
     <td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
