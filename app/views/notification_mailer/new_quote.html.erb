@@ -1,11 +1,11 @@
 <p>
-  <%= @quote.first_name if @quote.first_name %> <%= @quote.last_name if @quote.last_name %> has sent you an RFQ
+  <%= @quote_request.first_name if @quote_request.first_name %> <%= @quote_request.last_name if @quote_request.last_name %> has sent you an RFQ
 </p>
-<p>Job title: <%= @quote.job_title if @quote.job_title %></p>
-<p>Company: <%= @quote.company_name if @quote.company_name %></p>
-<p>Phone: <%= @quote.telephone if @quote.telephone %></p>
-<p>Email: <%= @quote.email if @quote.email %></p>
+<p>Job title: <%= @quote_request.job_title if @quote_request.job_title %></p>
+<p>Company: <%= @quote_request.company_name if @quote_request.company_name %></p>
+<p>Phone: <%= @quote_request.telephone if @quote_request.telephone %></p>
+<p>Email: <%= @quote_request.email if @quote_request.email %></p>
 
 Here is a link you your new RFQ!
 
-<%= url_for :controller => 'quotes', :action => 'show', :id => @quote.id, :only_path => false, :host => 'www.columbuspowdercoat.com' %>
+<%= url_for :controller => 'quote_requests', :action => 'show', :id => @quote_request.id, :only_path => false, :host => 'www.columbuspowdercoat.com' %>
