@@ -74,8 +74,8 @@
                 <i class="icon icon-list icon-5x"></i>
               </div>
               <div class="col-xs-6 text-right">
-                <p class="announcement-heading"><%= @new_quotes.count ? @new_quotes.count : 0 %></p>
-                <p class="announcement-text">New <%= pluralize_without_count(@new_quotes.count, 'Quote')%><%= @new_quotes.count == 0 ? "" : "!" %></p>
+                <p class="announcement-heading"><%= @new_quote_requests.count ? @new_quote_requests.count : 0 %></p>
+                <p class="announcement-text">New <%= pluralize_without_count(@new_quote_requests.count, 'Quote')%><%= @new_quote_requests.count == 0 ? "" : "!" %></p>
               </div>
             </div>
           </div>

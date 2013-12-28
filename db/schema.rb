@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131222013711) do
+ActiveRecord::Schema.define(:version => 20131227232642) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20131222013711) do
   add_index "activities", ["recipient_id", "recipient_type"], :name => "index_activities_on_recipient_id_and_recipient_type"
   add_index "activities", ["trackable_id", "trackable_type"], :name => "index_activities_on_trackable_id_and_trackable_type"
 
-  create_table "quotes", :force => true do |t|
+  create_table "quote_requests", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "job_title"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20131222013711) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "suffix"
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

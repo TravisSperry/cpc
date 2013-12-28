@@ -36,3 +36,4 @@
 //= require circularnav
 //= require video
 //= require custom
+//= require quote_requests

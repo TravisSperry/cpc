@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   protect_from_forgery
 
   def home
-    @new_quotes = Quote.where('status=?', 'New')
+    @new_quote_requests = QuoteRequest.where('status=?', 'New')
     @activities = PublicActivity::Activity.all
   end
 

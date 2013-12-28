@@ -1,0 +1,12 @@
+<div class="container contact">
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <h1 style="font-weight:200;">Request Quote</h1>
+      <p id="cqr_text">Click button on right for Consumer Quote Form <i class='icon icon-arrow-right'></i></p>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <%= link_to "Consumer Quote Request", "#", class: "btn btn-special btn-color pull-right", id: "cqr_button" %>
+    </div>
+  </div>
+  <%= render 'form' %>
+</div>
