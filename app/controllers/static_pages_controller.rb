@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
 
   def home
     @new_quote_requests = QuoteRequest.where('status=?', 'New')
-    @activities = PublicActivity::Activity.all
+    @activities = PublicActivity::Activity.where("created_at > ?", 20.day.ago).order("created_at DESC").limit(10)
   end
 
   def about
