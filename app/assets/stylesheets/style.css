@@ -95,6 +95,10 @@ a:hover,a:focus {
     border-radius: 3px;
 }
 
+.slider-btn{
+    margin: 20px;
+}
+
 /* Header */
 #header .main-header {
     min-height: 86px;
