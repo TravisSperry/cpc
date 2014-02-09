@@ -3,57 +3,55 @@
 <!-- <html class="ie6" lang="en">
 <html class="ie7" lang="en">
 <html class="ie8" lang="en"> -->
-<html lang="en">
-<head>
- <meta charset="utf-8" />
+  <html lang="en">
+  <head>
+     <meta charset="utf-8" />
 
- <!-- Uncomment to make IE8 render like IE7 -->
- <meta http-equiv="X-UA-Compatible" content="IE=7" />
+     <!-- Uncomment to make IE8 render like IE7 -->
+     <meta http-equiv="X-UA-Compatible" content="IE=7" />
 
- <!-- Set the viewport width to device width for mobile -->
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <!-- Set the viewport width to device width for mobile -->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
- <meta name="keywords" content="powder coating columbus oh, central ohio powder coating, powder, coating, columbus, oh, ohio, media blasting, painting, metal, finishing, color, automotive, rims, wheels, industrial, iron, coating, street works, streetworks, works, werks, suppliers, Water transfer printing, camo dipping, hydrographics, hydrographic printing, hydrodipping, hydro dipping, chrome paint, custom paint, ceramic coating, thermal barrier coating, high temp coating, custom finishing, custom coating" />  <script type="text/javascript" src="/scripts/cycle/jquery.cycle.all.js"></script>
+     <meta name="keywords" content="powder coating columbus oh, central ohio powder coating, powder, coating, columbus, oh, ohio, media blasting, painting, metal, finishing, color, automotive, rims, wheels, industrial, iron, coating, street works, streetworks, works, werks, suppliers, Water transfer printing, camo dipping, hydrographics, hydrographic printing, hydrodipping, hydro dipping, chrome paint, custom paint, ceramic coating, thermal barrier coating, high temp coating, custom finishing, custom coating" />  <script type="text/javascript" src="/scripts/cycle/jquery.cycle.all.js"></script>
 
- <meta name="description" content="At Columbus Powder Coat we pride ourselves on high quality finishes, fast turnarounds, and great prices.">
+     <meta name="description" content="At Columbus Powder Coat we pride ourselves on high quality finishes, fast turnarounds, and great prices.">
 
- <title><%= content_for?(:title) ? yield(:title) : "CPC : Columbus Powder Coat | Columbus, Ohio" %></title>
- <!--[if IE 7]>
-  <link rel="stylesheet" href="/assets/font-awesome-ie7.min.css">
-<![endif]-->
- <%= stylesheet_link_tag    "application" %>
- <%= javascript_include_tag "modernizr" %>
- <%= csrf_meta_tags %>
- <!-- Favicons -->
-<!--  <link rel="shortcut icon" href="favicon.ico">
- <link rel="apple-touch-icon" href="apple-touch-icon.png">
- <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72.png">
- <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114.png">
- <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144.png"> -->
- <%= render 'layouts/shim' %>
+     <title><%= content_for?(:title) ? yield(:title) : "CPC : Columbus Powder Coat | Columbus, Ohio" %></title>
+     <!--[if IE 7]>
+      <link rel="stylesheet" href="/assets/font-awesome-ie7.min.css">
+    <![endif]-->
+     <%= stylesheet_link_tag    "application" %>
+     <%= javascript_include_tag "modernizr" %>
+     <%= csrf_meta_tags %>
+     <!-- Favicons -->
+    <!--  <link rel="shortcut icon" href="favicon.ico">
+     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+     <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72.png">
+     <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114.png">
+     <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144.png"> -->
+     <%= render 'layouts/shim' %>
+  </head>
 
-</head>
+  <body class="home">
+    <div class="wrap">
+     <%= render 'layouts/header' %>
+     <div class="row">
+      <% flash.each do |type, message| %>
+          <div class="alert alert-<%= flash_class type %>">
+              <button class="close" data-dismiss="alert">&times;</button>
+              <%= message %>
+          </div>
+        <% end %>
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+    <!-- Scroll To Top -->
+      <a href="#" class="scrollup"><i class="icon-angle-up"></i></a>
+    </div>
+  <!-- Wrap End -->
 
-<body class="home">
-  <div class="wrap">
-   <%= render 'layouts/header' %>
-   <div class="row">
-    <% flash.each do |type, message| %>
-        <div class="alert alert-<%= flash_class type %>">
-            <button class="close" data-dismiss="alert">&times;</button>
-            <%= message %>
-        </div>
-      <% end %>
-    <%= yield %>
-  </div>
-  <%= render 'layouts/footer' %>
-  <!-- Scroll To Top -->
-    <a href="#" class="scrollup"><i class="icon-angle-up"></i></a>
-  </div>
-<!-- Wrap End -->
-</body>
-
-<%= javascript_include_tag "application" %>
-<%= render 'google_analytics' if Rails.env.production? %>
-</body>
+    <%= javascript_include_tag "application" %>
+    <%= render 'google_analytics' if Rails.env.production? %>
+  </body>
 </html>
