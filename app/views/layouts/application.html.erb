@@ -54,6 +54,6 @@
 </body>
 
 <%= javascript_include_tag "application" %>
+<%= render 'google_analytics' if Rails.env.production? %>
 </body>
 </html>
-
