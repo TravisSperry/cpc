@@ -1,6 +1,6 @@
 <div class="container contact"><h1>Listing quotes</h1>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered">
   <tr>
     <th>Status</th>
     <th>First name</th>
@@ -26,6 +26,8 @@
     <tr style="background-color:#ccffcc;">
   <% elsif qr.status == "Lost" %>
     <tr style="background-color:#ff9999;">
+  <% else %>
+    <tr>
   <% end%>
     <td><%= qr.status %></td>
     <td><%= qr.first_name %></td>
