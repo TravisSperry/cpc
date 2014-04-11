@@ -5,7 +5,8 @@ class QuoteRequestsController < ApplicationController
   # GET /quotes
   # GET /quotes.json
   def index
-    @quote_requests = QuoteRequest.all
+    @active_quote_requests = QuoteRequest.where("status = ? OR status = ? OR status = ?", "New", "Viewed", "Submitted")
+    @quote_requests = QuoteRequest.order("created_at DESC").all
 
     respond_to do |format|
       format.html # index.html.erb

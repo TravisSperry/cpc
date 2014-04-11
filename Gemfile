@@ -8,6 +8,8 @@ gem 'therubyracer'
 gem 'videojs_rails'
 gem 'devise'
 gem 'public_activity'
+gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
+gem 'underscore-rails'
 
 group :development, :test do
   gem 'sqlite3'

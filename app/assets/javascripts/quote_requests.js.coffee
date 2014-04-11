@@ -39,3 +39,26 @@ jQuery ->
       $('#quote_request_quantity_year').parent().show()
       $('#quote_request_quantity_run').parent().show()
 
+  #Datatable Initialization
+  responsiveHelper = undefined
+  breakpointDefinition =
+    tablet: 1024
+    phone: 480
+  tableContainer = $('.datatable')
+
+  tableContainer.dataTable
+    aaSorting: []
+    sPaginationType: "bootstrap"
+    # Setup for responsive datatables helper.
+    bAutoWidth: false
+    bStateSave: false
+
+    fnPreDrawCallback: ->
+      responsiveHelper = new ResponsiveDatatablesHelper(tableContainer, breakpointDefinition) unless responsiveHelper
+
+    fnRowCallback: (nRow, aData, iDisplayIndex, iDisplayIndexFull) ->
+      responsiveHelper.createExpandIcon nRow
+
+    fnDrawCallback: (oSettings) ->
+      responsiveHelper.respond()
+

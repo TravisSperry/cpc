@@ -1,0 +1,46 @@
+<table class="table datatable">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th data-class="expand">First name</th>
+        <th>Last name</th>
+        <th data-hide="phone,tablet">Company</th>
+        <th data-hide="phone,tablet">Email</th>
+        <th data-hide="phone,tablet">Telephone</th>
+        <th data-hide="phone,tablet">Part description</th>
+        <th>Assigned to</th>
+        <th data-hide="phone,tablet"></th>
+        <th data-hide="phone,tablet"></th>
+        <th data-hide="phone,tablet"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% quote_requests.each do |qr| %>
+        <% if qr.status == "New" %>
+          <tr style="background-color:#cccccc;">
+        <% elsif qr.status == "Viewed" %>
+          <tr style="background-color:#ffff99;">
+        <% elsif qr.status == "Submitted" %>
+          <tr style="background-color:#99ccff;">
+        <% elsif qr.status == "Won" %>
+          <tr style="background-color:#ccffcc;">
+        <% elsif qr.status == "Lost" %>
+          <tr style="background-color:#ff9999;">
+        <% else %>
+          <tr>
+        <% end%>
+          <td><%= qr.status %></td>
+          <td><%= qr.first_name %></td>
+          <td><%= qr.last_name %></td>
+          <td><%= qr.company_name %></td>
+          <td><%= qr.email %></td>
+          <td><%= qr.telephone %></td>
+          <td><%= qr.part_description %></td>
+          <td><%= qr.user ? qr.user.first_name : "Not assigned." %></td>
+          <td><%= link_to 'Show', qr %></td>
+          <td><%= link_to 'Edit', edit_quote_request_path(qr) %></td>
+          <td><%= link_to 'Destroy', qr, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

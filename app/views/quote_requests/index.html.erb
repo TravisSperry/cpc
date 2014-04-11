@@ -1,50 +1,17 @@
-<div class="container contact"><h1>Listing quotes</h1>
+<div class="container contact">
+  <h1>Listing quotes</h1>
 
-<table class="table table-bordered">
-  <tr>
-    <th>Status</th>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Company</th>
-    <th>Email</th>
-    <th>Telephone</th>
-    <th>Part description</th>
-    <th>Assigned to</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <% if params[:quote_request] == "All" %>
+    <%= link_to "Active Quote Requests", quote_requests_path %>
+    <%= render 'quote_request_table', quote_requests: @quote_requests %>
 
-<% @quote_requests.each do |qr| %>
-  <% if qr.status == "New" %>
-    <tr style="background-color:#cccccc;">
-  <% elsif qr.status == "Viewed" %>
-    <tr style="background-color:#ffff99;">
-  <% elsif qr.status == "Submitted" %>
-    <tr style="background-color:#99ccff;">
-  <% elsif qr.status == "Won" %>
-    <tr style="background-color:#ccffcc;">
-  <% elsif qr.status == "Lost" %>
-    <tr style="background-color:#ff9999;">
   <% else %>
-    <tr>
-  <% end%>
-    <td><%= qr.status %></td>
-    <td><%= qr.first_name %></td>
-    <td><%= qr.last_name %></td>
-    <td><%= qr.company_name %></td>
-    <td><%= qr.email %></td>
-    <td><%= qr.telephone %></td>
-    <td><%= qr.part_description %></td>
-    <td><%= qr.user ? qr.user.first_name : "Not assigned." %></td>
-    <td><%= link_to 'Show', qr %></td>
-    <td><%= link_to 'Edit', edit_quote_request_path(qr) %></td>
-    <td><%= link_to 'Destroy', qr, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+    <%= link_to "All Quote Requests", quote_requests_path(quote_request: "All") %>
+    <%= render 'quote_request_table', quote_requests: @active_quote_requests %>
 
-<br />
+  <% end %>
 
-<%= link_to 'New Quote', new_quote_request_path, class: "btn btn-special btn-color" %>
+  <br />
+
+  <%= link_to 'New Quote', new_quote_request_path, class: "btn btn-special btn-color" %>
 </div>

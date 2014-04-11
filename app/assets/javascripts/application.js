@@ -37,3 +37,7 @@
 //= require video
 //= require custom
 //= require quote_requests
+//= require dataTables/jquery.dataTables
+//= require dataTables/jquery.dataTables.bootstrap3
+//= require dataTables/jquery.dataTables.responsive
+//= require underscore
