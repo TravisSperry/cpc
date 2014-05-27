@@ -1,7 +1,8 @@
 <table class="table datatable">
     <thead>
-      <tr>
-        <th>Status</th>
+      <tr>>
+        <th data-hide="phone,tablet">ID</th>
+        <th data-hide="phone,tablet">Status</th>
         <th data-class="expand">First name</th>
         <th>Last name</th>
         <th data-hide="phone,tablet">Company</th>
@@ -29,6 +30,7 @@
         <% else %>
           <tr>
         <% end%>
+          <td><%= qr.id %></td>
           <td><%= qr.status %></td>
           <td><%= qr.first_name %></td>
           <td><%= qr.last_name %></td>
