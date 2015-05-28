@@ -2,34 +2,12 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <h3 style='padding-top:10px; border-bottom: solid gray 1px;'>General Information</h3>
+    <h3 style='padding-top:10px; border-bottom: solid gray 1px;'>RFQ Information</h3>
     <%= f.input :first_name %>
     <%= f.input :last_name %>
-    <%= f.input :job_title %>
-    <%= f.input :company_name %>
-    <%= f.input :address_1 %>
-    <%= f.input :address_2 %>
-    <%= f.input :city %>
-    <%= f.input :state, collection: us_states %>
-    <%= f.input :zip %>
     <%= f.input :email %>
     <%= f.input :telephone %>
-    <%= f.input :fax %>
-    <h3 style='padding-top:10px; border-bottom: solid gray 1px;'>Product Information</h3>
-    <%= f.input :part_number %>
-    <%= f.input :part_description %>
-    <%= f.input :powder_color %>
-    <%= f.input :powder_product_code %>
-    <%= f.input :powder_product_manufacturer %>
-    <%= f.input :part_size %>
-    <%= f.input :substrate %>
-    <%= f.input :coating_requirements %>
-    <%= f.input :paint_specs, label: "Paint Specs Available?" %>
-    <%= f.input :masking_requirements %>
-    <%= f.input :packaging_requirements %>
-    <%= f.input :quantity_year, label: "Quantity Per Year" %>
-    <%= f.input :quantity_run, label: "Quantity Per Run" %>
-    <%= f.input :note, placeholder: "Anything additional you might want to add.", :input_html => { :rows => 5 } %>
+    <%= f.input :note, placeholder: "Description of project.", :input_html => { :rows => 5 } %>
     <% if user_signed_in?%>
     <%= f.input :status, collection: ["New", "Viewed", "Submitted", "Won", "Lost"] %>
     <%= f.association :user, label_method: :email %>

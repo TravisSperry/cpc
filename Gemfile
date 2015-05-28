@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
 gem 'rails', '3.2.12'
 gem 'simple_form'
 gem 'jquery-rails'
@@ -29,4 +31,3 @@ end
 group :production do
   gem 'pg'
 end
-
