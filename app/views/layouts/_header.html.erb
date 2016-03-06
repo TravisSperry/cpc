@@ -1,67 +1,24 @@
 <!-- Header Start -->
-         <header id="header">
-            <!-- Header Top Bar Start -->
-            <div class="top-bar">
-               <div class="slidedown collapse">
-                  <div class="container">
-                     <div class="phone-email pull-left">
-                        <a href="tel:+16143005025"><i class="icon-phone"></i> Call Us : (614) 300-5025 </a>
-                        <a href="mailto:contact@columbuspowdercoat.com"><i class="icon-envelope"></i> Email : contact@columbuspowdercoat.com</a>
-                     </div>
-                     <div class="pull-right">
-                        <ul class="social pull-left">
-                           <li class="facebook"><a href="#"><i class="icon-facebook"></i></a></li>
-                           <li class="twitter"><a href="#"><i class="icon-twitter"></i></a></li>
-                           <li class="dribbble"><a href="#"><i class="icon-google-plus"></i></a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- Header Top Bar End -->
-            <!-- Main Header Start -->
-            <div class="main-header">
-               <div class="container">
-                  <!-- TopNav Start -->
-                  <div class="topnav navbar-header">
-                     <a class="navbar-toggle down-button" data-toggle="collapse" data-target=".slidedown">
-                     <i class="icon-angle-down icon-current"></i>
-                     </a>
-                  </div>
-                  <!-- TopNav End -->
-                  <!-- Logo Start -->
-                  <div class="logo pull-left">
-                     <h1>
-                        <a href="<%= root_url %>">
-                           <%= image_tag('cpc_white.png', width: "225", height: "60", alt: "CPC") %>
-                        </a>
-                     </h1>
-                  </div>
-                  <!-- Logo End -->
-                  <!-- Mobile Menu Start -->
-                  <div class="mobile navbar-header">
-                     <a class="navbar-toggle" data-toggle="collapse" href=".navbar-collapse-topmenu">
-                     <i class="icon-reorder icon-2x"></i>
-                     </a>
-                  </div>
-                  <!-- Mobile Menu End -->
-                  <!-- Menu Start -->
-                  <nav class="collapse menu navbar-collapse-topmenu">
-                     <ul class="nav navbar-nav sf-menu">
-                        <li>
-                           <a id="current" href="<%= root_url %>">
-                           Home
-                           <span class="sf-sub-indicator">
-                           <i class="fa fa-angle-down "></i>
-                           </span>
-                           </a>
-                        </li>
-                        <li><a href="/contact">Contact</a></li>
-                        <li><a href="<%= new_quote_request_path %>">Request Quote</a></li>
-                     </ul>
-                  </nav>
-                  <!-- Menu End -->
-               </div>
-            </div>
-            <!-- Main Header End -->
-         </header>
+<header id="header">
+  <!-- Pre Nav Start -->
+  <div class="pre-nav">
+    <div class="pull-left">
+      <li><i class="icon-map-marker" style="color:rgb(184, 55, 55);"></i><a style="color:white;" href="https://goo.gl/maps/YpZ7MrXR5CM2"> Columbus, OH</a></li>
+    </div>
+    <div class="phone-email pull-right">
+      <ul class="list-inline pull-left">
+        <li><i class="icon-phone"></i> <span>Call Us: </span><a href="tel:+16143005025">(614) 300-5025 </a></li>
+        <li><i class="icon-envelope-alt"></i> <span>Email:</span> <a href="mailto:contact@columbuspowdercoat.com"> contact@ColumbusPowderCoat.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Pre Nav End -->
+  <!-- Main Nav Start -->
+  <div class="nav">
+    <%= image_tag 'bar.svg', width: '100%', class: 'menu-bar' %>
+    <a href="/">
+      <%= image_tag 'cpc_logo.svg', width: '15%', alt: 'logo', class: 'logo' %>
+    </a>
+  </div>
+  <!-- Main Header End -->
+</header>

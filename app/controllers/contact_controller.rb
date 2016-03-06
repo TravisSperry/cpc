@@ -4,7 +4,7 @@ class ContactController < ApplicationController
   end
 
   def create
-    @message = Message.new(params[:message])
+    @message = Message.new(message_params)
 
     if @message.valid?
       NotificationMailer.new_message(@message).deliver
@@ -14,4 +14,13 @@ class ContactController < ApplicationController
       render :new
     end
   end
+
+  private
+    # Using a private method to encapsulate the permissible parameters
+    # is just a good pattern since you'll be able to reuse the same
+    # permit list between create and update. Also, you can specialize
+    # this method with per-user checking of permissible attributes.
+    def message_params
+      params.require(:message).permit(:name, :email, :subject, :body, :phone)
+    end
 end

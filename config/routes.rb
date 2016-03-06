@@ -7,7 +7,7 @@ Cpc::Application.routes.draw do
   get "static_pages/home"
   get "static_pages/about"
 
-  match 'contact' => 'contact#new', :as => 'contact', :via => :get
+  match 'contact' => 'contact#new', :as => 'new_message', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
   root to: 'static_pages#home'
