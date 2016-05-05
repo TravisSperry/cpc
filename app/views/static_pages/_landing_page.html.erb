@@ -2,7 +2,7 @@
   <%= image_tag 'stock.png', width:'100%' %>
 </div>
 <div class="main-details">
-  CONSUMER &bull; COMMERCIAL &bull; INDUSTRIAL
+  CONSUMER <span class="hidden-sm hidden-xs">&bull;</span> COMMERCIAL <span class="hidden-sm hidden-xs">&bull;</span> INDUSTRIAL
 </div>
 <div class="coatings">
   <div class="quality">
@@ -18,5 +18,23 @@
     <div class="col-md-4 text-center">
       <%= image_tag 'prismatic.png', width: '50%' %>
     </div>
+  </div>
 </div>
+
+<div class="rfq row">
+  <div class="text-center">
+    <div class="rfq-header">
+      REQUEST A QUOTE
+    </div>
+    <div class="rfq-sub-header">
+      LEAVE US A DESCRIPTION/IMAGE/DOC , DESIRED TURNAROUND, CONTACT INFORMATION
+      AND WE’LL GET RIGHT BACK TO YOU
+    </div>
+    <div class="rfq-button">
+      <%= link_to "RFQ", new_quote_request_path, class: "btn btn-rfq" %>
+    </div>
+    <div class="rfq-phone">
+      OR CALL 614.300.5025
+    </div>
+  </div>
 </div>

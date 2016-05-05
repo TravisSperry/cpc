@@ -1,5 +1,7 @@
 Cpc::Application.routes.draw do
 
+  resources :quote_request_attachments
+
   devise_for :users
 
   resources :quote_requests

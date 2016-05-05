@@ -3,19 +3,32 @@
 
   <div class="form-inputs">
     <h3 style='padding-top:10px; border-bottom: solid gray 1px;'>RFQ Information</h3>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :email %>
-    <%= f.input :telephone %>
-    <%= f.input :note, placeholder: "Description of project.", :input_html => { :rows => 5 } %>
-    <% if user_signed_in?%>
-    <%= f.input :status, collection: ["New", "Viewed", "Submitted", "Won", "Lost"] %>
-    <%= f.association :user, label_method: :email %>
-    <% end %>
+    <div class="row">
+      <div class="col-sm-4">
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%# f.input :company %>
+        <%= f.input :email %>
+        <%= f.input :telephone %>
+        <%= f.input :note, placeholder: "Description of project.", :input_html => { :rows => 5 } %>
+        <p>
+          <%= f.fields_for :post_attachments do |p| %>
+            <div class="field">
+              <%= p.label :attachments %><br>
+              <%= p.file_field :attachment, :multiple => true, name: "quote_request_attachments[attachment][]" %>
+            </div>
+          <% end %>
+        </p>
+        <% if user_signed_in?%>
+          <%= f.input :status, collection: ["New", "Viewed", "Submitted", "Won", "Lost"] %>
+          <%= f.association :user, label_method: :email %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
   <div class="form-actions">
-    <%= f.submit "Submit Request", class: "btn btn-special btn-color" %>
+    <%= f.submit "Submit Request", class: "btn btn-success" %>
   </div>
 </br>
 <% end %>
