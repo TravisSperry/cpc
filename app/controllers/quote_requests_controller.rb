@@ -44,10 +44,13 @@ class QuoteRequestsController < ApplicationController
   # POST /quotes
   # POST /quotes.json
   def create
-    @quote_request = QuoteRequest.new(params[:quote_request])
+    @quote_request = QuoteRequest.new(quote_request_params)
 
     respond_to do |format|
       if @quote_request.save
+       params[:quote_request_attachments]['attachment'].each do |a|
+          @quote_request_attachment = @quote_request.quote_request_attachments.create!(:attachment => a)
+       end
         NotificationMailer.new_quote(@quote_request).deliver
         format.html { redirect_to root_url, notice: 'Request received. We will contact you shortly.' }
         format.json { render json: @quote_request, status: :created, location: @quote_request }
@@ -85,4 +88,13 @@ class QuoteRequestsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    # Using a private method to encapsulate the permissible parameters
+    # is just a good pattern since you'll be able to reuse the same
+    # permit list between create and update. Also, you can specialize
+    # this method with per-user checking of permissible attributes.
+    def quote_request_params
+      params.require(:quote_request).permit(:address_1, :address_2, :city, :coating_requirements, :company_name, :email, :fax, :first_name, :job_title, :last_name, :masking_requirements, :note, :packaging_requirements, :paint_specs, :part_description, :part_number, :part_size, :powder_color, :powder_product_code, :powder_product_manufacturer, :quantity_run, :quantity_year, :state, :substrate, :telephone, :zip, :status, :user_id, quote_request_attachments_attributes: [:id, :quote_request_id, :attachment])
+    end
 end
