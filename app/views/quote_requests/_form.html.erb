@@ -3,11 +3,13 @@
 
   <div class="form-inputs">
     <h3 style='padding-top:10px; border-bottom: solid gray 1px;'>RFQ Information</h3>
+    <p>
+      <em>If you have any issues submitting this form please email <a href="mailto:paul@columbuspowdercoat.com">paul@columbuspowdercoat.com</a> or call us at (614) 300-5025.</em>
+    </p>
     <div class="row">
       <div class="col-sm-4">
         <%= f.input :first_name %>
         <%= f.input :last_name %>
-        <%# f.input :company %>
         <%= f.input :email %>
         <%= f.input :telephone %>
         <%= f.input :note, placeholder: "Description of project.", :input_html => { :rows => 5 } %>

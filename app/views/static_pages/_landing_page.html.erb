@@ -1,5 +1,5 @@
 <div class="main">
-  <%= image_tag 'stock.png', width:'100%' %>
+  <%= image_tag 'cauv_table.jpg', width:'100%' %>
 </div>
 <div class="main-details">
   CONSUMER <span class="hidden-sm hidden-xs">&bull;</span> COMMERCIAL <span class="hidden-sm hidden-xs">&bull;</span> INDUSTRIAL
@@ -10,13 +10,19 @@
   </div>
   <div class="manufacturers row">
     <div class="col-md-4 text-center">
-      <%= image_tag 'tci.png', width: '50%' %>
+      <%= link_to "https://www.tcipowder.com/", target: "_blank" do %>
+        <%= image_tag 'tci.png', width: '50%' %>
+      <% end %>
     </div>
     <div class="col-md-4 text-center">
-      <%= image_tag 'akzo.png', width: '50%'%>
+      <%= link_to "https://www.akzonobel.com/powder/", target: "_blank" do %>
+        <%= image_tag 'akzo.png', width: '50%'%>
+      <% end %>
     </div>
     <div class="col-md-4 text-center">
-      <%= image_tag 'prismatic.png', width: '50%' %>
+      <%= link_to "http://www.prismaticpowders.com/", target: "_blank" do %>
+        <%= image_tag 'prismatic.png', width: '50%' %>
+      <% end %>
     </div>
   </div>
 </div>
