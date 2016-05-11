@@ -39,8 +39,8 @@
 <% if @quote_request.attachments %>
   <p>
     <b>Attachments:</b>
-    <% @quote_request.attachments.each do |attachment|%>
-      <%= attachment %>
+    <% @quote_request.quote_request_attachments.each_with_index do |qra, i|%>
+      <%= link_to "Attachment #{i+1}", qra.attachment.url %>
     <% end %>
   </p>
 <% end %>
