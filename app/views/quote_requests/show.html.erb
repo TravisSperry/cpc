@@ -36,7 +36,7 @@
   <%= @quote_request.note %>
 </p>
 
-<% if @quote_request.attachments %>
+<% if @quote_request.quote_request_attachments %>
   <p>
     <b>Attachments:</b>
     <% @quote_request.quote_request_attachments.each_with_index do |qra, i|%>
