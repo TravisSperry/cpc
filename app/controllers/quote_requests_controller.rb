@@ -48,9 +48,11 @@ class QuoteRequestsController < ApplicationController
 
     respond_to do |format|
       if @quote_request.save
-       params[:quote_request_attachments]['attachment'].each do |a|
-          @quote_request_attachment = @quote_request.quote_request_attachments.create!(:attachment => a)
-       end
+        if params[:quote_request_attachments]
+          params[:quote_request_attachments]['attachment'].each do |a|
+            @quote_request_attachment = @quote_request.quote_request_attachments.create!(:attachment => a)
+          end
+        end
         NotificationMailer.new_quote(@quote_request).deliver
         format.html { redirect_to root_url, notice: 'Request received. We will contact you shortly.' }
         format.json { render json: @quote_request, status: :created, location: @quote_request }
