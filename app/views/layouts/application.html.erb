@@ -24,13 +24,16 @@
      <%= stylesheet_link_tag "application", "http://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext" %>
      <%= javascript_include_tag "modernizr" %>
      <%= csrf_meta_tags %>
-     <!-- Favicons -->
-    <!--  <link rel="shortcut icon" href="favicon.ico">
-     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-     <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72.png">
-     <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114.png">
-     <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144.png"> -->
      <%= render 'layouts/shim' %>
+     <!--Start of Zopim Live Chat Script-->
+      <script type="text/javascript">
+        window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+        d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+        _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+        $.src="//v2.zopim.com/?46n7GVaXPUDnD3S11rFwEbLvUQDzrvgl";z.t=+new Date;$.
+        type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+      </script>
+      <!--End of Zopim Live Chat Script-->
   </head>
 
   <body class="home">
