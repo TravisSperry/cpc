@@ -57,6 +57,7 @@ class QuoteRequestsController < ApplicationController
         format.html { redirect_to root_url, notice: 'Request received. We will contact you shortly.' }
         format.json { render json: @quote_request, status: :created, location: @quote_request }
       else
+        flash[:error] = "Please verify that you are not a robot by checking the checkbox below." unless verify_recaptcha(model: @quote_request)
         format.html { render action: "new" }
         format.json { render json: @quote_request.errors, status: :unprocessable_entity }
       end
