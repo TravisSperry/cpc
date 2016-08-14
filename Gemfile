@@ -19,6 +19,7 @@ gem 'modernizr-rails'
 gem 'public_activity'
 gem 'sass-rails'
 gem 'simple_form'
+gem "recaptcha", require: "recaptcha/rails"
 
 group :development, :test do
   gem 'sqlite3'
