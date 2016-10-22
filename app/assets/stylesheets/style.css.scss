@@ -50,10 +50,10 @@
 
 // --------- Main Section Styling --------- //
 .main{
-  max-height: 70vh;
+  height: 70vh;
   overflow:hidden;
-  border-bottom: 3px solid #999999;
   background-attachment: fixed;
+  margin: -3px;
 }
 
 .main img{
@@ -70,6 +70,7 @@
   color : #25292C;
   color : rgb(37, 41, 44);
   border-bottom: 3px solid #999999;
+  border-top: 3px solid #999999;
 }
 .coatings{
   background : #F2F2F2;
