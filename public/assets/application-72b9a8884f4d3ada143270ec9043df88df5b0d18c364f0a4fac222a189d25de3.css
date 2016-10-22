@@ -13360,7 +13360,7 @@ ul.icons li [class*=" icon-"] {
 
 /* line 52, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .main {
-  height: 70vh;
+  max-height: 70vh;
   overflow: hidden;
   background-attachment: fixed;
   margin: -3px;
