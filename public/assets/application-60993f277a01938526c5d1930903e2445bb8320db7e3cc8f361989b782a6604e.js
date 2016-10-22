@@ -47015,8 +47015,8 @@ else if ( jQuery && !jQuery.fn.dataTable.Responsive ) {
       infinite: true,
       arrows: false,
       nav: false,
-      speed: 1000,
-      delay: 6500
+      delay: 6500,
+      animateHeight: true
     });
   });
 
