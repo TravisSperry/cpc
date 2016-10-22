@@ -13360,17 +13360,13 @@ ul.icons li [class*=" icon-"] {
 
 /* line 52, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .main {
-  max-height: 70vh;
+  height: 70vh;
   overflow: hidden;
-  border-bottom: 3px solid #999999;
-}
-
-/* line 58, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
-.main img {
   background-attachment: fixed;
+  margin: -3px;
 }
 
-/* line 62, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 63, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .main-details {
   padding: 20px 0 10px 0;
   text-align: center;
@@ -13381,16 +13377,17 @@ ul.icons li [class*=" icon-"] {
   color: #25292C;
   color: #25292c;
   border-bottom: 3px solid #999999;
+  border-top: 3px solid #999999;
 }
 
-/* line 73, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 75, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .coatings {
   background: #F2F2F2;
   background: #f2f2f2;
   border-bottom: 3px solid #999999;
   padding-top: 75px;
 }
-/* line 79, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 81, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .coatings .quality {
   width: 420px;
   font-family: Josefin Sans;
@@ -13403,7 +13400,7 @@ ul.icons li [class*=" icon-"] {
   background: #25292c;
   padding: 10px 0 5px 60px;
 }
-/* line 92, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 94, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .coatings .quality-mobile {
   width: 100%;
   font-family: Josefin Sans;
@@ -13417,22 +13414,22 @@ ul.icons li [class*=" icon-"] {
   padding: 10px 0 5px 0;
   text-align: center;
 }
-/* line 106, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 108, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .coatings .manufacturers {
   margin: 75px 0 80px 0;
 }
-/* line 109, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 111, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .coatings .manufacturers .col-md-4 {
   margin: 0 0 90px 0;
 }
 
-/* line 114, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 116, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .rfq {
   border-bottom: 3px solid #999999;
   padding-top: 75px;
   padding-bottom: 75px;
 }
-/* line 119, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 121, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .rfq .rfq-header {
   font-family: Josefin Sans;
   font-weight: bold;
@@ -13441,7 +13438,7 @@ ul.icons li [class*=" icon-"] {
   color: #25292C;
   color: #25292c;
 }
-/* line 128, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 130, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .rfq .rfq-sub-header {
   font-family: Josefin Sans;
   font-weight: bold;
@@ -13451,7 +13448,7 @@ ul.icons li [class*=" icon-"] {
   color: #4d4d4d;
   width: 100%;
 }
-/* line 138, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 140, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .rfq .rfq-phone {
   font-family: Josefin Sans;
   font-weight: bold;
@@ -13460,7 +13457,7 @@ ul.icons li [class*=" icon-"] {
   color: #4D4D4D;
   color: #4d4d4d;
 }
-/* line 147, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 149, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .rfq .btn-rfq:hover {
   color: #373e42;
   color: #373e42;
@@ -13470,7 +13467,7 @@ ul.icons li [class*=" icon-"] {
   border-color: #373e42;
 }
 
-/* line 157, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 159, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .btn-rfq {
   font-family: Josefin Sans;
   font-weight: bold;
@@ -13490,7 +13487,7 @@ ul.icons li [class*=" icon-"] {
   margin: 60px 0 60px 0;
 }
 
-/* line 176, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 178, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 footer {
   position: relative;
   right: 0;
@@ -13498,13 +13495,13 @@ footer {
   left: 0;
 }
 
-/* line 183, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 185, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .footer-top {
   background: #25292C;
   background: #25292c;
   padding: 30px 0 30px 0;
 }
-/* line 187, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 189, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .footer-top h3 {
   font-family: Josefin Sans;
   font-weight: bold;
@@ -13513,7 +13510,7 @@ footer {
   color: #E6E6E6;
   color: #e6e6e6;
 }
-/* line 196, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 198, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .footer-top .footer-one p {
   font-family: Josefin Sans;
   font-weight: bold;
@@ -13522,18 +13519,18 @@ footer {
   color: #999999;
   color: #999999;
 }
-/* line 206, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 208, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .footer-top .footer-two ul {
   list-style-type: none;
   padding-left: 0;
 }
-/* line 209, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 211, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .footer-top .footer-two ul span {
   color: #666666;
   color: #666666;
   margin-right: 10px;
 }
-/* line 214, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 216, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .footer-top .footer-two ul p {
   font-family: Myriad Pro;
   font-size: 19px;
@@ -13542,72 +13539,145 @@ footer {
   color: #999999;
 }
 
-/* line 225, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 227, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .footer-bottom {
   background: #454d53;
   background: #454d53;
   color: white;
   padding: 10px 0 15px 0;
 }
-/* line 230, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 232, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .footer-bottom ul {
   list-style: none;
 }
-/* line 232, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 234, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .footer-bottom ul li {
   display: inline;
 }
 
-/* line 241, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 243, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .user-dropdown a {
   color: #25292C;
   color: #25292c;
 }
 
-/* line 246, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
+/* line 248, /Users/travis/code/cpc/app/assets/stylesheets/style.css.scss */
 .user_dashboard {
   height: 80vh;
 }
 
-/* line 16, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
+/**
+ *   Here's where everything gets included. You don't need
+ *   to change anything here, and doing so might break
+ *   stuff. Here be dragons and all that.
+ */
+/**
+ *   Default variables
+ *
+ *   While these can be set with JavaScript, it's probably
+ *   better and faster to just set them here, compile to
+ *   CSS and include that instead to use some of that
+ *   hardware-accelerated goodness.
+ */
+/* line 1, /Users/travis/code/cpc/app/assets/stylesheets/unslider/reset.scss */
+.unslider {
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+}
+/* line 10, /Users/travis/code/cpc/app/assets/stylesheets/unslider/reset.scss */
+.unslider-wrap {
+  position: relative;
+}
+/* line 13, /Users/travis/code/cpc/app/assets/stylesheets/unslider/reset.scss */
+.unslider-wrap.unslider-carousel > li {
+  float: left;
+}
+/* line 20, /Users/travis/code/cpc/app/assets/stylesheets/unslider/reset.scss */
+.unslider-vertical > ul {
+  height: 100%;
+}
+/* line 24, /Users/travis/code/cpc/app/assets/stylesheets/unslider/reset.scss */
+.unslider-vertical li {
+  float: none;
+  width: 100%;
+}
+/* line 32, /Users/travis/code/cpc/app/assets/stylesheets/unslider/reset.scss */
+.unslider-fade {
+  position: relative;
+}
+/* line 35, /Users/travis/code/cpc/app/assets/stylesheets/unslider/reset.scss */
+.unslider-fade .unslider-wrap li {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 8;
+}
+/* line 42, /Users/travis/code/cpc/app/assets/stylesheets/unslider/reset.scss */
+.unslider-fade .unslider-wrap li.unslider-active {
+  z-index: 10;
+}
+/* line 48, /Users/travis/code/cpc/app/assets/stylesheets/unslider/reset.scss */
+.unslider ul, .unslider ol, .unslider li {
+  list-style: none;
+  /* Reset any weird spacing */
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+/* line 58, /Users/travis/code/cpc/app/assets/stylesheets/unslider/reset.scss */
+.unslider-arrow {
+  position: absolute;
+  left: 20px;
+  z-index: 2;
+  cursor: pointer;
+}
+/* line 65, /Users/travis/code/cpc/app/assets/stylesheets/unslider/reset.scss */
+.unslider-arrow.next {
+  left: auto;
+  right: 20px;
+}
+
+/* line 17, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
 .contact {
   padding-top: 50px;
   padding-bottom: 50px;
 }
 
-/* line 21, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
+/* line 22, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
 .alert {
   padding-left: 5%;
   padding-right: 5%;
   margin-bottom: 0;
 }
 
-/* line 27, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
+/* line 28, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
 .caption_button_2 .btn {
   margin-left: 10px;
 }
 
-/* line 31, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
+/* line 32, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
 .navbar-toggle {
   margin-left: 15px;
 }
 
-/* line 35, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
+/* line 36, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
 table.dataTable thead .sorting_desc {
   background-image: none;
 }
 
-/* line 39, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
+/* line 40, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
 table.dataTable thead .sorting_asc {
   background-image: none;
 }
 
-/* line 43, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
+/* line 44, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
 table.dataTable thead .sorting {
   background-image: none;
 }
 
-/* line 47, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
+/* line 48, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
   color: white !important;
   border: none;
@@ -13620,7 +13690,7 @@ table.dataTable thead .sorting {
   background: none;
 }
 
-/* line 59, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
+/* line 60, /Users/travis/code/cpc/app/assets/stylesheets/application.css.scss */
 .quote_request_table {
   margin-top: 20px;
 }
