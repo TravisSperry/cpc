@@ -38,7 +38,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (5.0.1.20140414130214)
-    autoprefixer-rails (6.3.3.1)
+    autoprefixer-rails (6.6.0)
       execjs
     aws-sdk (2.2.24)
       aws-sdk-resources (= 2.2.24)
@@ -47,9 +47,9 @@ GEM
     aws-sdk-resources (2.2.24)
       aws-sdk-core (= 2.2.24)
     bcrypt (3.1.10)
-    bootstrap-sass (3.3.6)
-      autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
+    bootstrap (4.0.0.alpha5)
+      autoprefixer-rails (>= 6.0.3)
+      sass (>= 3.4.19)
     builder (3.2.2)
     carrierwave-aws (1.0.0)
       aws-sdk (~> 2.0)
@@ -124,6 +124,7 @@ GEM
       activerecord (>= 3.0)
       i18n (>= 0.5.0)
       railties (>= 3.0.0)
+    puma (3.6.2)
     rack (1.5.5)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -186,7 +187,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (~> 3.3.6)
+  bootstrap (~> 4.0.0.alpha5)
   carrierwave!
   carrierwave-aws
   coffee-rails
@@ -200,6 +201,7 @@ DEPENDENCIES
   modernizr-rails
   pg
   public_activity
+  puma
   rails (= 4.1)
   recaptcha
   sass-rails

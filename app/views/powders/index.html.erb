@@ -1,0 +1,37 @@
+<div class="container powder-table">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Powders</h1>
+
+      <table class="datatable display responsive no-wrap">
+        <thead>
+          <tr>
+            <th>Manufacturer</th>
+            <th>Color</th>
+            <th>Part number</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @powders.each do |powder| %>
+            <tr>
+              <td><%= powder.manufacturer_id %></td>
+              <td><%= powder.color_id %></td>
+              <td><%= powder.part_number %></td>
+              <td><%= link_to 'Show', powder %></td>
+              <td><%= link_to 'Edit', edit_powder_path(powder) %></td>
+              <td><%= link_to 'Destroy', powder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+
+      <%= link_to 'New Powder', new_powder_path, class: 'btn btn-success' %>
+    </div>
+  </div>
+</div>

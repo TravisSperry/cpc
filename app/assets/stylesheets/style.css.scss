@@ -6,9 +6,13 @@
   min-height: 30px;
   background: #25292C;
   background: rgba(37, 41, 44, 1);
-  padding:5px 10px 0 0;
+  padding:10px 10px 10px 10px;
 
   .phone-email{
+    list-style-type:none;
+    margin-left:0;
+    padding-left:3px;
+
     span{
       color: #c1c1c1;
       color: rgb(193, 193, 193);
@@ -21,11 +25,17 @@
       color:#f4f1f1;
       font-weight:bold;
     }
+    ul{
+      margin:0 0 0 0;
+    }
+    .list-inline-item{
+      margin-left:30px;
+    }
   }
 
-  .phone-email:nth-child(2){
-    margin-left:20px;
-  }
+  // .phone-email:nth-child(2){
+  //   margin-left:20px;
+  // }
 }
 
 .nav{
@@ -46,13 +56,21 @@
     top:2vw;
     left:4%;
   }
+  .nav-quote-req{
+    font-family: 'Josefin Sans';
+    font-weight: bold;
+    font-size:20px;
+    margin:2px 35px 0 0;
+    a{
+      color: #ab211c;
+    }
+  }
 }
 
 // --------- Main Section Styling --------- //
-.main{
-  min-height: 100%;
+.main-slider{
+  max-height: 75vh;
   overflow:hidden;
-  background-attachment: fixed;
   margin: -3px;
 }
 
@@ -86,9 +104,14 @@
     letter-spacing : -1.48px;
     color : #E6E6E6;
     color : rgb(230, 230, 230);
-    background : #25292C;
-    background : rgba(37, 41, 44, 1);
-    padding:10px 0 5px 60px;
+    background : #515b63;
+    background : rgb(82, 91, 99);
+    padding:10px 0 8px 60px;
+    border-right: 9px solid #25292C;
+
+    div {
+      margin-top: 6px;
+    }
   }
 
   .quality-mobile{
@@ -99,10 +122,15 @@
     letter-spacing : -1.48px;
     color : #E6E6E6;
     color : rgb(230, 230, 230);
-    background : #25292C;
-    background : rgba(37, 41, 44, 1);
-    padding:10px 0 5px 0;
+    background : #515b63;
+    background : rgb(82, 91, 99);
+    padding:10px 0 8px 0;
     text-align: center;
+    border-bottom: 9px solid #25292C;
+
+    div {
+      margin-top: 6px;
+    }
   }
 
   .manufacturers{
@@ -117,6 +145,7 @@
   border-bottom: 3px solid #999999;
   padding-top: 75px;
   padding-bottom: 75px;
+  margin-bottom: -60px;
 
   .rfq-header{
     font-family : Josefin Sans;
@@ -180,6 +209,7 @@ footer {
   right: 0;
   bottom: 0;
   left: 0;
+  margin: 60px 0 0 0;
 }
 
 .footer-top{

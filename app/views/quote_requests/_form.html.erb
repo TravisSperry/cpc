@@ -1,3 +1,7 @@
+<div class="alert alert-success" style='padding:15px 20px 15px 20px;'>
+  Submit a short description of your project, some pictures or plans (if you have them) and <strong>someone with get in touch within one business day</strong>.
+</div>
+
 <%= simple_form_for(@quote_request) do |f| %>
   <%= f.error_notification %>
 
@@ -7,21 +11,32 @@
       <em>If you have any issues submitting this form please email <a href="mailto:paul@columbuspowdercoat.com">paul@columbuspowdercoat.com</a> or call us at (614) 300-5025.</em>
     </p>
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <%= f.input :first_name %>
         <%= f.input :last_name %>
         <%= f.input :email %>
         <%= f.input :telephone %>
         <%= f.input :note, placeholder: "Description of project.", :input_html => { :rows => 5 } %>
-        <%= recaptcha_tags %>
         <p>
           <%= f.fields_for :post_attachments do |p| %>
-            <div class="field">
-              <%= p.label :attachments %><br>
-              <%= p.file_field :attachment, :multiple => true, name: "quote_request_attachments[attachment][]" %>
+          <div class="card card-block">
+            <div class="card-title">
+              <strong>Add Attachments</strong>
             </div>
+            <div class="card-text">
+              <div class="field">
+                You can include most popular file types. (PDF, JPEG, PNG, GIF) <br>
+                <%= p.label :attachments, required: false %><br>
+                <%= p.file_field :attachment, :multiple => true, name: "quote_request_attachments[attachment][]" %>
+              </div>
+            </div>
+          </div>
           <% end %>
         </p>
+        <div style="margin-bottom:25px;">
+          <%= recaptcha_tags %>
+        </div>
+
         <% if user_signed_in?%>
           <%= f.input :status, collection: ["New", "Viewed", "Submitted", "Won", "Lost"] %>
           <%= f.association :user, label_method: :email %>
@@ -32,7 +47,7 @@
 
   <div class="form-actions">
 
-    <%= f.submit "Submit Request", class: "btn btn-success" %>
+    <%= f.submit "Submit Request", class: "btn btn-lg btn-success" %>
   </div>
 </br>
 <% end %>

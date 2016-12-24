@@ -5,49 +5,47 @@
 <html class="ie8" lang="en"> -->
   <html lang="en">
   <head>
-     <meta charset="utf-8" />
+    <meta charset="utf-8" />
 
-     <!-- Uncomment to make IE8 render like IE7 -->
-     <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <!-- Uncomment to make IE8 render like IE7 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
 
-     <!-- Set the viewport width to device width for mobile -->
-     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-     <meta name="keywords" content="powder coating columbus oh, central ohio powder coating, powder, coating, columbus, oh, ohio, media blasting, painting, metal, finishing, color, automotive, rims, wheels, industrial, iron, coating, street works, streetworks, works, werks, suppliers, Water transfer printing, camo dipping, hydrographics, hydrographic printing, hydrodipping, hydro dipping, chrome paint, custom paint, ceramic coating, thermal barrier coating, high temp coating, custom finishing, custom coating" />
+    <%= render 'layouts/meta_tag_keyword' %>
 
-     <meta name="description" content="At Columbus Powder Coat we pride ourselves on high quality finishes, fast turnarounds, and great prices.">
+    <meta name="description" content="At Columbus Powder Coat we pride ourselves on high quality finishes, fast turnarounds, and great prices.">
 
-     <title><%= content_for?(:title) ? yield(:title) : "CPC : Columbus Powder Coat | Columbus, Ohio" %></title>
-     <!--[if IE 7]>
-      <link rel="stylesheet" href="/assets/font-awesome-ie7.min.css">
+    <title><%= content_for?(:title) ? yield(:title) : "CPC : Columbus Powder Coat | Columbus, Ohio" %></title>
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/assets/font-awesome-ie7.min.css">
     <![endif]-->
-     <%= stylesheet_link_tag "application", "http://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext" %>
-     <%= javascript_include_tag "modernizr" %>
-     <script src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
-     <%= csrf_meta_tags %>
-     <%= render 'layouts/shim' %>
-     <!--Start of Zopim Live Chat Script-->
-      <script type="text/javascript">
-        window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
-        d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
-        _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
-        $.src="//v2.zopim.com/?46n7GVaXPUDnD3S11rFwEbLvUQDzrvgl";z.t=+new Date;$.
-        type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
-      </script>
-      <!--End of Zopim Live Chat Script-->
+    <%= stylesheet_link_tag "application", "http://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext" %>
+    <%= javascript_include_tag "modernizr" %>
+    <script src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+    <!--Start of Zopim Live Chat Script-->
+    <script type="text/javascript">
+      window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+      d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+      _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+      $.src="//v2.zopim.com/?46n7GVaXPUDnD3S11rFwEbLvUQDzrvgl";z.t=+new Date;$.
+      type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+    </script>
+    <!--End of Zopim Live Chat Script-->
   </head>
 
   <body class="home">
     <div class="wrap">
      <%= render 'layouts/header' %>
      <div class="row">
-      <%= flash_messages %>
+        <%= flash_messages %>
 
-      <%= yield %>
-    </div>
-    <%= render 'layouts/footer' %>
-      <!-- Scroll To Top -->
-      <!-- <a href="#" class="scrollup"><i class="icon-angle-up"></i></a> -->
+        <%= yield %>
+      </div>
+      <%= render 'layouts/footer' %>
     </div>
   <!-- Wrap End -->
 

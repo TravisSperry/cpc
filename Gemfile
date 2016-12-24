@@ -4,7 +4,7 @@ ruby '2.2.1'
 
 gem 'rails', '4.1'
 
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap', '~> 4.0.0.alpha5'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'carrierwave-aws'
 gem 'coffee-rails'
@@ -17,6 +17,7 @@ gem 'uglifier', '>= 1.0.3'
 gem 'font-awesome-sass-rails'
 gem 'modernizr-rails'
 gem 'public_activity'
+gem 'puma'
 gem 'sass-rails'
 gem 'simple_form'
 gem "recaptcha", require: "recaptcha/rails"

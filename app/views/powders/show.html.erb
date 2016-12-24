@@ -1,0 +1,41 @@
+<div class="container" style="margin-top: 30px">
+  <div class="row">
+    <div class="col-md-6">
+      <p>
+        <strong>Manufacturer:</strong>
+        <%= @powder.manufacturer ? @powder.manufacturer.name : 'Please add a manufacturer.' %>
+      </p>
+
+      <p>
+        <strong>Name:</strong>
+        <%= @powder.name ? @powder.name : 'Please add a name.' %>
+      </p>
+
+      <p>
+        <strong>Color:</strong>
+        <%= @powder.color ? @powder.color.name : 'Please add a color.' %>
+      </p>
+
+      <p>
+        <strong>Part number:</strong>
+        <%= @powder.part_number %>
+      </p>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Manufacturer Specs</div>
+        <div class="panel-body">
+          <% if @powder.part_number %>
+            <% Powder::TCI_PRODUCT_FORMULATION.each_with_index do |(k,v), i| %>
+              <p>
+                <strong><%= k.to_s.gsub('_', ' ').titleize %></strong>: <%= v[@powder.part_number[i].to_i] %>
+              </p>
+            <% end %>
+          <% else %>
+            Please Add Part Number For Powder
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

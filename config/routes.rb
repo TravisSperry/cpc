@@ -1,5 +1,11 @@
 Cpc::Application.routes.draw do
 
+  resources :colors
+
+  resources :manufacturers
+
+  resources :powders
+
   resources :quote_request_attachments
 
   devise_for :users

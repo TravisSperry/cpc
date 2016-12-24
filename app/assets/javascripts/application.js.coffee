@@ -14,11 +14,9 @@ jQuery ->
     pagingType: 'simple'
     order:      [[ 0, "desc" ]]
 
-  $('.main').unslider
-    animation: 'vertical'
+  $('.main-slider').unslider
     autoplay: true
     infinite: true
     arrows: false
     nav: false
     delay: 6500
-    animateHeight: true

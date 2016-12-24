@@ -1,31 +1,31 @@
-<div class="main">
+<div class="main-slider">
   <ul>
-    <li><%= image_tag 'rack_pic_1.jpg', width:'100%' %></li>
+    <li><%= image_tag 'rack_pic_1.jpg', width:'100%', class: 'rack-pic' %></li>
     <li><%= image_tag 'new_cauv_table.jpg', width:'100%' %></li>
   </ul>
 </div>
 <div class="main-details">
-  CONSUMER <span class="hidden-sm hidden-xs">&bull;</span> COMMERCIAL <span class="hidden-sm hidden-xs">&bull;</span> INDUSTRIAL
+  CONSUMER <span class="hidden-sm-down">&bull;</span> COMMERCIAL <span class="hidden-sm-down">&bull;</span> INDUSTRIAL
 </div>
 <div class="coatings">
-  <div class="quality hidden-sm hidden-xs">
-    QUALITY COATINGS
+  <div class="quality hidden-sm-down">
+    <div>QUALITY COATINGS</div>
   </div>
-  <div class="quality-mobile hidden-lg hidden-md">
-    QUALITY COATINGS
+  <div class="quality-mobile hidden-md-up">
+    <div>QUALITY COATINGS</div>
   </div>
   <div class="manufacturers row">
-    <div class="col-md-4 text-center">
+    <div class="col-md-4 text-xs-center">
       <%= link_to "https://www.tcipowder.com/", target: "_blank" do %>
         <%= image_tag 'tci.png', width: '50%' %>
       <% end %>
     </div>
-    <div class="col-md-4 text-center">
+    <div class="col-md-4 text-xs-center">
       <%= link_to "https://www.akzonobel.com/powder/", target: "_blank" do %>
         <%= image_tag 'akzo.png', width: '50%'%>
       <% end %>
     </div>
-    <div class="col-md-4 text-center">
+    <div class="col-md-4 text-xs-center">
       <%= link_to "http://www.prismaticpowders.com/", target: "_blank" do %>
         <%= image_tag 'prismatic.png', width: '50%' %>
       <% end %>
@@ -34,14 +34,14 @@
 </div>
 
 <div class="rfq row">
-  <div class="text-center">
+  <div class="text-xs-center">
     <div class="rfq-header">
       REQUEST A QUOTE
     </div>
-    <div class="rfq-sub-header hidden-sm hidden-xs">
+    <div class="rfq-sub-header hidden-sm-down">
         Leave us a description or upload images of your project. Click button below.
     </div>
-    <div class="rfq-sub-header hidden-lg hidden-md">
+    <div class="rfq-sub-header hidden-md-up">
         Leave us a description or upload images of your project.<br>
         Click button below.
     </div>
