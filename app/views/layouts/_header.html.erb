@@ -50,8 +50,11 @@
         </ul>
       </li>
     <% else %>
-      <li class='nav-quote-req pull-right'>
-        <%= link_to "Request A Quote", new_quote_request_path %>
+      <li class='nav-quote-req pull-right hidden-sm-down'>
+        <%= link_to "Request A Quote", new_quote_request_path, style: 'font-size:20px;' %>
+      </li>
+      <li class='nav-quote-req pull-right hidden-md-up'>
+        <%= link_to "Request A Quote", new_quote_request_path, style: 'font-size:10px;' %>
       </li>
     <% end %>
   </div>
