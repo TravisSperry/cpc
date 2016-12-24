@@ -21,6 +21,7 @@ gem 'puma'
 gem 'sass-rails'
 gem 'simple_form'
 gem "recaptcha", require: "recaptcha/rails"
+gem 'tether-rails'
 
 group :development, :test do
   gem 'sqlite3'
