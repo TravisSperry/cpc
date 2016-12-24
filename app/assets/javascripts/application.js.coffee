@@ -2,11 +2,11 @@
 #= require jquery_ujs
 #= require jquery-ui
 #= require jquery-ui
-#= require bootstrap-sprockets
+#= require tether
+#= require bootstrap
 #= require dataTables/jquery.dataTables
 #= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 #= require dataTables/extras/dataTables.responsive
-#= require tether
 #= require unslider
 
 jQuery ->
