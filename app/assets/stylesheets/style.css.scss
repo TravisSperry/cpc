@@ -32,18 +32,6 @@
       margin-left:30px;
     }
   }
-
-  @media only screen
-  and (min-device-width : 375px)
-  and (max-device-width : 667px) {
-    .pre-nav{
-      padding:padding:2px 2px 2px 2px;;
-    }
-  }
-
-  // .phone-email:nth-child(2){
-  //   margin-left:20px;
-  // }
 }
 
 .nav{
@@ -71,6 +59,14 @@
     a{
       color: #ab211c;
     }
+  }
+}
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+  .nav{
+    padding:15px 5px 10px 12px;
   }
 }
 
