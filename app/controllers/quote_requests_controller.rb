@@ -53,8 +53,9 @@ class QuoteRequestsController < ApplicationController
             @quote_request_attachment = @quote_request.quote_request_attachments.create!(:attachment => a)
           end
         end
-        NotificationMailer.new_quote(@quote_request).deliver
-        format.html { redirect_to root_url, notice: 'Request received. We will contact you shortly.' }
+        NotificationMailer.new_quote(@quote_request).deliver if Rails.env.production?
+        # Redirect to thank you page with request_type in params
+        format.html { redirect_to static_pages_thank_you_url(request_type: "quote"), notice: 'Request received. We will contact you shortly.' }
         format.json { render json: @quote_request, status: :created, location: @quote_request }
       else
         flash[:error] = "Please verify that you are not a robot by checking the checkbox below." unless verify_recaptcha(model: @quote_request)
