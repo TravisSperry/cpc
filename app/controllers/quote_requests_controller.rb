@@ -47,7 +47,7 @@ class QuoteRequestsController < ApplicationController
     @quote_request = QuoteRequest.new(quote_request_params)
 
     respond_to do |format|
-      if verify_recaptcha(model: @quote_request) && @quote_request.save
+      if (verify_recaptcha(model: @quote_request) || Rails.env.development?) && @quote_request.save
         if params[:quote_request_attachments]
           params[:quote_request_attachments]['attachment'].each do |a|
             @quote_request_attachment = @quote_request.quote_request_attachments.create!(:attachment => a)

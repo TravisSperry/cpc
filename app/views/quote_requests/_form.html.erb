@@ -34,7 +34,7 @@
           <% end %>
         </p>
         <div style="margin-bottom:25px;">
-          <%= recaptcha_tags %>
+          <%= recaptcha_tags unless Rails.env.development? %>
         </div>
 
         <% if user_signed_in?%>
