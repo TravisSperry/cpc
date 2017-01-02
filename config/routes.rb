@@ -10,7 +10,14 @@ Cpc::Application.routes.draw do
 
   devise_for :users
 
-  resources :quote_requests
+  resources :quote_requests do
+    member do
+      get 'mark_as_viewed'
+      get 'mark_as_submitted'
+      get 'mark_as_won'
+      get 'mark_as_lost'
+    end
+  end
 
   get "static_pages/home"
   get "static_pages/about"

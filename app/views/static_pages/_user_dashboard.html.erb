@@ -13,25 +13,25 @@
 
   <div class="row">
     <div class="col-lg-4  ">
-      <div class="panel panel-success">
-        <div class="panel-heading">
+      <div class="card">
+        <div class="card-block">
           <div class="row">
             <div class="col-xs-6">
               <i class="icon icon-list icon-5x"></i>
             </div>
             <div class="col-xs-6 text-right">
-              <p class="announcement-heading"><%= @new_quote_requests.count ? @new_quote_requests.count : 0 %></p>
+              <h1><%= @new_quote_requests.count ? @new_quote_requests.count : 0 %></h1>
               <p class="announcement-text">New Quote <%= pluralize_without_count(@new_quote_requests.count, 'Request')%><%= @new_quote_requests.count == 0 ? "" : "!" %></p>
             </div>
           </div>
         </div>
         <a href="<%= quote_requests_path %>">
-          <div class="panel-footer announcement-bottom">
+          <div class="card-footer bg-success announcement-bottom">
             <div class="row">
               <div class="col-xs-8">
                 View Quote Requests
               </div>
-              <div class="col-xs-6 text-right">
+              <div class="col-xs-4 text-sm-right">
                 <i class="icon icon-angle-down"></i>
               </div>
             </div>

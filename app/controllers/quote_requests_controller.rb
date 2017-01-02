@@ -93,6 +93,38 @@ class QuoteRequestsController < ApplicationController
     end
   end
 
+  def mark_as_viewed
+    @quote_request = QuoteRequest.find(params[:id])
+
+    @quote_request.update_attribute :status, "Viewed"
+
+    redirect_to quote_requests_url, notice: "Quote request has been marked as viewed."
+  end
+
+  def mark_as_submitted
+    @quote_request = QuoteRequest.find(params[:id])
+
+    @quote_request.update_attribute :status, "Submitted"
+
+    redirect_to quote_requests_url, notice: "Quote request has been marked as submitted."
+  end
+
+  def mark_as_won
+    @quote_request = QuoteRequest.find(params[:id])
+
+    @quote_request.update_attribute :status, "Won"
+
+    redirect_to quote_requests_url, notice: "Quote request has been marked as won."
+  end
+
+  def mark_as_lost
+    @quote_request = QuoteRequest.find(params[:id])
+
+    @quote_request.update_attribute :status, "Lost"
+
+    redirect_to quote_requests_url, notice: "Quote request has been marked as lost."
+  end
+
   private
     # Using a private method to encapsulate the permissible parameters
     # is just a good pattern since you'll be able to reuse the same
