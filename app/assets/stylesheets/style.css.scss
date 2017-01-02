@@ -1,6 +1,5 @@
 
 // --------- Navbar Styling --------- //
-
 .pre-nav{
   width:100%;
   min-height: 30px;
@@ -43,6 +42,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: top;
+  margin-bottom: 60px;
   .menu-bar{
     position: absolute;
     .top:0;
@@ -77,7 +77,7 @@ and (max-device-width : 667px) {
 .main-slider{
   max-height: 75vh;
   overflow:hidden;
-  margin: -3px;
+  margin-bottom: -3px;
 }
 
 .main img{

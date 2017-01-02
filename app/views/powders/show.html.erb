@@ -26,9 +26,9 @@
       </p>
     </div>
     <div class="col-md-6">
-      <div class="panel panel-default">
-        <div class="panel-heading">Manufacturer Specs</div>
-        <div class="panel-body">
+      <div class="card">
+        <div class="card-header">Manufacturer Specs</div>
+        <div class="card-block">
           <% if @powder.part_number %>
             <% Powder::TCI_PRODUCT_FORMULATION.each_with_index do |(k,v), i| %>
               <p>
@@ -42,10 +42,12 @@
       </div>
     </div>
   </div>
-  <hr>
+
   <div class="row">
-    <%= link_to "Powder Inventory", powders_path, class: "btn btn-primary pull-right" %>
-    <%= link_to "Update Powder Weight", "#", data: {toggle: "modal", target: "#powderWeightModal"}, class: "btn btn-secondary pull-right", style: "margin-right:10px;" %>
+    <div class="col-sm-12">
+      <%= link_to "Powder Inventory", powders_path, class: "btn btn-primary pull-right" %>
+      <%= link_to "Update Powder Weight", "#", data: {toggle: "modal", target: "#powderWeightModal"}, class: "btn btn-secondary pull-right", style: "margin-right:10px;" %>
+    </div>
   </div>
 </div>
 

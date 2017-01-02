@@ -21,3 +21,5 @@ jQuery ->
     arrows: false
     nav: false
     delay: 6500
+
+  $('.unslider').css('margin-top', '-60px')
