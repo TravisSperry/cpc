@@ -1,8 +1,5 @@
 <div class="container" style="margin-top: 30px">
   <div class="row">
-    <%= link_to "Powder Inventory", powders_path, class: "btn btn-primary pull-right" %>
-  </div>
-  <div class="row">
     <div class="col-md-6">
       <p>
         <strong>Manufacturer:</strong>
@@ -23,6 +20,10 @@
         <strong>Part number:</strong>
         <%= @powder.part_number %>
       </p>
+      <p>
+        <strong>Weight:</strong>
+        <%= @powder.weight %> lbs
+      </p>
     </div>
     <div class="col-md-6">
       <div class="panel panel-default">
@@ -41,4 +42,31 @@
       </div>
     </div>
   </div>
+  <hr>
+  <div class="row">
+    <%= link_to "Powder Inventory", powders_path, class: "btn btn-primary pull-right" %>
+    <%= link_to "Update Powder Weight", "#", data: {toggle: "modal", target: "#powderWeightModal"}, class: "btn btn-secondary pull-right", style: "margin-right:10px;" %>
+  </div>
 </div>
+
+<div class="modal fade" id="powderWeightModal" tabindex="-1" role="dialog" aria-labelledby="PowderWeight" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Update Powder Weight</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @powder do |f| %>
+          <%= f.input :weight, hint: "Round DOWN to the nearest pound." %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= f.button :submit, "Update Weight", class: "btn btn-success" %>
+        <% end %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
