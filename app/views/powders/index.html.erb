@@ -1,4 +1,4 @@
-<div class="container powder-table">
+<div class="container powder-table" style="margin-top:40px;">
   <div class="row">
     <div class="col-sm-12">
       <h1>Powders</h1>
@@ -18,8 +18,8 @@
         <tbody>
           <% @powders.each do |powder| %>
             <tr>
-              <td><%= powder.manufacturer_id %></td>
-              <td><%= powder.color_id %></td>
+              <td><%= powder.manufacturer.name if powder.manufacturer %></td>
+              <td><%= powder.name %></td>
               <td><%= powder.part_number %></td>
               <td><%= link_to 'Show', powder %></td>
               <td><%= link_to 'Edit', edit_powder_path(powder) %></td>
