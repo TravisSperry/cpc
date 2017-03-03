@@ -41,9 +41,9 @@
         </a>
         <ul class="dropdown-menu">
           <li>
-            <%# link_to edit_user_registration_path(current_user) do %>
+            <%= link_to edit_user_registration_path do %>
               <i class="icon-gears"></i> Settings
-            <%# end %>
+            <% end %>
           </li>
           <li class="divider"></li>
           <li><a href="<%= destroy_user_session_path %>"><i class="icon-power-off"></i> Log Out</a></li>
