@@ -7,13 +7,16 @@
 #= require dataTables/jquery.dataTables
 #= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 #= require dataTables/extras/dataTables.responsive
+#= require chosen-jquery
 #= require unslider
 
 jQuery ->
   $('.datatable').DataTable
     responsive: true,
-    pagingType: 'simple'
+    pagingType: 'simple',
     order:      [[ 0, "desc" ]]
+
+  $('.chosen').chosen()
 
   $('.main-slider').unslider
     autoplay: true

@@ -17,7 +17,9 @@
 
     <meta name="description" content="At Columbus Powder Coat we pride ourselves on high quality finishes, fast turnarounds, and great prices.">
 
-    <title><%= content_for?(:title) ? yield(:title) : "CPC : Columbus Powder Coat | Columbus, Ohio" %></title>
+    <title>
+      <%= content_for?(:title) ? "Columbus Powder Coat | #{ yield(:tile) }" : "Columbus Powder Coat | Columbus, Ohio" %>
+    </title>
     <!--[if IE 7]>
     <link rel="stylesheet" href="/assets/font-awesome-ie7.min.css">
     <![endif]-->
@@ -33,7 +35,7 @@
     <%= render 'layouts/google_tag_manager_body' if Rails.env.production? %>
     <!-- .wrap -->
     <div class="wrap">
-      
+
       <%= render 'layouts/header' %>
 
       <%= flash_messages %>

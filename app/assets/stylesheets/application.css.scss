@@ -1,13 +1,8 @@
-/*
-  *= require jquery-ui
-  *= require superfish
-  *= require dataTables/jquery.dataTables
-  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
-  *= require dataTables/extras/dataTables.responsive
-  *= require tether
-  *= require_self
-*/
-
+@import "jquery-ui";
+@import "superfish";
+@import "dataTables/jquery.dataTables";
+@import "chosen";
+@import "tether";
 @import "bootstrap";
 @import "font-awesome";
 @import "style";
@@ -59,4 +54,8 @@ table.dataTable thead .sorting {
 
 .quote_request_table{
   margin-top:20px;
+}
+
+.has-error{
+  color: red;
 }

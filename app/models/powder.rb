@@ -1,6 +1,7 @@
 class Powder < ActiveRecord::Base
   belongs_to :manufacturer
   belongs_to :color
+  has_many :boxes
 
   TCI_PRODUCT_FORMULATION = {
     :resin_type => {
@@ -50,4 +51,14 @@ class Powder < ActiveRecord::Base
       7 =>  'Wrinkle'
     }
   }
+
+  def list_name
+    manufacturer.name + " - " + name
+  end
+
+  def total_weight
+    total_weight = 0
+    boxes.each{|box| total_weight += box.weight}
+    total_weight
+  end
 end

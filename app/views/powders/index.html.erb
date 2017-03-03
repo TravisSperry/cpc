@@ -9,8 +9,8 @@
             <th>Manufacturer</th>
             <th>Color</th>
             <th>Part number</th>
+            <th>Boxes</th>
             <th>Weight</th>
-            <th></th>
             <th></th>
             <th></th>
           </tr>
@@ -22,10 +22,10 @@
               <td><%= powder.manufacturer.name if powder.manufacturer %></td>
               <td><%= powder.name %></td>
               <td><%= powder.part_number %></td>
-              <td><%= powder.weight %> lbs</td>
-              <td><%= link_to 'Show', powder %></td>
+              <td><%= powder.boxes.count %></td>
+              <td><%= powder.total_weight %> lbs</td>
+              <td><%= link_to 'View', powder %></td>
               <td><%= link_to 'Edit', edit_powder_path(powder) %></td>
-              <td><%= link_to 'Destroy', powder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>

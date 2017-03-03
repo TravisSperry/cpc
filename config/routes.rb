@@ -1,5 +1,7 @@
 Cpc::Application.routes.draw do
 
+  resources :boxes
+
   resources :colors
 
   resources :manufacturers

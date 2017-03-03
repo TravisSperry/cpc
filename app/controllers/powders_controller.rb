@@ -43,6 +43,6 @@ class PowdersController < ApplicationController
     end
 
     def powder_params
-      params.require(:powder).permit(:manufacturer_id, :color_id, :part_number, :name, :weight)
+      params.require(:powder).permit(:manufacturer_id, :color_id, :part_number, :name, :weight, :high_demand)
     end
 end

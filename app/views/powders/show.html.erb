@@ -21,8 +21,21 @@
         <%= @powder.part_number %>
       </p>
       <p>
-        <strong>Weight:</strong>
-        <%= @powder.weight %> lbs
+        <strong>Boxes:</strong> <%= @powder.boxes.count %>
+        <ol>
+          <% @powder.boxes.order("weight ASC").each do |box| %>
+            <li>
+              <%= box.weight %> lbs (<%= link_to "view", box %> | <%= link_to "edit", edit_box_path(box) %>)
+              <div class="progress">
+                <div class="progress-bar bg-success" role="progressbar" style="width: <%= box.percent_left %>%;" aria-valuenow="<%= box.percent_left %>" aria-valuemin="0" aria-valuemax="100"><%= box.percent_left %>%</div>
+              </div>
+            </li>
+          <% end %>
+        </ol>
+      </p>
+      <p>
+        <strong>Total In Stock Weight:</strong>
+        <%= @powder.total_weight %> lbs
       </p>
     </div>
     <div class="col-md-6">
@@ -45,30 +58,10 @@
 
   <div class="row">
     <div class="col-sm-12">
-      <%= link_to "Powder Inventory", powders_path, class: "btn btn-primary pull-right" %>
-      <%= link_to "Update Powder Weight", "#", data: {toggle: "modal", target: "#powderWeightModal"}, class: "btn btn-secondary pull-right", style: "margin-right:10px;" %>
+      <div class="btn-toolbar">
+        <%= link_to "Add Box", new_box_path(powder_id: @powder.id), class: "btn btn-success pull-right" %>
+        <%= link_to "Powder Inventory", powders_path, class: "btn btn-primary pull-right" %>
+      </div>
     </div>
   </div>
 </div>
-
-<div class="modal fade" id="powderWeightModal" tabindex="-1" role="dialog" aria-labelledby="PowderWeight" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title">Update Powder Weight</h4>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for @powder do |f| %>
-          <%= f.input :weight, hint: "Round DOWN to the nearest pound." %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <%= f.button :submit, "Update Weight", class: "btn btn-success" %>
-        <% end %>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->

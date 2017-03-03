@@ -1,0 +1,17 @@
+<%= simple_form_for(@box) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <% if params[:powder_id] %>
+      <%= f.association :powder, label_method: :list_name, selected: params[:powder_id], input_html: { class: 'chosen' } %>
+    <% else %>
+      <%= f.association :powder, label_method: :list_name, input_html: { class: 'chosen' } %>
+    <% end %>
+    <%= f.input :original_weight, placeholder: 'standard weight of box when received' %>
+    <%= f.input :weight, hint: 'in lbs (round down to the nearest pound)' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-lg btn-success' %>
+  </div>
+<% end %>
