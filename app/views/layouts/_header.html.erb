@@ -33,7 +33,7 @@
       <%= image_tag 'cpc_logo.png', height: '42px', alt: 'logo' %>
     </a>
     <% if current_user %>
-      <li class="dropdown user-dropdown pull-right" style="margin-right:20px;">
+      <li class="dropdown user-dropdown float-right" style="margin-right:20px;">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <i class="icon-user"></i>
           <%= current_user.first_name %> <%= current_user.last_name[0,1] %>. <%= current_user.suffix if current_user.suffix %>
@@ -50,10 +50,10 @@
         </ul>
       </li>
     <% else %>
-      <li class='nav-quote-req pull-right hidden-sm-down'>
+      <li class='nav-quote-req hidden-sm-down ml-4'>
         <%= link_to "Request A Quote", new_quote_request_path, style: 'font-size:20px;' %>
       </li>
-      <li class='nav-quote-req pull-right hidden-md-up'>
+      <li class='nav-quote-req hidden-md-up ml-4'>
         <%= link_to "Request A Quote", new_quote_request_path, style: 'font-size:14px;' %>
       </li>
     <% end %>

@@ -4,7 +4,7 @@ ruby '2.2.1'
 
 gem 'rails', '4.1'
 
-gem 'bootstrap', '~> 4.0.0.alpha5'
+gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'carrierwave-aws'
 gem 'chosen-rails'
