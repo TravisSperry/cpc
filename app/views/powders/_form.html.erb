@@ -4,12 +4,13 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.association :manufacturer %>
-    <%= f.association :color %>
+    <%= f.association :color, collection: Color.order(:name).all %>
     <%= f.input :part_number %>
     <%= f.input :high_demand %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, 'Add Powder', class: 'btn btn-success' %>
+    <%= f.button :submit, 'Save Powder', class: 'btn btn-success' %>
+    <%= link_to 'Cancel', powders_path,  class: 'btn btn-danger' %>
   </div>
 <% end %>

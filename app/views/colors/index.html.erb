@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12">
       <h1>Listing colors</h1>
-
+      <p><%= link_to 'New Color', new_color_path, class: 'btn btn-secondary' %></p>
       <table class="datatable display responsive no-wrap">
         <thead>
           <tr>
@@ -24,10 +24,6 @@
           <% end %>
         </tbody>
       </table>
-
-      <br>
-
-      <%= link_to 'New Color', new_color_path %>
     </div>
   </div>
 </div>

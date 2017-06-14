@@ -1,39 +1,37 @@
-<div class="container powder-table" style="margin-top:40px;">
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>Powders</h1>
-
-      <table class="datatable display responsive no-wrap">
-        <thead>
-          <tr>
-            <th>Manufacturer</th>
-            <th>Color</th>
-            <th>Part number</th>
-            <th>Boxes</th>
-            <th>Weight</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @powders.each do |powder| %>
-            <tr>
-              <td><%= powder.manufacturer.name if powder.manufacturer %></td>
-              <td><%= powder.name %></td>
-              <td><%= powder.part_number %></td>
-              <td><%= powder.boxes.count %></td>
-              <td><%= powder.total_weight %> lbs</td>
-              <td><%= link_to 'View', powder %></td>
-              <td><%= link_to 'Edit', edit_powder_path(powder) %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-
-      <br>
-
-      <%= link_to 'New Powder', new_powder_path, class: 'btn btn-success' %>
+<div class="container" style="margin-top:40px;">
+  <h1>Powders</h1>
+  <p>
+    <div class="btn-group">
+      <%= link_to 'New Powder', new_powder_path, class: 'btn btn-primary' %>
+      <%= link_to 'New Manufacturer', new_manufacturer_path, class: 'btn btn-secondary' %>
+      <%= link_to 'Manage Color Options', colors_path, class: 'btn btn-info' %>
     </div>
-  </div>
+  </p>
+  <table class="datatable display responsive no-wrap">
+    <thead>
+      <tr>
+        <th data-priority="1">Manufacturer</th>
+        <th data-priority="2">Color</th>
+        <th>Part number</th>
+        <th>Boxes</th>
+        <th>Weight</th>
+        <th data-priority="3"></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @powders.each do |powder| %>
+        <tr>
+          <td><%= powder.manufacturer.name if powder.manufacturer %></td>
+          <td><%= powder.name %></td>
+          <td><%= powder.part_number %></td>
+          <td><%= powder.boxes.count %></td>
+          <td><%= powder.total_weight %> lbs</td>
+          <td><%= link_to 'View', powder %></td>
+          <td><%= link_to 'Edit', edit_powder_path(powder) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

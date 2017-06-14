@@ -5,7 +5,6 @@
 #= require tether
 #= require bootstrap
 #= require dataTables/jquery.dataTables
-#= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 #= require dataTables/extras/dataTables.responsive
 #= require chosen-jquery
 #= require unslider

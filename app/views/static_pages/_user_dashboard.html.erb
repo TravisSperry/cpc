@@ -1,25 +1,14 @@
-
 <!-- Dashboard Side Nav **end** -->
-
 <div class="container user_dashboard">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1>Dashboard <small>Statistics Overview</small></h1>
-      <ol class="breadcrumb">
-        <li class="active"><i class="icon-dashboard"></i> Dashboard</li>
-      </ol>
-    </div>
-  </div><!-- /.row -->
-
   <div class="row">
     <div class="col-md-4">
       <div class="card">
         <div class="card-block">
           <div class="row">
-            <div class="col-xs-6">
+            <div class="col-6">
               <i class="icon icon-list icon-5x"></i>
             </div>
-            <div class="col-xs-6 text-right">
+            <div class="col-6 text-right">
               <h1><%= @new_quote_requests.count ? @new_quote_requests.count : 0 %></h1>
               <p class="announcement-text">New Quote <%= pluralize_without_count(@new_quote_requests.count, 'Request')%><%= @new_quote_requests.count == 0 ? "" : "!" %></p>
             </div>
@@ -27,14 +16,8 @@
         </div>
         <a href="<%= quote_requests_path %>">
           <div class="card-footer announcement-bottom">
-            <div class="row">
-              <div class="col-xs-8">
-                View Quote Requests
-              </div>
-              <div class="col-xs-4 text-sm-right">
-                <i class="icon icon-angle-down"></i>
-              </div>
-            </div>
+            View Quote Requests
+            <i class="icon icon-angle-down float-right mt-1"></i>
           </div>
         </a>
       </div>
@@ -43,21 +26,15 @@
       <div class="card">
         <div class="card-block">
           <div class="row">
-            <div class="col-sm-12 text-xs-center">
+            <div class="col-sm-12 text-center">
               <h1>Powder Management</h1>
             </div>
           </div>
         </div>
         <a href="<%= powders_path %>">
           <div class="card-footer announcement-bottom">
-            <div class="row">
-              <div class="col-xs-8">
-                Manage Inventory
-              </div>
-              <div class="col-xs-4 text-sm-right">
-                <i class="icon icon-angle-down"></i>
-              </div>
-            </div>
+            Manage Inventory
+            <i class="icon icon-angle-down float-right mt-1"></i>
           </div>
         </a>
       </div>
