@@ -7,6 +7,10 @@
       <%= link_to 'Manage Color Options', colors_path, class: 'btn btn-info' %>
     </div>
   </p>
+  <p>
+    Download:
+    <%= link_to "CSV", powders_path(format: "csv") %>
+  </p>
   <table class="datatable display responsive no-wrap">
     <thead>
       <tr>

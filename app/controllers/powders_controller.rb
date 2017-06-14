@@ -6,7 +6,12 @@ class PowdersController < ApplicationController
 
   def index
     @powders = Powder.all
-    respond_with(@powders)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @powders }
+      format.csv { send_data @powders.to_csv, filename: "powders-#{Date.today}.csv" }
+    end
   end
 
   def show

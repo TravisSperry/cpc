@@ -1,3 +1,5 @@
+require 'csv'
+
 class Powder < ActiveRecord::Base
   belongs_to :manufacturer
   belongs_to :color
@@ -60,5 +62,15 @@ class Powder < ActiveRecord::Base
     total_weight = 0
     boxes.each{|box| total_weight += box.weight}
     total_weight
+  end
+
+
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << ['manufacturer', 'color', 'name', 'weight (lbs)', 'part number', 'high demand?']
+      all.each do |powder|
+        csv << [powder.manufacturer.name, powder.color.name, powder.name, powder.weight, powder.part_number, powder.high_demand]
+      end
+    end
   end
 end
