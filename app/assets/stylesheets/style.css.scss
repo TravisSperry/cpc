@@ -329,4 +329,7 @@ footer {
 
 .user_dashboard{
   height:80vh;
+  .card{
+    min-height: 220px;
+  }
 }

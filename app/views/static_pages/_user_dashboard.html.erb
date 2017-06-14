@@ -1,23 +1,23 @@
 <!-- Dashboard Side Nav **end** -->
 <div class="container user_dashboard">
-  <div class="row">
+  <div class="row d-flex align-items-stretch">
     <div class="col-md-4">
       <div class="card">
         <div class="card-block">
           <div class="row">
-            <div class="col-6">
+            <div class="col-2">
               <i class="icon icon-list icon-5x"></i>
             </div>
-            <div class="col-6 text-right">
+            <div class="col-10 text-right">
               <h1><%= @new_quote_requests.count ? @new_quote_requests.count : 0 %></h1>
-              <p class="announcement-text">New Quote <%= pluralize_without_count(@new_quote_requests.count, 'Request')%><%= @new_quote_requests.count == 0 ? "" : "!" %></p>
+              <h3 class="card-title mb-0">New Quote <%= pluralize_without_count(@new_quote_requests.count, 'Request')%><%= @new_quote_requests.count == 0 ? "" : "!" %></h3>
             </div>
           </div>
         </div>
         <a href="<%= quote_requests_path %>">
-          <div class="card-footer announcement-bottom">
-            View Quote Requests
-            <i class="icon icon-angle-down float-right mt-1"></i>
+          <div class="card-footer">
+            <strong>View Quote Requests
+              <i class="icon icon-angle-down float-right mt-1"></i></strong>
           </div>
         </a>
       </div>
@@ -27,14 +27,14 @@
         <div class="card-block">
           <div class="row">
             <div class="col-sm-12 text-center">
-              <h1>Powder Management</h1>
+              <h1 class="mb-0">Powder Management</h1>
             </div>
           </div>
         </div>
         <a href="<%= powders_path %>">
-          <div class="card-footer announcement-bottom">
-            Manage Inventory
-            <i class="icon icon-angle-down float-right mt-1"></i>
+          <div class="card-footer">
+            <strong>Manage Inventory
+              <i class="icon icon-angle-down float-right mt-1"></i></strong>
           </div>
         </a>
       </div>
