@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20170614014949) do
     t.text     "parameters"
     t.integer  "recipient_id"
     t.string   "recipient_type"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type"
@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(version: 20170614014949) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "suffix"

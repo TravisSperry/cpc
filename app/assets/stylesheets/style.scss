@@ -192,6 +192,50 @@ and (max-device-width: 667px) {
   }
 }
 
+.powders{
+  background: #F2F2F2;
+  background: rgba(242, 242, 242, 1);
+  border-bottom: 3px solid #999999;
+  padding: 75px 0 75px 0;
+  font-family: Josefin Sans;
+
+  .quality{
+    width:420px;
+    font-weight: bold;
+    font-size: 37px;
+    letter-spacing: -1.48px;
+    color: #E6E6E6;
+    color: rgb(230, 230, 230);
+    background: #515b63;
+    background: rgb(82, 91, 99);
+    padding:10px 0 8px 60px;
+    border-right: 9px solid #25292C;
+
+    div {
+      margin-top: 6px;
+    }
+  }
+
+  .quality-mobile{
+    width:100%;
+    font-family: Josefin Sans;
+    font-weight: bold;
+    font-size: 32px;
+    letter-spacing: -1.48px;
+    color: #E6E6E6;
+    color: rgb(230, 230, 230);
+    background: #515b63;
+    background: rgb(82, 91, 99);
+    padding:10px 0 8px 0;
+    text-align: center;
+    border-bottom: 9px solid #25292C;
+
+    div {
+      margin-top: 6px;
+    }
+  }
+}
+
 .rfq{
   border-bottom: 3px solid #999999;
   padding-top: 75px;

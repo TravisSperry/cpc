@@ -219,5 +219,8 @@ DEPENDENCIES
   tether-rails
   uglifier (>= 1.0.3)
 
+RUBY VERSION
+   ruby 2.2.1p85
+
 BUNDLED WITH
-   1.11.2
+   1.15.1
