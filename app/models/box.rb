@@ -1,5 +1,6 @@
 class Box < ActiveRecord::Base
   belongs_to :powder
+  validates  :powder, presence: true
 
   validate :original_weight_not_changed
 

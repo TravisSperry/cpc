@@ -23,12 +23,12 @@ class BoxesController < ApplicationController
   def create
     @box = Box.new(box_params)
     @box.save
-    respond_with(@box)
+    respond_with(@box.powder)
   end
 
   def update
     @box.update(box_params)
-    respond_with(@box)
+    respond_with(@box.powder)
   end
 
   def destroy
