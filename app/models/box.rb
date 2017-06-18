@@ -3,6 +3,8 @@ class Box < ActiveRecord::Base
 
   validate :original_weight_not_changed
 
+  has_paper_trail
+
   def percent_left
     ((weight.to_f/original_weight.to_f)*100).to_i
   end

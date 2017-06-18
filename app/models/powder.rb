@@ -5,6 +5,8 @@ class Powder < ActiveRecord::Base
   belongs_to :color
   has_many :boxes
 
+  has_paper_trail # tracks modifications of each object via versions
+
   TCI_PRODUCT_FORMULATION = {
     :resin_type => {
       1 =>  'Low Cure',
