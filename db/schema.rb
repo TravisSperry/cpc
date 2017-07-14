@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618174039) do
+ActiveRecord::Schema.define(version: 20170714003132) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -57,8 +57,10 @@ ActiveRecord::Schema.define(version: 20170618174039) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.integer  "weight",          default: 0
-    t.boolean  "high_demand",     default: false
+    t.integer  "weight",               default: 0
+    t.boolean  "high_demand",          default: false
+    t.integer  "reminder_weight"
+    t.date     "last_weight_reminder"
   end
 
   create_table "quote_request_attachments", force: true do |t|

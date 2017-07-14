@@ -11,4 +11,8 @@ class NotificationMailer < ActionMailer::Base
     @quote_request = QuoteRequest.find(quote_request.id)
     mail(subject: "CPC:You've recieved an RFQ!")
   end
+  def low_powder_notification(powder)
+    @powder = powder
+    mail(subject: "Your running low on #{powder.name}")
+  end
 end
