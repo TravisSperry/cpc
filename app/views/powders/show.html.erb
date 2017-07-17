@@ -30,12 +30,14 @@
         <strong>Boxes:</strong> <%= @powder.boxes.count %>
         <ol class="mb-5">
           <% @powder.boxes.order("weight ASC").each do |box| %>
-            <li>
-              <%= box.weight %> lbs (<%= link_to "view", box %> | <%= link_to "edit", edit_box_path(box), data: { confirm: 'Are you sure you want to edit the weight of this box?' } %>)
-              <div class="progress">
-                <div class="progress-bar bg-success" role="progressbar" style="width: <%= box.percent_left %>%;" aria-valuenow="<%= box.percent_left %>" aria-valuemin="0" aria-valuemax="100"><%= box.percent_left %>%</div>
-              </div>
-            </li>
+            <% if box.weight > 0 %>
+              <li>
+                <%= box.weight %> lbs (<%= link_to "view", box %> | <%= link_to "edit", edit_box_path(box), data: { confirm: 'Are you sure you want to edit the weight of this box?' } %>)
+                <div class="progress">
+                  <div class="progress-bar bg-success" role="progressbar" style="width: <%= box.percent_left %>%;" aria-valuenow="<%= box.percent_left %>" aria-valuemin="0" aria-valuemax="100"><%= box.percent_left %>%</div>
+                </div>
+              </li>
+            <% end %>
           <% end %>
         </ol>
       </p>
