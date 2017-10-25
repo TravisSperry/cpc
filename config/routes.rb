@@ -19,6 +19,9 @@ Cpc::Application.routes.draw do
       get 'mark_as_won'
       get 'mark_as_lost'
     end
+    collection do
+      get 'calculator'
+    end
   end
 
   get "static_pages/home"

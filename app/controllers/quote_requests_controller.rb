@@ -93,6 +93,11 @@ class QuoteRequestsController < ApplicationController
     end
   end
 
+  def calculator
+    @powder_costs = { stock: 8.5, exotic: 12.5, custom: 16.5 }
+    @oven_sizes = { small: 20, large: 45 }
+  end
+
   def mark_as_viewed
     @quote_request = QuoteRequest.find(params[:id])
 

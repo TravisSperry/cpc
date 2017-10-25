@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="mb-4">Quote Calculator</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <%= form_tag '#', :onSubmit => "return false" do %>
+        <div class="row mb-3">
+          <div class="col-sm-6">
+            <%= label_tag 'Labor' %>
+            <%= text_field_tag :labor_hours, nil, placeholder: 'Estimated # of hours', class: 'form-control', data: { rate: 100 } %>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-6">
+            <%= label_tag 'Oven Cost' %>
+            <%= text_field_tag :oven_hours, nil, placeholder: 'Estimated # of hours', class: 'form-control' %>
+          </div>
+          <div class="col-sm-6">
+            <%= label_tag 'Oven Size' %>
+            <%= select_tag :oven_size,
+                            options_from_collection_for_select(@oven_sizes, :last, :first),
+                            class: 'form-control' %>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-6">
+            <%= label_tag 'Powder Cost' %>
+            <%= text_field_tag :powder_weight,
+                               nil,
+                               placeholder: 'Estimated # of lbs',
+                               class: 'form-control' %>
+          </div>
+          <div class="col-sm-6">
+            <%= label_tag 'Type' %>
+            <%= select_tag :powder_type,
+                           options_from_collection_for_select(@powder_costs, :last, :first),
+                           class: 'form-control' %>
+          </div>
+        </div>
+      <% end %>
+    </div> <!-- /.col-sm-8 -->
+    <div class="col-sm-4">
+      <table class="table tabl-bordered">
+        <thead>
+          <tr>
+            <th>Subtotal</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <td id="subtotal">$<span>0.00</span></td>
+          <td id="total">$<span>0.00</span></td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!--
+# labor hours (100/hr)
+# oven large (45/hr)
+# oven small (20/hr)
+# powder (stock 8.5/lb, exotic 12.50/lb, custom 16.50/lb)
+# cost of business [labor oven powder] x (.05, .75, .1, .125, .15, .225)
+# margin ((total cost)/.4) -margins: .35, .425, .525, .6
+-->

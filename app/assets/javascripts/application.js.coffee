@@ -8,6 +8,7 @@
 #= require dataTables/extras/dataTables.responsive
 #= require chosen-jquery
 #= require unslider
+#= require calculator
 
 jQuery ->
   $('.datatable').DataTable
