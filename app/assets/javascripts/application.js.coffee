@@ -1,7 +1,6 @@
 #= require jquery
 #= require jquery_ujs
 #= require jquery-ui
-#= require jquery-ui
 #= require tether
 #= require bootstrap
 #= require dataTables/jquery.dataTables
@@ -9,6 +8,7 @@
 #= require chosen-jquery
 #= require unslider
 #= require calculator
+#= require bootstrap-slider
 
 jQuery ->
   $('.datatable').DataTable

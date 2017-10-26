@@ -15,7 +15,7 @@
         </div>
         <div class="row mb-3">
           <div class="col-sm-6">
-            <%= label_tag 'Oven Cost' %>
+            <%= label_tag 'Oven Hours' %>
             <%= text_field_tag :oven_hours, nil, placeholder: 'Estimated # of hours', class: 'form-control' %>
           </div>
           <div class="col-sm-6">
@@ -25,9 +25,9 @@
                             class: 'form-control' %>
           </div>
         </div>
-        <div class="row mb-3">
+        <div class="row mb-4">
           <div class="col-sm-6">
-            <%= label_tag 'Powder Cost' %>
+            <%= label_tag 'Powder Pounds' %>
             <%= text_field_tag :powder_weight,
                                nil,
                                placeholder: 'Estimated # of lbs',
@@ -38,6 +38,38 @@
             <%= select_tag :powder_type,
                            options_from_collection_for_select(@powder_costs, :last, :first),
                            class: 'form-control' %>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-sm-6 text-center">
+            <label for="margin">Cost Of Business</label><br>
+            <input
+              type="integer"
+              name="cost-of-business"
+              data-provide="slider"
+              data-slider-ticks="[1, 2, 3, 4, 5, 6]"
+              data-slider-ticks-labels='[".05", ".075", ".1", ".125", ".15", ".175"]'
+              data-slider-min="0"
+              data-slider-max="5"
+              data-slider-step="1"
+              data-slider-value="3"
+              data-slider-tooltip="hide"
+            >
+          </div>
+          <div class="col-sm-6 text-center">
+            <label for="margin">Margin</label><br>
+            <input
+              type="integer"
+              name="margin"
+              data-provide="slider"
+              data-slider-ticks="[1, 2, 3, 4]"
+              data-slider-ticks-labels='[".35", ".425", ".525", ".6"]'
+              data-slider-min="0"
+              data-slider-max="3"
+              data-slider-step="1"
+              data-slider-value="0"
+              data-slider-tooltip="hide"
+            >
           </div>
         </div>
       <% end %>
@@ -64,6 +96,6 @@
 # oven large (45/hr)
 # oven small (20/hr)
 # powder (stock 8.5/lb, exotic 12.50/lb, custom 16.50/lb)
-# cost of business [labor oven powder] x (.05, .75, .1, .125, .15, .225)
+# cost of business [labor oven powder] x (.05, .075, .1, .125, .15, .225)
 # margin ((total cost)/.4) -margins: .35, .425, .525, .6
 -->
