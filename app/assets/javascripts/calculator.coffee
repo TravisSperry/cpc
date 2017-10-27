@@ -6,8 +6,8 @@ sum_costs = ->
   oven_cost = $('#oven_hours').val() * $('#oven_size').val()
   powder_cost = $('#powder_weight').val() * $('#powder_type').val()
   soft_costs = labor_cost + oven_cost + powder_cost
-  cob = soft_costs * (1 + cost_of_business($("input[name='cost-of-business']").val()))
-  total_cost = (soft_costs + cob) / (1 - margin($("input[name='margin']").val()))
+  cob = soft_costs * (cost_of_business($("input[name='cost-of-business']").val()))
+  total_cost = (cob + soft_costs) / (1 - margin($("input[name='margin']").val()))
 
 
   $('#subtotal').find('span').html((soft_costs + cob).toFixed(2))
