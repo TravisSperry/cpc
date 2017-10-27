@@ -4,7 +4,7 @@ $(':input').bind 'keyup change', ->
 sum_costs = ->
   labor_cost = $('#labor_hours').val() * 80
   oven_cost = $('#oven_hours').val() * $('#oven_size').val()
-  powder_cost = $('#powder_weight').val() * $('#powder_type').val()
+  powder_cost = $('#powder_weight').val() * (parseFloat($('#powder_price').val()) || 0)
   soft_costs = labor_cost + oven_cost + powder_cost
   cob = soft_costs * (cost_of_business($("input[name='cost-of-business']").val()))
   total_cost = (cob + soft_costs) / (1 - margin($("input[name='margin']").val()))

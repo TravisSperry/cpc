@@ -34,10 +34,11 @@
                                class: 'form-control' %>
           </div>
           <div class="col-sm-6">
-            <%= label_tag 'Type' %>
-            <%= select_tag :powder_type,
-                           options_from_collection_for_select(@powder_costs, :last, :first),
-                           class: 'form-control' %>
+            <%= label_tag 'Price per pound' %>
+            <%= text_field_tag :powder_price,
+                               nil,
+                               placeholder: 'Price per lb',
+                               class: 'form-control' %>
           </div>
         </div>
         <div class="row mt-3">
