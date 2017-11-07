@@ -68,7 +68,7 @@ class QuoteRequestsController < ApplicationController
   # PUT /quotes/1
   # PUT /quotes/1.json
   def update
-    @quote_request = QuoteRequest.find(params[:id])
+    @quote_request = QuoteRequest.find(quote_request_params)
 
     respond_to do |format|
       if @quote_request.update_attributes(params[:quote_request])
