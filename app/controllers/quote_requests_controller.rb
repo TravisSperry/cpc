@@ -68,10 +68,10 @@ class QuoteRequestsController < ApplicationController
   # PUT /quotes/1
   # PUT /quotes/1.json
   def update
-    @quote_request = QuoteRequest.find(quote_request_params)
+    @quote_request = QuoteRequest.find(params[:id])
 
     respond_to do |format|
-      if @quote_request.update_attributes(params[:quote_request])
+      if @quote_request.update_attributes(quote_request_params)
         format.html { redirect_to @quote_request, notice: 'RFQ was successfully updated.' }
         format.json { head :no_content }
       else
