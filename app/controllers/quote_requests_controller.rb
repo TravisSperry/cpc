@@ -53,7 +53,7 @@ class QuoteRequestsController < ApplicationController
             @quote_request_attachment = @quote_request.quote_request_attachments.create!(:attachment => a)
           end
         end
-        NotificationMailer.new_quote(@quote_request).deliver
+        NotificationMailer.new_quote(@quote_request).deliver unless current_user
         # Redirect to thank you page with request_type in params
         format.html { redirect_to static_pages_thank_you_url(request_type: "quote"), notice: 'Request received. We will contact you shortly.' }
         format.json { render json: @quote_request, status: :created, location: @quote_request }
