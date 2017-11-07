@@ -1,7 +1,8 @@
-<div class="alert alert-success mb-4" style='padding:15px 20px 15px 20px;'>
-  Submit a short description of your project, some pictures or plans (if you have them) and <strong>someone will get in touch within one business day</strong>.
-</div>
-
+<% unless current_user %>
+  <div class="alert alert-success mb-4" style='padding:15px 20px 15px 20px;'>
+    Submit a short description of your project, some pictures or plans (if you have them) and <strong>someone will get in touch within one business day</strong>.
+  </div>
+<% end %>
 <%= simple_form_for(@quote_request) do |f| %>
   <%= f.error_notification %>
 
@@ -35,7 +36,7 @@
           <% end %>
         </p>
         <div style="margin-bottom:25px;">
-          <%= recaptcha_tags unless Rails.env.development? %>
+          <%= recaptcha_tags unless Rails.env.development? || current_user %>
         </div>
 
         <% if user_signed_in?%>
