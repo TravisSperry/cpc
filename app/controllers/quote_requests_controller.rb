@@ -18,6 +18,7 @@ class QuoteRequestsController < ApplicationController
   # GET /quotes/1.json
   def show
     @quote_request = QuoteRequest.find(params[:id])
+    @note = @quote_request.notes.build
 
     respond_to do |format|
       format.html # show.html.erb
@@ -136,6 +137,6 @@ class QuoteRequestsController < ApplicationController
     # permit list between create and update. Also, you can specialize
     # this method with per-user checking of permissible attributes.
     def quote_request_params
-      params.require(:quote_request).permit(:address_1, :address_2, :city, :coating_requirements, :company_name, :email, :fax, :first_name, :job_title, :last_name, :masking_requirements, :note, :packaging_requirements, :paint_specs, :part_description, :part_number, :part_size, :powder_color, :powder_product_code, :powder_product_manufacturer, :quantity_run, :quantity_year, :state, :substrate, :telephone, :zip, :status, :user_id, :source, quote_request_attachments_attributes: [:id, :quote_request_id, :attachment])
+      params.require(:quote_request).permit(:address_1, :address_2, :city, :coating_requirements, :company_name, :email, :fax, :first_name, :job_title, :last_name, :masking_requirements, :note, :packaging_requirements, :paint_specs, :part_description, :part_number, :part_size, :powder_color, :powder_product_code, :powder_product_manufacturer, :quantity_run, :quantity_year, :state, :substrate, :telephone, :zip, :status, :user_id, :source, quote_request_attachments_attributes: [:id, :quote_request_id, :attachment], notes_attributes: [:user_id, :content])
     end
 end

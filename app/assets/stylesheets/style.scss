@@ -1,4 +1,4 @@
-
+$main-heading-width: 450px;
 // --------- Navbar Styling --------- //
 .pre-nav{
   width:100%;
@@ -103,7 +103,7 @@ and (max-device-width: 667px) {
   padding-top: 75px;
 
   .quality{
-    width:420px;
+    width: $main-heading-width;
     font-family: Josefin Sans;
     font-weight: bold;
     font-size: 37px;
@@ -156,7 +156,7 @@ and (max-device-width: 667px) {
   font-family: Josefin Sans;
 
   .quality{
-    width:420px;
+    width:$main-heading-width;
     font-weight: bold;
     font-size: 37px;
     letter-spacing: -1.48px;
@@ -200,7 +200,7 @@ and (max-device-width: 667px) {
   font-family: Josefin Sans;
 
   .quality{
-    width:420px;
+    width:$main-heading-width;
     font-weight: bold;
     font-size: 37px;
     letter-spacing: -1.48px;
@@ -301,11 +301,9 @@ and (max-device-width: 667px) {
 }
 
 footer {
-  position: relative;
-  right: 0;
-  bottom: 0;
-  left: 0;
   margin: 60px 0 0 0;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer-top{

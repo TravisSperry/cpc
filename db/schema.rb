@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170717152343) do
+ActiveRecord::Schema.define(version: 20171108015322) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -49,6 +49,17 @@ ActiveRecord::Schema.define(version: 20170717152343) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "notes", force: true do |t|
+    t.text     "content",      limit: 255
+    t.integer  "notable_id"
+    t.string   "notable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "notes", ["notable_id", "notable_type"], name: "index_notes_on_notable_id_and_notable_type"
 
   create_table "powders", force: true do |t|
     t.integer  "manufacturer_id"

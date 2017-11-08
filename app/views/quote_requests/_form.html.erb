@@ -21,7 +21,7 @@
         <%= f.input :source, collection: QuoteRequest::SOURCES %>
         <p>
           <%= f.fields_for :post_attachments do |p| %>
-          <div class="card card-block">
+          <div class="card card-body">
             <div class="card-title">
               <strong>Add Attachments</strong>
             </div>

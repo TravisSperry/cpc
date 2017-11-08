@@ -1,7 +1,7 @@
 #= require jquery
 #= require jquery_ujs
 #= require jquery-ui
-#= require tether
+#= require popper
 #= require bootstrap
 #= require dataTables/jquery.dataTables
 #= require dataTables/extras/dataTables.responsive

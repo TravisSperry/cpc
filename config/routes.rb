@@ -10,15 +10,20 @@ Cpc::Application.routes.draw do
 
   resources :quote_request_attachments
 
+  resources :notes
+
   devise_for :users
 
   resources :quote_requests do
+    resources :notes
+
     member do
       get 'mark_as_viewed'
       get 'mark_as_submitted'
       get 'mark_as_won'
       get 'mark_as_lost'
     end
+
     collection do
       get 'calculator'
     end

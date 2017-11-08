@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
+ruby '2.3.1'
 
-gem 'rails', '4.1'
+gem 'rails', '4.1.16'
 
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'carrierwave-aws'
 gem 'chosen-rails'
