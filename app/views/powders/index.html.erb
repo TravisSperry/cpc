@@ -1,25 +1,28 @@
-<div class="container" style="margin-top:40px;">
+<div class="container mt-lg-5 mt-md-5 mt-2">
   <h1>Powders</h1>
-  <p>
-    <div class="btn-group">
-      <%= link_to 'New Powder', new_powder_path, class: 'btn btn-primary' %>
-      <%= link_to 'New Manufacturer', new_manufacturer_path, class: 'btn btn-secondary' %>
-      <%= link_to 'Manage Color Options', colors_path, class: 'btn btn-info' %>
-    </div>
-  </p>
-  <p>
-    Download:
+  <div class="btn-group d-none d-md-flex mt-4 mb-4">
+    <%= link_to 'New Powder', new_powder_path, class: 'btn btn-primary' %>
+    <%= link_to 'New Manufacturer', new_manufacturer_path, class: 'btn btn-secondary' %>
+    <%= link_to 'Manage Color Options', colors_path, class: 'btn btn-info' %>
+  </div>
+  <div class="d-block d-md-none mb-4 mt-4 mt-md-0 mt-md-0">
+    <%= link_to 'New Powder', new_powder_path, class: 'btn btn-block btn-primary' %>
+    <%= link_to 'New Manufacturer', new_manufacturer_path, class: 'btn btn-block btn-secondary' %>
+    <%= link_to 'Manage Color Options', colors_path, class: 'btn btn-block btn-info' %>
+  </div>
+  <div class="mt-3 mb-3">
+    <strong>Download:</strong>
     <%= link_to "CSV", powders_path(format: "csv") %>
-  </p>
-  <table class="datatable display responsive no-wrap">
+  </div>
+  <table class="datatable display table-responsive no-wrap" width='100%'>
     <thead>
       <tr>
-        <th data-priority="1">Manufacturer</th>
-        <th data-priority="2">Color</th>
-        <th>Part number</th>
-        <th>Boxes</th>
+        <th>Manufacturer</th>
+        <th>Color</th>
+        <th class="not-mobile">Part number</th>
+        <th class="not-mobile">Boxes</th>
         <th>Weight</th>
-        <th data-priority="3"></th>
+        <th class="all"></th>
         <th></th>
       </tr>
     </thead>
