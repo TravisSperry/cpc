@@ -42,14 +42,14 @@
         </ol>
       </p>
       <p>
-        <strong>Total In Stock Weight:</strong>
+        <strong>Total In-Stock Weight:</strong>
         <%= @powder.total_weight %> lbs
       </p>
     </div>
     <div class="col-md-6">
       <div class="card">
         <div class="card-header">Manufacturer Specs</div>
-        <div class="card-block">
+        <div class="card-body pb-0">
           <% if @powder.part_number %>
             <% Powder::TCI_PRODUCT_FORMULATION.each_with_index do |(k,v), i| %>
               <p>
