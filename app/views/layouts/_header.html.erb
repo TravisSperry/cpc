@@ -28,35 +28,37 @@
   </div>
   <!-- Pre Nav End -->
   <!-- Main Nav Start -->
-  <div class="nav">
-    <a href="/">
+  <nav class="navbar nav cpc-nav">
+    <a href="/" class="navbar-brand">
       <%= image_tag 'cpc_logo.png', height: '42px', alt: 'logo' %>
     </a>
-    <% if current_user %>
-      <li class="dropdown user-dropdown ml-auto mr-5">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          <i class="icon-user"></i>
-          <%= current_user.first_name %> <%= current_user.last_name[0,1] %>. <%= current_user.suffix if current_user.suffix %>
-          <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          <li>
-            <%= link_to edit_user_registration_path do %>
-              <i class="icon-gears"></i> Settings
-            <% end %>
-          </li>
-          <li class="divider"></li>
-          <li><a href="<%= destroy_user_session_path %>"><i class="icon-power-off"></i> Log Out</a></li>
-        </ul>
-      </li>
-    <% else %>
-      <li class='nav-quote-req d-none d-md-inline ml-auto'>
-        <%= link_to "Request A Quote", new_quote_request_path, style: 'font-size:20px;' %>
-      </li>
-      <li class='nav-quote-req d-md-none d-lg-none ml-auto'>
-        <%= link_to "Request A Quote", new_quote_request_path, style: 'font-size:14px;' %>
-      </li>
-    <% end %>
-  </div>
+    <ul class="nav justify-content-end">
+      <% if current_user %>
+        <li class="dropdown user-dropdown ml-auto mr-3">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="icon-user"></i>
+            <%= current_user.first_name %> <%= current_user.last_name[0,1] %>. <%= current_user.suffix if current_user.suffix %>
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to edit_user_registration_path do %>
+                <i class="icon-gears"></i> Settings
+              <% end %>
+            </li>
+            <li class="divider"></li>
+            <li><a href="<%= destroy_user_session_path %>"><i class="icon-power-off"></i> Log Out</a></li>
+          </ul>
+        </li>
+      <% else %>
+        <li class='nav-quote-req d-none d-md-inline ml-auto'>
+          <%= link_to "Request A Quote", new_quote_request_path, style: 'font-size:20px;' %>
+        </li>
+        <li class='nav-quote-req d-md-none d-lg-none ml-auto'>
+          <%= link_to "Request A Quote", new_quote_request_path, style: 'font-size:14px;' %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
   <!-- Main Header End -->
 </header>

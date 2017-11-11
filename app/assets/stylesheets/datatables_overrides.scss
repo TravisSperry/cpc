@@ -1,0 +1,19 @@
+@media screen and (max-width: 640px){
+  .dataTables_wrapper .dataTables_filter {
+    margin-top: 0.5em;
+    margin-right: 30px;
+    float: right;
+  }
+  .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter {
+    float: none;
+    text-align: right;
+    margin-right: 30px;
+  }
+}
+
+@media screen and (max-width: 767px){
+  .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_paginate {
+    float: right;
+    text-align: none;
+  }
+}
