@@ -28,6 +28,7 @@ gem 'uglifier', '>= 1.0.3'
 
 group :development, :test do
   gem 'letter_opener'
+  gem 'rspec-rails', '~> 3.6'
   gem 'sqlite3'
 end
 
