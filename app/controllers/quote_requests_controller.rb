@@ -1,12 +1,13 @@
-class QuoteRequestsController < ApplicationController
+# frozen_string_literal: true
 
-  before_filter :authenticate_user!, except: [:new, :create]
+class QuoteRequestsController < ApplicationController
+  before_filter :authenticate_user!, except: %i[new create]
 
   # GET /quotes
   # GET /quotes.json
   def index
-    @active_quote_requests = QuoteRequest.where("status = ? OR status = ? OR status = ?", "New", "Viewed", "Submitted")
-    @quote_requests = QuoteRequest.order("created_at DESC").all
+    @active_quote_requests = QuoteRequest.where('status = ? OR status = ? OR status = ?', 'New', 'Viewed', 'Submitted')
+    @quote_requests = QuoteRequest.order('created_at DESC').all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -51,16 +52,16 @@ class QuoteRequestsController < ApplicationController
       if (verify_recaptcha(model: @quote_request) || Rails.env.development? || current_user) && @quote_request.save
         if params[:quote_request_attachments]
           params[:quote_request_attachments]['attachment'].each do |a|
-            @quote_request_attachment = @quote_request.quote_request_attachments.create!(:attachment => a)
+            @quote_request_attachment = @quote_request.quote_request_attachments.create!(attachment: a)
           end
         end
         NotificationMailer.new_quote(@quote_request).deliver unless current_user
         # Redirect to thank you page with request_type in params
-        format.html { redirect_to static_pages_thank_you_url(request_type: "quote"), notice: 'Request received. We will contact you shortly.' }
+        format.html { redirect_to static_pages_thank_you_url(request_type: 'quote'), notice: 'Request received. We will contact you shortly.' }
         format.json { render json: @quote_request, status: :created, location: @quote_request }
       else
-        flash[:error] = "Please verify that you are not a robot by checking the checkbox below." unless verify_recaptcha(model: @quote_request)
-        format.html { render action: "new" }
+        flash[:error] = 'Please verify that you are not a robot by checking the checkbox below.' unless verify_recaptcha(model: @quote_request)
+        format.html { render action: 'new' }
         format.json { render json: @quote_request.errors, status: :unprocessable_entity }
       end
     end
@@ -76,7 +77,7 @@ class QuoteRequestsController < ApplicationController
         format.html { redirect_to @quote_request, notice: 'RFQ was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @quote_request.errors, status: :unprocessable_entity }
       end
     end
@@ -102,41 +103,42 @@ class QuoteRequestsController < ApplicationController
   def mark_as_viewed
     @quote_request = QuoteRequest.find(params[:id])
 
-    @quote_request.update_attribute :status, "Viewed"
+    @quote_request.update_attribute :status, 'Viewed'
 
-    redirect_to quote_requests_url, notice: "Quote request has been marked as viewed."
+    redirect_to quote_requests_url, notice: 'Quote request has been marked as viewed.'
   end
 
   def mark_as_submitted
     @quote_request = QuoteRequest.find(params[:id])
 
-    @quote_request.update_attribute :status, "Submitted"
+    @quote_request.update_attribute :status, 'Submitted'
 
-    redirect_to quote_requests_url, notice: "Quote request has been marked as submitted."
+    redirect_to quote_requests_url, notice: 'Quote request has been marked as submitted.'
   end
 
   def mark_as_won
     @quote_request = QuoteRequest.find(params[:id])
 
-    @quote_request.update_attribute :status, "Won"
+    @quote_request.update_attribute :status, 'Won'
 
-    redirect_to quote_requests_url, notice: "Quote request has been marked as won."
+    redirect_to quote_requests_url, notice: 'Quote request has been marked as won.'
   end
 
   def mark_as_lost
     @quote_request = QuoteRequest.find(params[:id])
 
-    @quote_request.update_attribute :status, "Lost"
+    @quote_request.update_attribute :status, 'Lost'
 
-    redirect_to quote_requests_url, notice: "Quote request has been marked as lost."
+    redirect_to quote_requests_url, notice: 'Quote request has been marked as lost.'
   end
 
   private
-    # Using a private method to encapsulate the permissible parameters
-    # is just a good pattern since you'll be able to reuse the same
-    # permit list between create and update. Also, you can specialize
-    # this method with per-user checking of permissible attributes.
-    def quote_request_params
-      params.require(:quote_request).permit(:address_1, :address_2, :city, :coating_requirements, :company_name, :email, :fax, :first_name, :job_title, :last_name, :masking_requirements, :note, :packaging_requirements, :paint_specs, :part_description, :part_number, :part_size, :powder_color, :powder_product_code, :powder_product_manufacturer, :quantity_run, :quantity_year, :state, :substrate, :telephone, :zip, :status, :user_id, :source, quote_request_attachments_attributes: [:id, :quote_request_id, :attachment], notes_attributes: [:user_id, :content])
-    end
+
+  # Using a private method to encapsulate the permissible parameters
+  # is just a good pattern since you'll be able to reuse the same
+  # permit list between create and update. Also, you can specialize
+  # this method with per-user checking of permissible attributes.
+  def quote_request_params
+    params.require(:quote_request).permit(:address_1, :address_2, :city, :coating_requirements, :company_name, :email, :fax, :first_name, :job_title, :last_name, :masking_requirements, :note, :packaging_requirements, :paint_specs, :part_description, :part_number, :part_size, :powder_color, :powder_product_code, :powder_product_manufacturer, :quantity_run, :quantity_year, :state, :substrate, :telephone, :zip, :status, :user_id, :source, quote_request_attachments_attributes: %i[id quote_request_id attachment], notes_attributes: %i[user_id content])
+  end
 end

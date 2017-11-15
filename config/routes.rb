@@ -1,5 +1,6 @@
-Cpc::Application.routes.draw do
+# frozen_string_literal: true
 
+Cpc::Application.routes.draw do
   resources :boxes
 
   resources :colors
@@ -29,9 +30,9 @@ Cpc::Application.routes.draw do
     end
   end
 
-  get "static_pages/home"
-  get "static_pages/about"
-  get "static_pages/thank_you"
+  get 'static_pages/home'
+  get 'static_pages/about'
+  get 'static_pages/thank_you'
 
   match 'contact' => 'contact#new', :as => 'new_message', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post

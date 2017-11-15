@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class QuotesController < ApplicationController
   # GET /quotes
   # GET /quotes.json
-  before_filter :authenticate_user!, except: [:new, :create]
+  before_filter :authenticate_user!, except: %i[new create]
 
   def index
     @quotes = Quote.all
@@ -50,7 +52,7 @@ class QuotesController < ApplicationController
         format.html { redirect_to root_url, notice: 'Request received. We will contact you shortly.' }
         format.json { render json: @quote, status: :created, location: @quote }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.json { render json: @quote.errors, status: :unprocessable_entity }
       end
     end
@@ -66,7 +68,7 @@ class QuotesController < ApplicationController
         format.html { redirect_to @quote, notice: 'Quote was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @quote.errors, status: :unprocessable_entity }
       end
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StaticPagesController < ApplicationController
   protect_from_forgery
 
@@ -5,9 +7,7 @@ class StaticPagesController < ApplicationController
     @new_quote_requests = QuoteRequest.where('status=?', 'New')
   end
 
-  def about
-  end
+  def about; end
 
-  def thank_you
-  end
+  def thank_you; end
 end

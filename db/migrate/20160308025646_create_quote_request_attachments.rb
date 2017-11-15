@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateQuoteRequestAttachments < ActiveRecord::Migration
   def change
     create_table :quote_request_attachments do |t|

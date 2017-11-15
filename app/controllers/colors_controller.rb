@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ColorsController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_color, only: [:show, :edit, :update, :destroy]
+  before_action :set_color, only: %i[show edit update destroy]
 
   respond_to :html
 
@@ -18,8 +20,7 @@ class ColorsController < ApplicationController
     respond_with(@color)
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @color = Color.new(color_params)
@@ -38,11 +39,12 @@ class ColorsController < ApplicationController
   end
 
   private
-    def set_color
-      @color = Color.find(params[:id])
-    end
 
-    def color_params
-      params.require(:color).permit(:name)
-    end
+  def set_color
+    @color = Color.find(params[:id])
+  end
+
+  def color_params
+    params.require(:color).permit(:name)
+  end
 end

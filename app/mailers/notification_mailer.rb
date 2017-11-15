@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class NotificationMailer < ActionMailer::Base
-  default from: "contact@columbuspowdercoat.com"
-  default to: ["paul@columbuspowdercoat.com", "willyb@columbuspowdercoat.com"]
+  default from: 'contact@columbuspowdercoat.com'
+  default to: ['paul@columbuspowdercoat.com', 'willyb@columbuspowdercoat.com']
 
   def new_message(message)
     @message = message
@@ -11,6 +13,7 @@ class NotificationMailer < ActionMailer::Base
     @quote_request = QuoteRequest.find(quote_request.id)
     mail(subject: "CPC:You've recieved an RFQ!")
   end
+
   def low_powder_notification(powder)
     @powder = powder
     mail(subject: "Your running low on #{powder.name}")

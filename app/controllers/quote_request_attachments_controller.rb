@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class QuoteRequestAttachmentsController < ApplicationController
-  before_action :set_quote_request_attachment, only: [:show, :edit, :update, :destroy]
+  before_action :set_quote_request_attachment, only: %i[show edit update destroy]
 
   respond_to :html
 
@@ -17,8 +19,7 @@ class QuoteRequestAttachmentsController < ApplicationController
     respond_with(@quote_request_attachment)
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @quote_request_attachment = QuoteRequestAttachment.new(quote_request_attachment_params)
@@ -37,11 +38,12 @@ class QuoteRequestAttachmentsController < ApplicationController
   end
 
   private
-    def set_quote_request_attachment
-      @quote_request_attachment = QuoteRequestAttachment.find(params[:id])
-    end
 
-    def quote_request_attachment_params
-      params.require(:quote_request_attachment).permit(:quote_request_id, :attachment)
-    end
+  def set_quote_request_attachment
+    @quote_request_attachment = QuoteRequestAttachment.find(params[:id])
+  end
+
+  def quote_request_attachment_params
+    params.require(:quote_request_attachment).permit(:quote_request_id, :attachment)
+  end
 end

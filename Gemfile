@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 ruby '2.3.1'
@@ -11,22 +13,27 @@ gem 'chosen-rails'
 gem 'coffee-rails'
 gem 'compass-rails'
 gem 'devise'
+gem 'font-awesome-sass-rails'
+gem 'jquery-datatables-rails', '~> 3.3.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'jquery-datatables-rails', '~> 3.3.0'
-gem 'uglifier', '>= 1.0.3'
-gem 'font-awesome-sass-rails'
 gem 'modernizr-rails'
 gem 'paper_trail'
 gem 'puma'
+gem 'recaptcha', require: 'recaptcha/rails'
 gem 'sass-rails'
 gem 'simple_form'
-gem "recaptcha", require: "recaptcha/rails"
 gem 'tether-rails'
+gem 'uglifier', '>= 1.0.3'
 
 group :development, :test do
+  gem 'letter_opener'
   gem 'sqlite3'
-  gem "letter_opener"
+end
+
+group :development do
+  gem 'rubocop', '~> 0.51.0', require: false
+  gem 'rubocop-rspec'
 end
 
 group :production do

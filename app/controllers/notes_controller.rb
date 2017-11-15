@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class NotesController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_note, only: %i[show edit update destroy]
 
   # GET /notes
   def index
@@ -8,8 +10,7 @@ class NotesController < ApplicationController
   end
 
   # GET /notes/1
-  def show
-  end
+  def show; end
 
   # GET /notes/new
   def new
@@ -17,8 +18,7 @@ class NotesController < ApplicationController
   end
 
   # GET /notes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /notes
   def create
@@ -47,13 +47,14 @@ class NotesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_note
-      @note = Note.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def note_params
-      params.require(:note).permit(:user_id, :content, :notable_id, :notable_type)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_note
+    @note = Note.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def note_params
+    params.require(:note).permit(:user_id, :content, :notable_id, :notable_type)
+  end
 end

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BoxesController < ApplicationController
-  before_action :set_box, only: [:show, :edit, :update, :destroy]
+  before_action :set_box, only: %i[show edit update destroy]
 
   respond_to :html
 
@@ -17,8 +19,7 @@ class BoxesController < ApplicationController
     respond_with(@box)
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @box = Box.new(box_params)
@@ -37,11 +38,12 @@ class BoxesController < ApplicationController
   end
 
   private
-    def set_box
-      @box = Box.find(params[:id])
-    end
 
-    def box_params
-      params.require(:box).permit(:powder_id, :weight, :original_weight)
-    end
+  def set_box
+    @box = Box.find(params[:id])
+  end
+
+  def box_params
+    params.require(:box).permit(:powder_id, :weight, :original_weight)
+  end
 end

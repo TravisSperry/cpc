@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class PowdersController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_powder, only: [:show, :edit, :update, :destroy]
+  before_action :set_powder, only: %i[show edit update destroy]
 
   respond_to :html
 
@@ -23,8 +25,7 @@ class PowdersController < ApplicationController
     respond_with(@powder)
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @powder = Powder.new(powder_params)
@@ -43,11 +44,12 @@ class PowdersController < ApplicationController
   end
 
   private
-    def set_powder
-      @powder = Powder.find(params[:id])
-    end
 
-    def powder_params
-      params.require(:powder).permit(:manufacturer_id, :color_id, :part_number, :name, :weight, :high_demand, :reminder_weight)
-    end
+  def set_powder
+    @powder = Powder.find(params[:id])
+  end
+
+  def powder_params
+    params.require(:powder).permit(:manufacturer_id, :color_id, :part_number, :name, :weight, :high_demand, :reminder_weight)
+  end
 end

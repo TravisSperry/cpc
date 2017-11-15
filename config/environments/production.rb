@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 Cpc::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-
 
   # Code is not reloaded between requests
   config.cache_classes = true
@@ -63,6 +64,6 @@ Cpc::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  #videojs
-  config.assets.precompile += %w( video-js.swf vjs.eot vjs.svg vjs.ttf vjs.woff )
+  # videojs
+  config.assets.precompile += %w[video-js.swf vjs.eot vjs.svg vjs.ttf vjs.woff]
 end

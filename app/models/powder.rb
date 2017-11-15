@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 
 class Powder < ActiveRecord::Base
@@ -8,7 +10,7 @@ class Powder < ActiveRecord::Base
   has_paper_trail # tracks modifications of each object via versions
 
   TCI_PRODUCT_FORMULATION = {
-    :resin_type => {
+    resin_type: {
       1 =>  'Low Cure',
       2 =>  'Acrylic',
       3 =>  'High Temperature',
@@ -21,7 +23,7 @@ class Powder < ActiveRecord::Base
       10 => 'AAMA 2604',
       11 => 'AAMA 2605'
     },
-    :gloss_reading => {
+    gloss_reading: {
       0 =>  '0-9',
       1 =>  '10-19',
       2 =>  '20-29',
@@ -54,18 +56,17 @@ class Powder < ActiveRecord::Base
       6 =>  'Multi-Color',
       7 =>  'Wrinkle'
     }
-  }
+  }.freeze
 
   def list_name
-    manufacturer.name + " - " + name
+    manufacturer.name + ' - ' + name
   end
 
   def total_weight
     total_weight = 0
-    boxes.each{|box| total_weight += box.weight}
+    boxes.each { |box| total_weight += box.weight }
     total_weight
   end
-
 
   def self.to_csv
     CSV.generate do |csv|
