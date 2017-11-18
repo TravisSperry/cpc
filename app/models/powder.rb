@@ -59,7 +59,7 @@ class Powder < ActiveRecord::Base
   }.freeze
 
   def list_name
-    manufacturer.name + ' - ' + name
+    "#{manufacturer.name} - #{name}"
   end
 
   def total_weight
