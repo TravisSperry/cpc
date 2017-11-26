@@ -4,14 +4,14 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
-gem 'rails', '4.1.16'
+gem 'rails', '4.2.7.1'
 
 gem 'bootstrap'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'carrierwave-aws'
 gem 'chosen-rails'
 gem 'coffee-rails'
-gem 'compass-rails'
+gem 'compass-rails', '~> 3.0.2'
 gem 'devise'
 gem 'font-awesome-sass-rails'
 gem 'jquery-datatables-rails', '~> 3.3.0'
