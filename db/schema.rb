@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171202151528) do
+ActiveRecord::Schema.define(version: 20171202212639) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -45,23 +45,29 @@ ActiveRecord::Schema.define(version: 20171202151528) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "phone"
-    t.string "email"
-    t.string "title"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "phone"
+    t.string  "email"
+    t.string  "title"
+    t.integer "customer_id"
   end
 
+  add_index "contacts", ["customer_id"], name: "index_contacts_on_customer_id"
+
   create_table "customers", force: :cascade do |t|
-    t.string "name"
-    t.string "phone"
-    t.string "fax"
-    t.string "address1"
-    t.string "address2"
-    t.string "city"
-    t.string "state"
-    t.string "zip_code"
+    t.string  "name"
+    t.string  "phone"
+    t.string  "fax"
+    t.string  "address1"
+    t.string  "address2"
+    t.string  "city"
+    t.string  "state"
+    t.string  "zip_code"
+    t.integer "primary_contact_id"
   end
+
+  add_index "customers", ["primary_contact_id"], name: "index_customers_on_primary_contact_id"
 
   create_table "manufacturers", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -144,6 +150,7 @@ ActiveRecord::Schema.define(version: 20171202151528) do
     t.datetime "date_out"
     t.integer  "customer_id"
     t.string   "name"
+    t.integer  "primary_contact_id"
   end
 
 end

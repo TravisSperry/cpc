@@ -5,7 +5,11 @@ Cpc::Application.routes.draw do
 
   resources :colors
 
-  resources :customers
+  resources :customers do
+    resources :contacts
+  end
+
+  resources :contacts
 
   resources :manufacturers
 
@@ -35,9 +39,6 @@ Cpc::Application.routes.draw do
   get 'static_pages/home'
   get 'static_pages/about'
   get 'static_pages/thank_you'
-
-  match 'contact' => 'contact#new', :as => 'new_message', :via => :get
-  match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
   root to: 'static_pages#home'
 
