@@ -5,6 +5,8 @@ Cpc::Application.routes.draw do
 
   resources :colors
 
+  resources :customers
+
   resources :manufacturers
 
   resources :powders

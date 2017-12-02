@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-12">
+    <%= simple_form_for(@customer) do |f| %>
+      <div class="row">
+        <%= f.error_notification %>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :name, label: 'Company Name' %>
+          <%= f.input :phone %>
+          <%= f.input :fax %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :address1 %>
+          <%= f.input :address2 %>
+          <%= f.input :city %>
+          <%= f.input :state %>
+          <%= f.input :zip_code %>
+        </div>
+      </div>
+      <% if action_name == 'edit' %>
+        <div class="row">
+          <div class="col-md-4">
+            <%= f.input :primary_contact %>
+          </div>
+        </div>
+      <% end %>
+      <div class="row">
+        <%= f.button :submit, class: 'btn btn-success' %>
+      </div>
+    <% end %>
+  </div>
+</div>
