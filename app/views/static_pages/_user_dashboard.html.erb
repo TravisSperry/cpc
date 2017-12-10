@@ -3,11 +3,12 @@
   <div class="row d-flex mb-5">
     <div class="col-sm-12">
       <%= link_to "New Customer", new_customer_path, class: "btn btn-info" %>
+      <%= link_to "Quote Calculator", calculator_quote_requests_path, class: "btn btn-secondary" %>
     </div>
   </div>
   <div class="row d-flex align-items-stretch">
     <div class="col-md-4">
-      <div class="card border-light">
+      <div class="card">
         <div class="card-body">
           <div class="row">
             <div class="col-2">
@@ -28,7 +29,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <div class="card border-light">
+      <div class="card">
         <div class="card-body">
           <div class="row">
             <div class="col-sm-12 text-center">
@@ -45,17 +46,17 @@
       </div>
     </div>
     <div class="col-md-4">
-      <div class="card border-light">
+      <div class="card">
         <div class="card-body">
           <div class="row">
             <div class="col-sm-12 text-center">
-              <h1 class="mb-0">Quote Calculator</h1>
+              <h1 class="mb-0">Customers</h1>
             </div>
           </div>
         </div>
-        <a href="<%= calculator_quote_requests_path %>">
+        <a href="<%= customers_path %>">
           <div class="card-footer">
-            <strong>Calculator
+            <strong>Customers
               <i class="icon icon-angle-down float-right mt-1"></i></strong>
           </div>
         </a>

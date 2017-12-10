@@ -12,7 +12,8 @@
         <div class="col-md-6">
           <%= f.input :email %>
           <%= f.input :title %>
-          <%= f.association :customer, label: 'Company' unless params[:customer_id] %>
+          <%= f.association :customer, label: 'Company',
+                                       input_html: { class: 'chosen' } unless params[:customer_id] %>
         </div>
       </div>
       <div class="row">

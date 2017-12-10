@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:new, :edit]
 
   # GET /contacts
   def index
@@ -49,6 +50,10 @@ class ContactsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
       @contact = Contact.find(params[:id])
+    end
+
+    def set_customer
+      @customer = Customer.find params[:customer_id] if params[:customer_id]
     end
 
     # Only allow a trusted parameter "white list" through.

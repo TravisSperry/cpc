@@ -4,14 +4,14 @@
       <%= link_to new_customer_contact_path(@customer.id), class: "btn btn-primary float-right" do %>
         <i class="icon icon-plus"></i> Add Contact
       <% end %>
+        <%= link_to new_customer_contact_path(@customer.id), class: "btn btn-warning mr-2 float-right" do %>
+          <i class="icon icon-plus"></i> Add Work Order
+        <% end %>
     </div>
   </div>
   <div class="row">
     <div class="col-md-6">
-      <h1><%= @customer.name %></h1>
-      <p>
-        <%= link_to 'Edit', edit_customer_path(@customer) %>
-      </p>
+        <h1 class="d-inline"><%= @customer.name %></h1> <small><%= link_to 'Edit', edit_customer_path(@customer) %></small>
       <p class="mt-4">
         <%= @customer.address1 %> <br>
         <%= "#{@customer.address2} <br>".html_safe unless @customer.address2.blank? %>
@@ -31,8 +31,15 @@
         </div>
         <div class="card-body">
           <ul class="pl-4">
+            <li>
+              <strong>Primary Contact:</strong>
+              <%= link_to @customer.primary_contact.try(:full_name), @customer.primary_contact, target: '_blank' %>
+            </li>
             <% @customer.contacts.each do |contact| %>
-              <li><%= link_to contact.full_name, contact %></li>
+              <% next if contact.is_primary? %>
+              <li>
+                <%= link_to contact.full_name, contact %>
+              </li>
             <% end %>
           </ul>
         </div>

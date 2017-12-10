@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171202212639) do
+ActiveRecord::Schema.define(version: 20171203180145) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(version: 20171202212639) do
     t.string  "state"
     t.string  "zip_code"
     t.integer "primary_contact_id"
+    t.integer "account_type",       default: 0
+    t.string  "email"
   end
 
   add_index "customers", ["primary_contact_id"], name: "index_customers_on_primary_contact_id"

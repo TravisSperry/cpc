@@ -18,7 +18,7 @@
         <%= f.input :email %>
         <%= f.input :telephone %>
         <%= f.input :note, placeholder: "Description of project.", :input_html => { :rows => 5 } %>
-        <%= f.input :source, collection: QuoteRequest::SOURCES %>
+        <%= f.input :source, collection: QuoteRequest::SOURCES, label: 'Tell us how you found us.', input_html: { class: 'chosen' } %>
         <p>
           <%= f.fields_for :post_attachments do |p| %>
           <div class="card card-body">
@@ -40,15 +40,14 @@
         </div>
 
         <% if user_signed_in?%>
-          <%= f.input :status, collection: ["New", "Viewed", "Submitted", "Won", "Lost"] %>
-          <%= f.association :user, label_method: :email %>
+          <%= f.input :status, collection: ["New", "Viewed", "Submitted", "Won", "Lost"], input_html: { class: 'chosen' } %>
+          <%= f.association :user, label_method: :email, input_html: { class: 'chosen' } %>
         <% end %>
       </div>
     </div>
   </div>
 
   <div class="form-actions">
-
     <%= f.submit "Submit Request", class: "btn btn-lg btn-success" %>
   </div>
 </br>

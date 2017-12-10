@@ -7,6 +7,7 @@
 #= require dataTables/extras/dataTables.responsive
 #= require chosen-jquery
 #= require calculator
+#= require customers
 #= require bootstrap-slider
 
 jQuery ->
