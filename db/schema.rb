@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203180145) do
+ActiveRecord::Schema.define(version: 20171210130448) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
-    t.string   "trackable_type", limit: 255
+    t.string   "trackable_type"
     t.integer  "owner_id"
-    t.string   "owner_type",     limit: 255
-    t.string   "key",            limit: 255
+    t.string   "owner_type"
+    t.string   "key"
     t.text     "parameters"
     t.integer  "recipient_id"
-    t.string   "recipient_type", limit: 255
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "recipient_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20171203180145) do
   end
 
   create_table "colors", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -72,61 +72,79 @@ ActiveRecord::Schema.define(version: 20171203180145) do
   add_index "customers", ["primary_contact_id"], name: "index_customers_on_primary_contact_id"
 
   create_table "manufacturers", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "notes", force: :cascade do |t|
-    t.text     "content",      limit: 255
+    t.text     "content"
     t.integer  "notable_id"
-    t.string   "notable_type", limit: 255
+    t.string   "notable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
   end
 
-  add_index "notes", ["notable_id", "notable_type"], name: "index_notes_on_notable_id_and_notable_type"
+  add_index "notes", ["notable_type", "notable_id"], name: "index_notes_on_notable_type_and_notable_id"
 
   create_table "powders", force: :cascade do |t|
     t.integer  "manufacturer_id"
     t.integer  "color_id"
-    t.string   "part_number",          limit: 255
+    t.string   "part_number"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",                 limit: 255
-    t.integer  "weight",                           default: 0
-    t.boolean  "high_demand",                      default: false
-    t.integer  "reminder_weight",                  default: 1
+    t.string   "name"
+    t.integer  "weight",               default: 0
+    t.boolean  "high_demand",          default: false
+    t.integer  "reminder_weight",      default: 1
     t.date     "last_weight_reminder"
   end
 
   create_table "quote_request_attachments", force: :cascade do |t|
     t.integer  "quote_request_id"
-    t.string   "attachment",       limit: 255
+    t.string   "attachment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-# Could not dump table "quote_requests" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "quote_requests", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "job_title"
+    t.string   "company_name"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "email"
+    t.string   "telephone"
+    t.string   "fax"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "status",       default: "New", null: false
+    t.string   "source"
+  end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0
+    t.integer  "sign_in_count",          default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.string   "first_name",             limit: 255
-    t.string   "last_name",              limit: 255
-    t.string   "suffix",                 limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "suffix"
     t.boolean  "admin"
   end
 
@@ -134,10 +152,10 @@ ActiveRecord::Schema.define(version: 20171203180145) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "versions", force: :cascade do |t|
-    t.string   "item_type",  limit: 255,        null: false
+    t.string   "item_type",                     null: false
     t.integer  "item_id",                       null: false
-    t.string   "event",      limit: 255,        null: false
-    t.string   "whodunnit",  limit: 255
+    t.string   "event",                         null: false
+    t.string   "whodunnit"
     t.text     "object",     limit: 1073741823
     t.datetime "created_at"
   end
@@ -148,11 +166,12 @@ ActiveRecord::Schema.define(version: 20171203180145) do
     t.datetime "date_scheduled"
     t.datetime "date_due"
     t.datetime "date_completed"
-    t.datetime "date_in"
-    t.datetime "date_out"
     t.integer  "customer_id"
-    t.string   "name"
-    t.integer  "primary_contact_id"
+    t.integer  "contact_id"
+    t.text     "packaging_details"
   end
+
+  add_index "work_orders", ["contact_id"], name: "index_work_orders_on_contact_id"
+  add_index "work_orders", ["customer_id"], name: "index_work_orders_on_customer_id"
 
 end

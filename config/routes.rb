@@ -5,21 +5,18 @@ Cpc::Application.routes.draw do
 
   resources :colors
 
+  resources :contacts
+
   resources :customers do
     resources :contacts
+    resources :work_orders
   end
-
-  resources :contacts
 
   resources :manufacturers
 
-  resources :powders
-
-  resources :quote_request_attachments
-
   resources :notes
 
-  devise_for :users
+  resources :powders
 
   resources :quote_requests do
     resources :notes
@@ -36,9 +33,17 @@ Cpc::Application.routes.draw do
     end
   end
 
+  resources :quote_request_attachments
+
   get 'static_pages/home'
   get 'static_pages/about'
   get 'static_pages/thank_you'
+
+  devise_for :users
+
+  resources :work_orders do
+    resources :notes
+  end
 
   root to: 'static_pages#home'
 

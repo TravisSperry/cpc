@@ -4,10 +4,9 @@ class CreateWorkOrders < ActiveRecord::Migration
       t.datetime :date_scheduled
       t.datetime :date_due
       t.datetime :date_completed
-      t.datetime :date_in
-      t.datetime :date_out
-      t.integer :customer_id
-      t.string :name
+      t.references :customer, index: true, foreign_key: true
+      t.references :contact, index: true, foreign_key: true
+      t.text :packaging_details
     end
   end
 end

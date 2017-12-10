@@ -3,6 +3,8 @@
 #= require jquery-ui
 #= require popper
 #= require bootstrap
+#= require moment
+#= require bootstrap-datetimepicker
 #= require dataTables/jquery.dataTables
 #= require dataTables/extras/dataTables.responsive
 #= require chosen-jquery
@@ -18,4 +20,16 @@ jQuery ->
 
   $('.chosen').chosen()
 
-  $('.unslider').css('margin-top', '-60px')
+  $('.datetimepicker').datetimepicker
+    showClear: true,
+    sideBySide: true,
+    icons:
+      time: 'icon icon-time',
+      date: 'icon icon-calendar',
+      up: 'icon icon-chevron-up',
+      down: 'icon icon-chevron-down',
+      previous: 'icon icon-chevron-left',
+      next: 'icon icon-chevron-right',
+      today: 'icon icon-screenshot',
+      clear: 'icon icon-trash',
+      close: 'icon icon-remove'

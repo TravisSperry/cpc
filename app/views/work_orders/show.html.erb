@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date scheduled:</strong>
+  <%= @work_order.date_scheduled %>
+</p>
+
+<p>
+  <strong>Date due:</strong>
+  <%= @work_order.date_due %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @work_order.customer_id %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @work_order.contact_id %>
+</p>
+
+<p>
+  <strong>Packaging details:</strong>
+  <%= @work_order.packaging_details %>
+</p>
+
+<p>
+  <strong>Date completed:</strong>
+  <%= @work_order.date_completed %>
+</p>
+
+<%= link_to 'Edit', edit_work_order_path(@work_order) %> |
+<%= link_to 'Back', work_orders_path %>
