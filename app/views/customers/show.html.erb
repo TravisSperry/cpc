@@ -33,7 +33,7 @@
           <ul class="pl-4">
             <li>
               <strong>Primary Contact:</strong>
-              <%= link_to @customer.primary_contact.try(:full_name), @customer.primary_contact, target: '_blank' %>
+              <%= link_to @customer.primary_contact.try(:full_name), @customer.primary_contact, target: '_blank' if @customer.primary_contact %>
             </li>
             <% @customer.contacts.each do |contact| %>
               <% next if contact.is_primary? %>

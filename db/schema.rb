@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171210130448) do
+ActiveRecord::Schema.define(version: 20171211034944) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -71,6 +71,13 @@ ActiveRecord::Schema.define(version: 20171210130448) do
 
   add_index "customers", ["primary_contact_id"], name: "index_customers_on_primary_contact_id"
 
+  create_table "line_items", force: :cascade do |t|
+    t.text    "description"
+    t.integer "quantity"
+    t.text    "notes"
+    t.integer "work_order_id"
+  end
+
   create_table "manufacturers", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -129,6 +136,15 @@ ActiveRecord::Schema.define(version: 20171210130448) do
     t.string   "source"
   end
 
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "services_work_orders", force: :cascade do |t|
+    t.integer "service_id"
+    t.integer "work_order_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -169,6 +185,7 @@ ActiveRecord::Schema.define(version: 20171210130448) do
     t.integer  "customer_id"
     t.integer  "contact_id"
     t.text     "packaging_details"
+    t.string   "name"
   end
 
   add_index "work_orders", ["contact_id"], name: "index_work_orders_on_contact_id"

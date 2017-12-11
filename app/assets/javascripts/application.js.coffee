@@ -4,6 +4,7 @@
 #= require popper
 #= require bootstrap
 #= require moment
+#= require cocoon
 #= require bootstrap-datetimepicker
 #= require dataTables/jquery.dataTables
 #= require dataTables/extras/dataTables.responsive
@@ -11,6 +12,7 @@
 #= require calculator
 #= require customers
 #= require bootstrap-slider
+#= require work_orders
 
 jQuery ->
   $('.datatable').DataTable
@@ -18,7 +20,8 @@ jQuery ->
     pagingType: 'simple',
     order:      [[ 0, "desc" ]]
 
-  $('.chosen').chosen()
+  $('.chosen').chosen
+    allow_single_deselect: true
 
   $('.datetimepicker').datetimepicker
     showClear: true,

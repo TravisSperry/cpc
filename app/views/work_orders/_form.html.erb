@@ -3,26 +3,89 @@
     <%= simple_form_for(@work_order) do |f| %>
     <div class="row">
       <div class="col-sm-12">
+        <h2 class="text-muted">Account Information &amp; Scheduling</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
         <%= f.error_notification %>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-4">
-        <%= f.association :customer, label_method: :name %>
-        <%= f.association :contact, label_method: :full_name_and_title %>
+    <div class="row mb-5">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-sm-12">
+            <%= f.input :name, label: 'Job Name' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <%= f.association :customer, label_method: :name,
+                                         selected: params[:customer_id],
+                                         input_html: { class: 'chosen'} %>
+            <%= f.association :contact, label_method: :full_name_and_title,
+                                        collection: @customer.contacts,
+                                        input_html: { class: 'chosen'} %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :date_scheduled, as: :string, input_html: { class: 'datetimepicker' } %>
+            <%= f.input :date_due, as: :string, input_html: { class: 'datetimepicker' } %>
+          </div>
+        </div>
       </div>
-      <div class="col-sm-4">
-        <%= f.input :date_scheduled, as: :string, input_html: { class: 'datetimepicker' } %>
-        <%= f.input :date_due, as: :string, input_html: { class: 'datetimepicker' } %>
-      </div>
-      <div class="col-sm-4">
-        <%= f.input :packaging_details, input_html: { rows: 5 } %>
-        <%= f.input :date_completed, as: :string, input_html: { class: 'datetimepicker' } %>
+      <div class="col-md-4">
+        <%= f.input :packaging_details, input_html: { rows: 9 } %>
       </div>
     </div>
     <div class="row">
+      <div class="col-sm-12">
+        <h2 class="text-muted">Job Details</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <h3 class="text-muted">Services</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <%= f.association :services, as: :check_boxes, label: false, input_html: { class: 'ml-3 mr-1'} %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <h3 class="text-muted">Parts</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Quantity</th>
+              <th>Notes</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= f.simple_fields_for :line_items do |line_item_form| %>
+
+              <%= render 'line_item_fields', f: line_item_form %>
+            <% end %>
+            <tr>
+              <td class="add-line-items text-center" colspan="4">
+                <%= link_to_add_association "Add Line Item", f, :line_items %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <hr class="mb-4">
+    <div class="row">
       <div class="col-sm-6">
-        <%= f.button :submit %>
+        <%= f.button :submit, class: 'btn btn-success' %>
       </div>
     </div>
   <% end %>

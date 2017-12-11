@@ -11,6 +11,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'carrierwave-aws'
 gem 'chosen-rails'
+gem 'cocoon'
 gem 'coffee-rails'
 gem 'compass-rails', '~> 3.0.2'
 gem 'devise'
@@ -40,6 +41,7 @@ end
 group :development do
   gem 'rubocop', '~> 0.51.0', require: false
   gem 'rubocop-rspec'
+  gem 'pry-remote'
 end
 
 group :production do

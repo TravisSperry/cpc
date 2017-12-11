@@ -1,34 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p>
+    <strong>Date scheduled:</strong>
+    <%= @work_order.date_scheduled %>
+  </p>
 
-<p>
-  <strong>Date scheduled:</strong>
-  <%= @work_order.date_scheduled %>
-</p>
+  <p>
+    <strong>Date due:</strong>
+    <%= @work_order.date_due %>
+  </p>
 
-<p>
-  <strong>Date due:</strong>
-  <%= @work_order.date_due %>
-</p>
+  <p>
+    <strong>Customer:</strong>
+    <%= link_to @work_order.customer.name, @work_order.customer if @work_order.customer %>
+  </p>
 
-<p>
-  <strong>Customer:</strong>
-  <%= @work_order.customer_id %>
-</p>
+  <p>
+    <strong>Contact:</strong>
+    <%= link_to @work_order.contact.full_name, @work_order.contact if @work_order.contact  %>
+  </p>
 
-<p>
-  <strong>Contact:</strong>
-  <%= @work_order.contact_id %>
-</p>
+  <p>
+    <strong>Packaging details:</strong>
+    <%= @work_order.packaging_details %>
+  </p>
 
-<p>
-  <strong>Packaging details:</strong>
-  <%= @work_order.packaging_details %>
-</p>
+  <p>
+    <strong>Date completed:</strong>
+    <%= @work_order.date_completed %>
+  </p>
 
-<p>
-  <strong>Date completed:</strong>
-  <%= @work_order.date_completed %>
-</p>
 
-<%= link_to 'Edit', edit_work_order_path(@work_order) %> |
-<%= link_to 'Back', work_orders_path %>
+    <h2>Line items:</h2>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @work_order.line_items.each_with_index do |line_item, i| %>
+        <tr>
+          <td><%= i + 1 %></td>
+          <td><%= line_item.description %></td>
+          <td><%= line_item.quantity %></td>
+          <td><%= line_item.notes %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </p>
+
+  <%= link_to 'Edit', edit_work_order_path(@work_order) %> |
+  <%= link_to 'Back', work_orders_path %>
+</div>

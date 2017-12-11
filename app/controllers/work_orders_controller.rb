@@ -1,5 +1,6 @@
 class WorkOrdersController < ApplicationController
   before_action :set_work_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:new, :edit]
 
   # GET /work_orders
   def index
@@ -12,7 +13,12 @@ class WorkOrdersController < ApplicationController
 
   # GET /work_orders/new
   def new
+    unless @customer
+      redirect_to customers_path, notice: 'Please select or add a customer before creating a work order.'
+    end
+
     @work_order = WorkOrder.new
+    @work_order.line_items.build
   end
 
   # GET /work_orders/1/edit
@@ -51,8 +57,15 @@ class WorkOrdersController < ApplicationController
       @work_order = WorkOrder.find(params[:id])
     end
 
+    def set_customer
+      if params[:customer_id] || @work_order.customer_id
+        @customer = Customer.find( params[:customer_id] || @work_order.customer_id)
+      end
+    end
+
     # Only allow a trusted parameter "white list" through.
     def work_order_params
-      params.require(:work_order).permit(:date_scheduled, :date_due, :customer_id, :contact_id, :packaging_details, :date_completed)
+      params.require(:work_order).permit(:date_scheduled, :date_due, :customer_id, :contact_id, :packaging_details, :date_completed,
+      line_items_attributes: [:id, :description, :quantity, :notes, :_destroy])
     end
 end

@@ -1,0 +1,20 @@
+<tr class='nested-fields' style="border-bottom:solid 1px #eaeaea;">
+  <td style="vertical-align:middle;">
+    <%= f.input :description, placeholder: 'Description',
+                              label: false,
+                              wrapper_html: { class: 'mb-0' } %>
+  </td>
+  <td style="vertical-align:middle;">
+    <%= f.input :quantity, placeholder: 'Quantity',
+                           label: false,
+                           wrapper_html: { class: 'mb-0' } %>
+  </td>
+  <td style="vertical-align:middle;">
+    <%= f.input :notes, placeholder: 'Notes',
+                        label: false,
+                        wrapper_html: { class: 'mb-0' } %>
+  </td>
+  <td style="vertical-align:middle;">
+    <%= link_to_remove_association "<i class='icon icon-remove text-danger'></i>".html_safe, f %>
+  </td>
+</tr>

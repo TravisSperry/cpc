@@ -29,8 +29,21 @@ contact = customer.contacts.build(
   title: 'Owner'
 )
 
-contact.save!
-
 customer.primary_contact_id = contact.id
 
-customer.save!
+Service.create(name: 'Powder Coating')
+Service.create(name: 'Sand Blasting')
+Service.create(name: 'Fabrication')
+Service.create(name: 'Other/Repair/Shop Service')
+
+work_order = customer.work_orders.build(name: 'First work order!')
+
+work_order.line_items.build(description: 'Tubes', quantity: 2, notes: 'Powder coat white.')
+work_order.line_items.build(description: 'Plates',
+                             quantity: 4, notes: 'Powder coat white.')
+work_order.line_items.build(description: 'Wall mounts',
+                quantity: 2,
+                notes: 'Mask tight fitting areas and threads; powder coat black.')
+
+ customer.save!
+ work_order.save!
