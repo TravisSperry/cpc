@@ -47,9 +47,35 @@
     </div>
   </div>
   <hr>
-  <div class="row">
+  <div class="row mb-4">
     <div class="col-sm-12">
       <h1>Work Orders</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table datatable">
+        <thead>
+          <tr>
+            <th>Work Order ID</th>
+            <th>Job Name</th>
+            <th>Contact Name</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customer.work_orders.each do |work_order| %>
+            <tr>
+              <td><%= work_order.id %></td>
+              <td><%= work_order.name %></td>
+              <td>
+                <%= link_to work_order.contact.try(:full_name), work_order.contact %>
+              </td>
+              <td><%= link_to "View", work_order %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
