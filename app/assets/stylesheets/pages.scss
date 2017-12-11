@@ -1,0 +1,29 @@
+.page-wrapper{
+  background-image: image-url('pages-background.svg');
+  background-position: -10px 155px;
+  background-repeat: no-repeat;
+}
+
+.page-header{
+  background-image: image-url('rack-pic.gif');
+  background-size: cover;
+  margin: -60px 0 3em 0;
+  padding: 5em 0 0 0;
+
+  .page-title{
+    background-color: rgba(0, 0, 0, 0.64);
+    padding: 1em 0 1em 3em;
+  }
+}
+
+@media screen and (max-width: 670px){
+  .page-wrapper{
+    background-image: none;
+  }
+}
+
+@media screen and (min-width: 994px) and (max-width: 1065px){
+  .page-wrapper{
+    background-image: none;
+  }
+}

@@ -15,19 +15,6 @@ class CreateQuotes < ActiveRecord::Migration
       t.string :email
       t.string :telephone
       t.string :fax
-      t.string :part_number
-      t.string :part_description
-      t.string :powder_color
-      t.string :powder_product_code
-      t.string :powder_product_manufacturer
-      t.string :part_size
-      t.string :substrate
-      t.string :coating_requirements
-      t.boolean :paint_specs
-      t.string :masking_requirements
-      t.string :packaging_requirements
-      t.string :quantity_year
-      t.string :quantity_run
       t.text :note
 
       t.timestamps

@@ -7,18 +7,22 @@ ruby '2.3.1'
 gem 'rails', '4.2.7.1'
 
 gem 'bootstrap'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'carrierwave-aws'
 gem 'chosen-rails'
+gem 'cocoon'
 gem 'coffee-rails'
 gem 'compass-rails', '~> 3.0.2'
 gem 'devise'
+gem 'enum_help'
 gem 'font-awesome-sass-rails'
 gem 'high_voltage', '~> 3.0.0'
 gem 'jquery-datatables-rails', '~> 3.3.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'modernizr-rails'
+gem 'momentjs-rails', '>= 2.9.0'
 gem 'paper_trail'
 gem 'puma'
 gem 'recaptcha', require: 'recaptcha/rails'
@@ -37,6 +41,7 @@ end
 group :development do
   gem 'rubocop', '~> 0.51.0', require: false
   gem 'rubocop-rspec'
+  gem 'pry-remote'
 end
 
 group :production do

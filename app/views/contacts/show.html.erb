@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <p>
+        <strong>Name:</strong>
+        <%= @contact.full_name %>
+      </p>
+
+      <p>
+        <strong>Company:</strong>
+        <%= link_to @contact.customer.try(:name), customer_path(@contact.customer), target: '_blank' %>
+      </p>
+
+      <p>
+        <strong>Phone:</strong>
+        <%= @contact.phone %>
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <%= @contact.email %>
+      </p>
+
+      <p>
+        <strong>Title:</strong>
+        <%= @contact.title %>
+      </p>
+
+      <%= link_to 'Edit', edit_contact_path(@contact) %> |
+      <%= link_to 'Back', contacts_path %>
+    </div>
+  </div>
+</div>

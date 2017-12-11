@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-12">
+    <%= simple_form_for(@customer) do |f| %>
+      <div class="row">
+        <%= f.error_notification %>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :account_type, input_html: { class: 'chosen' } %>
+          <%= f.input :name, label: 'Company Name' %>
+          <%= f.input :email, hint: "For companies, this should be a generic email like <i>info@abccorp.com</i> or <i>contact@abccorp.com</i>. <strong>If you're working with a specific person from the company please add them as a contact</strong>.".html_safe %>
+          <%= f.input :phone %>
+          <%= f.input :fax %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :address1 %>
+          <%= f.input :address2 %>
+          <%= f.input :city %>
+          <%= f.input :state %>
+          <%= f.input :zip_code %>
+        </div>
+      </div>
+      <% if action_name == 'edit' && @customer.account_type == 'company' %>
+        <% if @customer.contacts %>
+          <div class="row">
+            <div class="col-md-4">
+              <%= f.input :primary_contact_id, as: :select,
+                                            label: "Primary contact <small>#{link_to 'add new', new_customer_contact_path(customer_id: @customer.id) }</small>".html_safe,
+                                            collection: @customer.contacts,
+                                            label_method: :full_name_and_title,
+                                            input_html: { class: 'chosen' } %>
+            </div>
+          </div>
+        <% else %>
+          <p><%= link_to 'Click here', new_customer_contact_path(customer_id: @customer.id) %> to add a contact person to this company.</p>
+        <% end %>
+      <% end %>
+      <div class="row">
+        <div class="col-12">
+          <%= f.button :submit, 'Add Customer', class: 'btn btn-success' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
