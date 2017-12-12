@@ -8,7 +8,11 @@
 
       <p>
         <strong>Company:</strong>
-        <%= link_to @contact.customer.try(:name), customer_path(@contact.customer), target: '_blank' %>
+        <% if @contact.customer %>
+          <%= link_to @contact.customer..name, customer_path(@contact.customer), target: '_blank' %>
+        <% else %>
+          Not connected to a company.
+        <% end %>
       </p>
 
       <p>
