@@ -9,7 +9,7 @@
       <p>
         <strong>Company:</strong>
         <% if @contact.customer %>
-          <%= link_to @contact.customer..name, customer_path(@contact.customer), target: '_blank' %>
+          <%= link_to @contact.customer.name, customer_path(@contact.customer), target: '_blank' %>
         <% else %>
           Not connected to a company.
         <% end %>
