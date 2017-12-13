@@ -11,12 +11,12 @@
 
   <p>
     <strong>Date scheduled:</strong>
-    <%= @work_order.date_scheduled %>
+    <%= @work_order.date_scheduled.strftime('%b %e, %l:%M %p') if @work_order.date_scheduled %>
   </p>
 
   <p>
     <strong>Date due:</strong>
-    <%= @work_order.date_due %>
+    <%= @work_order.date_due.strftime('%b %e, %l:%M %p') if @work_order.date_due %>
   </p>
 
   <p>
@@ -26,7 +26,7 @@
 
   <p>
     <strong>Date completed:</strong>
-    <%= @work_order.date_completed %>
+    <%= @work_order.date_completed.strftime('%b %e, %l:%M %p') if @work_order.date_completed %>
   </p>
 
 

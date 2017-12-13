@@ -63,7 +63,8 @@ SimpleForm.setup do |config|
     b.wrapper tag: 'div', class: 'controls' do |input|
       input.wrapper tag: 'div', class: 'input-group' do |prepend|
         prepend.use :input
-        prepend.use :label, class: 'input-group-addon' # ##Please note setting class here fro the label does not currently work (let me know if you know a workaround as this is the final hurdle)
+        prepend.use :label, class: 'input-group-addon'
+        ###Please note setting class here fro the label does not currently work (let me know if you know a workaround as this is the final hurdle)
       end
       input.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
       input.use :error, wrap_with: { tag: 'span', class: 'help-block has-error' }
@@ -82,6 +83,17 @@ SimpleForm.setup do |config|
 
     b.use :hint,  wrap_with: { tag: :p, class: 'help-block' }
     b.use :error, wrap_with: { tag: :span, class: 'help-block text-danger' }
+  end
+
+  config.wrappers :vertical_input_group, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
+    b.use :html5
+    b.use :placeholder
+    # b.use :label, class: 'control-label'
+    b.wrapper tag: 'div', class: 'input-group' do |append|
+      append.use :input, class: 'form-control'
+    end
+    b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
+    b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
   end
 
   # Wrappers for forms and inputs using the Twitter Bootstrap toolkit.

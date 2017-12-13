@@ -24,6 +24,8 @@ jQuery ->
     allow_single_deselect: true
 
   $('.datetimepicker').datetimepicker
+    format: 'DD-MM-YYYY HH:mm'
+    ignoreReadonly: true
     showClear: true,
     sideBySide: true,
     icons:

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-12">
     <%= simple_form_for(@work_order) do |f| %>
-    <div class="row">
+    <div class="row mb-4">
       <div class="col-sm-12">
         <h2 class="text-muted">Account Information &amp; Scheduling</h2>
       </div>
@@ -28,8 +28,8 @@
                                         input_html: { class: 'chosen'} %>
           </div>
           <div class="col-md-6">
-            <%= f.input :date_scheduled, as: :string, input_html: { class: 'datetimepicker' } %>
-            <%= f.input :date_due, as: :string, input_html: { class: 'datetimepicker' } %>
+            <%= f.input :date_scheduled, as: :date_time_picker %>
+            <%= f.input :date_due, as: :date_time_picker %>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <h2 class="text-muted">Job Details</h2>
+        <h2 class="text-muted mb-4">Job Details</h2>
       </div>
     </div>
     <div class="row">
