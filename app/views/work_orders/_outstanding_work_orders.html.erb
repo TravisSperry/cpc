@@ -1,0 +1,19 @@
+<table class="table datatable">
+  <thead>
+    <tr>
+      <th>Date due</th>
+      <th>Job Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% outstanding_work_orders.each do |work_order| %>
+      <tr>
+        <td><%= work_order.date_due.strftime('%b %e') if work_order.date_due %></td>
+        <td><%= work_order.name %></td>
+        <td><%= link_to 'View', work_order %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,4 +1,5 @@
 class WorkOrdersController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_work_order, only: [:show, :edit, :update, :destroy]
   before_action :set_customer, only: [:new, :edit]
 
@@ -49,6 +50,10 @@ class WorkOrdersController < ApplicationController
   def destroy
     @work_order.destroy
     redirect_to work_orders_url, notice: 'Work order was successfully destroyed.'
+  end
+
+  def mark_completed
+    #code
   end
 
   private

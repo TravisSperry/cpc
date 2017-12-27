@@ -4,7 +4,10 @@ class StaticPagesController < ApplicationController
   protect_from_forgery
 
   def home
-    @new_quote_requests = QuoteRequest.where('status=?', 'New')
+    if current_user
+      @new_quote_requests = QuoteRequest.where('status=?', 'New')
+      @outstanding_work_orders = WorkOrder.where('date_completed IS NULL').order(date_due: :asc)
+    end
   end
 
   def about; end

@@ -27,9 +27,9 @@
 
   <p>
     <strong>Packaging details:</strong>
-    <%= @work_order.packaging_details %>
+    <%= @work_order.packaging_details.present? ? @work_order.packaging_details : 'No details specified.' %>
   </p>
-  
+
   <p>
     <strong>Date completed:</strong>
     <%= @work_order.date_completed ? @work_order.date_completed.strftime('%b %e, %l:%M %p') : 'Not yet completed.' %>

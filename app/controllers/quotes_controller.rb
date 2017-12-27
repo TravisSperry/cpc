@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class QuotesController < ApplicationController
-  # GET /quotes
-  # GET /quotes.json
   before_filter :authenticate_user!, except: %i[new create]
 
+  # GET /quotes
+  # GET /quotes.json
   def index
     @quotes = Quote.all
 
