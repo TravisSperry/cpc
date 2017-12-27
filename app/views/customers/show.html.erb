@@ -31,7 +31,7 @@
         </div>
         <div class="card-body">
           <ul class="pl-4">
-            <li>
+            <li style="list-style-type: none;">
               <strong>Primary Contact:</strong>
               <%= link_to @customer.primary_contact.try(:full_name), @customer.primary_contact, target: '_blank' if @customer.primary_contact %>
             </li>

@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
-  before_action :set_customer, only: [:new, :edit]
+  before_action :set_customer, only: [:new, :edit, :create]
 
   # GET /contacts
   def index
@@ -13,7 +13,11 @@ class ContactsController < ApplicationController
 
   # GET /contacts/new
   def new
-    @contact = Contact.new
+    if @customer
+      @contact = @customer.contacts.build
+    else
+      @contact = Contact.new
+    end
   end
 
   # GET /contacts/1/edit
@@ -22,7 +26,11 @@ class ContactsController < ApplicationController
 
   # POST /contacts
   def create
-    @contact = Contact.new(contact_params)
+    if @customer
+      @contact = @customer.contacts.new(contact_params)
+    else
+      @contact = Contact.new(contact_params)
+    end
 
     if @contact.save
       redirect_to @contact, notice: 'Contact was successfully created.'
@@ -33,6 +41,10 @@ class ContactsController < ApplicationController
 
   # PATCH/PUT /contacts/1
   def update
+    if @customer
+      @contact = @customer.contacts.find(params[:contact_id])
+    end
+
     if @contact.update(contact_params)
       redirect_to @contact, notice: 'Contact was successfully updated.'
     else

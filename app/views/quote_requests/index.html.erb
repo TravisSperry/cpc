@@ -1,27 +1,20 @@
 <div class="container contact">
   <div class="row">
     <div class="col-lg-12">
-      <h1>Listing quotes</h1>
+      <h1>Quote Requests</h1>
       <div class="d-none d-md-block mt-4 mb-4">
-        <%= link_to 'New Quote', new_quote_request_path, class: "btn btn-success" %>
+        <%= link_to 'New Quote Request', new_quote_request_path, class: "btn btn-success" %>
       </div>
       <div class="d-block d-md-none mt-4 mb-4">
-        <%= link_to 'New Quote', new_quote_request_path, class: "btn btn-success btn-block" %>
+        <%= link_to 'New Quote Request', new_quote_request_path, class: "btn btn-success btn-block" %>
       </div>
       <% if params[:quote_request] == "All" %>
-        <%= link_to "Active Quote Requests >", quote_requests_path %>
-        <br>
+        <p><%= link_to "Active Quote Requests >", quote_requests_path %></p>
         <%= render 'quote_request_table', quote_requests: @quote_requests %>
-
       <% else %>
-        <%= link_to "All Quote Requests >", quote_requests_path(quote_request: "All") %>
-        <br>
+        <p><%= link_to "All Quote Requests >", quote_requests_path(quote_request: "All") %></p>
         <%= render 'quote_request_table', quote_requests: @active_quote_requests %>
-
       <% end %>
-
-      <br />
-
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-12">
-    <%= simple_form_for(@contact) do |f| %>
+    <%= simple_form_for [@contact.customer, @contact] do |f| %>
       <div class="row">
         <div class="col-md-6">
           <%= f.error_notification %>
