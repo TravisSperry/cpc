@@ -11,7 +11,7 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-        <h1 class="d-inline"><%= @customer.name %></h1> <small><%= link_to 'Edit', edit_customer_path(@customer) %></small>
+        <h1 class="d-inline"><%= @customer.name %></h1> <small><%= link_to 'edit', edit_customer_path(@customer) %></small>
       <p class="mt-4">
         <%= @customer.address1 %> <br>
         <%= "#{@customer.address2} <br>".html_safe unless @customer.address2.blank? %>
@@ -20,9 +20,11 @@
       <p>
         <strong>Phone:</strong> <%= @customer.phone %>
       </p>
-      <p>
-        <strong>Fax:</strong> <%= @customer.fax %>
-      </p>
+      <% if @customer.fax %>
+        <p>
+          <strong>Fax:</strong> <%= @customer.fax %>
+        </p>
+      <% end %>
     </div>
     <div class="col-md-6">
       <div class="card">
@@ -35,7 +37,9 @@
               <strong>Primary Contact:</strong>
               <%= "#{link_to @customer.primary_contact.try(:full_name), @customer.primary_contact, target: '_blank'} (#{@customer.primary_contact.title})".html_safe if @customer.primary_contact %>
             </li>
-            <h5>Additional Contacts <small><%= link_to "add", new_customer_contact_path(@customer.id) %></small></h5>
+            <div class="mb-2">
+              <h5 class="d-inline mb-2">Additional Contacts</h5> <small><%= link_to "add", new_customer_contact_path(@customer.id) %></small>
+            </div>
             <% @customer.contacts.each do |contact| %>
               <% next if contact.is_primary? %>
               <li>

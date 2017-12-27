@@ -6,7 +6,13 @@
 
   <p>
     <strong>Contact:</strong>
-    <%= link_to @work_order.contact.full_name, @work_order.contact if @work_order.contact  %>
+    <% if @work_order.contact %>
+      <%= link_to @work_order.contact.full_name, @work_order.contact %>
+    <% elsif @work_order.customer.try :primary_contact %>
+      <%= link_to @work_order.customer.primary_contact.full_name, @work_order.customer.primary_contact %>
+    <% else %>
+      'Please add a primary contact to this customer or add a contact to this work order.'
+    <% end %>
   </p>
 
   <p>
@@ -16,41 +22,45 @@
 
   <p>
     <strong>Date due:</strong>
-    <%= @work_order.date_due.strftime('%b %e, %l:%M %p') if @work_order.date_due %>
+    <%= due_date_formatter(@work_order.date_due, @work_order.date_completed) %>
   </p>
 
   <p>
     <strong>Packaging details:</strong>
     <%= @work_order.packaging_details %>
   </p>
-
+  
   <p>
     <strong>Date completed:</strong>
-    <%= @work_order.date_completed.strftime('%b %e, %l:%M %p') if @work_order.date_completed %>
+    <%= @work_order.date_completed ? @work_order.date_completed.strftime('%b %e, %l:%M %p') : 'Not yet completed.' %>
   </p>
 
+  <h2 class="mt-4 mb-4">Services</h2>
+  <% @work_order.services.each do |service| %>
+    <span class="mr-2"><i class="icon icon-check text-success"></i> <%= service.name %> </span>
+  <% end %>
 
-<h2 class="mt-4 mb-4">Parts</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Description</th>
-      <th>Quantity</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @work_order.line_items.each_with_index do |line_item, i| %>
-    <tr>
-      <td><%= i + 1 %></td>
-      <td><%= line_item.description %></td>
-      <td><%= line_item.quantity %></td>
-      <td><%= line_item.notes %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+  <h2 class="mt-4 mb-4">Parts</h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @work_order.line_items.each_with_index do |line_item, i| %>
+      <tr>
+        <td><%= i + 1 %></td>
+        <td><%= line_item.description %></td>
+        <td><%= line_item.quantity %></td>
+        <td><%= line_item.notes %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
   <%= link_to 'Edit', edit_work_order_path(@work_order) %> |
   <%= link_to 'Back', work_orders_path %>
