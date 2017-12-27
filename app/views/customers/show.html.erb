@@ -30,15 +30,16 @@
           <h2 class="mb-0">Contacts</h2>
         </div>
         <div class="card-body">
-          <ul class="pl-4">
-            <li style="list-style-type: none;">
+          <ul style="list-style-type: none;" class="pl-2">
+            <li class="mb-3">
               <strong>Primary Contact:</strong>
-              <%= link_to @customer.primary_contact.try(:full_name), @customer.primary_contact, target: '_blank' if @customer.primary_contact %>
+              <%= "#{link_to @customer.primary_contact.try(:full_name), @customer.primary_contact, target: '_blank'} (#{@customer.primary_contact.title})".html_safe if @customer.primary_contact %>
             </li>
+            <h5>Additional Contacts <small><%= link_to "add", new_customer_contact_path(@customer.id) %></small></h5>
             <% @customer.contacts.each do |contact| %>
               <% next if contact.is_primary? %>
               <li>
-                <%= link_to contact.full_name, contact %>
+                <%= "#{link_to contact.full_name, contact} (#{contact.title})".html_safe %>
               </li>
             <% end %>
           </ul>
