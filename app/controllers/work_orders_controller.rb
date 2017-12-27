@@ -1,6 +1,6 @@
 class WorkOrdersController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_work_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_work_order, only: [:show, :edit, :update, :destroy, :mark_completed]
   before_action :set_customer, only: [:new, :edit]
 
   # GET /work_orders
@@ -53,7 +53,11 @@ class WorkOrdersController < ApplicationController
   end
 
   def mark_completed
-    #code
+    if @work_order.update(work_order_params)
+      redirect_to @work_order, notice: 'Work order was completed.'
+    else
+      redirect_to @work_order, warning: 'There was a problem completing this work order'
+    end
   end
 
   private
@@ -70,6 +74,6 @@ class WorkOrdersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def work_order_params
-      params.require(:work_order).permit(:date_scheduled, :date_due, :customer_id, :contact_id, :packaging_details, :date_completed, :name, service_ids: [], line_items_attributes: [:id, :description, :quantity, :notes, :_destroy])
+      params.require(:work_order).permit(:date_scheduled, :date_due, :customer_id, :contact_id, :packaging_details, :marked_completed_by, :date_completed, :name, service_ids: [], line_items_attributes: [:id, :description, :quantity, :notes, :_destroy])
     end
 end

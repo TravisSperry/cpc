@@ -43,6 +43,10 @@ Cpc::Application.routes.draw do
 
   resources :work_orders do
     resources :notes
+
+    member do
+      put 'mark_completed'
+    end
   end
 
   root to: 'static_pages#home'

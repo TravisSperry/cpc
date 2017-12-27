@@ -7,7 +7,7 @@ module WorkOrdersHelper
       case (due_date.to_date - Date.today).to_i
       when -Float::INFINITY..-1
         content_tag :span, "#{due_date.strftime('%b %e, %l:%M %p')} - Past Due", class: 'text-danger'
-      when 0
+      when 0..3
         concat(content_tag :span, due_date.strftime('%b %e, %l:%M %p'), class: 'text-warning')
         concat ' - '
         content_tag :span, 'Due Today', class: 'text-success'

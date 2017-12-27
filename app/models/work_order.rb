@@ -11,4 +11,8 @@ class WorkOrder < ActiveRecord::Base
   accepts_nested_attributes_for :line_items,
     allow_destroy: true,
     reject_if: proc { |attributes| attributes['description'].blank? }
+
+  def completed_by
+    User.find(marked_completed_by) if marked_completed_by
+  end
 end
