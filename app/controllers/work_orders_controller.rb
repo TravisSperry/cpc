@@ -53,7 +53,7 @@ class WorkOrdersController < ApplicationController
   end
 
   def mark_completed
-    if @work_order.update(work_order_params)
+    if @work_order.update(work_order_params) && @work_order.complete!
       redirect_to @work_order, notice: 'Work order was completed.'
     else
       redirect_to @work_order, warning: 'There was a problem completing this work order'

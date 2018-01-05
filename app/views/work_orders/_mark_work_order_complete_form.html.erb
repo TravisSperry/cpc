@@ -2,7 +2,6 @@
   <div class="row">
     <div class="col">
       <%= f.input :date_completed, label: false, as: :date_time_picker %>
-      <%= f.input :status, as: :hidden, selected: :complete %>
       <%= f.input :marked_completed_by, as: :hidden, input_html: { value: current_user.id } %>
     </div>
     <div class="col">

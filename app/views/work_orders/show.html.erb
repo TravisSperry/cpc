@@ -4,20 +4,20 @@
       <%= render 'work_order_information' %>
     </div>
     <div class="col-md-6">
-      <%= simple_form_for @work_order, url: work_order_path(@work_order), method: :put do |f| %>
-        <div class="row">
-          <div class="col">
-            <%= f.input :status, collection: WorkOrder.statuses.reject { |status| status == 'complete' },
-                                 label: false %>
+      <% unless @work_order.complete? %>
+        <%= simple_form_for @work_order, url: work_order_path(@work_order), method: :put do |f| %>
+          <div class="row">
+            <div class="col">
+              <%= f.input :status, collection: WorkOrder.statuses.reject { |status| status == 'complete' },
+                                   label: false %>
+            </div>
+            <div class="col">
+              <%= f.submit 'Update Status', data: { confirm: 'Are you sure you want to update this status?' },
+                                            class: 'btn btn-success' %>
+            </div>
           </div>
-          <div class="col">
-            <%= f.submit 'Update Status', data: { confirm: 'Are you sure you want to update this status?' },
-                                          class: 'btn btn-success' %>
-          </div>
-        </div>
-      <% end %>
+        <% end %>
 
-      <% unless @work_order.date_completed %>
         <%= render 'mark_work_order_complete_form' %>
       <% end %>
     </div>
