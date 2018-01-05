@@ -41,6 +41,7 @@ end
 group :development do
   gem 'rubocop', '~> 0.51.0', require: false
   gem 'rubocop-rspec'
+  gem 'pry-rails'
   gem 'pry-remote'
 end
 

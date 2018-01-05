@@ -1,0 +1,13 @@
+<%= simple_form_for @work_order, url: mark_completed_work_order_path, method: :put do |f| %>
+  <div class="row">
+    <div class="col">
+      <%= f.input :date_completed, label: false, as: :date_time_picker %>
+      <%= f.input :status, as: :hidden, selected: :complete %>
+      <%= f.input :marked_completed_by, as: :hidden, input_html: { value: current_user.id } %>
+    </div>
+    <div class="col">
+      <%= f.submit 'Mark Completed', data: { confirm: 'Are you sure you want to mark this completed?' },
+                                     class: 'btn btn-success' %>
+    </div>
+  </div>
+<% end %>
