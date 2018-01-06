@@ -1,0 +1,7 @@
+<%= simple_form_for [resource, note] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+  <%= f.input :notable_id, as: :hidden %>
+  <%= f.input :notable_type, as: :hidden %>
+  <%= f.submit 'Save', class: 'btn btn-sm btn-success float-right' %>
+<% end %>

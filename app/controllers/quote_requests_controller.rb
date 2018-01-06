@@ -18,7 +18,7 @@ class QuoteRequestsController < ApplicationController
   # GET /quotes/1
   # GET /quotes/1.json
   def show
-    @quote_request = QuoteRequest.find(params[:id])
+    @quote_request = QuoteRequest.includes(notes: :user).find(params[:id])
     @note = @quote_request.notes.build
 
     respond_to do |format|

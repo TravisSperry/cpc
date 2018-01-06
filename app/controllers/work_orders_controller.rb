@@ -10,6 +10,7 @@ class WorkOrdersController < ApplicationController
 
   # GET /work_orders/1
   def show
+    @note = @work_order.notes.build
   end
 
   # GET /work_orders/new

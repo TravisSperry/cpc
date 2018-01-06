@@ -55,29 +55,13 @@
       <div class="row">
         <div class="col">
           <h2>Add Note</h2>
-          <%= simple_form_for [@quote_request, @note] do |f| %>
-            <%= f.input :content %>
-            <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
-            <%= f.input :notable_id, as: :hidden %>
-            <%= f.input :notable_type, as: :hidden %>
-            <%= f.submit 'Save', class: 'btn btn-sm btn-success float-right' %>
-          <% end %>
+          <%= render partial: 'notes/notable_form', locals: { resource: @quote_request, note: @note} %>
         </div>
       </div>
 
       <div class="row mt-4">
         <div class="col notes">
-          <% @quote_request.notes.where.not(created_at: nil).order(created_at: :desc).each do |note| %>
-            <div class="card mb-2">
-              <div class="card-body bg-light">
-                <%= note.content  %>
-              </div>
-              <div class="card-footer">
-                <span class="pull-left"><%= note.user.full_name %></span>
-                <span class="pull-right"><%= note.created_at.strftime('%A, %b %d') %></span>
-              </div>
-            </div>
-          <% end %>
+          <%= render 'notes/index_snippet', resource: @quote_request %>
         </div>
       </div>
     </div>
