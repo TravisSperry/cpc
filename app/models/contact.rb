@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Contact < ActiveRecord::Base
+  attr_accessor :make_primary_contact
+  
   belongs_to :customer, inverse_of: 'primary_contact',
                         foreign_key: 'primary_contact_id'
   belongs_to :customer

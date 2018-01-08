@@ -6,7 +6,7 @@ class WorkOrder < ActiveRecord::Base
   has_and_belongs_to_many :services
   has_many :line_items, dependent: :destroy
   has_many :notes, as: :notable
-  
+
   # TODO: Validates presence of - customer, contact, name
 
   enum status: [:received, :in_progress, :ready_for_invoice, :complete].freeze

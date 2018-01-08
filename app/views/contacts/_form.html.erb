@@ -14,6 +14,10 @@
           <%= f.input :title %>
           <%= f.association :customer, label: 'Company',
                                        input_html: { class: 'chosen' } unless params[:customer_id] %>
+          <%= f.input :make_primary_contact, as: :boolean,
+                                             label: 'Make Primary Contact',
+                                             as: :boolean,
+                                             input_html: { style: 'margin-right:10px;'} if params[:customer_id] || @contact.customer %>
         </div>
       </div>
       <div class="row">

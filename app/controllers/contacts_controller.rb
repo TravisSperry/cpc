@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
-  before_action :set_customer, only: [:new, :edit, :create]
+  before_action :set_customer, only: [:new, :edit, :update, :create]
 
   # GET /contacts
   def index
@@ -34,6 +34,10 @@ class ContactsController < ApplicationController
     end
 
     if @contact.save
+      if contact_params[:make_primary_contact] == '1' && @customer
+        @customer.update(primary_contact_id: @contact.id)
+      end
+      
       redirect_to @contact, notice: 'Contact was successfully created.'
     else
       render :new
@@ -42,11 +46,11 @@ class ContactsController < ApplicationController
 
   # PATCH/PUT /contacts/1
   def update
-    if @customer
-      @contact = @customer.contacts.find(params[:contact_id])
-    end
-
     if @contact.update(contact_params)
+      if contact_params[:make_primary_contact] == '1' && @customer
+        @customer.update(primary_contact_id: @contact.id)
+      end
+
       redirect_to @contact, notice: 'Contact was successfully updated.'
     else
       render :edit
@@ -60,17 +64,22 @@ class ContactsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_contact
       @contact = Contact.find(params[:id])
     end
 
     def set_customer
-      @customer = Customer.find params[:customer_id] if params[:customer_id]
+      if @contact && @contact.customer_id
+        @customer = Customer.find @contact.customer_id
+      elsif params[:customer_id]
+        @customer = Customer.find params[:customer_id]
+      elsif contact_params[:customer_id]
+        @customer = Customer.find contact_params[:customer_id]
+      end
     end
 
     # Only allow a trusted parameter "white list" through.
     def contact_params
-      params.require(:contact).permit(%i(first_name last_name phone email title customer_id))
+      params.require(:contact).permit(%i(first_name last_name phone email title customer_id make_primary_contact))
     end
 end
