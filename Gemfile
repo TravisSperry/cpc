@@ -31,6 +31,8 @@ gem 'simple_form'
 gem 'sitemap_generator'
 gem 'tether-rails'
 gem 'uglifier', '>= 1.0.3'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   gem 'letter_opener'

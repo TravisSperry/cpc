@@ -11,6 +11,14 @@ class WorkOrdersController < ApplicationController
   # GET /work_orders/1
   def show
     @note = @work_order.notes.build
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "work_order_#{@work_order.id}",
+               template: 'work_orders/show.pdf.erb'
+      end
+    end
   end
 
   # GET /work_orders/new
