@@ -10,7 +10,8 @@
     <div id="content">
       <h2>Work Order #<%= @work_order.id %></h2>
       <p>
-        <strong>Date:</strong> <%= Date.today.strftime("%B %d, %Y") %>
+        <strong>Date:</strong> <%= Date.today.strftime("%B %d, %Y") %><br />
+        <strong>Job Name:</strong> <%= @work_order.name %>
       </p>
 
       <h3 style="margin-bottom:0;"><%= @work_order.customer.name %></h3>
@@ -18,9 +19,38 @@
         <%= "#{@work_order.customer.address1} <br>".html_safe if @work_order.customer.address1 %>
         <%= "#{@work_order.customer.address2} <br>".html_safe if @work_order.customer.address2 %>
         <%= "#{@work_order.customer.city}, #{@work_order.customer.state} #{@work_order.customer.zip_code} <br>".html_safe if @work_order.customer %>
-        <strong>Phone:</strong>
+        <strong>Phone:</strong><%= @work_order.customer.phone %>
       </p>
-
+      <hr>
+      <h3>Parts List</h3>
+      <table width='100%' style="border: solid 1px black;">
+        <thead>
+          <tr style="text-align:left;border-bottom: solid 1px black">
+            <th>Part</th>
+            <th>Quantity</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @work_order.line_items.each do |line_item| %>
+            <tr>
+              <td><%= line_item.description %></td>
+              <td><%= line_item.quantity %></td>
+              <td><%= line_item.notes %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <h3>Services</h3>
+      <% @work_order.services.each do |service| %>
+        <li>
+          <%= service.name %>
+        </li>
+      <% end %>
+      <hr style="margin-top:1em;">
+      <p style="margin-top:40px;">
+        Received by: ___________________________ Date: ___________
+      </p>
     </div>
   </body>
 </html>

@@ -4,6 +4,12 @@
       <%= render 'work_order_information' %>
     </div>
     <div class="col-lg-4">
+      <div class="row">
+        <div class="col">
+
+          <%= link_to 'View PDF', work_order_path(format: :pdf), target: '_blank', class: 'btn btn-block btn-primary pull-right mb-3' %>
+        </div>
+      </div>
       <% unless @work_order.complete? %>
         <div class="row">
           <div class="col">
