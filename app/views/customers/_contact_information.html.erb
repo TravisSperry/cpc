@@ -15,7 +15,7 @@
       <% customer.contacts.each do |contact| %>
         <% next if contact.is_primary? %>
         <li>
-          <%= "#{link_to contact.full_name, contact} (#{contact.title})".html_safe %>
+          <%= link_to contact.full_name, contact %><%= "(#{contact.title})" if contact.title %>
         </li>
       <% end %>
     </ul>
