@@ -2,10 +2,12 @@
 
 class Contact < ActiveRecord::Base
   attr_accessor :make_primary_contact
-  
+
   belongs_to :customer, inverse_of: 'primary_contact',
                         foreign_key: 'primary_contact_id'
   belongs_to :customer
+
+  validates_presence_of :first_name, :last_name, :phone
 
   def full_name
     "#{first_name} #{last_name}"
