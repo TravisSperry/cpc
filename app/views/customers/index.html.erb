@@ -9,8 +9,7 @@
 <div class="row">
   <div class="col-sm-12">
     <h1>Listing Customers</h1>
-
-    <table  class="datatable display table-responsive no-wrap" width='100%'>
+    <table class="table datatable">
       <thead>
         <tr>
           <th>Name</th>
@@ -18,14 +17,12 @@
           <th>Fax</th>
           <th>Type</th>
           <% if current_user.admin? %>
-            <th colspan="3"></th>
+            <th></th><th></th><th></th>
           <% else %>
-            <th colspan="2"></th>
+            <th></th><th></th>
           <% end %>
-
         </tr>
       </thead>
-
       <tbody>
         <% @customers.each do |customer| %>
           <tr>
