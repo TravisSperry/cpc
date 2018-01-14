@@ -69,6 +69,9 @@
             </div>
           </li>
         <% else %>
+          <li class='nav-item nav-quote-req d-none d-md-inline'>
+            <%= link_to "Request A Quote", new_quote_request_path, class: 'btn btn-danger mr-2' %>
+           </li>
           <li class='nav-item nav-quote-req'>
             <%= link_to "Services", '/services', class: 'nav-link' %>
           </li>
