@@ -110,7 +110,7 @@ and (max-device-width: 667px) {
       img{
         height: 39px;
       }
-    }  
+    }
   }
 }
 
@@ -350,7 +350,7 @@ footer {
 .footer-top {
   background: #25292C;
   background: rgba(37, 41, 44, 1);
-  padding: 30px 0 30px 0;
+  padding: 40px 0 30px 0;
 
   h3 {
     font-family: Josefin Sans;
@@ -365,7 +365,7 @@ footer {
 
     p {
       font-family: Josefin Sans;
-      font-weight: bold;
+      font-weight: 100;
       font-size: 19px;
       letter-spacing: -0.76px;
       color: #999999;
@@ -384,7 +384,7 @@ footer {
         margin-right:10px;
       }
       p {
-        font-family: Myriad Pro;
+        font-family: Josefin Sans;
         font-size: 19px;
         letter-spacing: -0.76px;
         color: #999999;

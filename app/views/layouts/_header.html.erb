@@ -54,21 +54,19 @@
     <div class="collapse navbar-collapse justify-content-end " id="navbarToggler">
       <ul class="navbar-nav justify-content-end">
         <% if current_user %>
-          <li class="nav-item dropdown user-dropdown ml-auto mr-3">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <li class="nav-item dropdown">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
               <i class="fa fa-user"></i>
               <%= current_user.first_name %> <%= current_user.last_name[0,1] %>. <%= current_user.suffix if current_user.suffix %>
               <b class="caret"></b>
             </a>
-            <ul class="dropdown-menu">
-              <li>
-                <%= link_to edit_user_registration_path do %>
-                  <i class="icon-gears"></i> Settings
-                <% end %>
-              </li>
-              <li class="divider"></li>
-              <li><a href="<%= destroy_user_session_path %>"><i class="fa fa-power-off"></i> Log Out</a></li>
-            </ul>
+            <div class="dropdown-menu">
+              <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
+                <i class="icon-gears"></i> Settings
+              <% end %>
+              <div class="dropdown-divider"></div>
+              <a href="<%= destroy_user_session_path %>" class="dropdown-item"><i class="fa fa-power-off"></i> Log Out</a>
+            </div>
           </li>
         <% else %>
           <li class='nav-item nav-quote-req'>
