@@ -2,6 +2,9 @@ $main-heading-width: 450px;
 $cpc-red: #AB211C;
 $facebook-blue: #3B5998;
 $instagram-brown: #9b6954;
+$global-font-family: inherit;
+$border-settings: none;
+$letter-spacing: 0px;
 
 // --------- Bootstrap Overrides ---------- //
 
@@ -81,8 +84,8 @@ $instagram-brown: #9b6954;
 
 .cpc-nav{
   width: 100%;
-  border-bottom: 3px solid #999999;
-  border-top: 3px solid #999999;
+  border-bottom: $border-settings;
+  border-top: $border-settings;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: top;
@@ -97,7 +100,7 @@ $instagram-brown: #9b6954;
     left:4%;
   }
   .nav-quote-req{
-    font-family: 'Josefin Sans';
+    font-family: $global-font-family;
     font-weight: bold;
     a.nav-link{
       color: #ab211c;
@@ -141,16 +144,16 @@ and (max-device-width: 667px) {
 }
 
 .main-details{
-  padding: 20px 0 10px 0;
+  padding: 10px 0 10px 0;
   text-align: center;
-  font-family: Josefin Sans;
+  font-family: $global-font-family;
   font-weight: bold;
   font-size: 37px;
-  letter-spacing: -1.48px;
+  letter-spacing: $letter-spacing;
   color: #25292C;
   color: rgb(37, 41, 44);
-  border-bottom: 3px solid #999999;
-  border-top: 3px solid #999999;
+  border-bottom: $border-settings;
+  border-top: $border-settings;
   margin-top: 3px;
 }
 
@@ -162,28 +165,24 @@ and (max-device-width: 667px) {
 
   .quality{
     width: $main-heading-width;
-    font-family: Josefin Sans;
+    font-family: $global-font-family;
     font-weight: bold;
     font-size: 37px;
-    letter-spacing: -1.48px;
+    letter-spacing: $letter-spacing;
     color: #E6E6E6;
     color: rgb(230, 230, 230);
     background: #515b63;
     background: rgb(82, 91, 99);
     padding:10px 0 8px 60px;
     border-right: 9px solid #25292C;
-
-    div {
-      margin-top: 6px;
-    }
   }
 
   .quality-mobile{
     width:100%;
-    font-family: Josefin Sans;
+    font-family: $global-font-family;
     font-weight: bold;
     font-size: 32px;
-    letter-spacing: -1.48px;
+    letter-spacing: $letter-spacing;
     color: #E6E6E6;
     color: rgb(230, 230, 230);
     background: #515b63;
@@ -191,10 +190,6 @@ and (max-device-width: 667px) {
     padding:10px 0 8px 0;
     text-align: center;
     border-bottom: 9px solid #25292C;
-
-    div {
-      margin-top: 6px;
-    }
   }
 
   .manufacturers{
@@ -211,13 +206,13 @@ and (max-device-width: 667px) {
   background: rgba(242, 242, 242, 1);
   border-bottom: 3px solid #999999;
   padding: 75px 0 75px 0;
-  font-family: Josefin Sans;
+  font-family: $global-font-family;
 
   .quality{
     width:$main-heading-width;
     font-weight: bold;
     font-size: 37px;
-    letter-spacing: -1.48px;
+    letter-spacing: $letter-spacing;
     color: #E6E6E6;
     color: rgb(230, 230, 230);
     background: #515b63;
@@ -232,10 +227,10 @@ and (max-device-width: 667px) {
 
   .quality-mobile{
     width:100%;
-    font-family: Josefin Sans;
+    font-family: $global-font-family;
     font-weight: bold;
     font-size: 32px;
-    letter-spacing: -1.48px;
+    letter-spacing: $letter-spacing;
     color: #E6E6E6;
     color: rgb(230, 230, 230);
     background: #515b63;
@@ -255,13 +250,13 @@ and (max-device-width: 667px) {
   background: rgba(242, 242, 242, 1);
   border-bottom: 3px solid #999999;
   padding: 75px 0 75px 0;
-  font-family: Josefin Sans;
+  font-family: $global-font-family;
 
   .quality{
     width:$main-heading-width;
     font-weight: bold;
     font-size: 37px;
-    letter-spacing: -1.48px;
+    letter-spacing: $letter-spacing;
     color: #E6E6E6;
     color: rgb(230, 230, 230);
     background: #515b63;
@@ -276,10 +271,10 @@ and (max-device-width: 667px) {
 
   .quality-mobile{
     width:100%;
-    font-family: Josefin Sans;
+    font-family: $global-font-family;
     font-weight: bold;
     font-size: 32px;
-    letter-spacing: -1.48px;
+    letter-spacing: $letter-spacing;
     color: #E6E6E6;
     color: rgb(230, 230, 230);
     background: #515b63;
@@ -298,19 +293,19 @@ and (max-device-width: 667px) {
   padding-top: 75px;
   padding-bottom: 75px;
   margin-bottom: -60px;
-  font-family: Josefin Sans;
+  font-family: $global-font-family;
 
   .rfq-header{
-    font-family: Josefin Sans;
+    font-family: $global-font-family;
     font-weight: bold;
     font-size: 37px;
-    letter-spacing: -1.48px;
+    letter-spacing: $letter-spacing;
     color: #25292C;
     color: rgb(37, 41, 44);
   }
 
   .rfq-sub-header{
-    font-family: Josefin Sans;
+    font-family: $global-font-family;
     font-weight: bold;
     font-size: 15px;
     letter-spacing: -0.6px;
@@ -320,7 +315,7 @@ and (max-device-width: 667px) {
   }
 
   .rfq-phone{
-    font-family: Josefin Sans;
+    font-family: $global-font-family;
     font-weight: bold;
     font-size: 15px;
     letter-spacing: -0.6px;
@@ -330,7 +325,7 @@ and (max-device-width: 667px) {
 }
 
 .btn-rfq{
-  font-family: Josefin Sans;
+  font-family: $global-font-family;
   font-weight: bold;
   font-size: 22px;
   color: #25292C;
@@ -343,7 +338,7 @@ and (max-device-width: 667px) {
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  padding:10px 30px 2px 30px;
+  padding:10px 30px 10px 30px;
   margin:60px 0 60px 0;
 }
 
@@ -363,7 +358,7 @@ footer {
 }
 
 .footer-top {
-  font-family: Josefin Sans;
+  font-family: $global-font-family;
   background: #25292C;
   background: rgba(37, 41, 44, 1);
   padding: 40px 0 30px 0;
@@ -371,7 +366,7 @@ footer {
   h3 {
     font-weight: bold;
     font-size: 37px;
-    letter-spacing: -1.48px;
+    letter-spacing: $letter-spacing;
     color: #E6E6E6;
     color: rgb(230, 230, 230);
   }
@@ -406,7 +401,7 @@ footer {
 }
 
 .footer-bottom {
-  font-family: Josefin Sans;
+  font-family: $global-font-family;
   background: #454d53;
   background: rgb(69, 77, 83);
   color:white;
