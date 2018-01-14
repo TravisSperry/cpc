@@ -1,5 +1,7 @@
 $main-heading-width: 450px;
 $cpc-red: #AB211C;
+$facebook-blue: #3B5998;
+$instagram-brown: #9b6954;
 
 // --------- Bootstrap Overrides ---------- //
 
@@ -61,6 +63,19 @@ $cpc-red: #AB211C;
       margin-right: .5em;
       text-decoration: none;
     }
+    .fa-facebook{
+      color: $facebook-blue;
+    }
+    .fa-facebook:hover{
+      color: lighten($facebook-blue, 15);
+    }
+    .fa-instagram{
+      color: $instagram-brown;
+    }
+    .fa-instagram:hover{
+      color: lighten($instagram-brown, 15);
+    }
+
   }
 }
 
@@ -348,12 +363,12 @@ footer {
 }
 
 .footer-top {
+  font-family: Josefin Sans;
   background: #25292C;
   background: rgba(37, 41, 44, 1);
   padding: 40px 0 30px 0;
 
   h3 {
-    font-family: Josefin Sans;
     font-weight: bold;
     font-size: 37px;
     letter-spacing: -1.48px;
@@ -362,9 +377,7 @@ footer {
   }
 
   .footer-one {
-
     p {
-      font-family: Josefin Sans;
       font-weight: 100;
       font-size: 19px;
       letter-spacing: -0.76px;
@@ -373,7 +386,6 @@ footer {
     }
   }
   .footer-two {
-
     ul {
       list-style-type: none;
       padding-left:0;
@@ -384,7 +396,6 @@ footer {
         margin-right:10px;
       }
       p {
-        font-family: Josefin Sans;
         font-size: 19px;
         letter-spacing: -0.76px;
         color: #999999;
@@ -395,6 +406,7 @@ footer {
 }
 
 .footer-bottom {
+  font-family: Josefin Sans;
   background: #454d53;
   background: rgb(69, 77, 83);
   color:white;
