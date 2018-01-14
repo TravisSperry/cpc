@@ -64,8 +64,8 @@ div	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/
 .rfq-header	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .rfq-header{$/;"	function	line:303
 .rfq-sub-header	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .rfq-sub-header{$/;"	function	line:312
 .rfq-phone	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .rfq-phone{$/;"	function	line:322
-.btn-rfq:hover	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .btn-rfq:hover{$/;"	function	line:331
-.btn-rfq	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.btn-rfq{$/;"	function	line:341
+.btn-rfq	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.btn-rfq{$/;"	function	line:332
+.btn-rfq:hover	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.btn-rfq:hover{$/;"	function	line:350
 footer	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^footer {$/;"	function	line:359
 .footer-top	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.footer-top {$/;"	function	line:365
 h3	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  h3 {$/;"	function	line:371
