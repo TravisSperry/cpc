@@ -88,6 +88,11 @@ $cpc-red: #AB211C;
       color: #ab211c;
     }
   }
+  .navbar-brand{
+    img{
+      height: 42px;
+    }
+  }
 }
 
 @media only screen
@@ -100,7 +105,13 @@ and (max-device-width: 667px) {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
   }
-
+  .cpc-nav{
+    .navbar-brand{
+      img{
+        height: 39px;
+      }
+    }  
+  }
 }
 
 // --------- Main Section Styling --------- //
