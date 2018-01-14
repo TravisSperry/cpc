@@ -66,4 +66,5 @@ Cpc::Application.configure do
 
   # videojs
   config.assets.precompile += %w[video-js.swf vjs.eot vjs.svg vjs.ttf vjs.woff]
+  config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif *.svg *.ico *.eot *.ttf]
 end

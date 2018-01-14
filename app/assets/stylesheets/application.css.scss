@@ -7,14 +7,15 @@
 @import "bootstrap";
 @import 'bootstrap-datetimepicker';
 @import "bootstrap-slider";
-@import "font-awesome";
-@import "font-awesome-sprockets";
 @import "style";
 @import "unslider";
 @import "powders";
 @import "notes";
 @import "pages";
 @import "bouncing_arrow";
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 .main-slider{
   margin-top: -60px;
