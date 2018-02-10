@@ -12,7 +12,7 @@
       <p>
         <strong>Date:</strong> <%= Date.today.strftime("%B %d, %Y") %><br />
         <strong>Job Name:</strong> <%= @work_order.name %><br />
-        <strong>Due Date:</strong> <%= @work_order.try(:date_due, "%A, %b %d") %>
+        <strong>Due Date:</strong> <%= @work_order.date_due.strftime("%A, %b %d") if @work_order.date_due %>
       </p>
 
       <h3 style="margin-bottom:0;"><%= @work_order.customer.name %></h3>
