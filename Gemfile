@@ -35,8 +35,9 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
 group :development, :test do
+  gem 'factory_bot_rails'
   gem 'letter_opener'
-  gem 'rspec-rails', '~> 3.6'
+  gem 'rspec-rails', '~> 3.7'
   gem 'sqlite3'
 end
 
@@ -45,6 +46,11 @@ group :development do
   gem 'rubocop-rspec'
   gem 'pry-rails'
   gem 'pry-remote'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'poltergeist'
 end
 
 group :production do
