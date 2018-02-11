@@ -10,7 +10,8 @@ class WorkOrdersController < ApplicationController
 
   # GET /work_orders/1
   def show
-    @note = @work_order.notes.build
+    @notes = @work_order.notes.page(params[:page])
+    @note = @notes.build
 
     respond_to do |format|
       format.html

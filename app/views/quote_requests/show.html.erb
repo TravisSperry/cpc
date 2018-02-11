@@ -26,16 +26,6 @@
       </p>
 
       <p>
-        <b>Quantity year:</b>
-        <%= @quote_request.quantity_year %>
-      </p>
-
-      <p>
-        <b>Quantity run:</b>
-        <%= @quote_request.quantity_run %>
-      </p>
-
-      <p>
         <b>Note:</b>
         <%= @quote_request.note %>
       </p>
@@ -60,8 +50,8 @@
       </div>
 
       <div class="row mt-4">
-        <div class="col notes">
-          <%= render 'notes/index_snippet', resource: @quote_request %>
+        <div class="col notes-index">
+          <%= render partial: 'notes/index_snippet', locals: { notes: @notes, page: params[:page] } %>
         </div>
       </div>
     </div>

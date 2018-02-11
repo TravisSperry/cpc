@@ -17,8 +17,8 @@
 
       <h3 style="margin-bottom:0;"><%= @work_order.customer.name %></h3>
       <p style="margin-top:0;">
-        <%= "#{@work_order.customer.address1} <br>".html_safe if @work_order.customer.address1 %>
-        <%= "#{@work_order.customer.address2} <br>".html_safe if @work_order.customer.address2 %>
+        <%= "#{@work_order.customer.address1} <br>".html_safe if @work_order.customer.address1.present? %>
+        <%= "#{@work_order.customer.address2} <br>".html_safe if @work_order.customer.address2.present? %>
         <%= "#{@work_order.customer.city}, #{@work_order.customer.state} #{@work_order.customer.zip_code} <br>".html_safe if @work_order.customer %>
         <strong>Phone:</strong><%= @work_order.customer.phone %>
       </p>

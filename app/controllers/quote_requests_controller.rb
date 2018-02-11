@@ -19,7 +19,8 @@ class QuoteRequestsController < ApplicationController
   # GET /quotes/1.json
   def show
     @quote_request = QuoteRequest.includes(notes: :user).find(params[:id])
-    @note = @quote_request.notes.build
+    @notes = @quote_request.notes.page(params[:page])
+    @note = @notes.build
 
     respond_to do |format|
       format.html # show.html.erb
