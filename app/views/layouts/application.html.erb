@@ -32,17 +32,16 @@
 
   <body class="home">
     <%= render 'layouts/google_tag_manager_body' if Rails.env.production? %>
+
+    <%= render 'layouts/header' %>
+
     <!-- .wrap -->
     <div class="wrap">
-
-      <%= render 'layouts/header' %>
-
       <%= flash_messages %>
 
       <%= yield %>
 
       <%= render 'layouts/footer' %>
-
     </div>
     <!-- /.wrap End -->
 

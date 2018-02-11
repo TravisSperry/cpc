@@ -5,6 +5,7 @@ require 'csv'
 class Powder < ActiveRecord::Base
   belongs_to :manufacturer
   belongs_to :color
+  has_many :line_items
   has_many :boxes
 
   has_paper_trail # tracks modifications of each object via versions

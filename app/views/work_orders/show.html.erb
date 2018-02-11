@@ -1,4 +1,4 @@
-<div class="row mb-5">
+<div class="row mb-3">
   <div class="col">
     <div class="activity-feed pl-2 pr-2">
       <% if @work_order.activities %>
@@ -11,7 +11,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-9">
       <div class="row">
         <div class="col">
           <%= render 'work_order_information' %>
@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-3">
       <div class="row">
         <div class="col">
           <%= link_to 'View PDF', work_order_path(format: :pdf),
