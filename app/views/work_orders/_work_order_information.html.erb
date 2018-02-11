@@ -1,8 +1,8 @@
+<h2>Work Order #<%= @work_order.id %></h2>
 <p>
   <strong>Customer:</strong>
   <%= link_to @work_order.customer.name, @work_order.customer if @work_order.customer %>
 </p>
-
 <p>
   <strong>Contact:</strong>
   <% if @work_order.contact %>
@@ -13,22 +13,18 @@
     'Please add a primary contact to this customer or add a contact to this work order.'
   <% end %>
 </p>
-
 <p>
   <strong>Date scheduled:</strong>
   <%= @work_order.date_scheduled.strftime('%b %e, %l:%M %p') if @work_order.date_scheduled %>
 </p>
-
 <p>
   <strong>Date due:</strong>
   <%= due_date_formatter(@work_order.date_due, @work_order.date_completed) %>
 </p>
-
 <p>
   <strong>Packaging details:</strong>
   <%= @work_order.packaging_details.present? ? @work_order.packaging_details : 'No details specified.' %>
 </p>
-
 <p>
   <strong>Date completed:</strong>
   <%= @work_order.date_completed ? @work_order.date_completed.strftime('%b %e, %l:%M %p') : 'Not yet completed.' %>

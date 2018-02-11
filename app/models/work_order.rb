@@ -2,8 +2,8 @@
 
 class WorkOrder < ActiveRecord::Base
   include PublicActivity::Model
-  tracked
-  
+  tracked owner: Proc.new{ |controller, model| controller.current_user }
+
   belongs_to :customer
   belongs_to :contact
   has_and_belongs_to_many :services

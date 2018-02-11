@@ -1,3 +1,14 @@
+<div class="row mb-5">
+  <div class="col">
+    <div class="activity-feed pl-2 pr-2">
+      <% if @work_order.activities %>
+        <%= render_activities(@work_order.activities.order(created_at: :desc)) %>
+      <% else %>
+        No activity on this Work Order.
+      <% end %>
+    </div>
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-lg-8">
