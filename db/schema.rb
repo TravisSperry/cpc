@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -14,127 +13,123 @@
 ActiveRecord::Schema.define(version: 20180211194723) do
 
   create_table "activities", force: :cascade do |t|
-    t.integer  "trackable_id"
-    t.string   "trackable_type"
-    t.integer  "owner_id"
-    t.string   "owner_type"
-    t.string   "key"
-    t.text     "parameters"
-    t.integer  "recipient_id"
-    t.string   "recipient_type"
+    t.integer "trackable_id"
+    t.string "trackable_type"
+    t.integer "owner_id"
+    t.string "owner_type"
+    t.string "key"
+    t.text "parameters"
+    t.integer "recipient_id"
+    t.string "recipient_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type"
+    t.index ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type"
+    t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
   end
 
-  add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type"
-  add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type"
-  add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
-
   create_table "boxes", force: :cascade do |t|
-    t.integer  "powder_id"
-    t.integer  "weight"
+    t.integer "powder_id"
+    t.integer "weight"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "original_weight", default: 0
+    t.integer "original_weight", default: 0
   end
 
   create_table "colors", force: :cascade do |t|
-    t.string   "name"
+    t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string  "first_name"
-    t.string  "last_name"
-    t.string  "phone"
-    t.string  "email"
-    t.string  "title"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone"
+    t.string "email"
+    t.string "title"
     t.integer "customer_id"
+    t.index ["customer_id"], name: "index_contacts_on_customer_id"
   end
-
-  add_index "contacts", ["customer_id"], name: "index_contacts_on_customer_id"
 
   create_table "customers", force: :cascade do |t|
-    t.string  "name"
-    t.string  "phone"
-    t.string  "fax"
-    t.string  "address1"
-    t.string  "address2"
-    t.string  "city"
-    t.string  "state"
-    t.string  "zip_code"
+    t.string "name"
+    t.string "phone"
+    t.string "fax"
+    t.string "address1"
+    t.string "address2"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
     t.integer "primary_contact_id"
-    t.integer "account_type",       default: 0
-    t.string  "email"
+    t.integer "account_type", default: 0
+    t.string "email"
+    t.index ["primary_contact_id"], name: "index_customers_on_primary_contact_id"
   end
 
-  add_index "customers", ["primary_contact_id"], name: "index_customers_on_primary_contact_id"
-
   create_table "line_items", force: :cascade do |t|
-    t.text    "description"
+    t.text "description"
     t.integer "quantity"
-    t.text    "notes"
+    t.text "notes"
     t.integer "work_order_id"
     t.integer "powder_id"
   end
 
   create_table "manufacturers", force: :cascade do |t|
-    t.string   "name"
+    t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "notes", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "notable_id"
-    t.string   "notable_type"
+    t.text "content"
+    t.integer "notable_id"
+    t.string "notable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer "user_id"
+    t.index ["notable_type", "notable_id"], name: "index_notes_on_notable_type_and_notable_id"
   end
 
-  add_index "notes", ["notable_type", "notable_id"], name: "index_notes_on_notable_type_and_notable_id"
-
   create_table "powders", force: :cascade do |t|
-    t.integer  "manufacturer_id"
-    t.integer  "color_id"
-    t.string   "part_number"
+    t.integer "manufacturer_id"
+    t.integer "color_id"
+    t.string "part_number"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
-    t.integer  "weight",               default: 0
-    t.boolean  "high_demand",          default: false
-    t.integer  "reminder_weight",      default: 1
-    t.date     "last_weight_reminder"
+    t.string "name"
+    t.integer "weight", default: 0
+    t.boolean "high_demand", default: false
+    t.integer "reminder_weight", default: 1
+    t.date "last_weight_reminder"
   end
 
   create_table "quote_request_attachments", force: :cascade do |t|
-    t.integer  "quote_request_id"
-    t.string   "attachment"
+    t.integer "quote_request_id"
+    t.string "attachment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "quote_requests", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "job_title"
-    t.string   "company_name"
-    t.string   "address_1"
-    t.string   "address_2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "email"
-    t.string   "telephone"
-    t.string   "fax"
-    t.text     "note"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "job_title"
+    t.string "company_name"
+    t.string "address_1"
+    t.string "address_2"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "email"
+    t.string "telephone"
+    t.string "fax"
+    t.text "note"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-    t.string   "status",       default: "New", null: false
-    t.string   "source"
+    t.integer "user_id"
+    t.string "status", default: "New", null: false
+    t.string "source"
   end
 
   create_table "services", force: :cascade do |t|
@@ -147,51 +142,48 @@ ActiveRecord::Schema.define(version: 20180211194723) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0
+    t.integer "sign_in_count", default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "suffix"
-    t.boolean  "admin"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "suffix"
+    t.boolean "admin"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "versions", force: :cascade do |t|
-    t.string   "item_type",                     null: false
-    t.integer  "item_id",                       null: false
-    t.string   "event",                         null: false
-    t.string   "whodunnit"
-    t.text     "object",     limit: 1073741823
+    t.string "item_type", null: false
+    t.integer "item_id", null: false
+    t.string "event", null: false
+    t.string "whodunnit"
+    t.text "object", limit: 1073741823
     t.datetime "created_at"
+    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
-
-  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
 
   create_table "work_orders", force: :cascade do |t|
     t.datetime "date_scheduled"
     t.datetime "date_due"
     t.datetime "date_completed"
-    t.integer  "customer_id"
-    t.integer  "contact_id"
-    t.text     "packaging_details"
-    t.string   "name"
-    t.integer  "marked_completed_by"
-    t.integer  "status"
+    t.integer "customer_id"
+    t.integer "contact_id"
+    t.text "packaging_details"
+    t.string "name"
+    t.integer "marked_completed_by"
+    t.integer "status"
+    t.index ["contact_id"], name: "index_work_orders_on_contact_id"
+    t.index ["customer_id"], name: "index_work_orders_on_customer_id"
   end
-
-  add_index "work_orders", ["contact_id"], name: "index_work_orders_on_contact_id"
-  add_index "work_orders", ["customer_id"], name: "index_work_orders_on_customer_id"
 
 end
