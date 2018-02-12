@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class Quote < ActiveRecord::Base
+class Quote < ApplicationRecord
   belongs_to :user
 end

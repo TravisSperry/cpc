@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class Color < ActiveRecord::Base
+class Color < ApplicationRecord
   has_many :powders
 end

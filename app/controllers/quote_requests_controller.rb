@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class QuoteRequestsController < ApplicationController
-  before_filter :authenticate_user!, except: %i[new create]
+  before_action :authenticate_user!, except: %i[new create]
 
   # GET /quotes
   # GET /quotes.json

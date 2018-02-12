@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   if Rails.env.production?
     devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :registerable
   else

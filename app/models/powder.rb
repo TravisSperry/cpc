@@ -2,7 +2,7 @@
 
 require 'csv'
 
-class Powder < ActiveRecord::Base
+class Powder < ApplicationRecord
   belongs_to :manufacturer
   belongs_to :color
   has_many :line_items
@@ -61,6 +61,10 @@ class Powder < ActiveRecord::Base
 
   def list_name
     "#{manufacturer.name} - #{name}"
+  end
+
+  def list_select_name
+    "#{manufacturer.name} - #{name}#{" (#{part_number})" if part_number}"
   end
 
   def total_weight

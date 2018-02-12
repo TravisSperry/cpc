@@ -30,8 +30,12 @@
                                         input_html: { class: 'chosen'} if @customer %>
           </div>
           <div class="col-md-6">
-            <%= f.input :date_scheduled, as: :date_time_picker %>
-            <%= f.input :date_due, as: :date_time_picker %>
+            <%= f.input :date_scheduled, as: :string,
+                                         placeholder: 'Select A Date',
+                                         input_html: { class: "datetimepicker" } %>
+            <%= f.input :date_due, as: :string,
+                                   placeholder: 'Select A Date',
+                                   input_html: { class: "datetimepicker" } %>
           </div>
         </div>
       </div>
@@ -60,28 +64,13 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-12">
-        <table class="table table-sm">
-          <thead>
-            <tr>
-              <th>Description</th>
-              <th>Quantity</th>
-              <th>Notes</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <%= f.simple_fields_for :line_items do |line_item_form| %>
-
-              <%= render 'line_item_fields', f: line_item_form %>
-            <% end %>
-            <tr>
-              <td class="add-line-items text-center" colspan="4">
-                <%= link_to_add_association "Add Line Item", f, :line_items %>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="col-sm-12 line-item-fields">
+        <%= f.simple_fields_for :line_items do |line_item_form| %>
+          <%= render 'line_item_fields', f: line_item_form %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association "Add Line Item", f, :line_items %>
+        </div>
       </div>
     </div>
     <hr class="mb-4">

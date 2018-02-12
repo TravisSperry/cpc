@@ -1,25 +1,29 @@
-<tr class='nested-fields' style="border-bottom:solid 1px #eaeaea;">
-  <td style="vertical-align:middle;">
-    <%= f.input :description, placeholder: 'Description',
-                              label: false,
-                              wrapper_html: { class: 'mb-0' } %>
-  </td>
-  <td style="vertical-align:middle;">
-    <%= f.input :quantity, placeholder: 'Quantity',
-                           label: false,
-                           wrapper_html: { class: 'mb-0' } %>
-  </td>
-  <td style="vertical-align:middle;">
-    <%= f.input :notes, placeholder: 'Notes',
-                        label: false,
-                        wrapper_html: { class: 'mb-0' } %>
-  </td>
-  <td style="vertical-align:middle;">
-    <%= f.association   :powder,
-                        label: false,
-                        wrapper_html: { class: 'mb-0' } %>
-  </td>
-  <td style="vertical-align:middle;">
-    <%= link_to_remove_association "<i class='fa fa-remove text-danger'></i>".html_safe, f %>
-  </td>
-</tr>
+<div class='nested-fields'>
+  <div class="row mb-2">
+    <div class="col">
+      <%= f.input :description, placeholder: 'Description',
+                                label: false,
+                                wrapper_html: { class: 'mb-0', row: 1 } %>
+    </div>
+    <div class="col">
+      <%= f.input :quantity, placeholder: 'Quantity',
+                             label: false,
+                             wrapper_html: { class: 'mb-0' } %>
+    </div>
+    <div class="col">
+      <%= f.input :notes, placeholder: 'Notes',
+                          label: false,
+                          wrapper_html: { class: 'mb-0' } %>
+    </div>
+    <div class="col">
+      <%= f.association :powder, placeholder: 'Powder',
+                                 label: false,
+                                 label_method: :list_select_name,
+                                 wrapper_html: { class: 'mb-0' },
+                                 input_html: { class: 'chosen' } %>
+    </div>
+    <div class="col-1">
+      <%= link_to_remove_association "<i class='fas fa-times text-danger'></i>".html_safe, f, data: { confirm: 'Are you sure you want to remove this line item?'} %>
+    </div>
+  </div>
+</div>

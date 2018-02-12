@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
-gem 'rails', '4.2.7.1'
+gem 'rails', '5.1.4'
 
 gem 'bootstrap', '~> 4.0.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
@@ -13,12 +13,11 @@ gem 'carrierwave-aws'
 gem 'chosen-rails'
 gem 'cocoon'
 gem 'coffee-rails'
-gem 'compass-rails'
 gem 'devise'
 gem 'enum_help'
-gem 'font-awesome-sass', '~> 4.7.0'
+gem 'font-awesome-sass', '~> 5.0.6'
 gem 'high_voltage', '~> 3.0.0'
-gem 'jquery-datatables-rails', '~> 3.3.0'
+gem 'jquery-datatables-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'kaminari'
@@ -56,5 +55,5 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '= 0.21'
 end

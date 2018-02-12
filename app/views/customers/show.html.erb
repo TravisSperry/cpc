@@ -2,10 +2,10 @@
   <div class="row justify-content-end mb-4">
     <div class="col-auto work-order-navbar">
       <%= link_to new_customer_contact_path(@customer.id), class: "btn btn-primary add-contact" do %>
-        <i class="fa fa-user"></i> Add Contact
+        <i class="fas fa-user"></i> Add Contact
       <% end %>
       <%= link_to new_customer_work_order_path(@customer.id), class: "btn btn-warning mr-2 add-work-order #{disable_with_contact(@customer)}" do %>
-        <i class="fa fa-plus"></i> Add Work Order
+        <i class="far fa-plus"></i> Add Work Order
       <% end %>
     </div>
   </div>

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PowdersController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_powder, only: %i[show edit update destroy]
 
   respond_to :html

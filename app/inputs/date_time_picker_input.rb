@@ -7,16 +7,16 @@ class DateTimePickerInput < SimpleForm::Inputs::Base
   end
 
   def input_html_options
-    super.merge({class: 'form-control', readonly: true})
+    super.merge({class: 'form-control'})
   end
 
   def span_table
-    template.content_tag(:span, class: 'input-group-addon') do
+    template.content_tag(:span, class: 'input-group-append') do
       template.concat icon_table
     end
   end
 
   def icon_table
-    "<i class='fa fa-calendar'></i>".html_safe
+    "<i class='far fa-calendar input-group-text pt-2'></i>".html_safe
   end
 end

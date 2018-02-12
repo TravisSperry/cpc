@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-class WorkOrder < ActiveRecord::Base
+class WorkOrder < ApplicationRecord
   include PublicActivity::Model
   tracked owner: Proc.new{ |controller, model| controller.current_user }
 
   belongs_to :customer
   belongs_to :contact
   has_and_belongs_to_many :services
-  has_many :line_items, dependent: :destroy
+  has_many :line_items, inverse_of: :work_order, dependent: :destroy
   has_many :notes, as: :notable
 
 

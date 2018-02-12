@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ColorsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_color, only: %i[show edit update destroy]
 
   respond_to :html

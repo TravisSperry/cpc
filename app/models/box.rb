@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Box < ActiveRecord::Base
+class Box < ApplicationRecord
   belongs_to :powder
 
   validates  :powder, presence: true

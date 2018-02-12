@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class Manufacturer < ActiveRecord::Base
+class Manufacturer < ApplicationRecord
   has_many :powders
 end
