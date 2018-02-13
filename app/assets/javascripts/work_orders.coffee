@@ -1,7 +1,3 @@
-$('.line-item-fields').on 'cocoon:after-insert', ->
-  $('.chosen').chosen
-    allow_single_deselect: true
-
 if $(".work-order-navbar").length > 0
   $(".add-line-items a").
     data("association-insertion-method", 'prepend').

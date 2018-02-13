@@ -68,8 +68,8 @@
         <%= f.simple_fields_for :line_items do |line_item_form| %>
           <%= render 'line_item_fields', f: line_item_form %>
         <% end %>
-        <div class="links">
-          <%= link_to_add_association "Add Line Item", f, :line_items %>
+        <div class="links mt-3">
+          <%= link_to_add_association "Add Line Item", f, :line_items, class: 'btn btn-sm btn-info float-right' %>
         </div>
       </div>
     </div>

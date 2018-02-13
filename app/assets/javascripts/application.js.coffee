@@ -13,6 +13,7 @@
 #= require customers
 #= require bootstrap-slider
 #= require work_orders
+#= require powders
 
 jQuery ->
   $('.datatable').DataTable

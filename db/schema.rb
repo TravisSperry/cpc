@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180211194723) do
+ActiveRecord::Schema.define(version: 20180213002456) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "trackable_id"
@@ -73,6 +73,13 @@ ActiveRecord::Schema.define(version: 20180211194723) do
     t.text "notes"
     t.integer "work_order_id"
     t.integer "powder_id"
+  end
+
+  create_table "line_items_services", force: :cascade do |t|
+    t.integer "line_item_id"
+    t.integer "service_id"
+    t.index ["line_item_id"], name: "index_line_items_services_on_line_item_id"
+    t.index ["service_id"], name: "index_line_items_services_on_service_id"
   end
 
   create_table "manufacturers", force: :cascade do |t|
