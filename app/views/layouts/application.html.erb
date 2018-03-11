@@ -22,15 +22,15 @@
     <!--[if IE 7]>
     <link rel="stylesheet" href="/assets/font-awesome-ie7.min.css">
     <![endif]-->
-    <%= stylesheet_link_tag "application", "https://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext" %>
+    <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "modernizr" %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
-    <%= render 'layouts/zopim' %>
+    <%= render 'layouts/zopim' if Rails.env.production? %>
     <%= render 'layouts/google_tag_manager_head' if Rails.env.production? %>
   </head>
 
-  <body class="home">
+  <body class="home <%= 'bg-light' if  current_user %>">
     <%= render 'layouts/google_tag_manager_body' if Rails.env.production? %>
 
     <%= render 'layouts/header' %>
@@ -40,9 +40,9 @@
       <%= flash_messages %>
 
       <%= yield %>
-
-      <%= render 'layouts/footer' %>
     </div>
+
+    <%= render 'layouts/footer' %>
     <!-- /.wrap End -->
 
     <%= javascript_include_tag "application" %>

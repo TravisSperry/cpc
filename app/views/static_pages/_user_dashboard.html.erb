@@ -1,13 +1,21 @@
 <!-- Dashboard Side Nav **end** -->
 <div class="container user_dashboard">
-  <div class="row d-flex mb-5">
-    <div class="col-sm-12">
-      <%= link_to "New Customer", new_customer_path, class: "btn btn-info" %>
-      <%= link_to "Quote Calculator", calculator_quote_requests_path, class: "btn btn-secondary" %>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="dropdown show mb-2">
+        <a class="btn btn-primary btn-block dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Manage Customers
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <%= link_to "New Customer", new_customer_path, class: "dropdown-item" %>
+          <%= link_to "Customer Lookup", customers_path, class: "dropdown-item" %>
+        </div>
+      </div>
+      <%= link_to "Quote Calculator", calculator_quote_requests_path, class: "btn btn-warning btn-block" %>
+      <%= link_to "Powder Management", powders_path, class: "btn btn-dark btn-block" %>
     </div>
-  </div>
-  <div class="row d-flex align-items-stretch">
-    <div class="col-md-4">
+    <div class="col-md-10">
       <div class="card">
         <div class="card-body">
           <div class="row">
@@ -15,8 +23,10 @@
               <i class="fas fa-list-ul icon-5x"></i>
             </div>
             <div class="col-10 text-right">
-              <h1><%= @new_quote_requests.count ? @new_quote_requests.count : 0 %></h1>
-              <h3 class="card-title mb-0">New Quote <%= pluralize_without_count(@new_quote_requests.count, 'Request')%><%= @new_quote_requests.count == 0 ? "" : "!" %></h3>
+              <h3 class="card-title mb-0">
+                <%= @new_quote_requests.count ? @new_quote_requests.count : 0 %>
+                New Quote <%= pluralize_without_count(@new_quote_requests.count, 'Request')%>
+                <%= @new_quote_requests.count == 0 ? "" : "!" %></h3>
             </div>
           </div>
         </div>
@@ -29,53 +39,21 @@
         </a>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-sm-12 text-center">
-              <h1 class="mb-0">Powder Management</h1>
-            </div>
-          </div>
-        </div>
-        <a href="<%= powders_path %>">
-          <div class="card-footer">
-            <strong>Manage Inventory
-              <i class="fas fa-chevron-right float-right mt-1"></i></strong>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-sm-12 text-center">
-              <h1 class="mb-0">Customers</h1>
-            </div>
-          </div>
-        </div>
-        <a href="<%= customers_path %>">
-          <div class="card-footer">
-            <strong>Customers
-              <i class="fas fa-chevron-right float-right mt-1"></i></strong>
-          </div>
-        </a>
-      </div>
-    </div>
   </div><!-- /.row -->
-  <div class="row mt-5 mb-3">
+  <div class="row mt-4">
     <div class="col-sm-12">
-      <h1>Outstanding Work Orders</h1>
-    </div>
-  </div><!-- /.row -->
-  <div class="row">
-    <div class="col-sm-12">
-      <% if @outstanding_work_orders.any? %>
-        <%= render 'work_orders/outstanding_work_orders', outstanding_work_orders: @outstanding_work_orders %>
-      <% else %>
-        <p>No Outstanding work orders.</p>
-      <% end %>
+      <div class="card">
+        <div class="card-header">
+          <h1 class="mb-0">Outstanding Work Orders</h1>
+        </div>
+        <div class="card-body">
+          <% if @outstanding_work_orders.any? %>
+            <%= render 'work_orders/outstanding_work_orders', outstanding_work_orders: @outstanding_work_orders %>
+          <% else %>
+            <p>No Outstanding work orders.</p>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div><!-- /.row -->
 </div><!-- /.container -->

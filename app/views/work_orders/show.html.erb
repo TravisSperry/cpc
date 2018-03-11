@@ -19,11 +19,6 @@
       </div>
       <div class="row">
         <div class="col">
-          <%= render 'services', work_order: @work_order if @work_order.services.any? %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
           <%= render 'parts', work_order: @work_order if @work_order.line_items.any? %>
         </div>
       </div>
@@ -61,8 +56,12 @@
             </div>
           </div>
           <div class="row mt-3">
-            <div class="notes-index col">
-              <%= render partial: 'notes/index_snippet', locals: { notes: @notes, page: params[:page] } %>
+            <div class="card w-100">
+              <div class="card-body pt-2 pb-2 p-1">
+                <div class="notes-index col">
+                  <%= render partial: 'notes/index_snippet', locals: { notes: @notes, page: params[:page] } %>
+                </div>
+              </div>
             </div>
           </div>
         </div>

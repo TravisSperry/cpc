@@ -1,32 +1,39 @@
-<h2>Work Order #<%= @work_order.id %></h2>
-<p>
-  <strong>Customer:</strong>
-  <%= link_to @work_order.customer.name, @work_order.customer if @work_order.customer %>
-</p>
-<p>
-  <strong>Contact:</strong>
-  <% if @work_order.contact %>
-    <%= link_to @work_order.contact.full_name, @work_order.contact %>
-  <% elsif @work_order.customer.try :primary_contact %>
-    <%= link_to @work_order.customer.primary_contact.full_name, @work_order.customer.primary_contact %>
-  <% else %>
-    'Please add a primary contact to this customer or add a contact to this work order.'
-  <% end %>
-</p>
-<p>
-  <strong>Date scheduled:</strong>
-  <%= @work_order.date_scheduled.strftime('%b %e, %l:%M %p') if @work_order.date_scheduled %>
-</p>
-<p>
-  <strong>Date due:</strong>
-  <%= due_date_formatter(@work_order.date_due, @work_order.date_completed) %>
-</p>
-<p>
-  <strong>Packaging details:</strong>
-  <%= @work_order.packaging_details.present? ? @work_order.packaging_details : 'No details specified.' %>
-</p>
-<p>
-  <strong>Date completed:</strong>
-  <%= @work_order.date_completed ? @work_order.date_completed.strftime('%b %e, %l:%M %p') : 'Not yet completed.' %>
-  <%= ", by: #{@work_order.completed_by.try :full_name}" if @work_order.completed_by %>
-</p>
+<div class="card mb-3">
+  <div class="card-header">
+    <h2 class="mb-0 d-inline">Work Order #<%= @work_order.id %></h2>
+    <%= render 'services', work_order: @work_order if @work_order.services.any? %>
+  </div>
+  <div class="card-body pb-0">
+    <p>
+      <strong>Customer:</strong>
+      <%= link_to @work_order.customer.name, @work_order.customer if @work_order.customer %>
+    </p>
+    <p>
+      <strong>Contact:</strong>
+      <% if @work_order.contact %>
+        <%= link_to @work_order.contact.full_name, @work_order.contact %>
+      <% elsif @work_order.customer.try :primary_contact %>
+        <%= link_to @work_order.customer.primary_contact.full_name, @work_order.customer.primary_contact %>
+      <% else %>
+        'Please add a primary contact to this customer or add a contact to this work order.'
+      <% end %>
+    </p>
+    <p>
+      <strong>Date scheduled:</strong>
+      <%= @work_order.date_scheduled.strftime('%b %e, %l:%M %p') if @work_order.date_scheduled %>
+    </p>
+    <p>
+      <strong>Date due:</strong>
+      <%= due_date_formatter(@work_order.date_due, @work_order.date_completed) %>
+    </p>
+    <p>
+      <strong>Packaging details:</strong>
+      <%= @work_order.packaging_details.present? ? @work_order.packaging_details : 'No details specified.' %>
+    </p>
+    <p>
+      <strong>Date completed:</strong>
+      <%= @work_order.date_completed ? @work_order.date_completed.strftime('%b %e, %l:%M %p') : 'Not yet completed.' %>
+      <%= ", by: #{@work_order.completed_by.try :full_name}" if @work_order.completed_by %>
+    </p>
+  </div>
+</div>

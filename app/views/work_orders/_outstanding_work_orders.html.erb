@@ -3,6 +3,7 @@
     <tr>
       <th>Date due</th>
       <th>Customer</th>
+      <th>Contact</th>
       <th>Job Name</th>
       <th>Status</th>
       <th></th>
@@ -14,6 +15,7 @@
       <tr>
         <td><%= work_order.date_due.strftime('%b %e') if work_order.date_due %></td>
         <td><%= work_order.customer.try :name %></td>
+        <td><%= work_order.contact.try :full_name %></td>
         <td><%= work_order.name %></td>
         <td><%= work_order.status ? work_order.status.titleize : 'Please set a status.' %></td>
         <td><%= link_to 'View', work_order %></td>
