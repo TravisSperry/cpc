@@ -14,13 +14,13 @@ class WorkOrder < ApplicationRecord
 
   # TODO: Validates presence of - customer, contact, name
 
-  enum status: [:received, :in_progress, :ready_for_invoice, :complete].freeze
+  enum status: [:received, :scheduled, :in_progress, :ready_for_invoice, :complete].freeze
 
   accepts_nested_attributes_for :line_items,
     allow_destroy: true,
     reject_if: proc { |attributes| attributes['description'].blank? }
 
-  after_create :set_status_to_in_progress
+  after_create :set_status_to_received
 
   def completed_by
     User.find(marked_completed_by) if marked_completed_by
@@ -28,7 +28,7 @@ class WorkOrder < ApplicationRecord
 
   private
 
-  def set_status_to_in_progress
+  def set_status_to_received
     self.received!
   end
 end
