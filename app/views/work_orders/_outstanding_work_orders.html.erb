@@ -5,6 +5,7 @@
       <th>Customer</th>
       <th>Contact</th>
       <th>Job Name</th>
+      <th>Order #</th>
       <th>Status</th>
       <th></th>
     </tr>
@@ -17,6 +18,7 @@
         <td><%= work_order.customer.try :name %></td>
         <td><%= work_order.contact.try :full_name %></td>
         <td><%= work_order.name %></td>
+        <td><%= work_order.id %></td>
         <td><%= work_order.status ? work_order.status.titleize : 'Please set a status.' %></td>
         <td><%= link_to 'View', work_order %></td>
       </tr>

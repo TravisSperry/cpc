@@ -98,7 +98,7 @@ class QuoteRequestsController < ApplicationController
 
   def calculator
     @powder_costs = { stock: 8.5, exotic: 12.5, custom: 16.5 }
-    @oven_sizes = { small: 20, large: 45 }
+    @oven_sizes = { small: 25, large: 55 }
   end
 
   def mark_as_viewed
