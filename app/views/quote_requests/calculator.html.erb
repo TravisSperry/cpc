@@ -35,10 +35,10 @@
           </div>
           <div class="col-sm-6">
             <%= label_tag 'Price per pound' %>
-            <%= text_field_tag :powder_price,
-                               nil,
-                               placeholder: 'Price per lb',
-                               class: 'form-control' %>
+            <%= select_tag :powder_price,
+                            options_for_select([['Basic ($10/lb.)', 10], ['Exotic ($15/lb.)', 15], ['Custom ($25/lb.)', 25]]),
+                            prompt: 'Select a powder price',
+                            class: 'form-control'  %>
           </div>
         </div>
         <div class="row mt-3">

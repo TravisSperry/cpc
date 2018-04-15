@@ -97,7 +97,7 @@ class QuoteRequestsController < ApplicationController
   end
 
   def calculator
-    @powder_costs = { stock: 8.5, exotic: 12.5, custom: 16.5 }
+    @powder_costs = [['stock', 10], ['exotic', 15], ['custom', 25]]
     @oven_sizes = { small: 25, large: 55 }
   end
 
