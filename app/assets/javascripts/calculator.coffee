@@ -3,7 +3,7 @@
     sum_costs()
 
   sum_costs = ->
-    labor_cost = $('#labor_hours').val() * 80
+    labor_cost = $('#labor_hours').val() * $('#labor_hours').data('rate')
     oven_cost = $('#oven_hours').val() * $('#oven_size').val()
     powder_cost = $('#powder_weight').val() * (parseFloat($('#powder_price').val()) || 0)
     soft_costs = labor_cost + oven_cost + powder_cost
@@ -16,9 +16,9 @@
     console.log 1 - margin($("input[name='margin']").val())
 
   cost_of_business = (selection) ->
-    values = [0.05, 0.075, 0.1, 0.125, 0.15, 0.175]
+    values = [0.1, 0.2, 0.3]
     values[parseInt(selection)]
 
   margin = (selection) ->
-    values = [0.35, 0.425, 0.525, 0.6, 0.65]
+    values = [0.40, 0.48, 0.55, 0.62, 0.75, 0.95]
     values[parseInt(selection)]
