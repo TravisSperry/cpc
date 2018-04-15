@@ -27,11 +27,11 @@
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
     <%= render 'layouts/zopim' if Rails.env.production? %>
-    <%= render 'layouts/google_tag_manager_head' if Rails.env.production? %>
+    <%= render 'layouts/google_tag_manager_head' if Rails.env.production? && !current_user %>
   </head>
 
-  <body class="home <%= 'bg-light' if  current_user %>">
-    <%= render 'layouts/google_tag_manager_body' if Rails.env.production? %>
+  <body class="home <%= 'bg-light' if current_user %>">
+    <%= render 'layouts/google_tag_manager_body' if Rails.env.production? && !current_user %>
 
     <%= render 'layouts/header' %>
 
