@@ -1,4 +1,4 @@
- if $(document.getElementById('calculator-form')).length > 0
+if $(document.getElementById('calculator-form')).length > 0
   $(':input').bind 'keyup change', ->
     sum_costs()
 
@@ -20,5 +20,5 @@
     values[parseInt(selection)]
 
   margin = (selection) ->
-    values = [0.40, 0.48, 0.55, 0.62, 0.75, 0.95]
+    values = [0.40, 0.48, 0.55, 0.62, 0.75]
     values[parseInt(selection)]
