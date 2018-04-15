@@ -29,6 +29,7 @@
           <tr style="text-align:left;border-bottom: solid 1px black">
             <th>Part</th>
             <th>Quantity</th>
+            <th>Powder</th>
             <th>Description</th>
           </tr>
         </thead>
@@ -37,6 +38,7 @@
             <tr>
               <td><%= line_item.description %></td>
               <td><%= line_item.quantity %></td>
+              <td><%= line_item.powder ? line_item.powder.list_select_name : 'No powder selected' %></td>
               <td><%= line_item.notes %></td>
             </tr>
           <% end %>

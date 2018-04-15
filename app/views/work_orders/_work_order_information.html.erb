@@ -9,6 +9,10 @@
       <%= link_to @work_order.customer.name, @work_order.customer if @work_order.customer %>
     </p>
     <p>
+      <strong>Job Name:</strong>
+      <%= @work_order.name %>
+    </p>
+    <p>
       <strong>Contact:</strong>
       <% if @work_order.contact %>
         <%= link_to @work_order.contact.full_name, @work_order.contact %>
