@@ -10,6 +10,7 @@
 #= require dataTables/extras/dataTables.responsive
 #= require chosen-jquery
 #= require calculator
+#= require sand_blasting_quote_calculator
 #= require customers
 #= require bootstrap-slider
 #= require work_orders

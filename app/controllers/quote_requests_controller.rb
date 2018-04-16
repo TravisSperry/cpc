@@ -101,6 +101,11 @@ class QuoteRequestsController < ApplicationController
     @oven_sizes = { small: 25, large: 55 }
   end
 
+  def sand_blasting_quote_calculator
+    @powder_costs = [['stock', 10], ['exotic', 15], ['custom', 25]]
+    @oven_sizes = { small: 25, large: 55 }
+  end
+
   def mark_as_viewed
     @quote_request = QuoteRequest.find(params[:id])
 

@@ -30,6 +30,7 @@ Cpc::Application.routes.draw do
 
     collection do
       get 'calculator'
+      get 'sand_blasting_quote_calculator'
     end
   end
 

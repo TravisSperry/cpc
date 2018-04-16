@@ -1,21 +1,28 @@
 <!-- Dashboard Side Nav **end** -->
 <div class="container user_dashboard">
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="dropdown show mb-2">
         <a class="btn btn-primary btn-block dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Manage Customers
         </a>
-
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <%= link_to "New Customer", new_customer_path, class: "dropdown-item" %>
           <%= link_to "Customer Lookup", customers_path, class: "dropdown-item" %>
         </div>
       </div>
-      <%= link_to "Quote Calculator", calculator_quote_requests_path, class: "btn btn-warning btn-block" %>
+      <div class="dropdown show mb-2">
+        <a class="btn btn-warning btn-block dropdown-toggle" href="#" role="button" id="dropdownQuotesLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Quote Calculators
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownQuotesLink">
+          <%= link_to "General Quote", calculator_quote_requests_path, class: "dropdown-item" %>
+          <%= link_to "Sand Blasting Quote", sand_blasting_quote_calculator_quote_requests_path, class: "dropdown-item" %>
+        </div>
+      </div>
       <%= link_to "Powder Management", powders_path, class: "btn btn-dark btn-block" %>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <div class="card">
         <div class="card-body">
           <div class="row">
