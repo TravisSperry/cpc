@@ -7,8 +7,7 @@ if $(document.getElementById('sand-blasting-calculator-form')).length > 0
     labor_cost = $('#labor_hours').val() * $('#labor_hours').data('rate')
     media_cost = labor_cost * 0.125
     soft_costs = media_cost + labor_cost
-    cob = soft_costs * (cost_of_business($("input[name='cost-of-business']").val()))
-    total_cost = (cob + soft_costs) / (1 - margin($("input[name='margin']").val()))
+    total_cost = soft_costs / (1 - margin($("input[name='margin']").val()))
 
     $('#total').find('span').html(total_cost.toFixed(2))
 
