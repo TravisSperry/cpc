@@ -77,7 +77,7 @@ class Powder < ApplicationRecord
     CSV.generate do |csv|
       csv << ['manufacturer', 'color', 'name', 'weight (lbs)', 'part number', 'high demand?']
       all.each do |powder|
-        csv << [powder.manufacturer.name, powder.color.name, powder.name, powder.weight, powder.part_number, powder.high_demand]
+        csv << [powder.manufacturer.try(:name), powder.color.try(:name), powder.name, powder.weight, powder.part_number, powder.high_demand]
       end
     end
   end

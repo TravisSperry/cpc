@@ -32,6 +32,7 @@ contact = customer.contacts.build(
 customer.primary_contact_id = contact.id
 
 Service.create(name: 'Powder Coating')
+Service.create(name: 'Zinc Primer')
 Service.create(name: 'Sand Blasting')
 Service.create(name: 'Fabrication')
 Service.create(name: 'Other/Repair/Shop Service')
