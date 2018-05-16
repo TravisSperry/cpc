@@ -46,6 +46,7 @@ Cpc::Application.routes.draw do
     resources :notes
 
     member do
+      post 'quality_assurance_approval'
       put 'mark_completed'
     end
   end

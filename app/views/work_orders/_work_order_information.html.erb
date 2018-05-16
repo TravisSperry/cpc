@@ -40,4 +40,15 @@
       <%= ", by: #{@work_order.completed_by.try :full_name}" if @work_order.completed_by %>
     </p>
   </div>
+  <% if @work_order.quality_assurance_approvals.any? %>
+    <div class="card-footer">
+      <strong>QA Approvals</strong>
+      <% @work_order.quality_assurance_approvals.includes(:user).each do |approval| %>
+        <span class="badge badge-pill badge-success float-right ml-1 mt-1"><%= approval.user.full_name %></span>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="">
+
+  </div>
 </div>

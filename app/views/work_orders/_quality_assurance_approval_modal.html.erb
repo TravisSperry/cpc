@@ -1,0 +1,15 @@
+<%= link_to 'QA Approval', '#', class: 'btn btn-block btn-secondary pull-right mb-3',
+                                          data: { toggle: 'modal', target: '#qaModal' } %>
+<div class="modal fade" id="qaModal" tabindex="-1" role="dialog" aria-labelledby="qaModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        Are you sure you want to perform a Quality Assurance sign-off?
+      </div>
+      <div class="modal-footer">
+        <%= link_to "Cancel", "#", class: 'btn btn-danger', data: { dismiss: 'modal' } %>
+        <%= link_to "Approve", quality_assurance_approval_work_order_path(@work_order), class: "btn btn-success", method: :post %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180213002456) do
+ActiveRecord::Schema.define(version: 20180516005632) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "trackable_id"
@@ -111,6 +111,13 @@ ActiveRecord::Schema.define(version: 20180213002456) do
     t.date "last_weight_reminder"
   end
 
+  create_table "quality_assurance_approvals", force: :cascade do |t|
+    t.integer "work_order_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "quote_request_attachments", force: :cascade do |t|
     t.integer "quote_request_id"
     t.string "attachment"
@@ -165,6 +172,7 @@ ActiveRecord::Schema.define(version: 20180213002456) do
     t.string "last_name"
     t.string "suffix"
     t.boolean "admin"
+    t.boolean "can_approve_work_orders", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

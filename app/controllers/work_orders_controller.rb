@@ -1,7 +1,11 @@
 class WorkOrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_work_order, only: [:show, :edit, :update, :destroy, :mark_completed]
+  before_action :set_work_order, only: [
+                                          :show, :edit, :update, :destroy, :mark_completed,
+                                          :quality_assurance_approval
+                                        ]
   before_action :set_customer, only: [:new, :edit]
+  before_action :can_approve?, only: [:quality_assurance_approval]
 
   # GET /work_orders
   def index
@@ -12,6 +16,7 @@ class WorkOrdersController < ApplicationController
   def show
     @notes = @work_order.notes.page(params[:page])
     @note = @notes.build
+    @work_order_statuses = work_order_statuses
 
     respond_to do |format|
       format.html
@@ -70,6 +75,18 @@ class WorkOrdersController < ApplicationController
     end
   end
 
+  def quality_assurance_approval
+    quality_assurance_approval = @work_order.quality_assurance_approvals.build(
+      user_id: current_user.id
+    )
+
+    if quality_assurance_approval.save!
+      redirect_to @work_order, notice: 'Quality Assurance approval was submitted.'
+    else
+      redirect_to @work_order, warning: 'The was a problem processing this Quality Assurance approval.'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_work_order
@@ -80,6 +97,16 @@ class WorkOrdersController < ApplicationController
       if params[:customer_id] || @work_order.customer_id
         @customer = Customer.find( params[:customer_id] || @work_order.customer_id)
       end
+    end
+
+    def work_order_statuses
+      statuses = WorkOrder.statuses.reject { |status| status == 'complete' }
+      statuses.reject { |status| status == 'ready_for_invoice' && !@work_order.quality_assurance_approval? }
+    end
+
+    def can_approve?
+      return if current_user.can_approve_work_orders?
+      redirect_to @work_order, warning: 'You are not authorized to approve this work order.'
     end
 
     # Only allow a trusted parameter "white list" through.

@@ -37,6 +37,7 @@
           <%= link_to 'View PDF', work_order_path(format: :pdf),
                                   target: '_blank',
                                   class: 'btn btn-block btn-primary pull-right mb-3' %>
+          <%= render 'quality_assurance_approval_modal' if current_user.can_approve_work_orders? && !@work_order.quality_assurance_approval? %>
         </div>
       </div>
       <% unless @work_order.complete? %>
@@ -44,7 +45,7 @@
           <div class="col">
             <%= render 'status_form' %>
 
-            <%= render 'mark_completed_form' %>
+            <%= render 'mark_completed_form' if @work_order.quality_assurance_approval? %>
           </div>
         </div>
       <% end %>

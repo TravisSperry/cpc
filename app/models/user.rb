@@ -8,8 +8,9 @@ class User < ApplicationRecord
   end
   has_many :quote_requests
   has_many :notes
+  has_many :quality_assurance_approvals
 
   def full_name
-    first_name.to_s
+    "#{first_name} #{last_name}"
   end
 end
