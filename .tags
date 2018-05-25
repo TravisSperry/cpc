@@ -24,3 +24,80 @@ set_customer	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controller
 work_order_statuses	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/work_orders_controller.rb	/^    def work_order_statuses$/;"	method	line:102	class:WorkOrdersController
 can_approve?	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/work_orders_controller.rb	/^    def can_approve?$/;"	method	line:107	class:WorkOrdersController
 work_order_params	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/work_orders_controller.rb	/^    def work_order_params$/;"	method	line:113	class:WorkOrdersController
+main-heading-width	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^$main-heading-width: 450px;$/;"	function	line:1
+cpc-red	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^$cpc-red: #AB211C;$/;"	function	line:2
+facebook-blue	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^$facebook-blue: #3B5998;$/;"	function	line:3
+instagram-brown	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^$instagram-brown: #9b6954;$/;"	function	line:4
+global-font-family	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^$global-font-family: inherit;$/;"	function	line:5
+border-settings	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^$border-settings: none;$/;"	function	line:6
+letter-spacing	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^$letter-spacing: 0px;$/;"	function	line:7
+.btn-danger	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.btn-danger {$/;"	function	line:11
+.alert	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.alert{$/;"	function	line:17
+.navbar-toggle	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.navbar-toggle {$/;"	function	line:24
+.wrap	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.wrap {$/;"	function	line:28
+.container	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .container{$/;"	function	line:31
+.pre-nav	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.pre-nav{$/;"	function	line:37
+.phone-email	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .phone-email{$/;"	function	line:44
+span	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    span{$/;"	function	line:49
+i	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    i{$/;"	function	line:53
+a	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    a{$/;"	function	line:57
+ul	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    ul{$/;"	function	line:61
+.list-inline-item	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    .list-inline-item{$/;"	function	line:64
+.social-media-icons	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .social-media-icons{$/;"	function	line:68
+a	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    a {$/;"	function	line:71
+.fa-facebook	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    .fa-facebook{$/;"	function	line:76
+.fa-facebook:hover	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    .fa-facebook:hover{$/;"	function	line:79
+.fa-instagram	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    .fa-instagram{$/;"	function	line:82
+.fa-instagram:hover	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    .fa-instagram:hover{$/;"	function	line:85
+.cpc-nav	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.cpc-nav{$/;"	function	line:92
+.menu-bar	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .menu-bar{$/;"	function	line:100
+.logo	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .logo{$/;"	function	line:104
+.nav-quote-req	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .nav-quote-req{$/;"	function	line:109
+a.nav-link	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    a.nav-link{$/;"	function	line:112
+.navbar-brand	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .navbar-brand{$/;"	function	line:116
+img	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    img{$/;"	function	line:117
+and (max-device-width: 667px)	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^and (max-device-width: 667px) {$/;"	function	line:124
+.cpc-nav	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .cpc-nav{$/;"	function	line:125
+.contact	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .contact{$/;"	function	line:128
+.cpc-nav	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .cpc-nav{$/;"	function	line:133
+.navbar-brand	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    .navbar-brand{$/;"	function	line:134
+img	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^      img{$/;"	function	line:135
+.main-slider	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.main-slider{$/;"	function	line:143
+.main img	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.main img{$/;"	function	line:149
+.main-details	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.main-details{$/;"	function	line:153
+.coatings	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.coatings{$/;"	function	line:167
+.quality	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .quality{$/;"	function	line:173
+.quality-mobile	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .quality-mobile{$/;"	function	line:187
+.manufacturers	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .manufacturers{$/;"	function	line:202
+.col-md-4	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    .col-md-4{$/;"	function	line:205
+.services	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.services{$/;"	function	line:211
+.quality	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .quality{$/;"	function	line:218
+div	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    div {$/;"	function	line:230
+.quality-mobile	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .quality-mobile{$/;"	function	line:235
+div	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    div {$/;"	function	line:249
+.powders	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.powders{$/;"	function	line:255
+.quality	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .quality{$/;"	function	line:262
+div	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    div {$/;"	function	line:274
+.quality-mobile	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .quality-mobile{$/;"	function	line:279
+div	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    div {$/;"	function	line:293
+.rfq	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.rfq{$/;"	function	line:299
+.rfq-header	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .rfq-header{$/;"	function	line:305
+.rfq-sub-header	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .rfq-sub-header{$/;"	function	line:314
+.rfq-phone	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .rfq-phone{$/;"	function	line:324
+.btn-rfq	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.btn-rfq{$/;"	function	line:334
+.btn-rfq:hover	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.btn-rfq:hover{$/;"	function	line:352
+footer	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^footer {$/;"	function	line:361
+.footer-top	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.footer-top {$/;"	function	line:366
+h3	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  h3 {$/;"	function	line:372
+.footer-one	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .footer-one {$/;"	function	line:380
+p	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    p {$/;"	function	line:381
+.footer-two	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  .footer-two {$/;"	function	line:389
+ul	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    ul {$/;"	function	line:390
+span	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^      span {$/;"	function	line:394
+p	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^      p {$/;"	function	line:399
+.footer-bottom	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.footer-bottom {$/;"	function	line:409
+ul	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  ul {$/;"	function	line:416
+li	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^    li{$/;"	function	line:419
+.user-dropdown	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.user-dropdown {$/;"	function	line:427
+a	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  a {$/;"	function	line:428
+.user-dashboard-nav	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.user-dashboard-nav {$/;"	function	line:434
