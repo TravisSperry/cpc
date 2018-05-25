@@ -1,4 +1,4 @@
-<ul class="user-dashboard-nav nav nav-pills bg-dark pt-2 pb-2 pr-5 pl-5 mb-4">
+<ul class="user-dashboard-nav nav nav-pills bg-dark pt-2 pb-2 pr-5 pl-5 mb-5">
   <li class="nav-item mr-2">
     <%= link_to "Manage Customers", customers_path, class: "nav-link btn btn-primary" %>
   </li>
@@ -19,7 +19,7 @@
   </li>
   <% if @new_quote_requests %>
     <li class="nav-item">
-      <%= link_to "<span class='badge badge-danger'>#{@new_quote_requests.count ? @new_quote_requests.count : 0}</span> New Quote #{pluralize_without_count(@new_quote_requests.count, 'Request')}#{@new_quote_requests.count == 0 ? "" : "!"}".html_safe, quote_requests_path, class: "btn btn-success nav-link" %>
+      <%= link_to "<span class='badge badge-pill badge-danger'>#{@new_quote_requests.count ? @new_quote_requests.count : 0}</span> New Quote #{pluralize_without_count(@new_quote_requests.count, 'Request')}#{@new_quote_requests.count == 0 ? "" : "!"}".html_safe, quote_requests_path, class: "btn btn-success nav-link" %>
     </li>
   <% end %>
 </ul>
