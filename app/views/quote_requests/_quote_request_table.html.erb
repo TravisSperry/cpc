@@ -16,7 +16,7 @@
       <% quote_requests.each do |qr| %>
         <tr>
           <td><%= qr.created_at.strftime("%m/%d/%Y") %></td>
-          <td><%= qr.status %></td>
+          <td><%= qr.status == "New" ? "<span class='badge badge-success'>New</span>".html_safe : qr.status %></td>
           <td><%= qr.first_name %></td>
           <td><%= qr.last_name %></td>
           <td><%= qr.email %></td>

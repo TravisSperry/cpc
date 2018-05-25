@@ -12,40 +12,19 @@
     </div>
   </li>
   <li class="nav-item mr-2">
-    <%= link_to "Powder Management", powders_path, class: "nav-link btn btn-success" %>
+    <%= link_to "Powder Management", powders_path, class: "nav-link btn btn-light" %>
   </li>
-  <li class="nav-item">
+  <li class="nav-item mr-2">
     <%= link_to "Scheduling", "https://docs.google.com/spreadsheets/d/1QgyRqPwUuZe_-EydbUVqZtRHln5R8rCCvclYmM5zY9k/edit?usp=sharing", class: "btn btn-secondary nav-link" %>
   </li>
+  <% if @new_quote_requests %>
+    <li class="nav-item">
+      <%= link_to "<span class='badge badge-danger'>#{@new_quote_requests.count ? @new_quote_requests.count : 0}</span> New Quote #{pluralize_without_count(@new_quote_requests.count, 'Request')}#{@new_quote_requests.count == 0 ? "" : "!"}".html_safe, quote_requests_path, class: "btn btn-success nav-link" %>
+    </li>
+  <% end %>
 </ul>
 <!-- Dashboard Side Nav **end** -->
 <div class="container user_dashboard">
-  <div class="row">
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-2">
-              <i class="fas fa-list-ul icon-5x"></i>
-            </div>
-            <div class="col-10 text-right">
-              <h3 class="card-title mb-0">
-                <%= @new_quote_requests.count ? @new_quote_requests.count : 0 %>
-                New Quote <%= pluralize_without_count(@new_quote_requests.count, 'Request')%>
-                <%= @new_quote_requests.count == 0 ? "" : "!" %></h3>
-            </div>
-          </div>
-        </div>
-        <a href="<%= quote_requests_path %>">
-          <div class="card-footer">
-            <strong>
-              View Quote Requests <i class="fas fa-chevron-right float-right mt-1"></i>
-            </strong>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div><!-- /.row -->
   <div class="row mt-4">
     <div class="col-sm-12">
       <div class="card">
