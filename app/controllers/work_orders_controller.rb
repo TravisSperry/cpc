@@ -75,6 +75,10 @@ class WorkOrdersController < ApplicationController
     end
   end
 
+  def workflow
+    @work_orders = WorkOrder.where('date_completed IS NULL').order(date_due: :asc)
+  end
+
   def quality_assurance_approval
     quality_assurance_approval = @work_order.quality_assurance_approvals.build(
       user_id: current_user.id

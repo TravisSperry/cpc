@@ -45,6 +45,10 @@ Cpc::Application.routes.draw do
   resources :work_orders do
     resources :notes
 
+    collection do
+      get 'workflow'
+    end
+
     member do
       post 'quality_assurance_approval'
       put 'mark_completed'

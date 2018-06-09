@@ -1,0 +1,63 @@
+@import
+  'jquery-ui',
+  'dataTables/jquery.dataTables',
+  'datatables_overrides',
+  'chosen',
+  'tether',
+  'bootstrap',
+  'bootstrap-datetimepicker',
+  'bootstrap-slider',
+  'style',
+  'unslider',
+  'powders',
+  'notes',
+  'pages',
+  'bouncing_arrow',
+  'work-orders',
+  'work-orders-workflow',
+  'font-awesome-sprockets',
+  'font-awesome';
+
+span.page {
+  padding: 0 5px;
+}
+
+.main-slider {
+  margin-top: -60px;
+}
+
+.contact {
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+.caption_button_2 .btn {
+  margin-left: 10px;
+}
+
+table.dataTable thead .sorting_desc {
+  background-image: none;
+}
+
+table.dataTable thead .sorting_asc {
+    background-image: none;
+}
+
+table.dataTable thead .sorting {
+  background-image: none;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: none;
+  background-color: none;
+  border: 0;
+  color: white !important;
+}
+
+.quote_request_table {
+  margin-top: 20px;
+}
+
+.has-error {
+  color: red;
+}

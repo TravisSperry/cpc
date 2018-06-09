@@ -1,0 +1,50 @@
+<div class="container">
+  <h1 class="mb-4">Work Order Overview</h1>
+
+  <div class="row">
+    <div class="col p-1 border">
+      <div class="workflow-section-header text-white mb-1 bg-dark p-2 pl-3">
+        Received
+        <span class="badge badge-pill badge-light float-right">1</span>
+      </div>
+      <div class="workflow-section-col p-2">
+        <div class="card">
+          <div class="card-header">
+            <span class="work-order-customer-name">Iron Head</span>
+            <span class="work-order-id float-right">#76554</span>
+          </div>
+          <div class="card-body">
+            <%= link_to "Schedule", work_orders_path, class: 'float-right' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col p-1 border">
+      <div class="workflow-section-header text-white mb-1 bg-dark p-2 pl-3">
+        Scheduled
+        <span class="badge badge-pill badge-light float-right">0</span>
+      </div>
+      <div class="workflow-section-col">
+
+      </div>
+    </div>
+    <div class="col p-1 border">
+      <div class="workflow-section-header text-white mb-1 bg-dark p-2 pl-3">
+        In Progress
+        <span class="badge badge-pill badge-light float-right">0</span>
+      </div>
+      <div class="workflow-section-col">
+
+      </div>
+    </div>
+    <div class="col p-1 border">
+      <div class="workflow-section-header text-white mb-1 bg-dark p-2 pl-3">
+        Ready For Invoice
+        <span class="badge badge-pill badge-light float-right">0</span>
+      </div>
+      <div class="workflow-section-col">
+
+      </div>
+    </div>
+  </div>
+</div>
