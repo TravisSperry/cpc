@@ -5,45 +5,85 @@
     <div class="col p-1 border">
       <div class="workflow-section-header text-white mb-1 bg-dark p-2 pl-3">
         Received
-        <span class="badge badge-pill badge-light float-right">1</span>
+        <span class="badge badge-pill badge-light float-right">
+          <%= @work_orders.received.count %>
+        </span>
       </div>
       <div class="workflow-section-col p-2">
-        <div class="card">
-          <div class="card-header">
-            <span class="work-order-customer-name">Iron Head</span>
-            <span class="work-order-id float-right">#76554</span>
+        <% @work_orders.received.each do |work_order| %>
+          <div class="card">
+            <div class="card-header p-1 pl-2 pr-2">
+              <span class="work-order-customer-name">Iron Head</span>
+              <span class="work-order-id float-right">#<%= work_order.id %></span>
+            </div>
+            <div class="card-body p-2">
+              <%= link_to "Schedule", work_order, class: 'float-right' %>
+            </div>
           </div>
-          <div class="card-body">
-            <%= link_to "Schedule", work_orders_path, class: 'float-right' %>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
     <div class="col p-1 border">
       <div class="workflow-section-header text-white mb-1 bg-dark p-2 pl-3">
         Scheduled
-        <span class="badge badge-pill badge-light float-right">0</span>
+        <span class="badge badge-pill badge-light float-right">
+          <%= @work_orders.scheduled.count %>
+        </span>
       </div>
       <div class="workflow-section-col">
-
+        <% @work_orders.scheduled.each do |work_order| %>
+          <div class="card">
+            <div class="card-header p-1 pl-2 pr-2">
+              <span class="work-order-customer-name">Iron Head</span>
+              <span class="work-order-id float-right">#<%= work_order.id %></span>
+            </div>
+            <div class="card-body p-2">
+              <%= link_to "View", work_order, class: 'float-right' %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="col p-1 border">
       <div class="workflow-section-header text-white mb-1 bg-dark p-2 pl-3">
         In Progress
-        <span class="badge badge-pill badge-light float-right">0</span>
+        <span class="badge badge-pill badge-light float-right">
+          <%= @work_orders.in_progress.count %>
+        </span>
       </div>
       <div class="workflow-section-col">
-
+        <% @work_orders.in_progress.each do |work_order| %>
+          <div class="card">
+            <div class="card-header p-1 pl-2 pr-2">
+              <span class="work-order-customer-name">Iron Head</span>
+              <span class="work-order-id float-right">#<%= work_order.id %></span>
+            </div>
+            <div class="card-body p-2">
+              <%= link_to "View", work_order, class: 'float-right' %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="col p-1 border">
       <div class="workflow-section-header text-white mb-1 bg-dark p-2 pl-3">
         Ready For Invoice
-        <span class="badge badge-pill badge-light float-right">0</span>
+        <span class="badge badge-pill badge-light float-right">
+          <%= @work_orders.ready_for_invoice.count %>
+        </span>
       </div>
       <div class="workflow-section-col">
-
+        <% @work_orders.ready_for_invoice.each do |work_order| %>
+          <div class="card">
+            <div class="card-header p-1 pl-2 pr-2">
+              <span class="work-order-customer-name">Iron Head</span>
+              <span class="work-order-id float-right">#<%= work_order.id %></span>
+            </div>
+            <div class="card-body p-2">
+              <%= link_to "View", work_order, class: 'float-right' %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
