@@ -9,11 +9,11 @@
           <%= @work_orders.received.count %>
         </span>
       </div>
-      <div class="workflow-section-col p-2">
+      <div class="workflow-section-col">
         <% @work_orders.received.each do |work_order| %>
-          <div class="card">
+          <div class="card mb-1">
             <div class="card-header p-1 pl-2 pr-2">
-              <span class="work-order-customer-name">Iron Head</span>
+              <span class="work-order-customer-name"><%= work_order.customer.try :name %></span>
               <span class="work-order-id float-right">#<%= work_order.id %></span>
             </div>
             <div class="card-body p-2">
@@ -32,9 +32,9 @@
       </div>
       <div class="workflow-section-col">
         <% @work_orders.scheduled.each do |work_order| %>
-          <div class="card">
+          <div class="card mb-1">
             <div class="card-header p-1 pl-2 pr-2">
-              <span class="work-order-customer-name">Iron Head</span>
+              <span class="work-order-customer-name"><%= work_order.customer.try :name %></span>
               <span class="work-order-id float-right">#<%= work_order.id %></span>
             </div>
             <div class="card-body p-2">
@@ -53,9 +53,9 @@
       </div>
       <div class="workflow-section-col">
         <% @work_orders.in_progress.each do |work_order| %>
-          <div class="card">
+          <div class="card mb-1">
             <div class="card-header p-1 pl-2 pr-2">
-              <span class="work-order-customer-name">Iron Head</span>
+              <span class="work-order-customer-name"><%= work_order.customer.try :name %></span>
               <span class="work-order-id float-right">#<%= work_order.id %></span>
             </div>
             <div class="card-body p-2">
@@ -74,9 +74,9 @@
       </div>
       <div class="workflow-section-col">
         <% @work_orders.ready_for_invoice.each do |work_order| %>
-          <div class="card">
+          <div class="card mb-1">
             <div class="card-header p-1 pl-2 pr-2">
-              <span class="work-order-customer-name">Iron Head</span>
+              <span class="work-order-customer-name"><%= work_order.customer.try :name %></span>
               <span class="work-order-id float-right">#<%= work_order.id %></span>
             </div>
             <div class="card-body p-2">
