@@ -20,7 +20,7 @@
         <td><%= work_order.name %></td>
         <td><%= work_order.id %></td>
         <td><%= work_order.status ? work_order.status.titleize : 'Please set a status.' %></td>
-        <td><%= link_to 'View', work_order %></td>
+        <td><%= link_to 'View', work_order, target: '_blank' %></td>
       </tr>
     <% end %>
   </tbody>

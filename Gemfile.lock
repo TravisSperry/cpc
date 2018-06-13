@@ -116,6 +116,8 @@ GEM
     factory_bot_rails (4.8.2)
       factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
+    faker (1.8.7)
+      i18n (>= 0.7)
     ffi (1.9.21)
     font-awesome-sass (5.0.6.2)
       sass (>= 3.2)
@@ -326,6 +328,7 @@ DEPENDENCIES
   devise
   enum_help
   factory_bot_rails
+  faker
   font-awesome-sass (~> 5.0.6)
   high_voltage (~> 3.0.0)
   jquery-datatables-rails
