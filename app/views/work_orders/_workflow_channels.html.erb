@@ -48,11 +48,11 @@
             </span>
           </div>
           <% if work_order.production_stage_id %>
-            <div class="card-body text-center text-success border border-success p-1">
+            <div class="card-body text-center text-success border border-success production-stage-status p-1">
               <strong>In <%= work_order.production_stage.name %></strong>
             </div>
           <% else %>
-            <div class="card-body text-center text-warning border border-warning p-1">
+            <div class="card-body text-center text-warning border border-warning production-stage-status-warning p-1">
               <strong>Production Not Started</strong>
             </div>
           <% end %>

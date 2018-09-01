@@ -101,3 +101,9 @@ li	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/s
 .user-dropdown	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.user-dropdown {$/;"	function	line:427
 a	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  a {$/;"	function	line:428
 .user-dashboard-nav	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.user-dashboard-nav {$/;"	function	line:434
+.activity-feed	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^.activity-feed {$/;"	function	line:1
+.btn-production-stage	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^.btn-production-stage {$/;"	function	line:12
+.production-stage-status	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^.production-stage-status {$/;"	function	line:16
+&:hover	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^  &:hover {$/;"	function	line:17
+.production-stage-status-warning	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^.production-stage-status-warning {$/;"	function	line:23
+&:hover	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^  &:hover {$/;"	function	line:24

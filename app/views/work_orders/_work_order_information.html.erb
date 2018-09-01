@@ -4,10 +4,8 @@
     <%= render 'services', work_order: @work_order if @work_order.services.any? %>
   </div>
   <% if @work_order.production_stage_id %>
-    <div class="card-body text-center border border-success p-2">
-      <span class="text-success">
-        <strong>Current Stage: <%= @work_order.production_stage.name %></strong>
-      </span>
+    <div class="card-body text-center text-success border border-success p-2 production-stage-status">
+      <strong>Current Stage: <%= @work_order.production_stage.name %></strong>
     </div>
   <% end %>
   <div class="card-body pb-0">

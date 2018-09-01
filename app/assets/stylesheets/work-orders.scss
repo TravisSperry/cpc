@@ -8,3 +8,21 @@
   padding: 10px 0;
   white-space: nowrap;
 }
+
+.btn-production-stage {
+  margin-top: 2rem;
+}
+
+.production-stage-status {
+  &:hover {
+    @extend .bg-success;
+    color: #ffffff !important;
+  }
+}
+
+.production-stage-status-warning {
+  &:hover {
+    @extend .bg-warning;
+    color: #ffffff !important;
+  }
+}
