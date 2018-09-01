@@ -7,6 +7,7 @@ class StaticPagesController < ApplicationController
     if current_user
       @new_quote_requests = QuoteRequest.where('status=?', 'New')
       @outstanding_work_orders = WorkOrder.where('date_completed IS NULL').order(date_due: :asc)
+      @work_orders = @outstanding_work_orders
     end
   end
 
