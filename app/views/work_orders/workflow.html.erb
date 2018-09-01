@@ -4,41 +4,31 @@
   <div class="row">
     <div class="col p-1 border">
       <div class="workflow-section-header text-white mb-1 bg-dark p-2 pl-3">
-        Received
+        Received &amp; Scheduled
         <span class="badge badge-pill badge-light float-right">
-          <%= @work_orders.received.count %>
+          <%= @work_orders.received_and_scheduled.count %>
         </span>
       </div>
       <div class="workflow-section-col">
-        <% @work_orders.received.each do |work_order| %>
+        <% @work_orders.received_and_scheduled.order(:status, :date_scheduled).each do |work_order| %>
           <div class="card mb-1">
             <div class="card-header p-1 pl-2 pr-2">
               <span class="work-order-customer-name"><%= work_order.customer.try :name %></span>
-              <span class="work-order-id float-right">#<%= work_order.id %></span>
+              <span class="work-order-id float-right">
+                <%= link_to "##{work_order.id}", work_order %>
+              </span>
             </div>
             <div class="card-body p-2">
-              <%= link_to "Schedule", work_order, class: 'float-right' %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="col p-1 border">
-      <div class="workflow-section-header text-white mb-1 bg-dark p-2 pl-3">
-        Scheduled
-        <span class="badge badge-pill badge-light float-right">
-          <%= @work_orders.scheduled.count %>
-        </span>
-      </div>
-      <div class="workflow-section-col">
-        <% @work_orders.scheduled.each do |work_order| %>
-          <div class="card mb-1">
-            <div class="card-header p-1 pl-2 pr-2">
-              <span class="work-order-customer-name"><%= work_order.customer.try :name %></span>
-              <span class="work-order-id float-right">#<%= work_order.id %></span>
-            </div>
-            <div class="card-body p-2">
-              <%= link_to "View", work_order, class: 'float-right' %>
+              <% if work_order.scheduled? %>
+                <div class="float-right">
+                  Scheduled:
+                  <span class="text-success">
+                    <%= work_order.date_scheduled.strftime('%b %d %Y') if work_order.date_scheduled %>
+                  </span>
+                </div>
+              <% else %>
+                <%= link_to "Schedule", work_order, class: 'float-right' %>
+              <% end %>
             </div>
           </div>
         <% end %>
@@ -56,10 +46,14 @@
           <div class="card mb-1">
             <div class="card-header p-1 pl-2 pr-2">
               <span class="work-order-customer-name"><%= work_order.customer.try :name %></span>
-              <span class="work-order-id float-right">#<%= work_order.id %></span>
+              <span class="work-order-id float-right">
+                <%= link_to "##{work_order.id}", work_order %>
+              </span>
             </div>
             <div class="card-body p-2">
-              <%= link_to "View", work_order, class: 'float-right' %>
+              <% work_order.services.each do |service| %>
+                <%= badgeify(service) %>
+              <% end %>
             </div>
           </div>
         <% end %>
@@ -77,10 +71,12 @@
           <div class="card mb-1">
             <div class="card-header p-1 pl-2 pr-2">
               <span class="work-order-customer-name"><%= work_order.customer.try :name %></span>
-              <span class="work-order-id float-right">#<%= work_order.id %></span>
+              <span class="work-order-id float-right">
+                <%= link_to "##{work_order.id}", work_order %>
+              </span>
             </div>
             <div class="card-body p-2">
-              <%= link_to "View", work_order, class: 'float-right' %>
+
             </div>
           </div>
         <% end %>

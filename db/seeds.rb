@@ -34,11 +34,11 @@ end
 
   customer.primary_contact_id = contact.id
 
-  Service.create(name: 'Powder Coating')
-  Service.create(name: 'Zinc Primer')
-  Service.create(name: 'Sand Blasting')
-  Service.create(name: 'Fabrication')
-  Service.create(name: 'Other/Repair/Shop Service')
+  Service.find_or_create_by(name: 'Powder Coating')
+  Service.find_or_create_by(name: 'Zinc Primer')
+  Service.find_or_create_by(name: 'Sand Blasting')
+  Service.find_or_create_by(name: 'Fabrication')
+  Service.find_or_create_by(name: 'Other/Repair/Shop Service')
 
   work_order = customer.work_orders.build(name: "Work Order #{n}")
 

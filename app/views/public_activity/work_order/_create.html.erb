@@ -1,3 +1,3 @@
 <span class="activity activity-<%= activity.trackable_type.underscore.dasherize %> badge badge-light">
-  Work Order created by (<%= activity.owner.full_name %>) <%= time_ago_in_words(activity.created_at) %>
+  Work Order created by (<%= activity.owner.try :full_name %>) <%= time_ago_in_words(activity.created_at) %>
 </span>

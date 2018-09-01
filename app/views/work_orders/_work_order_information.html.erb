@@ -6,7 +6,7 @@
   <div class="card-body pb-0">
     <p>
       <strong>Customer:</strong>
-      <%= link_to @work_order.customer.name, @work_order.customer if @work_order.customer %>
+      <%= link_to @work_order.customer.try(:name), @work_order.customer if @work_order.customer %>
     </p>
     <p>
       <strong>Job Name:</strong>
