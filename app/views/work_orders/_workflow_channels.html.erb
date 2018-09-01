@@ -47,6 +47,15 @@
               <%= link_to "##{work_order.id}", work_order %>
             </span>
           </div>
+          <% if work_order.production_stage_id %>
+            <div class="card-body text-center text-success border border-success p-1">
+              <strong>In <%= work_order.production_stage.name %></strong>
+            </div>
+          <% else %>
+            <div class="card-body text-center text-warning border border-warning p-1">
+              <strong>Production Not Started</strong>
+            </div>
+          <% end %>
           <div class="card-body p-2">
             <% work_order.services.each do |service| %>
               <%= badgeify(service) %>

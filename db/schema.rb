@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180516005632) do
+ActiveRecord::Schema.define(version: 2018_09_01_161913) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "trackable_id"
@@ -111,6 +111,13 @@ ActiveRecord::Schema.define(version: 20180516005632) do
     t.date "last_weight_reminder"
   end
 
+  create_table "production_stages", force: :cascade do |t|
+    t.string "name"
+    t.integer "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "quality_assurance_approvals", force: :cascade do |t|
     t.integer "work_order_id", null: false
     t.integer "user_id", null: false
@@ -197,6 +204,7 @@ ActiveRecord::Schema.define(version: 20180516005632) do
     t.string "name"
     t.integer "marked_completed_by"
     t.integer "status"
+    t.integer "production_stage_id"
     t.index ["contact_id"], name: "index_work_orders_on_contact_id"
     t.index ["customer_id"], name: "index_work_orders_on_customer_id"
   end

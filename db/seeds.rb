@@ -10,6 +10,11 @@ unless User.find_by email: 'admin@columbuspowdercoat.com'
   )
 end
 
+ProductionStage.find_or_create_by(name: 'Sandblasting', order: 1)
+ProductionStage.find_or_create_by(name: 'Prep', order: 2)
+ProductionStage.find_or_create_by(name: 'Coating', order: 3)
+ProductionStage.find_or_create_by(name: 'Packaging', order: 4)
+
 30.times do |n|
   customer = Customer.create(
     name: Faker::Company.name,

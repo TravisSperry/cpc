@@ -44,7 +44,7 @@
         <div class="row">
           <div class="col">
             <%= render 'status_form' %>
-
+            <%= render 'production_stage_form' if @work_order.in_progress? %>
             <%= render 'mark_completed_form' if @work_order.quality_assurance_approval? %>
           </div>
         </div>
