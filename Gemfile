@@ -6,6 +6,7 @@ ruby '2.5.1'
 
 gem 'rails', '5.2.1'
 
+gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.0.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
@@ -44,7 +45,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'bootsnap', '>= 1.1.0', require: false
   gem 'listen'
   gem 'rubocop', '~> 0.51.0', require: false
   gem 'rubocop-rspec'
