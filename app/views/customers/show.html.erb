@@ -13,35 +13,41 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <h1 class="d-inline"><%= @customer.name %></h1> <small><%= link_to 'edit', edit_customer_path(@customer) %></small>
-      <p class="mt-4">
-        <% if @customer.has_valid_address? %>
-          <%= @customer.address1 %> <br>
-          <%= "#{@customer.address2} <br>".html_safe unless @customer.address2.blank? %>
-          <%= "#{@customer.city}, #{@customer.state} #{@customer.zip_code}" %> <br>
-        <% else %>
-          <span class="text-danger">
-            Please ensure customer has street address, city, state and zip.
-          </span>
-        <% end %>
-      </p>
-      <p>
-        <strong>Email:</strong> <%= @customer.email %>
-      </p>
-      <p>
-        <strong>Phone:</strong> <%= @customer.phone %>
-      </p>
-      <% if @customer.fax %>
-        <p>
-          <strong>Fax:</strong> <%= @customer.fax %>
-        </p>
-      <% end %>
-      <hr>
+      <div class="card">
+        <div class="card-header">
+          <h1 class="d-inline mb-0"><%= @customer.name %></h1> <small><%= link_to 'edit', edit_customer_path(@customer) %></small>
+        </div>
+        <div class="card-body pb-0">
+          <p>
+            <% if @customer.has_valid_address? %>
+              <%= @customer.address1 %> <br>
+              <%= "#{@customer.address2} <br>".html_safe unless @customer.address2.blank? %>
+              <%= "#{@customer.city}, #{@customer.state} #{@customer.zip_code}" %> <br>
+            <% else %>
+              <span class="text-danger">
+                Please ensure customer has street address, city, state and zip.
+              </span>
+            <% end %>
+          </p>
+          <p>
+            <strong>Email:</strong> <%= @customer.primary_contact.try :email || @customer.email %>
+          </p>
+          <p>
+            <strong>Phone:</strong> <%= @customer.phone %>
+          </p>
+          <% if @customer.fax.present? %>
+            <p>
+              <strong>Fax:</strong> <%= @customer.fax %>
+            </p>
+          <% end %>
+        </div>
+      </div>
     </div>
     <div class="col-md-6">
       <%= render 'contact_information', customer: @customer if @customer.company? %>
     </div>
   </div>
+  <hr>
   <div class="row mb-4">
     <div class="col-sm-12">
       <div class="card">

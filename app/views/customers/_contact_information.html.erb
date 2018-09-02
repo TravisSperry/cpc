@@ -15,7 +15,15 @@
       <% customer.contacts.each do |contact| %>
         <% next if contact.is_primary? %>
         <li>
-          <%= link_to contact.full_name, contact %><%= "(#{contact.title})" if contact.title %>
+          <%= link_to contact.full_name, contact %>
+          <%= "(#{contact.title})" if contact.title %>
+          <small>
+            <%= link_to 'make primary', customer_path(
+                                          customer: { id: customer.id, primary_contact_id: contact.id }
+                                        ),
+                                        method: :patch,
+                                        data: { confirm: 'Are you sure you want make this contact a primary?'}  %>
+          </small>
         </li>
       <% end %>
     </ul>
