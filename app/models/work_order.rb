@@ -30,6 +30,10 @@ class WorkOrder < ApplicationRecord
     quality_assurance_approvals.pluck(:user_id).uniq.count > 1
   end
 
+  def has_been_approved_by?(user)
+    quality_assurance_approvals.pluck(:user_id).include?(user.id)
+  end
+
   def self.received_and_scheduled
     where('status = ? OR status = ?', WorkOrder.statuses['received'], WorkOrder.statuses['scheduled'])
   end

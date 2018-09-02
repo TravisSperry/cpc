@@ -4,3 +4,13 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+CustomersController	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^class CustomersController < ApplicationController$/;"	class	line:1
+index	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^  def index$/;"	method	line:6	class:CustomersController
+show	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^  def show$/;"	method	line:11	class:CustomersController
+new	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^  def new$/;"	method	line:15	class:CustomersController
+edit	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^  def edit$/;"	method	line:20	class:CustomersController
+create	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^  def create$/;"	method	line:24	class:CustomersController
+update	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^  def update$/;"	method	line:35	class:CustomersController
+destroy	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^  def destroy$/;"	method	line:44	class:CustomersController
+set_customer	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^    def set_customer$/;"	method	line:51	class:CustomersController
+customer_params	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^    def customer_params$/;"	method	line:56	class:CustomersController

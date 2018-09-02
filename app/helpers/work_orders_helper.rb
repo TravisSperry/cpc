@@ -16,4 +16,12 @@ module WorkOrdersHelper
       end
     end
   end
+
+  def quality_assurance_message(work_order)
+    if work_order.has_been_approved_by?(current_user)
+      'You already approved this.'
+    else
+      'Approve this work order.'
+    end
+  end
 end

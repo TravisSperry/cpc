@@ -1,5 +1,7 @@
-<%= link_to 'QA Approval', '#', class: 'btn btn-block btn-secondary pull-right mb-3',
-                                          data: { toggle: 'modal', target: '#qaModal' } %>
+<%= submit_tag 'QA Approval', class: 'btn btn-block btn-secondary pull-right mb-3',
+                                data: { toggle: 'modal', target: '#qaModal' },
+                                disabled: @work_order.has_been_approved_by?(current_user),
+                                title: quality_assurance_message(@work_order) %>
 <div class="modal fade" id="qaModal" tabindex="-1" role="dialog" aria-labelledby="qaModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

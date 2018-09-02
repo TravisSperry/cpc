@@ -3,10 +3,6 @@ change	/Users/travis/code/projects/columbus_powder_coat/cpc/db/migrate/201805160
 QualityAssuranceApproval	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/quality_assurance_approval.rb	/^class QualityAssuranceApproval < ApplicationRecord$/;"	class	line:1
 AddCanApproveWorkOrdersToUsers	/Users/travis/code/projects/columbus_powder_coat/cpc/db/migrate/20180516005632_add_can_approve_work_orders_to_users.rb	/^class AddCanApproveWorkOrdersToUsers < ActiveRecord::Migration[5.1]$/;"	class	line:1
 change	/Users/travis/code/projects/columbus_powder_coat/cpc/db/migrate/20180516005632_add_can_approve_work_orders_to_users.rb	/^  def change$/;"	method	line:2	class:AddCanApproveWorkOrdersToUsers
-WorkOrder	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/work_order.rb	/^class WorkOrder < ApplicationRecord$/;"	class	line:3
-completed_by	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/work_order.rb	/^  def completed_by$/;"	method	line:24	class:WorkOrder
-quality_assurance_approval?	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/work_order.rb	/^  def quality_assurance_approval?$/;"	method	line:28	class:WorkOrder
-set_status_to_received	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/work_order.rb	/^  def set_status_to_received$/;"	method	line:34	class:WorkOrder
 User	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/user.rb	/^class User < ApplicationRecord$/;"	class	line:3
 full_name	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/user.rb	/^  def full_name$/;"	method	line:13	class:User
 WorkOrdersController	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/work_orders_controller.rb	/^class WorkOrdersController < ApplicationController$/;"	class	line:1
@@ -107,3 +103,22 @@ a	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/st
 &:hover	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^  &:hover {$/;"	function	line:17
 .production-stage-status-warning	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^.production-stage-status-warning {$/;"	function	line:23
 &:hover	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^  &:hover {$/;"	function	line:24
+WorkOrder	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/work_order.rb	/^class WorkOrder < ApplicationRecord$/;"	class	line:3
+completed_by	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/work_order.rb	/^  def completed_by$/;"	method	line:25	class:WorkOrder
+quality_assurance_approval?	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/work_order.rb	/^  def quality_assurance_approval?$/;"	method	line:29	class:WorkOrder
+has_been_approved_by?	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/work_order.rb	/^  def has_been_approved_by?(user)$/;"	method	line:33	class:WorkOrder
+received_and_scheduled	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/work_order.rb	/^  def self.received_and_scheduled$/;"	singleton method	line:37	class:WorkOrder
+set_status_to_received	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/work_order.rb	/^  def set_status_to_received$/;"	method	line:43	class:WorkOrder
+WorkOrdersHelper	/Users/travis/code/projects/columbus_powder_coat/cpc/app/helpers/work_orders_helper.rb	/^module WorkOrdersHelper$/;"	module	line:1
+due_date_formatter	/Users/travis/code/projects/columbus_powder_coat/cpc/app/helpers/work_orders_helper.rb	/^  def due_date_formatter(due_date, completed_date)$/;"	method	line:2	class:WorkOrdersHelper
+quality_assurance_message	/Users/travis/code/projects/columbus_powder_coat/cpc/app/helpers/work_orders_helper.rb	/^  def quality_assurance_message(work_order)$/;"	method	line:20	class:WorkOrdersHelper
+CustomersController	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^class CustomersController < ApplicationController$/;"	class	line:1
+index	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^  def index$/;"	method	line:6	class:CustomersController
+show	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^  def show$/;"	method	line:11	class:CustomersController
+new	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^  def new$/;"	method	line:15	class:CustomersController
+edit	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^  def edit$/;"	method	line:20	class:CustomersController
+create	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^  def create$/;"	method	line:24	class:CustomersController
+update	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^  def update$/;"	method	line:35	class:CustomersController
+destroy	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^  def destroy$/;"	method	line:44	class:CustomersController
+set_customer	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^    def set_customer$/;"	method	line:51	class:CustomersController
+customer_params	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^    def customer_params$/;"	method	line:56	class:CustomersController
