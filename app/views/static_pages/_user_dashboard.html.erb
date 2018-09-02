@@ -23,6 +23,20 @@
     </li>
   <% end %>
 </ul>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="mb-0">Work Order Workflow</h1>
+        </div>
+        <div class="card-body">
+          <%= render 'work_orders/workflow_channels' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Dashboard Side Nav **end** -->
 <div class="container user_dashboard">
   <div class="row mt-4">
@@ -42,17 +56,3 @@
     </div>
   </div><!-- /.row -->
 </div><!-- /.container -->
-<div class="container mt-3">
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="card">
-        <div class="card-header">
-          <h1 class="mb-0">Work Order Workflow</h1>
-        </div>
-        <div class="card-body">
-          <%= render 'work_orders/workflow_channels' %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
