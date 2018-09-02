@@ -4,3 +4,5 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+Customer	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/customer.rb	/^class Customer < ApplicationRecord$/;"	class	line:3
+has_valid_address?	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/customer.rb	/^  def has_valid_address?$/;"	method	line:12	class:Customer
