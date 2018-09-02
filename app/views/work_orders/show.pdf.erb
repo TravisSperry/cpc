@@ -88,9 +88,20 @@
     <div>
       <p style="text-align:right;margin-top:2rem;">
         <em>
-          *Invoice payable upon receipt.
-          1% per month will be added if not paid within 30 days.
+          *Invoice payable upon receipt. </br>
+          Payment due on scheduled due date.
         </em>
+        <% if @work_order.customer.company? %>
+          </br>
+          <em>
+            Invoices not paid within 30 days will begin accruing interest at a rate of 1.5% per month of the total invoice.
+          </em>
+        <% else %>
+          </br>
+          <em>
+            Your invoice will begin accruing interest at a rate of 1.5% per month of the total invoice if the items are not picked up with two weeks of the due date. Items left more then 90 days after the due date will be considered abandoned and forfeited.
+          </em>
+        <% end %>
       </p>
     </div>
   </body>
