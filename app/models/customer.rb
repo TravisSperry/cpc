@@ -13,6 +13,6 @@ class Customer < ApplicationRecord
     address1.present? &&
       city.present? &&
       state.present? &&
-      zip_code.preset?
+      zip_code.present?
   end
 end
