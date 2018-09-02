@@ -28,7 +28,8 @@
     <div class="col-sm-12">
       <div class="card">
         <div class="card-header">
-          <h1 class="mb-0">Work Order Workflow</h1>
+          <h1 class="mb-0 d-inline">Work Order Workflow</h1>
+          <h2 class="mb-0 mt-1 d-inline float-right"><%= Date.today.strftime('%A, %B %e') %></h2>
         </div>
         <div class="card-body">
           <%= render 'work_orders/workflow_channels' %>

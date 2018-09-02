@@ -97,12 +97,6 @@ li	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/s
 .user-dropdown	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.user-dropdown {$/;"	function	line:427
 a	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^  a {$/;"	function	line:428
 .user-dashboard-nav	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/style.scss	/^.user-dashboard-nav {$/;"	function	line:434
-.activity-feed	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^.activity-feed {$/;"	function	line:1
-.btn-production-stage	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^.btn-production-stage {$/;"	function	line:12
-.production-stage-status	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^.production-stage-status {$/;"	function	line:16
-&:hover	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^  &:hover {$/;"	function	line:17
-.production-stage-status-warning	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^.production-stage-status-warning {$/;"	function	line:23
-&:hover	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^  &:hover {$/;"	function	line:24
 WorkOrder	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/work_order.rb	/^class WorkOrder < ApplicationRecord$/;"	class	line:3
 completed_by	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/work_order.rb	/^  def completed_by$/;"	method	line:25	class:WorkOrder
 quality_assurance_approval?	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/work_order.rb	/^  def quality_assurance_approval?$/;"	method	line:29	class:WorkOrder
@@ -124,3 +118,14 @@ set_customer	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controller
 customer_params	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^    def customer_params$/;"	method	line:56	class:CustomersController
 Customer	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/customer.rb	/^class Customer < ApplicationRecord$/;"	class	line:3
 has_valid_address?	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/customer.rb	/^  def has_valid_address?$/;"	method	line:12	class:Customer
+.activity-feed	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^.activity-feed {$/;"	function	line:1
+.btn-production-stage	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^.btn-production-stage {$/;"	function	line:12
+.production-stage-status	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^.production-stage-status {$/;"	function	line:16
+&:hover	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^  &:hover {$/;"	function	line:17
+.production-stage-status-warning	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^.production-stage-status-warning {$/;"	function	line:23
+&:hover	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^  &:hover {$/;"	function	line:24
+.work-order-customer-name	/Users/travis/code/projects/columbus_powder_coat/cpc/app/assets/stylesheets/work-orders.scss	/^.work-order-customer-name {$/;"	function	line:30
+StaticPagesController	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/static_pages_controller.rb	/^class StaticPagesController < ApplicationController$/;"	class	line:3
+home	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/static_pages_controller.rb	/^  def home$/;"	method	line:6	class:StaticPagesController
+about	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/static_pages_controller.rb	/^  def about; end$/;"	method	line:16	class:StaticPagesController
+thank_you	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/static_pages_controller.rb	/^  def thank_you; end$/;"	method	line:18	class:StaticPagesController

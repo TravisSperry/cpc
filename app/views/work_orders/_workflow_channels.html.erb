@@ -8,7 +8,7 @@
     </div>
     <div class="workflow-section-col">
       <% @work_orders.received_and_scheduled.order(:status, :date_scheduled).each do |work_order| %>
-        <div class="card mb-1">
+        <div class="card border-dark mb-1">
           <div class="card-header p-1 pl-2 pr-2">
             <span class="work-order-customer-name"><%= work_order.customer.try :name %></span>
             <span class="work-order-id float-right">
@@ -39,8 +39,8 @@
       </span>
     </div>
     <div class="workflow-section-col">
-      <% @work_orders.in_progress.each do |work_order| %>
-        <div class="card mb-1">
+      <% @work_orders.merge(ProductionStage.order(order: :desc)).in_progress.uniq.each do |work_order| %>
+        <div class="card border-dark mb-1">
           <div class="card-header p-1 pl-2 pr-2">
             <span class="work-order-customer-name"><%= work_order.customer.try :name %></span>
             <span class="work-order-id float-right">
@@ -56,7 +56,12 @@
               <strong>Production Not Started</strong>
             </div>
           <% end %>
-          <div class="card-body p-2">
+          <div class="card-body bg-light p-2">
+            <span class="float-right">
+              <%= due_date_formatter(work_order.date_due, work_order.date_completed) %>
+            </span>
+          </div>
+          <div class="card-footer bg-light p-2">
             <% work_order.services.each do |service| %>
               <%= badgeify(service) %>
             <% end %>
@@ -74,7 +79,7 @@
     </div>
     <div class="workflow-section-col">
       <% @work_orders.ready_for_invoice.each do |work_order| %>
-        <div class="card mb-1">
+        <div class="card border-dark mb-1">
           <div class="card-header p-1 pl-2 pr-2">
             <span class="work-order-customer-name"><%= work_order.customer.try :name %></span>
             <span class="work-order-id float-right">
