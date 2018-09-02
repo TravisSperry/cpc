@@ -3,11 +3,11 @@
     <div class="workflow-section-header text-white mb-1 bg-dark p-2 pl-3">
       Received &amp; Scheduled
       <span class="badge badge-pill badge-light float-right">
-        <%= @work_orders.received_and_scheduled.count %>
+        <%= @work_orders.received_and_scheduled.uniq.count %>
       </span>
     </div>
     <div class="workflow-section-col">
-      <% @work_orders.received_and_scheduled.order(:status, :date_scheduled).each do |work_order| %>
+      <% @work_orders.received_and_scheduled.order(:status, :date_scheduled).uniq.each do |work_order| %>
         <div class="card border-dark mb-1">
           <div class="card-header p-1 pl-2 pr-2">
             <span class="work-order-customer-name"><%= work_order.customer.try :name %></span>
@@ -35,7 +35,7 @@
     <div class="workflow-section-header text-white mb-1 bg-dark p-2 pl-3">
       In Progress
       <span class="badge badge-pill badge-light float-right">
-        <%= @work_orders.in_progress.count %>
+        <%= @work_orders.in_progress.uniq.count %>
       </span>
     </div>
     <div class="workflow-section-col">
@@ -74,11 +74,11 @@
     <div class="workflow-section-header text-white mb-1 bg-dark p-2 pl-3">
       Ready For Invoice
       <span class="badge badge-pill badge-light float-right">
-        <%= @work_orders.ready_for_invoice.count %>
+        <%= @work_orders.ready_for_invoice.uniq.count %>
       </span>
     </div>
     <div class="workflow-section-col">
-      <% @work_orders.ready_for_invoice.each do |work_order| %>
+      <% @work_orders.ready_for_invoice.uniq.each do |work_order| %>
         <div class="card border-dark mb-1">
           <div class="card-header p-1 pl-2 pr-2">
             <span class="work-order-customer-name"><%= work_order.customer.try :name %></span>
