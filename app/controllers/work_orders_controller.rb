@@ -116,6 +116,6 @@ class WorkOrdersController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def work_order_params
       params.require(:work_order).permit(:date_scheduled, :date_due, :customer_id, :contact_id, :packaging_details, :marked_completed_by, :date_completed, :name, :status, :production_stage_id,
-      service_ids: [], line_items_attributes: [:id, :description, :quantity, :notes, :powder_id, :_destroy, service_ids: []])
+      :estimated_price, service_ids: [], line_items_attributes: [:id, :description, :quantity, :notes, :powder_id, :_destroy, service_ids: []])
     end
 end

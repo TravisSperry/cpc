@@ -20,7 +20,7 @@
         <%= "#{@work_order.customer.address1} <br>".html_safe if @work_order.customer.address1.present? %>
         <%= "#{@work_order.customer.address2} <br>".html_safe if @work_order.customer.address2.present? %>
         <%= "#{@work_order.customer.city}, #{@work_order.customer.state} #{@work_order.customer.zip_code} <br>".html_safe if @work_order.customer %>
-        <strong>Phone:</strong><%= @work_order.customer.phone %>
+        <strong>Phone:</strong> <%= @work_order.customer.phone %>
       </p>
       <hr>
       <h3>Parts List</h3>
@@ -44,15 +44,53 @@
           <% end %>
         </tbody>
       </table>
-      <h3>Services</h3>
-      <% @work_order.services.each do |service| %>
-        <li>
-          <%= service.name %>
-        </li>
-      <% end %>
+      <table width='100%'>
+        <tr>
+          <th width='30%'>
+            <h3>Services</h3>
+          </th>
+          <th width='70%'>
+            <% if @work_order.estimated_price %>
+              <h3>Estimate: $<%= @work_order.estimated_price %></h3>
+            <% end %>
+          </th>
+        </tr>
+        <tr>
+          <td width='30%'>
+            <ul style="margin-top:0;">
+              <% @work_order.services.each do |service| %>
+                <li>
+                  <%= service.name %>
+                </li>
+              <% end %>
+            </ul>
+          </td>
+          <td width='70%'>
+            <% if @work_order.estimated_price %>
+              <em>
+                This quote is for estimation purposes and is not a guarantee of cost for services. Quote is based on current information from client about the project requirements. Actual cost may change once project elements are finalized or negotiated. Client will be notified of any changes in cost prior to them being incurred.
+              </em>
+            <% end %>
+          </td>
+        </tr>
+      </table>
       <hr style="margin-top:1em;">
       <p style="margin-top:40px;">
-        Received by: ___________________________ Date: ___________
+        CPC Rep sign:   __________________________________ Date: _____________
+      </p>
+      <p style="margin-top:40px;">
+        Customer sign:  __________________________________ Date: _____________
+      </p>
+      <p style="margin-top:40px;">
+        Customer print: __________________________________
+      </p>
+    </div>
+    <div>
+      <p style="text-align:right;margin-top:2rem;">
+        <em>
+          *Invoice payable upon receipt.
+          1% per month will be added if not paid within 30 days.
+        </em>
       </p>
     </div>
   </body>

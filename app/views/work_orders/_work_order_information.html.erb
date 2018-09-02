@@ -44,6 +44,12 @@
       <%= @work_order.date_completed ? @work_order.date_completed.strftime('%b %e, %l:%M %p') : 'Not yet completed.' %>
       <%= ", by: #{@work_order.completed_by.try :full_name}" if @work_order.completed_by %>
     </p>
+    <% if current_user.can_approve_work_orders? %>
+      <p>
+        <strong>Pricing Estimate:</strong>
+        <%= @work_order.estimated_price ? "$#{@work_order.estimated_price}" : 'Estimate not entered.' %>
+      </p>
+    <% end %>
   </div>
   <% if @work_order.quality_assurance_approvals.any? %>
     <div class="card-footer">
@@ -53,7 +59,4 @@
       <% end %>
     </div>
   <% end %>
-  <div class="">
-
-  </div>
 </div>

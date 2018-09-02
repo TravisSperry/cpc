@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_01_161913) do
+ActiveRecord::Schema.define(version: 2018_09_02_181630) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "trackable_id"
@@ -205,6 +205,7 @@ ActiveRecord::Schema.define(version: 2018_09_01_161913) do
     t.integer "marked_completed_by"
     t.integer "status"
     t.integer "production_stage_id"
+    t.string "estimated_price"
     t.index ["contact_id"], name: "index_work_orders_on_contact_id"
     t.index ["customer_id"], name: "index_work_orders_on_customer_id"
   end
