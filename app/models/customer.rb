@@ -8,4 +8,11 @@ class Customer < ApplicationRecord
                             class_name: 'Contact'
 
   enum account_type: [ :company, :individual ]
+
+  def has_valid_address?
+    @customer.address1.present? &&
+      @customer.city.present? &&
+      @customer.state.present? &&
+      @customer.zip_code.preset?
+  end
 end

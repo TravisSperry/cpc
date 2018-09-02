@@ -122,3 +122,5 @@ update	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/cust
 destroy	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^  def destroy$/;"	method	line:44	class:CustomersController
 set_customer	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^    def set_customer$/;"	method	line:51	class:CustomersController
 customer_params	/Users/travis/code/projects/columbus_powder_coat/cpc/app/controllers/customers_controller.rb	/^    def customer_params$/;"	method	line:56	class:CustomersController
+Customer	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/customer.rb	/^class Customer < ApplicationRecord$/;"	class	line:3
+has_valid_address?	/Users/travis/code/projects/columbus_powder_coat/cpc/app/models/customer.rb	/^  def has_valid_address?$/;"	method	line:12	class:Customer
