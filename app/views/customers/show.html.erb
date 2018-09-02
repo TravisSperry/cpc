@@ -43,34 +43,34 @@
     </div>
   </div>
   <div class="row mb-4">
-    <div class="col-sm-12">
-      <h1>Work Orders</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <table class="table datatable">
-        <thead>
-          <tr>
-            <th>Work Order ID</th>
-            <th>Job Name</th>
-            <th>Contact Name</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @customer.work_orders.each do |work_order| %>
+    <div class="card">
+      <div class="card-header">
+        <h1 class="mb-0">Work Orders</h1>
+      </div>
+      <div class="card-body">
+        <table class="table datatable">
+          <thead>
             <tr>
-              <td><%= work_order.id %></td>
-              <td><%= work_order.name %></td>
-              <td>
-                <%= link_to work_order.contact.try(:full_name), work_order.contact %>
-              </td>
-              <td><%= link_to "View", work_order %></td>
+              <th>Work Order ID</th>
+              <th>Job Name</th>
+              <th>Contact Name</th>
+              <th></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% @customer.work_orders.each do |work_order| %>
+              <tr>
+                <td><%= work_order.id %></td>
+                <td><%= work_order.name %></td>
+                <td>
+                  <%= link_to work_order.contact.try(:full_name), work_order.contact %>
+                </td>
+                <td><%= link_to "View", work_order %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
   <div class="modal fade" id="addContactModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
