@@ -48,7 +48,7 @@
         </div>
         <div class="card-body">
           <% if @outstanding_work_orders.any? %>
-            <%= render 'work_orders/outstanding_work_orders', outstanding_work_orders: @outstanding_work_orders %>
+            <%= render 'work_orders/outstanding_work_orders', outstanding_work_orders: @outstanding_work_orders.uniq %>
           <% else %>
             <p>No Outstanding work orders.</p>
           <% end %>
