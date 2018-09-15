@@ -15,6 +15,7 @@ gem 'chosen-rails'
 gem 'cocoon'
 gem 'coffee-rails'
 gem 'devise'
+gem 'dropzonejs-rails'
 gem 'enum_help'
 gem 'font-awesome-sass', '~> 5.0.6'
 gem 'high_voltage', '~> 3.0.0'
@@ -54,7 +55,7 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'poltergeist'
+  gem 'selenium-webdriver'
 end
 
 group :production do

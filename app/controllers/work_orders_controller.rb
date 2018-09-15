@@ -1,5 +1,6 @@
 class WorkOrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :assert_work_order_or_company!
   before_action :set_work_order, only: [
                                           :show, :edit, :update, :destroy, :mark_completed,
                                           :quality_assurance_approval
@@ -35,10 +36,12 @@ class WorkOrdersController < ApplicationController
 
     @work_order = WorkOrder.new
     @work_order.line_items.build
+    @work_order.attachments.build
   end
 
   # GET /work_orders/1/edit
   def edit
+    @work_order.attachments.build if @work_order.attachments.blank?
   end
 
   # POST /work_orders
@@ -71,7 +74,7 @@ class WorkOrdersController < ApplicationController
     if @work_order.update(work_order_params) && @work_order.complete!
       redirect_to @work_order, notice: 'Work order was completed.'
     else
-      redirect_to @work_order, warning: 'There was a problem completing this work order'
+      redirect_to @work_order, alert: 'There was a problem completing this work order'
     end
   end
 
@@ -87,11 +90,17 @@ class WorkOrdersController < ApplicationController
     if quality_assurance_approval.save!
       redirect_to @work_order, notice: 'Quality Assurance approval was submitted.'
     else
-      redirect_to @work_order, warning: 'The was a problem processing this Quality Assurance approval.'
+      redirect_to @work_order, alert: 'The was a problem processing this Quality Assurance approval.'
     end
   end
 
   private
+    def assert_work_order_or_company!
+      if params[:customer_id].blank? || @work_order.blank?
+        redirect_to root_path, alert: "You must create a work order from a company's account."
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_work_order
       @work_order = WorkOrder.find(params[:id])
@@ -110,12 +119,11 @@ class WorkOrdersController < ApplicationController
 
     def can_approve?
       return if current_user.can_approve_work_orders?
-      redirect_to @work_order, warning: 'You are not authorized to approve this work order.'
+      redirect_to @work_order, alert: 'You are not authorized to approve this work order.'
     end
 
     # Only allow a trusted parameter "white list" through.
     def work_order_params
-      params.require(:work_order).permit(:date_scheduled, :date_due, :customer_id, :contact_id, :packaging_details, :marked_completed_by, :date_completed, :name, :status, :production_stage_id,
-      :estimated_price, service_ids: [], line_items_attributes: [:id, :description, :quantity, :notes, :powder_id, :_destroy, service_ids: []])
+      params.require(:work_order).permit(:date_scheduled, :date_due, :customer_id, :contact_id, :packaging_details, :marked_completed_by, :date_completed, :name, :status, :production_stage_id, :estimated_price, service_ids: [], attachments_attributes: [:id, attachment: []], line_items_attributes: [:id, :description, :quantity, :notes, :powder_id, :_destroy, service_ids: []])
     end
 end

@@ -3,6 +3,7 @@
 #= require jquery-ui
 #= require popper
 #= require bootstrap
+#= require dropzone
 #= require moment
 #= require cocoon
 #= require bootstrap-datetimepicker

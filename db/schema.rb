@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_02_181630) do
+ActiveRecord::Schema.define(version: 2018_09_15_150944) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "trackable_id"
@@ -160,6 +160,8 @@ ActiveRecord::Schema.define(version: 2018_09_02_181630) do
   create_table "services_work_orders", force: :cascade do |t|
     t.integer "service_id"
     t.integer "work_order_id"
+    t.index ["service_id"], name: "index_services_work_orders_on_service_id"
+    t.index ["work_order_id"], name: "index_services_work_orders_on_work_order_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -192,6 +194,14 @@ ActiveRecord::Schema.define(version: 2018_09_02_181630) do
     t.text "object", limit: 1073741823
     t.datetime "created_at"
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
+  end
+
+  create_table "work_order_attachments", force: :cascade do |t|
+    t.string "attachment"
+    t.integer "work_order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["work_order_id"], name: "index_work_order_attachments_on_work_order_id"
   end
 
   create_table "work_orders", force: :cascade do |t|
