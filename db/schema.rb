@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_15_150944) do
+ActiveRecord::Schema.define(version: 2018_09_16_144757) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "trackable_id"
@@ -42,6 +42,12 @@ ActiveRecord::Schema.define(version: 2018_09_15_150944) do
     t.datetime "updated_at"
   end
 
+  create_table "contact_types", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "contacts", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -49,6 +55,8 @@ ActiveRecord::Schema.define(version: 2018_09_15_150944) do
     t.string "email"
     t.string "title"
     t.integer "customer_id"
+    t.integer "contact_type_id"
+    t.index ["contact_type_id"], name: "index_contacts_on_contact_type_id"
     t.index ["customer_id"], name: "index_contacts_on_customer_id"
   end
 
@@ -160,8 +168,6 @@ ActiveRecord::Schema.define(version: 2018_09_15_150944) do
   create_table "services_work_orders", force: :cascade do |t|
     t.integer "service_id"
     t.integer "work_order_id"
-    t.index ["service_id"], name: "index_services_work_orders_on_service_id"
-    t.index ["work_order_id"], name: "index_services_work_orders_on_work_order_id"
   end
 
   create_table "users", force: :cascade do |t|

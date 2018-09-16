@@ -1,6 +1,6 @@
 class WorkOrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :assert_work_order_or_company!
+  before_action :assert_company!, only: [:new]
   before_action :set_work_order, only: [
                                           :show, :edit, :update, :destroy, :mark_completed,
                                           :quality_assurance_approval
@@ -95,8 +95,8 @@ class WorkOrdersController < ApplicationController
   end
 
   private
-    def assert_work_order_or_company!
-      if params[:customer_id].blank? || @work_order.blank?
+    def assert_company!
+      if params[:customer_id].blank?
         redirect_to root_path, alert: "You must create a work order from a company's account."
       end
     end

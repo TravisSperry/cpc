@@ -257,11 +257,17 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    rspec (3.8.0)
+      rspec-core (~> 3.8.0)
+      rspec-expectations (~> 3.8.0)
+      rspec-mocks (~> 3.8.0)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
+    rspec-junklet (2.2.1)
+      rspec (>= 2.0, < 4.0)
     rspec-mocks (3.8.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
@@ -370,6 +376,7 @@ DEPENDENCIES
   puma
   rails (= 5.2.1)
   recaptcha
+  rspec-junklet
   rspec-rails (~> 3.7)
   rubocop (~> 0.51.0)
   rubocop-rspec

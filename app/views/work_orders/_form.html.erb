@@ -76,7 +76,7 @@
           <%= render 'line_item_fields', f: line_item_form %>
         <% end %>
         <div class="links mt-3">
-          <%= link_to_add_association "Add Line Item", f, :line_items, class: 'btn btn-sm btn-info float-right' %>
+          <%= link_to_add_association "Add Line Item", f, :line_items, class: 'btn btn-sm btn-info float-right', id: 'add_line_item' %>
         </div>
       </div>
     </div>
@@ -91,7 +91,7 @@
     <hr class="mb-4">
     <div class="row">
       <div class="col-sm-6">
-        <%= f.button :submit, class: 'btn btn-success' %>
+        <%= f.button :submit, 'Create Work Order', class: 'btn btn-success' %>
       </div>
     </div>
   <% end %>

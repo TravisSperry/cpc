@@ -41,6 +41,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'letter_opener'
+  gem 'pry-rails'
+  gem 'rspec-junklet'
   gem 'rspec-rails', '~> 3.7'
   gem 'sqlite3'
 end
@@ -49,7 +51,6 @@ group :development do
   gem 'listen'
   gem 'rubocop', '~> 0.51.0', require: false
   gem 'rubocop-rspec'
-  gem 'pry-rails'
   gem 'pry-remote'
 end
 
