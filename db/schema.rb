@@ -10,36 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_16_144757) do
+ActiveRecord::Schema.define(version: 2018_09_16_231644) do
 
-  create_table "activities", force: :cascade do |t|
-    t.integer "trackable_id"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "activities", id: :serial, force: :cascade do |t|
     t.string "trackable_type"
-    t.integer "owner_id"
+    t.integer "trackable_id"
     t.string "owner_type"
+    t.integer "owner_id"
     t.string "key"
     t.text "parameters"
-    t.integer "recipient_id"
     t.string "recipient_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type"
+    t.index ["owner_type", "owner_id"], name: "index_activities_on_owner_type_and_owner_id"
     t.index ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type"
+    t.index ["recipient_type", "recipient_id"], name: "index_activities_on_recipient_type_and_recipient_id"
     t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
+    t.index ["trackable_type", "trackable_id"], name: "index_activities_on_trackable_type_and_trackable_id"
   end
 
-  create_table "boxes", force: :cascade do |t|
+  create_table "boxes", id: :serial, force: :cascade do |t|
     t.integer "powder_id"
     t.integer "weight"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "original_weight", default: 0
   end
 
-  create_table "colors", force: :cascade do |t|
+  create_table "colors", id: :serial, force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "contact_types", force: :cascade do |t|
@@ -48,19 +54,19 @@ ActiveRecord::Schema.define(version: 2018_09_16_144757) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "contacts", force: :cascade do |t|
+  create_table "contacts", id: :serial, force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "phone"
     t.string "email"
     t.string "title"
     t.integer "customer_id"
-    t.integer "contact_type_id"
+    t.bigint "contact_type_id"
     t.index ["contact_type_id"], name: "index_contacts_on_contact_type_id"
     t.index ["customer_id"], name: "index_contacts_on_customer_id"
   end
 
-  create_table "customers", force: :cascade do |t|
+  create_table "customers", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "phone"
     t.string "fax"
@@ -75,7 +81,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_144757) do
     t.index ["primary_contact_id"], name: "index_customers_on_primary_contact_id"
   end
 
-  create_table "line_items", force: :cascade do |t|
+  create_table "line_items", id: :serial, force: :cascade do |t|
     t.text "description"
     t.integer "quantity"
     t.text "notes"
@@ -84,34 +90,34 @@ ActiveRecord::Schema.define(version: 2018_09_16_144757) do
   end
 
   create_table "line_items_services", force: :cascade do |t|
-    t.integer "line_item_id"
-    t.integer "service_id"
+    t.bigint "line_item_id"
+    t.bigint "service_id"
     t.index ["line_item_id"], name: "index_line_items_services_on_line_item_id"
     t.index ["service_id"], name: "index_line_items_services_on_service_id"
   end
 
-  create_table "manufacturers", force: :cascade do |t|
+  create_table "manufacturers", id: :serial, force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "notes", force: :cascade do |t|
+  create_table "notes", id: :serial, force: :cascade do |t|
     t.text "content"
-    t.integer "notable_id"
     t.string "notable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "notable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["notable_type", "notable_id"], name: "index_notes_on_notable_type_and_notable_id"
   end
 
-  create_table "powders", force: :cascade do |t|
+  create_table "powders", id: :serial, force: :cascade do |t|
     t.integer "manufacturer_id"
     t.integer "color_id"
     t.string "part_number"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "name"
     t.integer "weight", default: 0
     t.boolean "high_demand", default: false
@@ -133,14 +139,14 @@ ActiveRecord::Schema.define(version: 2018_09_16_144757) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "quote_request_attachments", force: :cascade do |t|
+  create_table "quote_request_attachments", id: :serial, force: :cascade do |t|
     t.integer "quote_request_id"
     t.string "attachment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "quote_requests", force: :cascade do |t|
+  create_table "quote_requests", id: :serial, force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "job_title"
@@ -154,23 +160,25 @@ ActiveRecord::Schema.define(version: 2018_09_16_144757) do
     t.string "telephone"
     t.string "fax"
     t.text "note"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "status", default: "New", null: false
     t.string "source"
   end
 
-  create_table "services", force: :cascade do |t|
+  create_table "services", id: :serial, force: :cascade do |t|
     t.string "name"
   end
 
-  create_table "services_work_orders", force: :cascade do |t|
+  create_table "services_work_orders", id: :serial, force: :cascade do |t|
     t.integer "service_id"
     t.integer "work_order_id"
+    t.index ["service_id"], name: "index_services_work_orders_on_service_id"
+    t.index ["work_order_id"], name: "index_services_work_orders_on_work_order_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -181,8 +189,8 @@ ActiveRecord::Schema.define(version: 2018_09_16_144757) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
     t.string "suffix"
@@ -192,25 +200,17 @@ ActiveRecord::Schema.define(version: 2018_09_16_144757) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "versions", force: :cascade do |t|
+  create_table "versions", id: :serial, force: :cascade do |t|
     t.string "item_type", null: false
     t.integer "item_id", null: false
     t.string "event", null: false
     t.string "whodunnit"
-    t.text "object", limit: 1073741823
+    t.text "object"
     t.datetime "created_at"
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
-  create_table "work_order_attachments", force: :cascade do |t|
-    t.string "attachment"
-    t.integer "work_order_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["work_order_id"], name: "index_work_order_attachments_on_work_order_id"
-  end
-
-  create_table "work_orders", force: :cascade do |t|
+  create_table "work_orders", id: :serial, force: :cascade do |t|
     t.datetime "date_scheduled"
     t.datetime "date_due"
     t.datetime "date_completed"
@@ -222,8 +222,13 @@ ActiveRecord::Schema.define(version: 2018_09_16_144757) do
     t.integer "status"
     t.integer "production_stage_id"
     t.string "estimated_price"
+    t.string "attachments", default: [], array: true
     t.index ["contact_id"], name: "index_work_orders_on_contact_id"
     t.index ["customer_id"], name: "index_work_orders_on_customer_id"
   end
 
+  add_foreign_key "contacts", "contact_types"
+  add_foreign_key "contacts", "customers"
+  add_foreign_key "work_orders", "contacts"
+  add_foreign_key "work_orders", "customers"
 end

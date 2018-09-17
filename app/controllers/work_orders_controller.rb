@@ -36,12 +36,10 @@ class WorkOrdersController < ApplicationController
 
     @work_order = WorkOrder.new
     @work_order.line_items.build
-    @work_order.attachments.build
   end
 
   # GET /work_orders/1/edit
   def edit
-    @work_order.attachments.build if @work_order.attachments.blank?
   end
 
   # POST /work_orders
@@ -124,6 +122,6 @@ class WorkOrdersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def work_order_params
-      params.require(:work_order).permit(:date_scheduled, :date_due, :customer_id, :contact_id, :packaging_details, :marked_completed_by, :date_completed, :name, :status, :production_stage_id, :estimated_price, service_ids: [], attachments_attributes: [:id, attachment: []], line_items_attributes: [:id, :description, :quantity, :notes, :powder_id, :_destroy, service_ids: []])
+      params.require(:work_order).permit(:date_scheduled, :date_due, :customer_id, :contact_id, :packaging_details, :marked_completed_by, :date_completed, :name, :status, :production_stage_id, :estimated_price, attachments: [], service_ids: [], line_items_attributes: [:id, :description, :quantity, :notes, :powder_id, :_destroy, service_ids: []])
     end
 end

@@ -1,4 +1,4 @@
-class CreateWorkOrders < ActiveRecord::Migration
+class CreateWorkOrders < ActiveRecord::Migration[5.0]
   def change
     create_table :work_orders do |t|
       t.datetime :date_scheduled

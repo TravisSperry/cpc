@@ -43,6 +43,7 @@ Cpc::Application.routes.draw do
   devise_for :users
 
   resources :work_orders do
+    resources :attachments, only: [:create]
     resources :notes
 
     collection do

@@ -26,6 +26,14 @@ RSpec.feature "Managing a work order", :type => :feature do
       .to change { LineItem.count }.by(1)
   end
 
+  scenario "successfully creating a work order with an attachment" do
+    visit new_customer_work_order_path(company)
+    fill_in_account_and_scheduling_information
+    attach_file("Attachments", Rails.root + "spec/fixtures/test.pdf")
+    expect { click_button 'Create Work Order' }
+      .to change { WorkOrderAttachment.count }.by(1)
+  end
+
   describe "When a user tries to create a work order without a company" do
     it "redirects to the dashboard and flashes a message" do
       visit "/work_orders/new"

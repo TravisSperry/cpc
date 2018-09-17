@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateQuotes < ActiveRecord::Migration
+class CreateQuotes < ActiveRecord::Migration[5.0]
   def change
     create_table :quotes do |t|
       t.string :first_name

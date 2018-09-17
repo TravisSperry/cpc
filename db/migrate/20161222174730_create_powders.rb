@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreatePowders < ActiveRecord::Migration
+class CreatePowders < ActiveRecord::Migration[5.0]
   def change
     create_table :powders do |t|
       t.integer :manufacturer_id

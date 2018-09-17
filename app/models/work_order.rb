@@ -4,6 +4,8 @@ class WorkOrder < ApplicationRecord
   include PublicActivity::Model
   tracked owner: Proc.new{ |controller, model| controller.current_user if controller.try :current_user }
 
+  mount_uploaders :attachments, AttachmentUploader
+
   belongs_to :customer
   belongs_to :contact
   belongs_to :production_stage
@@ -11,13 +13,11 @@ class WorkOrder < ApplicationRecord
   has_many :quality_assurance_approvals
   has_many :line_items, inverse_of: :work_order, dependent: :destroy
   has_many :notes, as: :notable
-  has_many :attachments, inverse_of: :work_order, class_name: 'WorkOrderAttachment'
 
   # TODO: Validates presence of - customer, contact, name
 
   enum status: [:received, :scheduled, :in_progress, :ready_for_invoice, :complete].freeze
 
-  accepts_nested_attributes_for :attachments
   accepts_nested_attributes_for :line_items,
     allow_destroy: true,
     reject_if: proc { |attributes| attributes['description'].blank? }

@@ -80,18 +80,10 @@
         </div>
       </div>
     </div>
-    <hr>
-    <div class="row">
-      <div class="col-sm-4">
-        <%= f.simple_fields_for :attachments do |attachment_field| %>
-          <%= attachment_field.input :attachment, label: 'Attachments', input_html: { multiple: true }%>
-        <% end %>
-      </div>
-    </div>
     <hr class="mb-4">
     <div class="row">
       <div class="col-sm-6">
-        <%= f.button :submit, 'Create Work Order', class: 'btn btn-success' %>
+        <%= f.button :submit, 'Save Work Order', class: 'btn btn-success' %>
       </div>
     </div>
   <% end %>
