@@ -8,6 +8,7 @@
         <th>Last name</th>
         <th>Email</th>
         <th>Telephone</th>
+        <th>Assigned to</th>
         <th class="all"></th>
         <th></th>
       </tr>
@@ -21,6 +22,7 @@
           <td><%= qr.last_name %></td>
           <td><%= qr.email %></td>
           <td><%= qr.telephone %></td>
+          <td><%= qr.user ? qr.user.full_name : 'Not assigned' %></td>
           <td><%= link_to 'Show', qr %></td>
           <td>
             <% if qr.status == "New" %>
