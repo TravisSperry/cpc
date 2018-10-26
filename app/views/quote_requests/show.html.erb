@@ -30,6 +30,11 @@
         <%= @quote_request.note %>
       </p>
 
+      <p>
+        <b>Quote Request Owner</b>
+        <%= @quote_request.user.try :full_name %>
+      </p>
+
       <% if @quote_request.quote_request_attachments %>
         <p>
           <b>Attachments:</b>
