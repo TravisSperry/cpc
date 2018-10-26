@@ -1,5 +1,4 @@
 if $(document.getElementById('sand-blasting-calculator-form')).length > 0
-  console.log 'sandblasting!'
   $(':input').bind 'keyup change', ->
     sum_costs()
 
