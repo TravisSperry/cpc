@@ -77,7 +77,7 @@
               <% if @work_order.attachments.present? %>
                 <ol class="pl-4">
                   <% @work_order.attachments.each do |attachment| %>
-                    <li><%= link_to attachment.file.try :filename, attachment.url %></li>
+                    <li><%= link_to attachment.file.try(:filename), attachment.url %></li>
                   <% end %>
                 </ol>
               <% else %>
