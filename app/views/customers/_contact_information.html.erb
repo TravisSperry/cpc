@@ -6,11 +6,12 @@
     <ul style="list-style-type: none;" class="pl-2">
       <li class="mb-3">
         <strong>Primary Contact:</strong>
-        <%= "#{link_to customer.primary_contact.try(:full_name), customer.primary_contact, target: '_blank'} (#{customer.primary_contact.title})".html_safe if customer.primary_contact %>
+        <%= "#{link_to customer.primary_contact.try(:full_name), customer.primary_contact, target: '_blank'}".html_safe if customer.primary_contact %>
+        <%=  "(#{customer.primary_contact.title})" if customer.primary_contact && customer.primary_contact.present? %>
       </li>
       <hr>
       <div class="mb-2">
-        <h5 class="d-inline mb-2">Additional Contacts</h5> <small><%= link_to "add", new_customer_contact_path(customer.id) %></small>
+        <h5 class="d-inline mb-2">Additional Contacts</h5> <small><%= link_to "add", new_customer_contact_path(customer.id), class: 'text-success' %></small>
       </div>
       <% customer.contacts.each do |contact| %>
         <% next if contact.is_primary? %>
@@ -21,6 +22,7 @@
             <%= link_to 'make primary', customer_path(
                                           customer: { id: customer.id, primary_contact_id: contact.id }
                                         ),
+                                        class: 'text-success',
                                         method: :patch,
                                         data: { confirm: 'Are you sure you want make this contact a primary?'}  %>
           </small>
