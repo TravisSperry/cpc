@@ -84,7 +84,7 @@
                 <p class="text-danger mb-0">No Attachments</p>
               <% end %>
             </div>
-            <div class="card-body">
+            <div class="card-footer">
               <%= simple_form_for @work_order, url: work_order_attachments_path(@work_order), method: :post do |f| %>
                 <%= f.input :attachments, as: :file, label: 'Add Attachments', input_html: { multiple: true } %>
                 <%= f.submit 'Add Attachments', class: 'btn btn-success' %>
