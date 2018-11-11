@@ -7,7 +7,7 @@
       <li class="mb-3">
         <strong>Primary Contact:</strong>
         <%= "#{link_to customer.primary_contact.try(:full_name), customer.primary_contact, target: '_blank'}".html_safe if customer.primary_contact %>
-        <%=  "(#{customer.primary_contact.title})" if customer.primary_contact && !customer.primary_contact.blank? %>
+        <%=  "(#{customer.primary_contact.title})" if customer.primary_contact && !customer.primary_contact.title.blank? %>
       </li>
       <hr>
       <div class="mb-2">
