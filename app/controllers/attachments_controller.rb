@@ -1,25 +1,39 @@
 class AttachmentsController < ApplicationController
-  before_action :set_work_order
+  before_action :set_resource
 
   def create
     add_more_attachments(attachments_params[:attachments])
-    flash[:error] = "Failed uploading images" unless @work_order.save
+    if @resource.save
+      flash[:notice] = "Attachments uploaded successfully"
+    else
+      flash[:error] = "Failed to upload attachments"
+    end
     redirect_back(fallback_location: root_path)
   end
 
   private
 
-  def set_work_order
-    @work_order = WorkOrder.find(params[:work_order_id])
+  def set_resource
+    if params.has_key?(:work_order)
+      @resource = WorkOrder.find(params[:work_order_id])
+    elsif params.has_key?(:customer)
+      @resource = Customer.find(params[:customer_id])
+    else
+      raise ActiveRecord::RecordNotFound
+    end
   end
 
   def add_more_attachments(new_attachments)
-    attachments = @work_order.attachments  # copy the old attachments
+    attachments = @resource.attachments  # copy the old attachments
     attachments += new_attachments # concat old attachments with new ones
-    @work_order.attachments = attachments # assign back
+    @resource.attachments = attachments # assign back
   end
 
   def attachments_params
-    params.require(:work_order).permit({attachments: []})
+    if params.has_key?(:work_order)
+      params.require(:work_order).permit({ attachments: [] })
+    elsif params.has_key?(:customer)
+      params.require(:customer).permit({ attachments: [] })
+    end
   end
 end

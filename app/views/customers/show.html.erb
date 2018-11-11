@@ -49,7 +49,7 @@
   </div>
   <hr>
   <div class="row mb-4">
-    <div class="col-sm-12">
+    <div class="col-sm-9">
       <div class="card">
         <div class="card-header">
           <h1 class="mb-0">Work Orders</h1>
@@ -77,6 +77,30 @@
               <% end %>
             </tbody>
           </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3 p-0">
+      <div class="card w-100">
+        <div class="card-header">
+          <h2 class="mb-0">Attachments</h2>
+        </div>
+        <div class="card-body mb-0">
+          <% if @customer.attachments.present? %>
+            <ol class="pl-4">
+              <% @customer.attachments.each do |attachment| %>
+                <li><%= link_to attachment.file.try(:filename), attachment.url %></li>
+              <% end %>
+            </ol>
+          <% else %>
+            <p class="text-danger mb-0">No Attachments</p>
+          <% end %>
+        </div>
+        <div class="card-body">
+          <%= simple_form_for @customer, url: customer_attachments_path(@customer), method: :post do |f| %>
+            <%= f.input :attachments, as: :file, label: 'Add Attachments', input_html: { multiple: true } %>
+            <%= f.submit 'Add Attachments', class: 'btn btn-success' %>
+          <% end %>
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Customer < ApplicationRecord
+  mount_uploaders :attachments, AttachmentUploader
+
   has_many :work_orders
   has_many :contacts
   has_one :primary_contact, primary_key: 'primary_contact_id',
