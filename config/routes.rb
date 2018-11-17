@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Cpc::Application.routes.draw do
+  resources :service_schedules
+  resources :work_order_schedules
   resources :boxes
 
   resources :colors

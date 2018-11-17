@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_11_155840) do
+ActiveRecord::Schema.define(version: 2018_11_17_160429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -168,6 +168,17 @@ ActiveRecord::Schema.define(version: 2018_11_11_155840) do
     t.string "source"
   end
 
+  create_table "service_schedules", force: :cascade do |t|
+    t.bigint "work_order_schedule_id"
+    t.bigint "service_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_id"], name: "index_service_schedules_on_service_id"
+    t.index ["work_order_schedule_id"], name: "index_service_schedules_on_work_order_schedule_id"
+  end
+
   create_table "services", id: :serial, force: :cascade do |t|
     t.string "name"
   end
@@ -211,6 +222,13 @@ ActiveRecord::Schema.define(version: 2018_11_11_155840) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+  create_table "work_order_schedules", force: :cascade do |t|
+    t.bigint "work_order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["work_order_id"], name: "index_work_order_schedules_on_work_order_id"
+  end
+
   create_table "work_orders", id: :serial, force: :cascade do |t|
     t.datetime "date_scheduled"
     t.datetime "date_due"
@@ -230,6 +248,9 @@ ActiveRecord::Schema.define(version: 2018_11_11_155840) do
 
   add_foreign_key "contacts", "contact_types"
   add_foreign_key "contacts", "customers"
+  add_foreign_key "service_schedules", "services"
+  add_foreign_key "service_schedules", "work_order_schedules"
+  add_foreign_key "work_order_schedules", "work_orders"
   add_foreign_key "work_orders", "contacts"
   add_foreign_key "work_orders", "customers"
 end

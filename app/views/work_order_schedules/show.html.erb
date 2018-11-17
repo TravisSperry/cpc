@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Work order:</strong>
+  <%= @work_order_schedule.work_order %>
+</p>
+
+<%= link_to 'Edit', edit_work_order_schedule_path(@work_order_schedule) %> |
+<%= link_to 'Back', work_order_schedules_path %>
