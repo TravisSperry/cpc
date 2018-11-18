@@ -6,6 +6,7 @@
 #= require moment
 #= require cocoon
 #= require bootstrap-datetimepicker
+#= require bootstrap-datepicker
 #= require dataTables/jquery.dataTables
 #= require dataTables/extras/dataTables.responsive
 #= require chosen-jquery
@@ -24,6 +25,8 @@ jQuery ->
 
   $('.chosen').chosen
     allow_single_deselect: true
+
+  $('.datepicker').datepicker()
 
   $('.datetimepicker').datetimepicker
     format: 'YYYY-MM-DD HH:mm'

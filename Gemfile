@@ -14,6 +14,7 @@ gem 'carrierwave-aws'
 gem 'chosen-rails'
 gem 'cocoon'
 gem 'coffee-rails'
+gem 'bootstrap-datepicker-rails'
 gem 'devise'
 gem 'enum_help'
 gem 'font-awesome-sass', '~> 5.0.6'
@@ -52,6 +53,7 @@ group :development do
   gem 'rubocop', '~> 0.51.0', require: false
   gem 'rubocop-rspec'
   gem 'pry-remote'
+  gem 'web-console'
 end
 
 group :test do

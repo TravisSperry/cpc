@@ -24,7 +24,7 @@ class WorkOrderSchedulesController < ApplicationController
   # POST /work_order_schedules
   def create
     @work_order_schedule = WorkOrderSchedule.new(work_order_schedule_params)
-
+    
     if @work_order_schedule.save
       redirect_to @work_order_schedule, notice: 'Work order schedule was successfully created.'
     else
@@ -55,6 +55,6 @@ class WorkOrderSchedulesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def work_order_schedule_params
-      params.require(:work_order_schedule).permit(:work_order_id, service_schedule_attributes: [:start_date, :end_date, :service_id])
+      params.require(:work_order_schedule).permit(:work_order_id, service_schedules_attributes: [:start_date, :end_date, :service_id, :_destroy])
     end
 end

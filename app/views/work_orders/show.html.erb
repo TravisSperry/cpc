@@ -33,16 +33,17 @@
     </div>
     <div class="col-lg-3">
       <div class="row">
-        <div class="col">
+        <div class="col p-0">
           <%= link_to 'View PDF', work_order_path(format: :pdf),
                                   target: '_blank',
                                   class: 'btn btn-block btn-primary pull-right mb-3' %>
+          <%= link_to 'Schedule Work Order', new_work_order_schedule_path(work_order_id: @work_order.id), class: 'btn btn-block btn-secondary mb-3' %>
           <%= render 'quality_assurance_approval_modal' if current_user.can_approve_work_orders? && !@work_order.quality_assurance_approval? %>
         </div>
       </div>
       <% unless @work_order.complete? %>
         <div class="row">
-          <div class="col">
+          <div class="col p-0">
             <%= render 'status_form' %>
             <%= render 'production_stage_form' if @work_order.in_progress? %>
             <%= render 'mark_completed_form' if @work_order.quality_assurance_approval? %>
@@ -52,7 +53,7 @@
       <div class="row notes-section">
         <div class="col">
           <div class="row">
-            <div class="notes-form col">
+            <div class="notes-form col p-0">
               <%= render partial: 'notes/notable_form', locals: { resource: @work_order, note: @note } %>
             </div>
           </div>

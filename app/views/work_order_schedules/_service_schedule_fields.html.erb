@@ -1,6 +1,18 @@
-<div class="nested-fields">
-  <%= f.association :service %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= link_to_remove_association 'remove schedule', f %>
+<div class="nested-fields card mt-3">
+  <div class="row card-body">
+    <div class="col-md-3">
+      <%= f.association :service %>
+    </div>
+    <div class="col-md-4">
+      <%= f.input :start_date, as: :string, input_html: { class: 'datepicker' } %>
+    </div>
+    <div class="col-md-4">
+      <%= f.input :end_date, as: :string, input_html: { class: 'datepicker' } %>
+    </div>
+    <div class="col-md-1">
+      <%= link_to_remove_association f, data: { confirm: 'Are you sure you want to remove this service schedule?'}, class: 'float-right mt-4', title: 'Remove Schedule' do %>
+        <i class='fas fa-times text-danger'></i>
+      <% end %>
+    </div>
+  </div>
 </div>

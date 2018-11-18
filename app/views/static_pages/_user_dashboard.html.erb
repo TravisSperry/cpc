@@ -1,35 +1,3 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#userDashNav" aria-controls="userDashNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="userDashNav">
-    <ul class="navbar-nav">
-      <li class="nav-item mr-lg-2 mb-2 mt-2 mb-lg-0 mt-lg-0">
-        <%= link_to "Manage Customers", customers_path, class: "nav-link btn btn-primary" %>
-      </li>
-      <li class="nav-item mr-lg-2 mb-2 mb-lg-0">
-        <a class="dropdown-toggle btn btn-warning nav-link" href="#" data-toggle="dropdown">
-          Quote Calculators
-        </a>
-        <div class="dropdown-menu">
-          <%= link_to "General Quote", calculator_quote_requests_path, class: "dropdown-item" %>
-          <%= link_to "Sand Blasting Quote", sand_blasting_quote_calculator_quote_requests_path, class: "dropdown-item" %>
-        </div>
-      </li>
-      <li class="nav-item mr-lg-2 mb-2 mb-lg-0">
-        <%= link_to "Powder Management", powders_path, class: "nav-link btn btn-light" %>
-      </li>
-      <li class="nav-item mr-lg-2 mb-2 mb-lg-0">
-        <%= link_to "Scheduling", "https://docs.google.com/spreadsheets/d/1rYPuH1CKaGT6X_qLRRjRsm1XPkppSM9VB23eXvmKLYQ/edit?usp=sharing", class: "btn btn-secondary nav-link" %>
-      </li>
-      <% if @new_quote_requests %>
-        <li class="nav-item">
-          <%= link_to "<span class='badge badge-pill badge-danger'>#{@new_quote_requests.count ? @new_quote_requests.count : 0}</span> New Quote #{pluralize_without_count(@new_quote_requests.count, 'Request')}#{@new_quote_requests.count == 0 ? "" : "!"}".html_safe, quote_requests_path, class: "btn btn-success nav-link" %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</nav>
 <div class="container mt-3">
   <div class="row">
     <div class="col-sm-12">

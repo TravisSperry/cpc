@@ -35,6 +35,8 @@
 
     <%= render 'layouts/header' %>
 
+    <%= render 'layouts/admin-section-navbar' if current_user %>
+
     <!-- .wrap -->
     <div class="wrap">
       <%= flash_messages %>

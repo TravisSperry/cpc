@@ -142,8 +142,12 @@ and (max-device-width: 667px) {
   }
 }
 
+.admin-section-navbar {
+  margin-top: -60px;
+}
+
 // --------- Main Section Styling --------- //
-.main-slider{
+.main-slider {
   max-height: 75vh;
   overflow:hidden;
   margin-bottom: -3px;
@@ -153,8 +157,8 @@ and (max-device-width: 667px) {
 
 }
 
-.main-details{
-  padding: 10px 0 10px 0;
+.main-details {
+  padding: 10px 0;
   text-align: center;
   font-family: $global-font-family;
   font-weight: bold;
@@ -167,13 +171,13 @@ and (max-device-width: 667px) {
   margin-top: 3px;
 }
 
-.coatings{
+.coatings {
   background: #F2F2F2;
   background: rgba(242, 242, 242, 1);
   border-bottom: 3px solid #999999;
   padding-top: 75px;
 
-  .quality{
+  .quality {
     width: $main-heading-width;
     font-family: $global-font-family;
     font-weight: bold;
@@ -187,7 +191,7 @@ and (max-device-width: 667px) {
     border-right: 9px solid #25292C;
   }
 
-  .quality-mobile{
+  .quality-mobile {
     width:100%;
     font-family: $global-font-family;
     font-weight: bold;
@@ -202,16 +206,16 @@ and (max-device-width: 667px) {
     border-bottom: 9px solid #25292C;
   }
 
-  .manufacturers{
+  .manufacturers {
     margin:75px 0 80px 0;
 
-    .col-md-4{
+    .col-md-4 {
       margin:0 0 90px 0;
     }
   }
 }
 
-.services{
+.services {
   background: #F2F2F2;
   background: rgba(242, 242, 242, 1);
   border-bottom: 3px solid #999999;
@@ -235,7 +239,7 @@ and (max-device-width: 667px) {
     }
   }
 
-  .quality-mobile{
+  .quality-mobile {
     width:100%;
     font-family: $global-font-family;
     font-weight: bold;
@@ -255,14 +259,14 @@ and (max-device-width: 667px) {
   }
 }
 
-.powders{
+.powders {
   background: #F2F2F2;
   background: rgba(242, 242, 242, 1);
   border-bottom: 3px solid #999999;
   padding: 75px 0 75px 0;
   font-family: $global-font-family;
 
-  .quality{
+  .quality {
     width:$main-heading-width;
     font-weight: bold;
     font-size: 37px;
