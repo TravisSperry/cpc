@@ -54,6 +54,6 @@ class ServiceSchedulesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def service_schedule_params
-      params.require(:service_schedule).permit(:work_order_schedule_id, :service_id, :start_date, :end_date)
+      params.require(:service_schedule).permit(:work_order_schedule_id, :service_id, :start_date, :end_date, :note)
     end
 end

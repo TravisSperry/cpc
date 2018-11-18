@@ -37,7 +37,8 @@
           <%= link_to 'View PDF', work_order_path(format: :pdf),
                                   target: '_blank',
                                   class: 'btn btn-block btn-primary pull-right mb-3' %>
-          <%= link_to 'Schedule Work Order', new_work_order_schedule_path(work_order_id: @work_order.id), class: 'btn btn-block btn-secondary mb-3' %>
+          <%= render 'work_order_schedule_buttons' %>
+
           <%= render 'quality_assurance_approval_modal' if current_user.can_approve_work_orders? && !@work_order.quality_assurance_approval? %>
         </div>
       </div>

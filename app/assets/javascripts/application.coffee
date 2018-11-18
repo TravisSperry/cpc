@@ -15,6 +15,7 @@
 #= require customers
 #= require bootstrap-slider
 #= require work_orders
+#= require work_order_schedules
 #= require powders
 
 jQuery ->
@@ -26,7 +27,8 @@ jQuery ->
   $('.chosen').chosen
     allow_single_deselect: true
 
-  $('.datepicker').datepicker()
+  $('.datepicker').datepicker
+    format: 'yyyy-mm-dd'
 
   $('.datetimepicker').datetimepicker
     format: 'YYYY-MM-DD HH:mm'

@@ -171,8 +171,9 @@ ActiveRecord::Schema.define(version: 2018_11_17_160429) do
   create_table "service_schedules", force: :cascade do |t|
     t.bigint "work_order_schedule_id"
     t.bigint "service_id"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date "start_date"
+    t.date "end_date"
+    t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["service_id"], name: "index_service_schedules_on_service_id"

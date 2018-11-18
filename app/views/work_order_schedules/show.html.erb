@@ -1,8 +1,14 @@
 <div class="container">
   <h1>Work Order Schedule</h1>
   <p>
-    <strong>Work order:</strong>
-    <%= @work_order_schedule.work_order.try :name %>
+    <strong>Work Order:</strong>
+    <%= link_to @work_order_schedule.work_order.try(:name), @work_order_schedule.work_order %>
+    <div>
+      <strong>Services:</strong>
+      <% @work_order_schedule.work_order.services.each do |service| %>
+        <%= badgeify(service) %>
+      <% end %>
+    </div>
   </p>
   <div class="mt-3">
     <table class="table">
@@ -10,12 +16,14 @@
         <th>Service</th>
         <th>Start Date</th>
         <th>End Date</th>
+        <th>Notes</th>
       </tr>
       <% @work_order_schedule.service_schedules.each do |schedule| %>
         <tr>
           <td><%= schedule.service.name %></td>
           <td><%= schedule.start_date.try(:strftime, '%A, %b %d') %></td>
           <td><%= schedule.end_date.try(:strftime, '%A, %b %d') %></td>
+          <td><%= schedule.note %></td>
         </tr>
       <% end %>
     </table>

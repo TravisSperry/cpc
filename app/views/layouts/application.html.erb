@@ -37,9 +37,10 @@
 
     <%= render 'layouts/admin-section-navbar' if current_user %>
 
+    <%= flash_messages %>
+    
     <!-- .wrap -->
     <div class="wrap">
-      <%= flash_messages %>
 
       <%= yield %>
     </div>
