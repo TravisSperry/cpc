@@ -1,4 +1,4 @@
-<%= page_entries_info @notes %>
+<%= page_entries_info notes %>
 <% notes.where.not(created_at: nil).order(created_at: :desc).each do |note| %>
   <div class="card mb-2">
     <div class="card-body bg-light">

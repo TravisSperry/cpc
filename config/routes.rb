@@ -12,6 +12,7 @@ Cpc::Application.routes.draw do
   resources :customers do
     resources :attachments, only: [:create]
     resources :contacts
+    resources :notes
     resources :work_orders
   end
 

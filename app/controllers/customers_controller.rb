@@ -9,6 +9,8 @@ class CustomersController < ApplicationController
 
   # GET /customers/1
   def show
+    @notes = @customer.notes.page(params[:page])
+    @note = @notes.build
   end
 
   # GET /customers/new
