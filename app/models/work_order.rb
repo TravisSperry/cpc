@@ -27,6 +27,8 @@ class WorkOrder < ApplicationRecord
 
   def completed_by
     User.find(marked_completed_by) if marked_completed_by
+  rescue ActiveRecord::RecordNotFound => error
+    OpenStruct.new(full_name: 'Deleted User')
   end
 
   def quality_assurance_approval?
