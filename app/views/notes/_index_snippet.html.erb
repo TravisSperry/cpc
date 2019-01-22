@@ -5,7 +5,7 @@
       <%= note.content  %>
     </div>
     <div class="card-footer">
-      <span class="pull-left"><%= note.user.full_name %></span>
+      <span class="pull-left"><%= note.user.try :full_name %></span>
       <span class="pull-right"><%= note.created_at.strftime('%A, %b %d') %></span>
     </div>
   </div>
