@@ -4,7 +4,9 @@ source 'https://rubygems.org'
 
 ruby '2.5.1'
 
-gem 'rails', '5.2.1'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+gem 'rails', '~> 5.2.1'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.0.0'
@@ -30,6 +32,7 @@ gem 'paper_trail'
 gem 'public_activity'
 gem 'puma'
 gem 'recaptcha', require: 'recaptcha/rails'
+gem 'rollbar'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'sitemap_generator'
@@ -63,5 +66,4 @@ end
 
 group :production do
   gem 'pg', '= 0.21'
-  gem 'rollbar'
 end
