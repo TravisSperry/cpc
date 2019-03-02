@@ -16,6 +16,10 @@
             </span>
           </div>
           <div class="card-body p-2">
+            <div class="d-inline">
+              <strong>Due Date:</strong>
+              <%= work_order.date_due ? work_order.date_due.strftime('%b %d %Y') : 'No date set' %> 
+            </div>
             <% if work_order.scheduled? %>
               <div class="float-right">
                 Scheduled:
