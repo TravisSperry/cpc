@@ -1,0 +1,13 @@
+.container.contact
+  %h2{:style => "font-weight:200;"} Contact Us
+  = simple_form_for @message, :url => contact_path do |f|
+    = f.input :name, placeholder: "Your Name"
+    = f.input :email, placeholder: "Your Email"
+    = f.input :phone, placeholder: "Your Phone"
+    = f.input :subject, placeholder: "Subject"
+    = f.input :body, as: :text, placeholder: "How can we help you?", :input_html => { :rows => 5 }
+    = f.submit "Send", class: "btn btn-special btn-color"
+  %p{:style => "text-align:right"}
+    %a{:href => "tel:+16143530302"}
+      %i.icon-phone
+      (614) 353-0302

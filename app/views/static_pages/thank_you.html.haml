@@ -1,0 +1,7 @@
+.container{:style => "margin-top:60px;"}
+  .row
+    .col-sm-12
+      - if params[:request_type] == "quote"
+        %h1 Thank you!
+        %p
+          Thanks for submitting your quote request. One of our associates will contact you within a business day.

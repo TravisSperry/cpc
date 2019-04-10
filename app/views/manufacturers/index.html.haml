@@ -1,0 +1,20 @@
+.container
+  .row
+    .col-sm-12
+      %h1 Manufacturers
+      %table.datatable.display.responsive.no-wrap
+        %thead
+          %tr
+            %th Name
+            %th
+            %th
+            %th
+        %tbody
+          - @manufacturers.each do |manufacturer|
+            %tr
+              %td= manufacturer.name
+              %td= link_to 'Show', manufacturer
+              %td= link_to 'Edit', edit_manufacturer_path(manufacturer)
+              %td= link_to 'Destroy', manufacturer, method: :delete, data: { confirm: 'Are you sure?' }
+      %br/
+      = link_to 'New Manufacturer', new_manufacturer_path, class: 'btn btn-success'

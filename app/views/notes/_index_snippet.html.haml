@@ -1,0 +1,9 @@
+= page_entries_info notes
+- notes.where.not(created_at: nil).order(created_at: :desc).each do |note|
+  .card.mb-2
+    .card-body.bg-light
+      = note.content
+    .card-footer
+      %span.pull-left= note.user.try :full_name
+      %span.pull-right= note.created_at.strftime('%A, %b %d')
+= paginate notes

@@ -1,0 +1,33 @@
+.quote_request_table
+  %table.datatable.display.no-wrap{:width => "100%"}
+    %thead
+      %tr
+        %th Date
+        %th Status
+        %th First name
+        %th Last name
+        %th Email
+        %th Telephone
+        %th Assigned to
+        %th.all
+        %th
+    %tbody
+      - quote_requests.each do |qr|
+        %tr
+          %td= qr.created_at.strftime("%m/%d/%Y")
+          %td= qr.status == "New" ? "<span class='badge badge-success'>New</span>".html_safe : qr.status
+          %td= qr.first_name
+          %td= qr.last_name
+          %td= qr.email
+          %td= qr.telephone
+          %td= qr.user ? qr.user.full_name : 'Not assigned'
+          %td= link_to 'Show', qr
+          %td
+            - if qr.status == "New"
+              = link_to "Mark As Viewed", mark_as_viewed_quote_request_path(qr)
+            - elsif qr.status == "Viewed"
+              = link_to "Mark As Submitted", mark_as_submitted_quote_request_path(qr)
+            - elsif qr.status == "Submitted"
+              = link_to "Mark As Won", mark_as_won_quote_request_path(qr)
+              %br/
+              = link_to "Mark As Lost", mark_as_lost_quote_request_path(qr)

@@ -1,0 +1,7 @@
+.container
+  %p
+    %strong Name:
+    = @color.name
+  = link_to 'Edit', edit_color_path(@color)
+  |
+  \#{link_to 'List Colors', colors_path}

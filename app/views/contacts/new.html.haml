@@ -1,0 +1,9 @@
+.container
+  .row
+    .col-sm-12
+      %h1
+        - if @customer
+          = "New #{@customer.name} Contact"
+        - else
+          New Contact
+  = render 'form'

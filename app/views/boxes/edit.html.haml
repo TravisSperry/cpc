@@ -1,0 +1,18 @@
+.container
+  .row
+    .col-sm-4
+      %h1 Editing box
+      %p.alert.alert-warning.mt-3.mb-4
+        To update the weight
+        %strong enter the new total weight
+        of the box and
+        = succeed "." do
+          %strong click 'Update Box'
+      = simple_form_for(@box) do |f|
+        = f.error_notification
+        .form-inputs
+          = f.association :powder, label_method: :list_name, disabled: true, input_html: { class: 'chosen' }
+          = f.input :original_weight, placeholder: 'standard weight of box when received', disabled: true
+          = f.input :weight, hint: 'in lbs (round down to the nearest pound)'
+        .form-actions
+          = f.button :submit, class: 'btn btn-lg btn-success'

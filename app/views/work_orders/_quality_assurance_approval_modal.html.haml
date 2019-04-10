@@ -1,0 +1,12 @@
+= submit_tag 'QA Approval', class: 'btn btn-block btn-secondary pull-right mb-3', |
+  data: { toggle: 'modal', target: '#qaModal' },                                  |
+  disabled: @work_order.has_been_approved_by?(current_user),                      |
+  title: quality_assurance_message(@work_order)                                   |
+#qaModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "qaModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-body
+        Are you sure you want to perform a Quality Assurance sign-off?
+      .modal-footer
+        = link_to "Cancel", "#", class: 'btn btn-danger', data: { dismiss: 'modal' }
+        = link_to "Approve", quality_assurance_approval_work_order_path(@work_order), class: "btn btn-success", method: :post

@@ -1,0 +1,19 @@
+.container
+  .row
+    .col-sm-12
+      %h1 Listing colors
+      %p= link_to 'New Color', new_color_path, class: 'btn btn-secondary'
+      %table.datatable.display.responsive.no-wrap
+        %thead
+          %tr
+            %th Name
+            %th
+            %th
+            %th
+        %tbody
+          - @colors.each do |color|
+            %tr
+              %td= color.name
+              %td= link_to 'Show', color
+              %td= link_to 'Edit', edit_color_path(color)
+              %td= link_to 'Destroy', color, method: :delete, data: { confirm: 'Are you sure?' }

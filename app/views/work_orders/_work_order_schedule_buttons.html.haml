@@ -1,0 +1,4 @@
+- if @work_order.work_order_schedule
+  = link_to 'View Schedule', @work_order.work_order_schedule, class: 'btn btn-block btn-secondary mb-3'
+- else
+  = link_to 'Schedule Work Order', new_work_order_schedule_path(work_order_id: @work_order.id), class: 'btn btn-block btn-secondary mb-3'

@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-sm-12
+      %h1
+        - if @customer
+          = "New #{@customer.name} Work Order"
+        - else
+          New Work Order
+  %hr.mb-4/
+  = render 'form'

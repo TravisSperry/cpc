@@ -1,0 +1,39 @@
+.container.contact
+  %h1 Listing quotes
+  %table.table.table-bordered.table-striped
+    %tr
+      %th Status
+      %th First name
+      %th Last name
+      %th Company
+      %th Email
+      %th Telephone
+      %th Part description
+      %th Assigned to
+      %th
+      %th
+      %th
+    - @quotes.each do |quote|
+      - if quote.status == "New"
+        %tr{:style => "background-color:#cccccc;"}
+          - elsif quote.status == "Viewed"
+            %tr{:style => "background-color:#ffff99;"}
+              - elsif quote.status == "Submitted"
+                %tr{:style => "background-color:#99ccff;"}
+                  - elsif quote.status == "Won"
+                    %tr{:style => "background-color:#ccffcc;"}
+                      - elsif quote.status == "Lost"
+                        %tr{:style => "background-color:#ff9999;"}
+                          %td= quote.status
+                          %td= quote.first_name
+                          %td= quote.last_name
+                          %td= quote.company_name
+                          %td= quote.email
+                          %td= quote.telephone
+                          %td= quote.part_description
+                          %td= quote.user ? quote.user.first_name : "Not assigned."
+                          %td= link_to 'Show', quote
+                          %td= link_to 'Edit', edit_quote_path(quote)
+                          %td= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' }
+  %br/
+  = link_to 'New Quote', new_quote_path, class: "btn btn-special btn-color"

@@ -1,0 +1,9 @@
+= simple_form_for(@service_schedule) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.association :work_order_schedule
+    = f.association :service
+    = f.input :start_date
+    = f.input :end_date
+  .form-actions
+    = f.button :submit

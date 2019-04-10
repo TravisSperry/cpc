@@ -1,0 +1,19 @@
+= simple_form_for(@work_order_schedule) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.association :work_order,                                              |
+      selected: params[:work_order_id] || @work_order_schedule.work_order_id, |
+      disabled: true,                                                         |
+      input_html: { class: 'col-md-3' }                                       |
+    = f.hidden_field :work_order_id,                                      |
+      value: params[:work_order_id] || @work_order_schedule.work_order_id |
+    .service-schedules
+      = f.simple_fields_for :service_schedules do |service_schedule|
+        = render 'service_schedule_fields', f: service_schedule
+      .links.mt-2
+        = link_to_add_association f, :service_schedules, class: 'float-right' do
+          %span.fas.fa-plus.text-success
+          %span.text-success Add Schedule
+  .clearfix
+  .form-actions
+    = f.button :submit, class: 'btn btn-success'

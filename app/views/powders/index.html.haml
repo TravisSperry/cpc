@@ -1,0 +1,35 @@
+.container.mt-lg-5.mt-md-5.mt-2
+  %h1 Powders
+  .btn-group.d-none.d-md-flex.mt-4.mb-4
+    = link_to 'New Powder', new_powder_path, class: 'btn btn-primary'
+    = link_to 'New Manufacturer', new_manufacturer_path, class: 'btn btn-secondary'
+    = link_to 'Manage Color Options', colors_path, class: 'btn btn-info'
+  .d-block.d-md-none.mb-4.mt-4.mt-md-0.mt-md-0
+    = link_to 'New Powder', new_powder_path, class: 'btn btn-block btn-primary'
+    = link_to 'New Manufacturer', new_manufacturer_path, class: 'btn btn-block btn-secondary'
+    = link_to 'Manage Color Options', colors_path, class: 'btn btn-block btn-info'
+  .mt-3.mb-3
+    %strong Download:
+    = link_to "CSV", powders_path(format: "csv")
+  %table.datatable.display.table-responsive.no-wrap{:width => "100%"}
+    %thead
+      %tr
+        %th Manufacturer
+        %th Color
+        %th.not-mobile Part number
+        %th.not-mobile Boxes
+        %th Weight
+        %th.all
+        %th
+    %tbody
+      - @powders.each do |powder|
+        %tr
+          %td= powder.manufacturer.name if powder.manufacturer
+          %td= powder.name
+          %td= powder.part_number
+          %td= powder.boxes.count
+          %td
+            = powder.total_weight
+            lbs
+          %td= link_to 'View', powder
+          %td= link_to 'Edit', edit_powder_path(powder)

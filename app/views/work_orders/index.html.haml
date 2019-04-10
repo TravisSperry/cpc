@@ -1,0 +1,26 @@
+.container
+  %h1.mb-4 Listing Work Orders
+  %table.table.datatable
+    %thead
+      %tr
+        %th Date scheduled
+        %th Date due
+        %th Customer
+        %th Contact
+        %th Packaging details
+        %th Date completed
+        %th{:colspan => "3"}
+    %tbody
+      - @work_orders.each do |work_order|
+        %tr
+          %td= work_order.date_scheduled
+          %td= work_order.date_due
+          %td= work_order.customer_id
+          %td= work_order.contact_id
+          %td= work_order.packaging_details
+          %td= work_order.date_completed
+          %td= link_to 'Show', work_order
+          %td= link_to 'Edit', edit_work_order_path(work_order)
+          %td= link_to 'Destroy', work_order, method: :delete, data: { confirm: 'Are you sure?' }
+  %p.mt-4
+    = link_to 'New Work order', new_work_order_path, class: "btn btn-success"

@@ -1,0 +1,25 @@
+.container
+  %h1 Work Order Schedule
+  %p
+    %strong Work Order:
+    = link_to @work_order_schedule.work_order.try(:name), @work_order_schedule.work_order
+  %div
+    %strong Services:
+    - @work_order_schedule.work_order.services.each do |service|
+      = badgeify(service)
+  .mt-3
+    %table.table
+      %tr
+        %th Service
+        %th Start Date
+        %th End Date
+        %th Notes
+      - @work_order_schedule.service_schedules.each do |schedule|
+        %tr
+          %td= schedule.service.name
+          %td= schedule.start_date.try(:strftime, '%A, %b %d')
+          %td= schedule.end_date.try(:strftime, '%A, %b %d')
+          %td= schedule.note
+  = link_to 'Edit', edit_work_order_schedule_path(@work_order_schedule)
+  |
+  \#{link_to 'Back', work_order_schedules_path}

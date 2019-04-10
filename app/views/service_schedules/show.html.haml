@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Work order schedule:
+  = @service_schedule.work_order_schedule
+%p
+  %strong Service:
+  = @service_schedule.service
+%p
+  %strong Start date:
+  = @service_schedule.start_date
+%p
+  %strong End date:
+  = @service_schedule.end_date
+= link_to 'Edit', edit_service_schedule_path(@service_schedule)
+|
+= link_to 'Back', service_schedules_path

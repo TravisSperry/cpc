@@ -1,0 +1,7 @@
+.container
+  %h1 Editing Work Order
+  = render 'form'
+  %p.mt-3
+    = link_to 'Show', @work_order
+    |
+    \#{link_to 'Back', work_orders_path}

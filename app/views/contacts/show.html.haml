@@ -1,0 +1,24 @@
+.container
+  .row
+    .col-sm-12
+      %p
+        %strong Name:
+        = @contact.full_name
+      %p
+        %strong Company:
+        - if @contact.customer
+          = link_to @contact.customer.name, customer_path(@contact.customer), target: '_blank'
+        - else
+          Not connected to a company.
+      %p
+        %strong Phone:
+        = @contact.phone
+      %p
+        %strong Email:
+        = @contact.email
+      %p
+        %strong Title:
+        = @contact.title
+      = link_to 'Edit', edit_contact_path(@contact)
+      |
+      \#{link_to 'Back', contacts_path}

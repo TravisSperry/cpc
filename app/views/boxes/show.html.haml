@@ -1,0 +1,16 @@
+.container
+  .row
+    .col-sm-4
+      %h1 Box
+      %p
+        %strong Powder Type:
+        = link_to @box.powder.list_name, @box.powder
+      %p
+        %strong Original Weight:
+        = @box.original_weight
+      %p
+        %strong Weight:
+        = @box.weight
+      %p
+        = link_to "Edit", edit_box_path
+        | #{link_to "Powder Inventory", powders_path}

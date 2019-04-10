@@ -1,0 +1,8 @@
+= simple_form_for @work_order, url: work_order_path(@work_order), method: :put do |f|
+  .row
+    .col-7
+      = f.input :production_stage_id, collection: ProductionStage.order(:order).all, |
+        label: 'Production Stage'                                                    |
+    .col-5
+      = f.submit 'Update', data: { confirm: 'Are you sure you want to update this status?' }, |
+        class: 'btn btn-success btn-block btn-production-stage'                               |

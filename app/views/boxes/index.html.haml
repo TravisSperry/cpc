@@ -1,0 +1,17 @@
+%h1 Listing boxes
+%table
+  %thead
+    %tr
+      %th Powder
+      %th Weight
+      %th{:colspan => "3"}
+  %tbody
+    - @boxes.each do |box|
+      %tr
+        %td= box.powder_id
+        %td= box.weight
+        %td= link_to 'Show', box
+        %td= link_to 'Edit', edit_box_path(box)
+        %td= link_to 'Destroy', box, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Box', new_box_path

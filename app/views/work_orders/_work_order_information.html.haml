@@ -1,0 +1,46 @@
+.card.mb-3
+  .card-header
+    %h2.mb-0.d-inline
+      Work Order ##{@work_order.id}
+    = render 'services', work_order: @work_order if @work_order.services.any?
+  - if @work_order.production_stage_id
+    .card-body.text-center.text-success.border.border-success.p-2.production-stage-status
+      %strong
+        Current Stage: #{@work_order.production_stage.name}
+  .card-body.pb-0
+    %p
+      %strong Customer:
+      = link_to @work_order.customer.try(:name), @work_order.customer if @work_order.customer
+    %p
+      %strong Job Name:
+      = @work_order.name
+    %p
+      %strong Contact:
+      - if @work_order.contact
+        = link_to @work_order.contact.full_name, @work_order.contact
+      - elsif @work_order.customer.try :primary_contact
+        = link_to @work_order.customer.primary_contact.full_name, @work_order.customer.primary_contact
+      - else
+        'Please add a primary contact to this customer or add a contact to this work order.'
+    %p
+      %strong Date scheduled:
+      = @work_order.date_scheduled.strftime('%b %e, %l:%M %p') if @work_order.date_scheduled
+    %p
+      %strong Date due:
+      = due_date_formatter(@work_order.date_due, @work_order.date_completed)
+    %p
+      %strong Packaging details:
+      = @work_order.packaging_details.present? ? @work_order.packaging_details : 'No details specified.'
+    %p
+      %strong Date completed:
+      = @work_order.date_completed ? @work_order.date_completed.strftime('%b %e, %l:%M %p') : 'Not yet completed.'
+      = ", by: #{@work_order.completed_by.try :full_name}" if @work_order.completed_by
+    - if current_user.can_approve_work_orders?
+      %p
+        %strong Pricing Estimate:
+        = @work_order.estimated_price ? "$#{@work_order.estimated_price}" : 'Estimate not entered.'
+  - if @work_order.quality_assurance_approvals.any?
+    .card-footer
+      %strong QA Approvals
+      - @work_order.quality_assurance_approvals.includes(:user).each do |approval|
+        %span.badge.badge-pill.badge-success.float-right.ml-1.mt-1= approval.user.full_name

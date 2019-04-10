@@ -1,0 +1,50 @@
+- unless current_user
+  .row
+    .col-12
+      .alert.alert-success.mb-4{:style => "padding:15px 20px 15px 20px;"}
+        Submit a short description of your project, some pictures or plans (if you have them) and
+        = succeed "." do
+          %strong someone will get in touch within one business day
+= simple_form_for(@quote_request) do |f|
+  = f.error_notification
+  .form-inputs
+    .row
+      .col-12
+        %h3{:style => "padding-top:10px; border-bottom: solid gray 1px;"} RFQ Information
+        %p.mb-4
+          %em
+            If you have any issues submitting this form please email
+            %a{:href => "mailto:paul@columbuspowdercoat.com"}
+              paul@columbuspowdercoat.com
+            or call us at (614) 300-5025.
+    .row
+      .col-sm-6
+        = f.input :first_name
+        = f.input :last_name
+        = f.input :email
+        = f.input :telephone
+        = f.input :note, placeholder: "Description of project.", :input_html => { :rows => 5 }
+        = f.input :source, collection: QuoteRequest::SOURCES, |
+          label: 'Tell us how you found us.',                 |
+          input_html: { class: 'chosen' }                     |
+        %p
+          = f.fields_for :post_attachments do |p|
+            .card.card-body
+              .card-title
+                %strong Add Attachments
+              .card-text
+                .field
+                  You can include most popular file types. (PDF, JPEG, PNG, GIF)
+                  %br/
+                  = p.label :attachments, required: false
+                  %br/
+                  = p.file_field :attachment, multiple: true,       |
+                    name: "quote_request_attachments[attachment][]" |
+        %div{:style => "margin-bottom:25px;"}
+          = recaptcha_tags unless Rails.env.development? || current_user
+        - if user_signed_in?
+          = f.input :status, collection: ["New", "Viewed", "Submitted", "Won", "Lost"], |
+            input_html: { class: 'chosen' }                                             |
+          = f.association :user, label_method: :email, input_html: { class: 'chosen' }
+  .form-actions
+    = f.submit "Submit Request", class: "btn btn-lg btn-success"

@@ -1,0 +1,37 @@
+!!!
+/
+  <html class="ie6" lang="en">
+  <html class="ie7" lang="en">
+  <html class="ie8" lang="en">
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    / Uncomment to make IE8 render like IE7
+    %meta{:content => "IE=7", "http-equiv" => "X-UA-Compatible"}/
+    / Set the viewport width to device width for mobile
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    = render 'layouts/meta_tag_keyword'
+    %meta{:content => "At Columbus Powder Coat we pride ourselves on high quality finishes, fast turnarounds, and great prices.", :name => "description"}/
+    %title
+      = content_for?(:title) ? "Columbus Powder Coat | #{ yield(:tile) }" : "Columbus Powder Coat | Columbus, Ohio"
+    /[if IE 7]
+      <link rel="stylesheet" href="/assets/font-awesome-ie7.min.css">
+    = stylesheet_link_tag "application"
+    %link{:href => "https://fonts.googleapis.com/css?family=Roboto+Mono", :rel => "stylesheet"}/
+    = javascript_include_tag "modernizr"
+    = csrf_meta_tags
+    = render 'layouts/shim'
+    = render 'layouts/zopim' if Rails.env.production?
+    = render 'layouts/google_tag_manager_head' if Rails.env.production? && !current_user
+  %body{:class => "home #{'bg-light' if current_user}"}
+    = render 'layouts/google_tag_manager_body' if Rails.env.production? && !current_user
+    = render 'layouts/header'
+    = render 'layouts/admin-section-navbar' if current_user
+    = flash_messages
+    / .wrap
+    .wrap
+      = yield
+    = render 'layouts/footer'
+    / /.wrap End
+    = javascript_include_tag "application"

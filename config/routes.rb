@@ -45,6 +45,7 @@ Cpc::Application.routes.draw do
   get 'static_pages/thank_you'
 
   devise_for :users
+  resources :users
 
   resources :work_orders do
     resources :attachments, only: [:create]

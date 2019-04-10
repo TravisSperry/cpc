@@ -1,0 +1,46 @@
+.container{:style => "margin-top: 30px"}
+  .row
+    .col-lg-9
+      %p
+        %strong Manufacturer:
+        = @powder.manufacturer ? @powder.manufacturer.name : 'Please add a manufacturer.'
+      %p
+        %strong Name:
+        = @powder.name ? @powder.name : 'Please add a name.'
+      %p
+        %strong Color:
+        = @powder.color ? @powder.color.name : 'Please add a color.'
+      %p
+        %strong Part number:
+        = @powder.part_number
+      %p
+        %strong Boxes:
+        = @powder.boxes.count
+      %ol.mb-5
+        - @powder.boxes.order("weight ASC").each do |box|
+          - if box.weight > 0
+            %li
+              = box.weight
+              lbs (#{link_to "view", box} | #{link_to "edit", edit_box_path(box), data: { confirm: 'Are you sure you want to edit the weight of this box?' }})
+              .progress
+                .progress-bar.bg-success{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "#{box.percent_left}", :role => "progressbar", :style => "width: #{box.percent_left}%;"}
+                  = box.percent_left
+                  \%
+      %p
+        %strong Total In-Stock Weight:
+        = @powder.total_weight
+        lbs
+    .col-lg-3
+      .mb-2
+        = link_to "Powder Inventory", powders_path, class: "btn btn-block btn-primary"
+        = link_to "Add Another Box", new_box_path(powder_id: @powder.id), class: "btn btn-block btn-success", data:{confirm: 'Are you sure you want to add another box?'}
+      .card
+        .card-header Manufacturer Specs
+        .card-body.pb-0
+          - if @powder.part_number
+            - Powder::TCI_PRODUCT_FORMULATION.each_with_index do |(k,v), i|
+              %p
+                %strong>= k.to_s.gsub('_', ' ').titleize
+                \: #{v[@powder.part_number[i].to_i]}
+          - else
+            Please Add Part Number For Powder

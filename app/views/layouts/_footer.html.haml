@@ -1,0 +1,47 @@
+/ Footer Start
+%footer
+  / Footer Top Start
+  .footer-top
+    .container
+      .row
+        %section.col-lg-3.col-md-3.col-xs-12.col-sm-3.footer-one
+          %h3 ABOUT
+          %p
+            At Columbus Powder Coat we pride ourselves on high quality finishes, world class service, and a fast turnaround. (#{link_to 'more', page_path('about'), target: '_blank'})
+        %section.col-lg-7.col-md-7.col-xs-12.col-sm-7.footer-two
+          %h3 CONTACT US
+          %ul.contact-us
+            %li
+              %p.mb-1
+                %span
+                  %i.icon-map-marker
+                  Address:
+                2790 Fisher Road,
+                Columbus, Ohio 43204
+            %li
+              %p.mb-1
+                %span
+                  %i.icon-phone
+                  Phone:
+                %a{:href => "tel:+16143005025"} 614-300-5025
+            %li
+              %p
+                %span
+                  %i.icon-envelope-alt
+                  Email:
+                %a{:href => "mailto:contact@columbuspowdercoat.com"} contact@columbuspowdercoat.com
+        %section.col-lg-2.col-md-2.col-sm-2.footer-three
+          - if current_user
+            = link_to "Sign out", destroy_user_session_path
+          - else
+            = link_to "Sign In", new_user_session_path
+  / Footer Top End
+  / Footer Bottom Start
+  .footer-bottom
+    .container
+      .row
+        .col-12.text-center
+          © #{Date.today.year} by
+          = succeed "." do
+            %a{:href => "/"} Columbus Powder Coat
+  / Footer Bottom End

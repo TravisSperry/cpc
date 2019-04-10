@@ -1,0 +1,17 @@
+%h1 Listing quote_request_attachments
+%table
+  %thead
+    %tr
+      %th Quote request
+      %th Attachment
+      %th{:colspan => "3"}
+  %tbody
+    - @quote_request_attachments.each do |quote_request_attachment|
+      %tr
+        %td= quote_request_attachment.quote_request_id
+        %td= quote_request_attachment.attachment
+        %td= link_to 'Show', quote_request_attachment
+        %td= link_to 'Edit', edit_quote_request_attachment_path(quote_request_attachment)
+        %td= link_to 'Destroy', quote_request_attachment, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Quote request attachment', new_quote_request_attachment_path

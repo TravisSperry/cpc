@@ -1,0 +1,7 @@
+= simple_form_for(@quote_request_attachment) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :quote_request_id
+    = f.input :attachment
+  .form-actions
+    = f.button :submit

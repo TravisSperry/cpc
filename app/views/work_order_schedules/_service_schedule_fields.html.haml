@@ -1,0 +1,23 @@
+.nested-fields.card.mt-3
+  .card-body
+    .row
+      .col-md-3
+        = f.association :service
+      .col-md-4
+        = f.input :start_date, as: :string, |
+          readonly: true,                   |
+          input_html: {                     |
+            class: 'datepicker',            |
+            type: :date,                    |
+            value: f.object.start_date      |
+          }                                 |
+      .col-md-4
+        = f.input :end_date, as: :string,                  |
+          readonly: true,                                  |
+          input_html: { class: 'datepicker', type: :date } |
+      .col-md-1
+        = link_to_remove_association f, data: { confirm: 'Are you sure you want to remove this service schedule?'}, class: 'float-right mt-4', title: 'Remove Schedule' do
+          %i.fas.fa-times.text-danger
+    .row
+      .col-12
+        = f.input :note

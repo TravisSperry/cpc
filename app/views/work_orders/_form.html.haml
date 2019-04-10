@@ -1,0 +1,60 @@
+.row
+  .col-sm-12
+    = simple_form_for(@work_order) do |f|
+      .row.mb-4
+        .col-sm-12
+          %h2.text-muted Account Information &amp; Scheduling
+      .row
+        .col-sm-12
+          = f.error_notification
+      .row.mb-5
+        .col-md-12
+          .row
+            .col-sm-12
+              = f.input :name, label: 'Job Name'
+          .row
+            .col-lg-6
+              = f.association :customer, label_method: :name,          |
+                selected: params[:customer_id],                        |
+                input_html: { class: 'chosen'} if params[:customer_id] |
+              = f.association :customer, label_method: :name,              |
+                input_html: { class: 'chosen'} unless params[:customer_id] |
+              = f.association :contact, label_method: :full_name_and_title, |
+                collection: @customer.contacts,                             |
+                input_html: { class: 'chosen'} if @customer                 |
+            .col-lg-6
+              = f.input :date_scheduled, as: :string,   |
+                placeholder: 'Select A Date',           |
+                input_html: { class: "datetimepicker" } |
+              = f.input :date_due, as: :string,         |
+                placeholder: 'Select A Date',           |
+                input_html: { class: "datetimepicker" } |
+              = f.label :estimated_price
+              = f.input :estimated_price, wrapper: :prepend, label: false do
+                .input-group-prepend
+                  %span.input-group-text $
+                = f.input_field :estimated_price, class: 'text-right'
+                .input-group-append
+                  %span.input-group-text .00
+      .row
+        .col-sm-12
+          %h2.text-muted.mb-4 Job Details
+      .row
+        .col-sm-12
+          %h3.text-muted Services
+      .row
+        .col-sm-12
+          = f.association :services, as: :check_boxes, label: false, input_html: { class: 'ml-3 mr-1'}
+      .row
+        .col-sm-12
+          %h3.text-muted Parts
+      .row
+        .col-sm-12.line-item-fields
+          = f.simple_fields_for :line_items do |line_item_form|
+            = render 'line_item_fields', f: line_item_form
+          .links.mt-3
+            = link_to_add_association "Add Line Item", f, :line_items, class: 'btn btn-sm btn-info float-right', id: 'add_line_item'
+      %hr.mb-4/
+      .row
+        .col-sm-6
+          = f.button :submit, 'Save Work Order', class: 'btn btn-success'

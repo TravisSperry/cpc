@@ -1,0 +1,22 @@
+%p#notice= notice
+%h1 Service Schedules
+%table
+  %thead
+    %tr
+      %th Work order schedule
+      %th Service
+      %th Start date
+      %th End date
+      %th{:colspan => "3"}
+  %tbody
+    - @service_schedules.each do |service_schedule|
+      %tr
+        %td= service_schedule.work_order_schedule
+        %td= service_schedule.service
+        %td= service_schedule.start_date
+        %td= service_schedule.end_date
+        %td= link_to 'Show', service_schedule
+        %td= link_to 'Edit', edit_service_schedule_path(service_schedule)
+        %td= link_to 'Destroy', service_schedule, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Service Schedule', new_service_schedule_path

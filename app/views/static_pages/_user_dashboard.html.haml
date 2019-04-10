@@ -1,0 +1,22 @@
+.container.mt-3
+  .row
+    .col-sm-12
+      .card
+        .card-header
+          %h1.mb-0.d-inline Work Order Workflow
+          %h2.mb-0.mt-1.d-inline.float-right= Date.today.strftime('%A, %B %e')
+        .card-body
+          = render 'work_orders/workflow_channels'
+.container.user_dashboard
+  .row.mt-4
+    .col-sm-12
+      .card
+        .card-header
+          %h1.mb-0 Outstanding Work Orders
+        .card-body
+          - if @outstanding_work_orders.any?
+            = render 'work_orders/outstanding_work_orders', outstanding_work_orders: @outstanding_work_orders.uniq
+          - else
+            %p No Outstanding work orders.
+  / /.row
+/ /.container

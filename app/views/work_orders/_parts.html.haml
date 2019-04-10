@@ -1,0 +1,24 @@
+.card.mb-3
+  .card-header
+    %h2.mb-0 Parts
+  .card-body.pb-0
+    %table.table.table-striped
+      %thead
+        %tr
+          %th
+          %th Description
+          %th Quantity
+          %th Powder
+          %th Services
+          %th Notes
+      %tbody
+        - @work_order.line_items.each_with_index do |line_item, i|
+          %tr
+            %td= i + 1
+            %td= line_item.description
+            %td= line_item.quantity
+            %td= line_item.powder ? line_item.powder.list_select_name : 'No powder selected'
+            %td
+              - line_item.services.each do |service|
+                = badgeify(service)
+            %td= line_item.notes

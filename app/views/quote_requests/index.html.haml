@@ -1,0 +1,14 @@
+.container.contact
+  .row
+    .col-lg-12
+      %h1 Quote Requests
+      .d-none.d-md-block.mt-4.mb-4
+        = link_to 'New Quote Request', new_quote_request_path, class: "btn btn-success"
+      .d-block.d-md-none.mt-4.mb-4
+        = link_to 'New Quote Request', new_quote_request_path, class: "btn btn-success btn-block"
+      - if params[:quote_request] == "All"
+        %p= link_to "Active Quote Requests >", quote_requests_path
+        = render 'quote_request_table', quote_requests: @quote_requests
+      - else
+        %p= link_to "All Quote Requests >", quote_requests_path(quote_request: "All")
+        = render 'quote_request_table', quote_requests: @active_quote_requests

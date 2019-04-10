@@ -1,0 +1,36 @@
+.container
+  .row
+    .col-sm-12
+      .card
+        .card-header
+          %h1.mb-0.d-inline Listing Customers
+          = link_to new_customer_path, class: "btn btn-primary float-right mt-1" do
+            %i.fas.fa-plus
+            Add Customer
+        .card-body
+          %table.table.datatable
+            %thead
+              %tr
+                %th Name
+                %th Phone
+                %th Fax
+                %th Type
+                - if current_user.admin?
+                  %th
+                  %th
+                  %th
+                - else
+                  %th
+                  %th
+            %tbody
+              - @customers.each do |customer|
+                %tr
+                  %td= customer.name
+                  %td= customer.phone
+                  %td= customer.fax
+                  %td= customer.account_type
+                  %td= link_to 'Manage', customer
+                  %td= link_to 'Edit', edit_customer_path(customer)
+                  - if current_user.admin?
+                    %td
+                      = link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' }

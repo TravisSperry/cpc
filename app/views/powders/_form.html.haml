@@ -1,0 +1,12 @@
+= simple_form_for(@powder) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :name
+    = f.association :manufacturer
+    = f.association :color, collection: Color.order(:name).all
+    = f.input :part_number
+    = f.input :high_demand
+    = f.input :reminder_weight, label: 'I would like to be reminded when this powder is below this many pounds:', placeholder: 'Enter a whole amount, like 5 not 5.5'
+  .form-actions
+    = f.button :submit, 'Save Powder', class: 'btn btn-success'
+    = link_to 'Cancel', powders_path,  class: 'btn btn-danger'

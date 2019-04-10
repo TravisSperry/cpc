@@ -1,0 +1,93 @@
+.container
+  .row.justify-content-end.mb-4
+    .col-auto.work-order-navbar
+      - if @customer.company?
+        = link_to new_customer_contact_path(@customer.id), class: "btn btn-primary add-contact" do
+          %i.fas.fa-user
+          Add Contact
+      = link_to new_customer_work_order_path(@customer.id), class: "btn btn-warning mr-2 add-work-order #{disable_with_contact(@customer)}" do
+        %i.fas.fa-plus
+        Add Work Order
+  .row
+    .col-md-4
+      .card
+        .card-header
+          %h1.d-inline.mb-0= @customer.name
+          %small= link_to 'edit', edit_customer_path(@customer)
+        .card-body.pb-0
+          %p
+            - if @customer.has_valid_address?
+              = @customer.address1
+              %br/
+              = "#{@customer.address2} <br>".html_safe unless @customer.address2.blank?
+              = "#{@customer.city}, #{@customer.state} #{@customer.zip_code}"
+              %br/
+            - else
+              %span.text-danger
+                Please ensure customer has street address, city, state and zip.
+          %p
+            %strong Email:
+            = @customer.primary_contact.try(:email) || @customer.email
+          %p
+            %strong Phone:
+            = @customer.phone
+          - if @customer.fax.present?
+            %p
+              %strong Fax:
+              = @customer.fax
+    .col-md-4
+      = render 'contact_information', customer: @customer if @customer.company?
+    .col-md-4
+      .card.w-100
+        .card-header
+          %h2.mb-0 Attachments
+        .card-body.mb-0
+          - if @customer.attachments.present?
+            %ol.pl-4
+              - @customer.attachments.each do |attachment|
+                %li= link_to attachment.file.try(:filename), attachment.url
+          - else
+            %p.text-danger.mb-0 No Attachments
+        .card-footer
+          = simple_form_for @customer, url: customer_attachments_path(@customer), method: :post do |f|
+            = f.input :attachments, as: :file, label: 'Add Attachments', input_html: { multiple: true }
+            = f.submit 'Add Attachments', class: 'btn btn-success'
+  %hr/
+  .row.mb-4
+    .col-sm-8
+      .card
+        .card-header
+          %h1.mb-0 Work Orders
+        .card-body
+          %table.table.datatable
+            %thead
+              %tr
+                %th Work Order ID
+                %th Job Name
+                %th Contact Name
+                %th
+            %tbody
+              - @customer.work_orders.each do |work_order|
+                %tr
+                  %td= work_order.id
+                  %td= work_order.name
+                  %td
+                    = link_to work_order.contact.try(:full_name), work_order.contact
+                  %td= link_to "View", work_order
+    .col-sm-4
+      .row
+        .notes-form.col.p-0
+          = render partial: 'notes/notable_form', locals: { resource: @customer, note: @note }
+      .row.mt-3
+        .card.w-100
+          .card-body.pt-2.pb-2.p-1
+            .notes-index.col
+              = render partial: 'notes/index_snippet', locals: { notes: @notes, page: params[:page] }
+  #addContactModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog{:role => "document"}
+      .modal-content
+        .modal-header
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+        .modal-body
+          This customer needs a primary contact before you can add a work order.

@@ -1,0 +1,25 @@
+.card
+  .card-header
+    %h2.mb-0 Contacts
+  .card-body
+    %ul.pl-2{:style => "list-style-type: none;"}
+      %li.mb-3
+        %strong Primary Contact:
+        = "#{link_to customer.primary_contact.try(:full_name), customer.primary_contact, target: '_blank'}".html_safe if customer.primary_contact
+        = "(#{customer.primary_contact.title})" if customer.primary_contact && !customer.primary_contact.title.blank?
+      %hr/
+      .mb-2
+        %h5.d-inline.mb-2 Additional Contacts
+        %small= link_to "add", new_customer_contact_path(customer.id), class: 'text-success'
+      - customer.contacts.each do |contact|
+        - next if contact.is_primary?
+        %li
+          = link_to contact.full_name, contact
+          = "(#{contact.title})" if !contact.title.blank?
+          %small
+            = link_to 'make primary', customer_path(                                 |
+                customer: { id: customer.id, primary_contact_id: contact.id }        |
+              ),                                                                     |
+              class: 'text-success',                                                 |
+              method: :patch,                                                        |
+              data: { confirm: 'Are you sure you want make this contact a primary?'} |

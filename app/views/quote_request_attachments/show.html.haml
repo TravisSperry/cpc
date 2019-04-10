@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Quote request:
+  = @quote_request_attachment.quote_request_id
+%p
+  %strong Attachment:
+  = @quote_request_attachment.attachment
+= link_to 'Edit', edit_quote_request_attachment_path(@quote_request_attachment)
+|
+= link_to 'Back', quote_request_attachments_path

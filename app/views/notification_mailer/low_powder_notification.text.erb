@@ -1,9 +1,0 @@
-This is a note to remind you that <%= @powder.name %> is below <%= @powder.reminder_weight %> lbs.
-
-<% if @powder.high_demand %>
-  **This is a high demand powder.
-<% else %>
-  This powder is not marked as high demand. If you think it should be please update it here: <%= powder_url(@powder) %>
-<% end %>
-
-Now get off ya ass and order some more!

@@ -1,0 +1,62 @@
+.row
+  .col-lg-4.col-12.p-1.border
+    .workflow-section-header.text-white.mb-1.bg-dark.p-2.pl-3
+      Received &amp; Scheduled
+      %span.badge.badge-pill.badge-light.float-right
+        = @work_orders.received_and_scheduled.uniq.count
+    .workflow-section-col
+      - @work_orders.received_and_scheduled.order(:status, :date_scheduled).uniq.each do |work_order|
+        .card.border-dark.mb-1
+          .card-header.p-1.pl-2.pr-2
+            %span.work-order-customer-name= work_order.customer.try :name
+            %span.work-order-id.float-right
+              = link_to "##{work_order.id}", work_order
+          .card-body.p-2
+            .d-inline
+              %strong Due Date:
+              = work_order.date_due ? work_order.date_due.strftime('%b %d %Y') : 'No date set'
+            - if work_order.scheduled?
+              .float-right
+                Scheduled:
+                %span.text-success
+                  = work_order.date_scheduled.strftime('%b %d %Y') if work_order.date_scheduled
+            - else
+              = link_to "Schedule", work_order, class: 'float-right'
+  .col-lg-4.col-12.p-1.border
+    .workflow-section-header.text-white.mb-1.bg-dark.p-2.pl-3
+      In Progress
+      %span.badge.badge-pill.badge-light.float-right
+        = @work_orders.in_progress.uniq.count
+    .workflow-section-col
+      - @work_orders.merge(ProductionStage.order(order: :desc)).in_progress.uniq.each do |work_order|
+        .card.border-dark.mb-1
+          .card-header.p-1.pl-2.pr-2
+            %span.work-order-customer-name= work_order.customer.try :name
+            %span.work-order-id.float-right
+              = link_to "##{work_order.id}", work_order
+          - if work_order.production_stage_id
+            .card-body.text-center.text-success.border.border-success.production-stage-status.p-1
+              %strong
+                In #{work_order.production_stage.name}
+          - else
+            .card-body.text-center.text-warning.border.border-warning.production-stage-status-warning.p-1
+              %strong Production Not Started
+          .card-body.bg-light.p-2
+            %span.float-right
+              = due_date_formatter(work_order.date_due, work_order.date_completed)
+          .card-footer.bg-light.p-2
+            - work_order.services.each do |service|
+              = badgeify(service)
+  .col-lg-4.col-12.p-1.border
+    .workflow-section-header.text-white.mb-1.bg-dark.p-2.pl-3
+      Ready For Invoice
+      %span.badge.badge-pill.badge-light.float-right
+        = @work_orders.ready_for_invoice.uniq.count
+    .workflow-section-col
+      - @work_orders.ready_for_invoice.uniq.each do |work_order|
+        .card.border-dark.mb-1
+          .card-header.p-1.pl-2.pr-2
+            %span.work-order-customer-name= work_order.customer.try :name
+            %span.work-order-id.float-right
+              = link_to "##{work_order.id}", work_order
+          .card-body.p-2
