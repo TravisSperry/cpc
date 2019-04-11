@@ -20,11 +20,11 @@
         - if @customer.contacts
           .row
             .col-md-4
-              = f.input :primary_contact_id, as: :select,                                                                                      |
-                label: "Primary contact <small>#{link_to 'add new', new_customer_contact_path(customer_id: @customer.id) }</small>".html_safe, |
-                collection: @customer.contacts,                                                                                                |
-                label_method: :full_name_and_title,                                                                                            |
-                input_html: { class: 'chosen' }                                                                                                |
+              = f.input :primary_contact_id, as: :select,
+                label: "Primary contact <small>#{link_to 'add new', new_customer_contact_path(customer_id: @customer.id) }</small>".html_safe,
+                collection: @customer.contacts,
+                label_method: :full_name_and_title,
+                input_html: { class: 'chosen' }
         - else
           %p
             = link_to 'Click here', new_customer_contact_path(customer_id: @customer.id)

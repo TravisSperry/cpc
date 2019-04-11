@@ -10,12 +10,12 @@
         .col-md-6
           = f.input :email
           = f.input :title
-          = f.association :customer, label: 'Company',                  |
-            input_html: { class: 'chosen' } unless params[:customer_id] |
-          = f.input :make_primary_contact, as: :boolean,                                            |
-            label: 'Make Primary Contact',                                                          |
-            as: :boolean,                                                                           |
-            input_html: { style: 'margin-right:10px;'} if params[:customer_id] || @contact.customer |
+          = f.association :customer, label: 'Company',
+            input_html: { class: 'chosen' } unless params[:customer_id]
+          = f.input :make_primary_contact, as: :boolean,
+            label: 'Make Primary Contact',
+            as: :boolean,
+            input_html: { style: 'margin-right:10px;'} if params[:customer_id] || @contact.customer
       .row
         .col-sm-12
           = f.button :submit, class: 'btn btn-success'

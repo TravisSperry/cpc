@@ -14,21 +14,21 @@
               = f.input :name, label: 'Job Name'
           .row
             .col-lg-6
-              = f.association :customer, label_method: :name,          |
-                selected: params[:customer_id],                        |
-                input_html: { class: 'chosen'} if params[:customer_id] |
-              = f.association :customer, label_method: :name,              |
-                input_html: { class: 'chosen'} unless params[:customer_id] |
-              = f.association :contact, label_method: :full_name_and_title, |
-                collection: @customer.contacts,                             |
-                input_html: { class: 'chosen'} if @customer                 |
+              = f.association :customer, label_method: :name,
+                selected: params[:customer_id],
+                input_html: { class: 'chosen'} if params[:customer_id]
+              = f.association :customer, label_method: :name,
+                input_html: { class: 'chosen'} unless params[:customer_id]
+              = f.association :contact, label_method: :full_name_and_title,
+                collection: @customer.contacts,
+                input_html: { class: 'chosen'} if @customer
             .col-lg-6
-              = f.input :date_scheduled, as: :string,   |
-                placeholder: 'Select A Date',           |
-                input_html: { class: "datetimepicker" } |
-              = f.input :date_due, as: :string,         |
-                placeholder: 'Select A Date',           |
-                input_html: { class: "datetimepicker" } |
+              = f.input :date_scheduled, as: :string,
+                placeholder: 'Select A Date',
+                input_html: { class: "datetimepicker" }
+              = f.input :date_due, as: :string,
+                placeholder: 'Select A Date',
+                input_html: { class: "datetimepicker" }
               = f.label :estimated_price
               = f.input :estimated_price, wrapper: :prepend, label: false do
                 .input-group-prepend

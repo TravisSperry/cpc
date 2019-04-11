@@ -3,28 +3,28 @@
     .card-body.pb-0
       .row
         .col
-          = f.input :description, placeholder: 'Description', |
-            label: false,                                     |
-            wrapper_html: { class: 'mb-0', row: 1 }           |
+          = f.input :description, placeholder: 'Description',
+            label: false,
+            wrapper_html: { class: 'mb-0', row: 1 }
         .col
-          = f.input :quantity, placeholder: 'Quantity', |
-            label: false,                               |
-            wrapper_html: { class: 'mb-0' }             |
+          = f.input :quantity, placeholder: 'Quantity',
+            label: false,
+            wrapper_html: { class: 'mb-0' }
         .col
-          = f.input :notes, placeholder: 'Notes', |
-            label: false,                         |
-            wrapper_html: { class: 'mb-0' }       |
+          = f.input :notes, placeholder: 'Notes',
+            label: false,
+            wrapper_html: { class: 'mb-0' }
         .col
-          = f.association :powder, placeholder: 'Powder', |
-            label: false,                                 |
-            label_method: :list_select_name,              |
-            wrapper_html: { class: 'mb-0' },              |
-            input_html: { class: 'powder-chosen' }        |
+          = f.association :powder, placeholder: 'Powder',
+            label: false,
+            label_method: :list_select_name,
+            wrapper_html: { class: 'mb-0' },
+            input_html: { class: 'powder-chosen' }
         .col-1
           = link_to_remove_association "<i class='fas fa-times text-danger'></i>".html_safe, f, data: { confirm: 'Are you sure you want to remove this line item?'}, class: 'float-right', title: 'Remove line item'
       .row.mt-1
         .col.text-center
-          = f.association :services, as: :check_boxes, |
-            label: false,                              |
-            input_html: { class: 'ml-5 mr-1' },        |
-            wrapper_html: { class: 'mb-0' }            |
+          = f.association :services, as: :check_boxes,
+            label: false,
+            input_html: { class: 'ml-5 mr-1' },
+            wrapper_html: { class: 'mb-0' }

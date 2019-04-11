@@ -1,7 +1,7 @@
-= submit_tag 'QA Approval', class: 'btn btn-block btn-secondary pull-right mb-3', |
-  data: { toggle: 'modal', target: '#qaModal' },                                  |
-  disabled: @work_order.has_been_approved_by?(current_user),                      |
-  title: quality_assurance_message(@work_order)                                   |
+= submit_tag 'QA Approval', class: 'btn btn-block btn-secondary pull-right mb-3', 
+  data: { toggle: 'modal', target: '#qaModal' },                                  
+  disabled: @work_order.has_been_approved_by?(current_user),                      
+  title: quality_assurance_message(@work_order)                                   
 #qaModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "qaModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-dialog{:role => "document"}
     .modal-content

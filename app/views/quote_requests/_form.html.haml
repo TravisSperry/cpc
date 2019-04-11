@@ -24,9 +24,9 @@
         = f.input :email
         = f.input :telephone
         = f.input :note, placeholder: "Description of project.", :input_html => { :rows => 5 }
-        = f.input :source, collection: QuoteRequest::SOURCES, |
-          label: 'Tell us how you found us.',                 |
-          input_html: { class: 'chosen' }                     |
+        = f.input :source, collection: QuoteRequest::SOURCES,
+          label: 'Tell us how you found us.',
+          input_html: { class: 'chosen' }
         %p
           = f.fields_for :post_attachments do |p|
             .card.card-body
@@ -38,8 +38,8 @@
                   %br/
                   = p.label :attachments, required: false
                   %br/
-                  = p.file_field :attachment, multiple: true,       |
-                    name: "quote_request_attachments[attachment][]" |
+                  = p.file_field :attachment, multiple: true,
+                    name: "quote_request_attachments[attachment][]"
         %div{:style => "margin-bottom:25px;"}
           = recaptcha_tags unless Rails.env.development? || current_user
         - if user_signed_in?

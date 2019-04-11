@@ -1,8 +1,8 @@
 = simple_form_for @work_order, url: work_order_path(@work_order), method: :put do |f|
   .row
     .col-7
-      = f.input :status, collection: @work_order_statuses, |
-        label: false                                       |
+      = f.input :status, collection: @work_order_statuses, 
+        label: false                                       
     .col-5
-      = f.submit 'Update', data: { confirm: 'Are you sure you want to update this status?' }, |
-        class: 'btn btn-success btn-block'                                                    |
+      = f.submit 'Update', data: { confirm: 'Are you sure you want to update this status?' }, 
+        class: 'btn btn-success btn-block'                                                    

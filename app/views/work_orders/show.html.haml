@@ -23,9 +23,9 @@
     .col-lg-3
       .row
         .col.p-0
-          = link_to 'View PDF', work_order_path(format: :pdf), |
-            target: '_blank',                                  |
-            class: 'btn btn-block btn-primary mb-3'            |
+          = link_to 'View PDF', work_order_path(format: :pdf), 
+            target: '_blank',                                  
+            class: 'btn btn-block btn-primary mb-3'            
           = render 'work_order_schedule_buttons'
           = render 'quality_assurance_approval_modal' if current_user.can_approve_work_orders? && !@work_order.quality_assurance_approval?
       - unless @work_order.complete?
