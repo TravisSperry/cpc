@@ -8,6 +8,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'rails', '~> 5.2.1'
 
+gem 'acts_as_paranoid', '~> 0.6.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.0.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
@@ -54,6 +55,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'haml_lint', require: false
   gem 'listen'
   gem 'rubocop', '~> 0.51.0', require: false
   gem 'rubocop-rspec'

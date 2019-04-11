@@ -1,1 +1,36 @@
-%h2 User Management
+.container
+  %h2 User Management
+  = link_to "New User", new_user_path, class: 'btn btn-success mb-3'
+  %table.table.table-striped
+    %thead
+      %tr
+        %th User
+        %th
+        %th
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= user.full_name
+          %td= link_to 'edit', edit_user_path(user)
+          %td= link_to 'Delete User',
+                        user,
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' },
+                        class: 'text-danger'
+
+  %h2 Inactive Users
+  %table.table.table-striped
+    %thead
+      %tr
+        %th User
+        %th
+        %th
+    %tbody
+      - @inactive_users.each do |user|
+        %tr
+          %td= user.full_name
+          %td= link_to 'edit', edit_user_path(user)
+          %td= link_to 'Activate',
+                        user_path(user, user: { deleted_at: 'nil' }),
+                        method: :put,
+                        class: 'text-success'

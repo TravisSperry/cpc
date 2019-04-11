@@ -1,1 +1,7 @@
-%h2 New User
+.container
+  %h2 New User
+  = simple_form_for @user do |f|
+    = f.input :first_name, required: true
+    = f.input :last_name, required: true
+    = f.input :email, required: true
+    = f.submit 'Create User', class: 'btn btn-success', data: { confirm: 'Are you sure you want to create a new user?' }
