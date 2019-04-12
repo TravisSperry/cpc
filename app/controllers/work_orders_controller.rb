@@ -23,6 +23,7 @@ class WorkOrdersController < ApplicationController
       format.html
       format.pdf do
         render pdf: "work_order_#{@work_order.id}",
+               disposition: :inline,
                template: 'work_orders/show.pdf.erb'
       end
     end
