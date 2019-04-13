@@ -15,8 +15,8 @@ CarrierWave.configure do |config|
   }
 
   config.aws_credentials = {
-    access_key_id:     ENV['CPC_S3_KEY'],
+    access_key_id: ENV['CPC_S3_KEY'],
     secret_access_key: ENV['CPC_S3_SECRET'],
-    region:            'us-east-1' # Required
+    region: 'us-east-1' # Required
   }
 end

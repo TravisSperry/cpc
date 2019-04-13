@@ -9,8 +9,10 @@ class Customer < ApplicationRecord
   has_one :primary_contact, primary_key: 'primary_contact_id',
                             foreign_key: 'id',
                             class_name: 'Contact'
+  has_many :customers_users
+  has_many :users, through: :customers_users
 
-  enum account_type: [ :company, :individual ]
+  enum account_type: %i[company individual]
 
   def has_valid_address?
     address1.present? &&

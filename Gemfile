@@ -11,6 +11,7 @@ gem 'rails', '~> 5.2.1'
 gem 'acts_as_paranoid', '~> 0.6.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap-datepicker-rails'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'cancancan'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
@@ -18,7 +19,6 @@ gem 'carrierwave-aws'
 gem 'chosen-rails'
 gem 'cocoon'
 gem 'coffee-rails'
-gem 'bootstrap-datepicker-rails'
 gem 'devise', '>= 4.6.0'
 gem 'enum_help'
 gem 'font-awesome-sass', '~> 5.0.6'
@@ -28,7 +28,7 @@ gem 'jquery-datatables-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'kaminari'
-gem "loofah", ">= 2.2.3"
+gem 'loofah', '>= 2.2.3'
 gem 'modernizr-rails'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'paper_trail'
@@ -57,9 +57,9 @@ end
 group :development do
   gem 'haml_lint', require: false
   gem 'listen'
-  gem 'rubocop', '~> 0.51.0', require: false
-  gem 'rubocop-rspec'
   gem 'pry-remote'
+  gem 'rubocop', '~> 0.60', require: false
+  gem 'rubocop-rspec'
   gem 'web-console'
 end
 

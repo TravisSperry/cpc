@@ -1,11 +1,11 @@
 class WorkOrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :assert_company!, only: [:new]
-  before_action :set_work_order, only: [
-                                          :show, :edit, :update, :destroy, :mark_completed,
-                                          :quality_assurance_approval
-                                        ]
-  before_action :set_customer, only: [:new, :edit]
+  before_action :set_work_order, only: %i[
+    show edit update destroy mark_completed
+    quality_assurance_approval
+  ]
+  before_action :set_customer, only: %i[new edit]
   before_action :can_approve?, only: [:quality_assurance_approval]
 
   # GET /work_orders
@@ -31,17 +31,14 @@ class WorkOrdersController < ApplicationController
 
   # GET /work_orders/new
   def new
-    unless @customer
-      redirect_to customers_path, notice: 'Please select or add a customer before creating a work order.'
-    end
+    redirect_to customers_path, notice: 'Please select or add a customer before creating a work order.' unless @customer
 
     @work_order = WorkOrder.new
     @work_order.line_items.build
   end
 
   # GET /work_orders/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /work_orders
   def create
@@ -94,35 +91,33 @@ class WorkOrdersController < ApplicationController
   end
 
   private
-    def assert_company!
-      if params[:customer_id].blank?
-        redirect_to root_path, alert: "You must create a work order from a company's account."
-      end
-    end
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_work_order
-      @work_order = WorkOrder.find(params[:id])
-    end
+  def assert_company!
+    redirect_to root_path, alert: "You must create a work order from a company's account." if params[:customer_id].blank?
+  end
 
-    def set_customer
-      if params[:customer_id] || @work_order.customer_id
-        @customer = Customer.find( params[:customer_id] || @work_order.customer_id)
-      end
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_work_order
+    @work_order = WorkOrder.find(params[:id])
+  end
 
-    def work_order_statuses
-      statuses = WorkOrder.statuses.reject { |status| status == 'complete' }
-      statuses.reject { |status| status == 'ready_for_invoice' && !@work_order.quality_assurance_approval? }
-    end
+  def set_customer
+    @customer = Customer.find(params[:customer_id] || @work_order.customer_id) if params[:customer_id] || @work_order.customer_id
+  end
 
-    def can_approve?
-      return if current_user.can_approve_work_orders?
-      redirect_to @work_order, alert: 'You are not authorized to approve this work order.'
-    end
+  def work_order_statuses
+    statuses = WorkOrder.statuses.reject { |status| status == 'complete' }
+    statuses.reject { |status| status == 'ready_for_invoice' && !@work_order.quality_assurance_approval? }
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def work_order_params
-      params.require(:work_order).permit(:date_scheduled, :date_due, :customer_id, :contact_id, :packaging_details, :marked_completed_by, :date_completed, :name, :status, :production_stage_id, :estimated_price, attachments: [], service_ids: [], line_items_attributes: [:id, :description, :quantity, :notes, :powder_id, :_destroy, service_ids: []])
-    end
+  def can_approve?
+    return if current_user.can_approve_work_orders?
+
+    redirect_to @work_order, alert: 'You are not authorized to approve this work order.'
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def work_order_params
+    params.require(:work_order).permit(:date_scheduled, :date_due, :customer_id, :contact_id, :packaging_details, :marked_completed_by, :date_completed, :name, :status, :production_stage_id, :estimated_price, attachments: [], service_ids: [], line_items_attributes: [:id, :description, :quantity, :notes, :powder_id, :_destroy, service_ids: []])
+  end
 end

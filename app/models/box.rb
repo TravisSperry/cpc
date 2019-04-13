@@ -17,9 +17,7 @@ class Box < ApplicationRecord
   private
 
   def original_weight_not_changed
-    if original_weight_changed? && persisted?
-      errors.add(:original_weight, "Can't change original weight after a box has been added.")
-    end
+    errors.add(:original_weight, "Can't change original weight after a box has been added.") if original_weight_changed? && persisted?
   end
 
   def check_for_low_weight_reminder

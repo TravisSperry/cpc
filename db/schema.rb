@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_11_010520) do
+ActiveRecord::Schema.define(version: 2019_04_13_140430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,7 +79,14 @@ ActiveRecord::Schema.define(version: 2019_04_11_010520) do
     t.integer "account_type", default: 0
     t.string "email"
     t.string "attachments", default: [], array: true
+    t.boolean "can_have_users"
     t.index ["primary_contact_id"], name: "index_customers_on_primary_contact_id"
+  end
+
+  create_table "customers_users", id: false, force: :cascade do |t|
+    t.bigint "customer_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["customer_id", "user_id"], name: "index_customers_users_on_customer_id_and_user_id"
   end
 
   create_table "line_items", id: :serial, force: :cascade do |t|
@@ -191,6 +198,12 @@ ActiveRecord::Schema.define(version: 2019_04_11_010520) do
     t.index ["work_order_id"], name: "index_services_work_orders_on_work_order_id"
   end
 
+  create_table "user_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -210,9 +223,11 @@ ActiveRecord::Schema.define(version: 2019_04_11_010520) do
     t.boolean "admin"
     t.boolean "can_approve_work_orders", default: false
     t.datetime "deleted_at"
+    t.bigint "user_type_id"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["user_type_id"], name: "index_users_on_user_type_id"
   end
 
   create_table "versions", id: :serial, force: :cascade do |t|
@@ -253,6 +268,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_010520) do
   add_foreign_key "contacts", "customers"
   add_foreign_key "service_schedules", "services"
   add_foreign_key "service_schedules", "work_order_schedules"
+  add_foreign_key "users", "user_types"
   add_foreign_key "work_order_schedules", "work_orders"
   add_foreign_key "work_orders", "contacts"
   add_foreign_key "work_orders", "customers"

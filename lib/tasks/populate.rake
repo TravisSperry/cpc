@@ -8,26 +8,26 @@ namespace :db do
 end
 
 def make_users
-  admin = User.create!(first_name:            'Travis',
-                       last_name:             'Sperry',
-                       email:                 'travis@columbuspowdercoat.com',
-                       password:              'password',
+  admin = User.create!(first_name: 'Travis',
+                       last_name: 'Sperry',
+                       email: 'travis@columbuspowdercoat.com',
+                       password: 'password',
                        password_confirmation: 'password')
   admin.toggle!(:admin)
 
-  admin1 = User.create!(first_name:           'Paul',
-                        last_name:            'Doucher',
-                        suffix:               'II',
-                        email:                'paul@columbuspowdercoat.com',
-                        password:             'password',
+  admin1 = User.create!(first_name: 'Paul',
+                        last_name: 'Doucher',
+                        suffix: 'II',
+                        email: 'paul@columbuspowdercoat.com',
+                        password: 'password',
                         password_confirmation: 'password')
 
   admin1.toggle!(:admin)
 
-  admin2 = User.create!(first_name:           'Paul',
-                        last_name:            'Doucher',
-                        email:                'pdoucher@columbuspowdercoat.com',
-                        password:             'password',
+  admin2 = User.create!(first_name: 'Paul',
+                        last_name: 'Doucher',
+                        email: 'pdoucher@columbuspowdercoat.com',
+                        password: 'password',
                         password_confirmation: 'password')
 
   admin2.toggle!(:admin)

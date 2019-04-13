@@ -17,10 +17,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(new_user_params)
     if @user.save
-      flash[:notice] = "Successfully created User."
+      flash[:notice] = 'Successfully created User.'
       redirect_to root_path
     else
-      render :action => 'new'
+      render action: 'new'
     end
   end
 
@@ -31,29 +31,30 @@ class UsersController < ApplicationController
   def update
     @user = User.with_deleted.find(params[:id])
     params[:user].delete(:password) if params[:user][:password].blank?
-    params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
+    params[:user].delete(:password_confirmation) if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
 
     if @user.update(user_params)
-      flash[:notice] = "Successfully updated User."
+      flash[:notice] = 'Successfully updated User.'
       redirect_to users_path
     else
-      render :action => 'edit'
+      render action: 'edit'
     end
   end
 
   def destroy
     @user = User.find(params[:id])
     if @user.destroy
-      flash[:notice] = "Successfully deleted User."
+      flash[:notice] = 'Successfully deleted User.'
       redirect_to users_path
     end
   end
+
   private
 
   def user_params
-     params.require(:user).permit(%i[
-       email first_name last_name password password_confirmation can_approve_work_orders deleted_at
-     ])
+    params.require(:user).permit(%i[
+                                   email first_name last_name password password_confirmation can_approve_work_orders deleted_at
+                                 ])
   end
 
   def new_user_params

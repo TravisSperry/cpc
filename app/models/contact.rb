@@ -20,6 +20,7 @@ class Contact < ApplicationRecord
 
   def is_primary?
     return false unless customer
+
     customer.primary_contact_id == id
   end
 end

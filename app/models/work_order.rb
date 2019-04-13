@@ -2,7 +2,7 @@
 
 class WorkOrder < ApplicationRecord
   include PublicActivity::Model
-  tracked owner: Proc.new{ |controller, model| controller.current_user if controller.try :current_user }
+  tracked owner: proc { |controller, _model| controller.current_user if controller.try :current_user }
 
   mount_uploaders :attachments, AttachmentUploader
 
@@ -17,11 +17,11 @@ class WorkOrder < ApplicationRecord
 
   # TODO: Validates presence of - customer, contact, name
 
-  enum status: [:received, :scheduled, :in_progress, :ready_for_invoice, :complete].freeze
+  enum status: %i[received scheduled in_progress ready_for_invoice complete].freeze
 
   accepts_nested_attributes_for :line_items,
-    allow_destroy: true,
-    reject_if: proc { |attributes| attributes['description'].blank? }
+                                allow_destroy: true,
+                                reject_if: proc { |attributes| attributes['description'].blank? }
 
   after_create :set_status_to_received
 
@@ -46,6 +46,6 @@ class WorkOrder < ApplicationRecord
   private
 
   def set_status_to_received
-    self.received!
+    received!
   end
 end

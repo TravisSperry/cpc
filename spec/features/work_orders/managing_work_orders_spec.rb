@@ -1,24 +1,24 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.feature "Managing a work order", :type => :feature do
+RSpec.describe 'Managing a work order', type: :feature do
   let(:user) { create(:user) }
   let!(:company) { create(:customer, :company_type) }
   let(:job_name) { Faker::Company.name }
   let(:date_scheduled) { Time.now.strftime('%Y-%m-%e %H:%M') }
-  let(:date_due) { (Time.now + 2.days).strftime('%Y-%m-%e %H:%M')  }
+  let(:date_due) { (Time.now + 2.days).strftime('%Y-%m-%e %H:%M') }
   let(:estimated_price) { junk(:int, size: 4).to_s }
 
   before do
-    login_as(user, :scope => :user)
+    login_as(user, scope: :user)
   end
 
-  scenario "successfully creating a work order" do
+  it 'successfully creating a work order' do
     visit new_customer_work_order_path(company)
     fill_in_account_and_scheduling_information
     expect { click_button 'Create Work Order' }.to change { WorkOrder.count }.by(1)
   end
 
-  scenario "successfully creating a work order with a line item" do
+  it 'successfully creating a work order with a line item' do
     visit new_customer_work_order_path(company)
     fill_in_account_and_scheduling_information
     add_line_item
@@ -26,17 +26,17 @@ RSpec.feature "Managing a work order", :type => :feature do
       .to change { LineItem.count }.by(1)
   end
 
-  scenario "successfully creating a work order with an attachment" do
+  it 'successfully creating a work order with an attachment' do
     visit new_customer_work_order_path(company)
     fill_in_account_and_scheduling_information
-    attach_file("Attachments", Rails.root + "spec/fixtures/test.pdf")
+    attach_file('Attachments', Rails.root + 'spec/fixtures/test.pdf')
     expect { click_button 'Create Work Order' }
       .to change { WorkOrderAttachment.count }.by(1)
   end
 
-  describe "When a user tries to create a work order without a company" do
-    it "redirects to the dashboard and flashes a message" do
-      visit "/work_orders/new"
+  describe 'When a user tries to create a work order without a company' do
+    it 'redirects to the dashboard and flashes a message' do
+      visit '/work_orders/new'
 
       expect(current_path).to eq(root_path)
       expect(page)
@@ -51,7 +51,7 @@ RSpec.feature "Managing a work order", :type => :feature do
     fill_in 'Estimated price', with: estimated_price
   end
 
-  def add_line_item(index=0)
+  def add_line_item(index = 0)
     click_button 'Add Line Item' if index > 0
     fill_in("#{line_item_id_prefix}_#{index}_description", with: Faker::Beer.style)
     fill_in("#{line_item_id_prefix}_#{index}_quantity", with: junk(:int, size: 2))
@@ -59,6 +59,6 @@ RSpec.feature "Managing a work order", :type => :feature do
   end
 
   def line_item_id_prefix
-    "work_order_line_items_attributes"
+    'work_order_line_items_attributes'
   end
 end

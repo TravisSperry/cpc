@@ -60,6 +60,6 @@ if Rails.env.development?
 
     customer.save!
     work_order.save!
-    work_order.update! status:  WorkOrder.statuses.values.sample
+    work_order.update! status: WorkOrder.statuses.values.sample
   end
 end

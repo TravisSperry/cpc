@@ -1,6 +1,6 @@
 class WorkOrderSchedulesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_work_order_schedule, only: [:show, :edit, :update, :destroy]
+  before_action :set_work_order_schedule, only: %i[show edit update destroy]
 
   # GET /work_order_schedules
   def index
@@ -8,8 +8,7 @@ class WorkOrderSchedulesController < ApplicationController
   end
 
   # GET /work_order_schedules/1
-  def show
-  end
+  def show; end
 
   # GET /work_order_schedules/new
   def new
@@ -18,8 +17,7 @@ class WorkOrderSchedulesController < ApplicationController
   end
 
   # GET /work_order_schedules/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /work_order_schedules
   def create
@@ -48,13 +46,14 @@ class WorkOrderSchedulesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_work_order_schedule
-      @work_order_schedule = WorkOrderSchedule.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def work_order_schedule_params
-      params.require(:work_order_schedule).permit(:work_order_id, service_schedules_attributes: [:id, :start_date, :end_date, :service_id, :note, :_destroy])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_work_order_schedule
+    @work_order_schedule = WorkOrderSchedule.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def work_order_schedule_params
+    params.require(:work_order_schedule).permit(:work_order_id, service_schedules_attributes: %i[id start_date end_date service_id note _destroy])
+  end
 end
