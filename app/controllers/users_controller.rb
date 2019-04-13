@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   authorize_resource
 
   def index
-    @users = User.where.not(id: current_user.id)
-    @inactive_users = User.only_deleted
+    @user_dashboard = ::UserManagementDashboard.new(current_user)
   end
 
   def show
@@ -52,9 +51,19 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(%i[
-                                   email first_name last_name password password_confirmation can_approve_work_orders deleted_at
-                                 ])
+    params
+      .require(:user)
+      .permit([
+        :email,
+        :first_name,
+        :last_name,
+        :password,
+        :password_confirmation,
+        :can_approve_work_orders,
+        :deleted_at,
+        :user_type_id,
+        customer_ids: [],
+       ])
   end
 
   def new_user_params

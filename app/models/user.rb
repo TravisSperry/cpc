@@ -12,7 +12,23 @@ class User < ApplicationRecord
   has_many :customers, through: :customers_users
   belongs_to :user_type
 
+  validates :user_type, presence: true
+  validate :ensure_valid_user_type
+  validate :max_customer_associations
+
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def ensure_valid_user_type
+    if customer_ids.any? && user_type == UserType.for(:internal)
+      errors.add(:user_type, "cannot be internal if you're trying to add this user to a company")
+    end
+  end
+
+  def max_customer_associations
+    if customer_ids && customer_ids.count > 1
+      errors.add(:customers, "users cannot be associated to more than one company at this time")
+    end
   end
 end
