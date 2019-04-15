@@ -1,0 +1,21 @@
+.container
+  .card
+    .card-header
+      %h1 #{@customer.name} User Management
+    .card-body
+      %table.table
+        %thead
+          %tr
+            %th User
+            %th
+            %th
+        %tbody
+          - @users.each do |user|
+            %tr
+              %td= user.full_name
+              %td= link_to 'edit', edit_customer_user_path(@customer, user)
+              %td= link_to 'Deactivate User',
+                            user,
+                            method: :delete,
+                            data: { confirm: 'Are you sure?' },
+                            class: 'text-danger'

@@ -3,19 +3,16 @@ module Customers
     load_and_authorize_resource :customer
     load_and_authorize_resource through: :customer
 
-    def index
-      @user_dashboard = ::UserManagementDashboard.new(current_user)
-    end
+    def index; end
 
-    def show
-      @user = User.find(params[:id])
-    end
+    def show; end
 
     def new
       @user = User.new
     end
 
     def create
+      console
       @user = User.new(new_user_params)
       if @user.save
         flash[:notice] = 'Successfully created User.'
@@ -25,18 +22,15 @@ module Customers
       end
     end
 
-    def edit
-      @user = User.with_deleted.find(params[:id])
-    end
+    def edit; end
 
     def update
-      @user = User.with_deleted.find(params[:id])
       params[:user].delete(:password) if params[:user][:password].blank?
       params[:user].delete(:password_confirmation) if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
 
       if @user.update(user_params)
         flash[:notice] = 'Successfully updated User.'
-        redirect_to users_path
+        redirect_to customer_users_path
       else
         render action: 'edit'
       end
@@ -70,6 +64,8 @@ module Customers
 
     def new_user_params
       user_params.merge(
+        customer_ids: [@customer.id],
+        user_type_id: UserType.for(:customer).id,
         password: new_password,
         password_confirmation: new_password
       )

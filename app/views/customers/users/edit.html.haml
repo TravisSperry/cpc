@@ -1,0 +1,11 @@
+.container
+  %h2 Editing User - #{@customer.name}
+  .row
+    .col-md-4
+      = simple_form_for [@customer, @user] do |f|
+        = f.input :first_name, required: true
+        = f.input :last_name, required: true
+        = f.input :email, required: true
+
+        = f.submit 'Update User',
+                   class: 'btn btn-success'

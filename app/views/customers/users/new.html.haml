@@ -1,0 +1,17 @@
+.container
+  %h2 Create New User - #{@customer.name}
+  .row
+    .col-md-4
+      - if @user.errors.any?
+        #error_explanation
+          %h2 #{pluralize(@user.errors.count, 'error')} prohibited this user from being saved:
+          %ul
+            - @user.errors.full_messages.each do |message|
+              %li= message
+      = simple_form_for [@customer, @user] do |f|
+        = f.input :first_name, required: true
+        = f.input :last_name, required: true
+        = f.input :email, required: true
+
+        = f.submit 'Create User',
+                   class: 'btn btn-success'

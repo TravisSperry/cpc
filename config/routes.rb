@@ -8,7 +8,7 @@ Cpc::Application.routes.draw do
     resources :attachments, only: [:create]
     resources :contacts
     resources :notes
-    resources :users
+    resources :users, controller: 'customers/users'
     resources :work_orders
   end
   resources :manufacturers
