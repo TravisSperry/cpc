@@ -3,6 +3,8 @@ module Customers
     load_and_authorize_resource :customer
     load_and_authorize_resource through: :customer
 
+    before_action :set_user_feature_flash
+
     def index; end
 
     def show; end
@@ -73,6 +75,11 @@ module Customers
 
     def new_password
       @new_password ||= Devise.friendly_token.first(8)
+    end
+
+    def set_user_feature_flash
+      flash[:alert] = 'This feature is not yet available. If you create a resource '\
+                        'it will be deleted.'
     end
   end
 end

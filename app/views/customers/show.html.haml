@@ -6,9 +6,10 @@
           = link_to new_customer_contact_path(@customer.id), class: 'btn btn-primary add-contact' do
             %i.fas.fa-user
             Add Contact
-          = link_to new_customer_user_path(@customer.id), class: 'btn btn-secondary' do
-            %i.fas.fa-sign-in-alt
-            Add User Login
+          - if can? :create, User
+            = link_to new_customer_user_path(@customer.id), class: 'btn btn-secondary' do
+              %i.fas.fa-sign-in-alt
+              Add User Login
         = link_to new_customer_work_order_path(@customer.id), class: "btn btn-warning mr-2 add-work-order #{disable_with_contact(@customer)}" do
           %i.fas.fa-plus
           Add Work Order
@@ -95,3 +96,4 @@
             %span{ 'aria-hidden' => 'true' } ×
         .modal-body
           This customer needs a primary contact before you can add a work order.
+= console
