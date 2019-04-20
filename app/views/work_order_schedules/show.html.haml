@@ -16,7 +16,7 @@
         %th Notes
       - @work_order_schedule.service_schedules.each do |schedule|
         %tr
-          %td= schedule.service.name
+          %td= schedule.service&.name
           %td= schedule.start_date.try(:strftime, '%A, %b %d')
           %td= schedule.end_date.try(:strftime, '%A, %b %d')
           %td= schedule.note
