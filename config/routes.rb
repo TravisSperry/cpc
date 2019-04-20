@@ -61,6 +61,10 @@ Cpc::Application.routes.draw do
     end
   end
 
+  constraints CanAccessFlipperUI do
+    mount Flipper::UI.app(Flipper) => '/flipper'
+  end
+
   root to: 'static_pages#home'
 
 end
