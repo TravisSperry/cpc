@@ -49,9 +49,11 @@ Cpc::Application.routes.draw do
       put 'mark_completed'
     end
   end
+  resources :work_order_schedules
 
   constraints CanAccessFlipperUI do
     mount Flipper::UI.app(Flipper) => '/flipper'
   end
+
   root to: 'static_pages#home'
 end
