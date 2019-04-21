@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     params[:user].delete(:password) if params[:user][:password].blank?
     params[:user].delete(:password_confirmation) if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
 
-    if @user.update(internal_user_params)
+    if @user.update(user_params)
       flash[:notice] = 'Successfully updated User.'
       redirect_to users_path
     else
