@@ -1,11 +1,9 @@
 .container
-  = link_to 'New User', new_user_path, class: 'btn btn-success mb-3'
-
   .card
     .card-header
       %h1  Manage Customer's Users
     .card-body
-      %h2 Active Users
+      %h2 Active
       %table.table.table-striped
         %thead
           %tr
@@ -25,7 +23,7 @@
                             data: { confirm: 'Are you sure?' },
                             class: 'text-danger'
 
-      %h2 Inactive Users
+      %h2 Inactive
       %table.table.table-striped
         %thead
           %tr
@@ -47,7 +45,10 @@
     .card-header
       %h1 Manager Internal Users
     .card-body
-      %h2 Active
+      %h2.d-inline Active
+      = link_to new_user_path, class: 'btn btn-success mb-3 float-right' do
+        %i.fas.fa-user-plus
+        New Internal User
       %table.table.table-striped
         %thead
           %tr

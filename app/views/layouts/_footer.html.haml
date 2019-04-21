@@ -32,9 +32,13 @@
                 %a{:href => "mailto:contact@columbuspowdercoat.com"} contact@columbuspowdercoat.com
         %section.col-lg-2.col-md-2.col-sm-2.footer-three
           - if current_user
-            = link_to "Sign out", destroy_user_session_path
+            = link_to destroy_user_session_path do
+              %i.fas.fa-sign-out-alt
+              Sign Out
           - else
-            = link_to "Sign In", new_user_session_path
+            = link_to new_user_session_path do
+              %i.fas.fa-sign-in-alt
+              Sign In
   / Footer Top End
   / Footer Bottom Start
   .footer-bottom

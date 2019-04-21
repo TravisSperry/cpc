@@ -49,14 +49,9 @@ Cpc::Application.routes.draw do
       put 'mark_completed'
     end
   end
-<<<<<<< Updated upstream
-  resources :work_order_schedules
-=======
 
   constraints CanAccessFlipperUI do
     mount Flipper::UI.app(Flipper) => '/flipper'
   end
-
->>>>>>> Stashed changes
   root to: 'static_pages#home'
 end
