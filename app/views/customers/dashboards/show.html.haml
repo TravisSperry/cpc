@@ -1,0 +1,15 @@
+.container
+  %h1 #{@customer.name} Dashboard
+  .row.mt-4
+    .col-sm-12
+      .card
+        .card-header
+          %h1.d-inline.mb-0 Outstanding Work Orders
+          = link_to new_work_order_path, class: 'btn btn-success float-right' do
+            %i.fas.fa-plus
+            New Work Order
+        .card-body
+          - if @customer.work_orders.any?
+            = render 'work_orders/table', work_orders: @customer.work_orders.uniq
+          - else
+            %p No Outstanding work orders.

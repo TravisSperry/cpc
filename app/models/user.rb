@@ -16,6 +16,10 @@ class User < ApplicationRecord
   validate :ensure_valid_user_type
   validate :max_customer_associations
 
+  def user_type?(user_type_name)
+    user_type.name == UserType.for(user_type_name).name
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end

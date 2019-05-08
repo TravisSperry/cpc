@@ -50,8 +50,17 @@ Cpc::Application.routes.draw do
     end
   end
 
-  constraints CanAccessFlipperUI do
+  constraints AdminConstraint do
     mount Flipper::UI.app(Flipper) => '/flipper'
   end
+
+  constraints InternalUserConstraint do
+    root to: 'internal/dashboards#show'
+  end
+
+  constraints CustomerUserConstraint do
+    root to: 'customers/dashboards#show'
+  end
+
   root to: 'static_pages#home'
 end

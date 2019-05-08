@@ -27,7 +27,7 @@
   %body{:class => "home #{'bg-light' if current_user}"}
     = render 'layouts/google_tag_manager_body' if Rails.env.production? && !current_user
     = render 'layouts/header'
-    = render 'layouts/admin-section-navbar' if current_user
+    = render 'layouts/admin-section-navbar' if current_user&.user_type? :internal
     = flash_messages
     / .wrap
     .wrap
