@@ -15,6 +15,8 @@
         = link_to "Powder Management", powders_path, class: "nav-link btn btn-light"
       %li.nav-item.mr-lg-2.mb-2.mb-lg-0
         = link_to "Purchasing Request Form", "https://docs.google.com/spreadsheets/d/1UqQ8vQoJ8xMFa9fx4OHiDVSLvOsfmMw5yWWXu1gxNpc", class: "btn btn-secondary text-white nav-link", target: "_blank"
+      %li.nav-item.mr-lg-2.mb-2.mb-lg-0
+        = link_to "Operations Manual", "https://drive.google.com/drive/folders/1kqHniCyomG9QI8JEo1eJlrbObV1siIar?usp=sharing", class: "btn btn-secondary text-white nav-link", target: "_blank"
       - if @new_quote_requests
         %li.nav-item
           = link_to "<span class='badge badge-pill badge-danger'>#{@new_quote_requests.count ? @new_quote_requests.count : 0}</span> New Quote #{pluralize_without_count(@new_quote_requests.count, 'Request')}#{@new_quote_requests.count == 0 ? "" : "!"}".html_safe, quote_requests_path, class: "btn btn-success nav-link"
