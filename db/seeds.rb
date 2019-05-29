@@ -19,10 +19,21 @@ if Rails.env.development?
       email: 'admin@columbuspowdercoat.com',
       first_name: 'Admin',
       last_name: 'User',
+      user_type: UserType.for(:internal),
       password: 'password',
       password_confirmation: 'password'
     )
   end
+
+
+  customer_user = User.find_or_create_by(
+    email: 'customer@columbuspowdercoat.com',
+    first_name: 'Customer',
+    last_name: 'User',
+    user_type: UserType.for(:customer),
+    password: 'password',
+    password_confirmation: 'password'
+  )
 
   30.times do |n|
     customer = Customer.create(
@@ -62,4 +73,6 @@ if Rails.env.development?
     work_order.save!
     work_order.update! status: WorkOrder.statuses.values.sample
   end
+
+  Customer.all.sample.users << customer_user
 end

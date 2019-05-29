@@ -16,6 +16,10 @@ class User < ApplicationRecord
   validate :ensure_valid_user_type
   validate :max_customer_associations
 
+  def user_type?(user_type_name)
+    user_type.name == UserType.for(user_type_name).name
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end
@@ -30,5 +34,13 @@ class User < ApplicationRecord
     if customer_ids && customer_ids.count > 1
       errors.add(:customers, "users cannot be associated to more than one company at this time")
     end
+  end
+
+  def customer?
+    user_type.name.to_sym == :customer
+  end
+
+  def internal?
+    user_type.name.to_sym == :internal
   end
 end

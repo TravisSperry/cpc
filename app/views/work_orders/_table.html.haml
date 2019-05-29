@@ -1,0 +1,16 @@
+%table.table.datatable
+  %thead
+    %tr
+      %th Date due
+      %th Job Name
+      %th Order #
+      %th Status
+      %th
+  %tbody
+    - work_orders.each do |work_order|
+      %tr
+        %td= work_order.date_due&.strftime('%b %e')
+        %td= work_order.name
+        %td= work_order.id
+        %td= work_order.status ? work_order.status.titleize : 'Please set a status.'
+        %td= link_to 'View', work_order, target: '_blank'
