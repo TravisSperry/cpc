@@ -14,7 +14,6 @@ module Customers
     end
 
     def create
-      console
       @user = User.new(new_user_params)
       if @user.save
         flash[:notice] = 'Successfully created User.'

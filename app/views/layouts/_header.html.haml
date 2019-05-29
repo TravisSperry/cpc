@@ -5,49 +5,49 @@
       .row
         .col-md-4
           %div
-            %li{:style => "list-style-type:none;"}
+            %li{ style: 'list-style-type:none;' }
               %span.location
-                %i.fas.fa-map-marker-alt{:style => "color:rgb(184, 55, 55);"}
-                %a{:href => "https://goo.gl/maps/KDZ113F5RT72", :style => "color:white;"} Columbus, OH
+                %i.fas.fa-map-marker-alt{ style: 'color:rgb(184, 55, 55);' }
+                %a{ href: 'https://goo.gl/maps/KDZ113F5RT72', style: 'color:white;' } Columbus, OH
               %span.social-media-icons.float-md-none.float-right
-                %a{:href => "https://www.facebook.com/columbuspowdercoat", :target => "_blank"}
+                %a{ href: 'https://www.facebook.com/columbuspowdercoat', target: '_blank' }
                   %i.fab.fa-lg.fa-facebook
-                %a{:href => "https://www.instagram.com/columbuspowdercoat/", :target => "_blank"}
+                %a{ href: 'https://www.instagram.com/columbuspowdercoat/', target: '_blank' }
                   %i.fab.fa-lg.fa-instagram
             %li.d-md-none.d-lg-none.phone-email
               %i.fas.fa-phone
               %span.d-none.d-md-inline Call Us:
-              %a{:href => "tel:+16143005025"} (614) 300-5025
+              %a{ href: 'tel:+16143005025' } (614) 300-5025
             %li.d-md-none.d-lg-none.phone-email
               %i.far.fa-envelope
               %span.d-none Email:
-              %a{:href => "mailto:contact@columbuspowdercoat.com"} contact@ColumbusPowderCoat.com
+              %a{ href: 'mailto:contact@columbuspowdercoat.com' } contact@ColumbusPowderCoat.com
         .col-md-8
           .phone-email.float-right.d-none.d-md-block
-            %ul.list-inline.pull-left{:style => "list-type-style:none;"}
+            %ul.list-inline.pull-left{ style: 'list-type-style:none;' }
               %li.list-inline-item
                 %i.fas.fa-phone
                 %span Call Us:
-                %a{:href => "tel:+16143005025"} (614) 300-5025
+                %a{ href: 'tel:+16143005025' } (614) 300-5025
               %li.list-inline-item
                 %i.fas.fa-envelope
                 %span Email:
-                %a{:href => "mailto:contact@columbuspowdercoat.com"} contact@ColumbusPowderCoat.com
+                %a{ href: 'mailto:contact@columbuspowdercoat.com' } contact@ColumbusPowderCoat.com
     / Pre Nav End
     / Main Nav Start
     %nav.navbar.navbar-expand-md.navbar-light.justify-content-end.cpc-nav.bg-white
-      %a.navbar-brand.mr-auto{:href => "/"}
+      %a.navbar-brand.mr-auto{ href: root_path }
         = image_tag 'cpc_logo.png', alt: 'logo'
       %ul.navbar-nav.d-md-none
         %li.nav-item
-          = link_to "Request A Quote", new_quote_request_path, style: 'font-size:10px;', class: 'btn btn-sm btn-danger mr-3'
-      %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarToggler", "data-toggle" => "collapse", :type => "button"}
+          = link_to 'Request A Quote', new_quote_request_path, style: 'font-size:10px;', class: 'btn btn-sm btn-danger mr-3'
+      %button.navbar-toggler{ 'aria-controls' => 'navbarSupportedContent', 'aria-expanded' => 'false', 'aria-label' => 'Toggle navigation', 'data-target' => '#navbarToggler', 'data-toggle' => 'collapse', :type => 'button' }
         %span.navbar-toggler-icon
       #navbarToggler.collapse.navbar-collapse.justify-content-end
         %ul.navbar-nav.justify-content-end
           - if current_user
             %li.nav-item.dropdown
-              %a.dropdown-toggle.nav-link{"data-toggle" => "dropdown", :href => "#"}
+              %a.dropdown-toggle.nav-link{ 'data-toggle' => 'dropdown', :href => '#' }
                 %i.fas.fa-user
                 = current_user.first_name
                 = current_user.last_name[0,1]
@@ -57,16 +57,18 @@
                 = link_to edit_user_path(current_user.id), class: 'dropdown-item' do
                   %i.icon-gears
                   Settings
-                = link_to "Manage Users", users_path, class: 'dropdown-item' if can? :manage, User
+                = link_to 'Manage Users', users_path, class: 'dropdown-item' if can? :manage, User
                 .dropdown-divider
-                %a.dropdown-item{:href => destroy_user_session_path}
+                %a.dropdown-item{ :href => destroy_user_session_path }
                   %i.fas.fa-sign-out-alt
                   Sign Out
           - else
             %li.nav-item.nav-quote-req.d-none.d-md-inline
-              = link_to "Request A Quote", new_quote_request_path, class: 'btn btn-danger mr-2'
+              = link_to 'Customer Login', new_user_session_path, class: 'btn btn-primary mr-2'
+            %li.nav-item.nav-quote-req.d-none.d-md-inline
+              = link_to 'Request A Quote', new_quote_request_path, class: 'btn btn-danger mr-2'
             %li.nav-item.nav-quote-req
-              = link_to "Services", '/services', class: 'nav-link'
+              = link_to 'Services', '/services', class: 'nav-link'
             %li.nav-item.nav-quote-req
-              = link_to "About Us", '/about', class: 'nav-link'
+              = link_to 'About Us', '/about', class: 'nav-link'
     / Main Header End

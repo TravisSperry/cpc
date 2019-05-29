@@ -1,0 +1,9 @@
+.container
+  .row
+    .col-sm-12
+      .row
+        .col
+          = render 'work_orders/work_order_information'
+      .row
+        .col
+          = render 'work_orders/parts', work_order: @work_order if @work_order.line_items.any?

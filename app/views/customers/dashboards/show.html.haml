@@ -5,11 +5,26 @@
       .card
         .card-header
           %h1.d-inline.mb-0 Outstanding Work Orders
-          = link_to new_work_order_path, class: 'btn btn-success float-right' do
-            %i.fas.fa-plus
-            New Work Order
+          -# = link_to new_work_order_path, class: 'btn btn-success float-right' do
+          -#   %i.fas.fa-plus
+          -#   New Work Order
         .card-body
           - if @customer.work_orders.any?
-            = render 'work_orders/table', work_orders: @customer.work_orders.uniq
+            %table.table.datatable
+              %thead
+                %tr
+                  %th Date due
+                  %th Job Name
+                  %th Order #
+                  %th Status
+                  %th
+              %tbody
+                - @customer.work_orders.each do |work_order|
+                  %tr
+                    %td= work_order.date_due&.strftime('%b %e')
+                    %td= work_order.name
+                    %td= work_order.id
+                    %td= work_order.status ? work_order.status.titleize : 'Please set a status.'
+                    %td= link_to 'View', customer_work_order_path(id: work_order.id, customer_id: @customer.id), target: '_blank'
           - else
             %p No Outstanding work orders.

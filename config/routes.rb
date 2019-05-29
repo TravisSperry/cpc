@@ -1,6 +1,23 @@
 # frozen_string_literal: true
 
 Cpc::Application.routes.draw do
+
+  constraints AdminConstraint do
+    mount Flipper::UI.app(Flipper) => '/flipper'
+  end
+
+  constraints InternalUserConstraint do
+    root to: 'internal/dashboards#show'
+  end
+
+  constraints CustomerUserConstraint do
+    resources :customers do
+      resources :work_orders, only: [:show], controller: 'customers/work_orders'
+    end
+
+    root to: 'customers/dashboards#show'
+  end
+
   resources :boxes
   resources :colors
   resources :contacts
@@ -9,7 +26,7 @@ Cpc::Application.routes.draw do
     resources :contacts
     resources :notes
     resources :users, controller: 'customers/users'
-    resources :work_orders
+      resources :work_orders
   end
   resources :manufacturers
   resources :notes
@@ -41,26 +58,15 @@ Cpc::Application.routes.draw do
     resources :notes
 
     collection do
-      get 'workflow'
+      get :workflow
     end
 
     member do
-      post 'quality_assurance_approval'
-      put 'mark_completed'
+      post :quality_assurance_approval
+      put :mark_completed
     end
   end
-
-  constraints AdminConstraint do
-    mount Flipper::UI.app(Flipper) => '/flipper'
-  end
-
-  constraints InternalUserConstraint do
-    root to: 'internal/dashboards#show'
-  end
-
-  constraints CustomerUserConstraint do
-    root to: 'customers/dashboards#show'
-  end
+  resources :work_order_schedules
 
   root to: 'static_pages#home'
 end

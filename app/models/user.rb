@@ -35,4 +35,12 @@ class User < ApplicationRecord
       errors.add(:customers, "users cannot be associated to more than one company at this time")
     end
   end
+
+  def customer?
+    user_type.name.to_sym == :customer
+  end
+
+  def internal?
+    user_type.name.to_sym == :internal
+  end
 end
