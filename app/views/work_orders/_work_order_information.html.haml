@@ -2,7 +2,7 @@
   .card-header
     %h2.mb-0.d-inline
       Work Order ##{@work_order.id}
-    = render 'services', work_order: @work_order if @work_order.services.any?
+    = render 'work_orders/services', work_order: @work_order if @work_order.services.any?
   - if @work_order.production_stage_id
     .card-body.text-center.text-success.border.border-success.p-2.production-stage-status
       %strong
