@@ -2,7 +2,6 @@
   %h2 Editing User
   .row
     .col-md-4
-      = console
       = simple_form_for @user do |f|
         = f.association :user_type, collection: UserType.for_all, input_html: { class: 'chosen' } if current_user.internal?
         = f.association :customers, label: 'Associate for', input_html: { class: 'chosen' } if current_user.internal?
