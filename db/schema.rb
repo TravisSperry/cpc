@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_13_140430) do
+ActiveRecord::Schema.define(version: 2019_06_11_020655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,6 +118,17 @@ ActiveRecord::Schema.define(version: 2019_04_13_140430) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["notable_type", "notable_id"], name: "index_notes_on_notable_type_and_notable_id"
+  end
+
+  create_table "parts", force: :cascade do |t|
+    t.string "sku"
+    t.string "label"
+    t.text "description"
+    t.bigint "customer_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_parts_on_customer_id"
   end
 
   create_table "powders", id: :serial, force: :cascade do |t|
@@ -266,6 +277,7 @@ ActiveRecord::Schema.define(version: 2019_04_13_140430) do
 
   add_foreign_key "contacts", "contact_types"
   add_foreign_key "contacts", "customers"
+  add_foreign_key "parts", "customers"
   add_foreign_key "service_schedules", "services"
   add_foreign_key "service_schedules", "work_order_schedules"
   add_foreign_key "users", "user_types"

@@ -1,0 +1,12 @@
+= simple_form_for [@customer, @part] do |f|
+  - if @part.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@part.errors.count, "error")} prohibited this customer_part from being saved:"
+      %ul
+        - @customer_part.errors.full_messages.each do |message|
+          %li= message
+
+  = f.input :sku
+  = f.input :label
+  = f.input :description
+  = f.submit 'Save', class: 'btn btn-success'

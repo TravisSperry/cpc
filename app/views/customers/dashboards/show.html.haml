@@ -1,5 +1,6 @@
 .container
-  %h1 #{@customer.name} Dashboard
+  %h1.d-inline #{@customer.name} Dashboard
+  = link_to 'Manage Inventory', customer_parts_path(customer_id: @customer.id), class: 'btn btn-success float-right'
   .row.mt-4
     .col-sm-12
       .card

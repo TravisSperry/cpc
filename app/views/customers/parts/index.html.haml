@@ -1,0 +1,27 @@
+.container
+  %h1.d-inline #{@customer.name} Parts Inventory
+  = link_to 'New Part', new_customer_part_path, class: 'btn btn-success float-right'
+
+  %table.table.tables-striped
+    %thead
+      %tr
+        %th Sku
+        %th Label
+        %th Description
+        %th Customer
+        %th
+        %th
+        %th
+
+    %tbody
+      - @customer_parts.each do |customer_part|
+        %tr
+          %td= customer_part.sku
+          %td= customer_part.label
+          %td= customer_part.description
+          %td= customer_part.customer
+          %td= link_to 'Show', customer_part_path(id: customer_part.id)
+          %td= link_to 'Edit', edit_customer_part_path(id: customer_part.id)
+          %td= link_to 'Destroy', customer_part_path(id: customer_part.id), method: :delete, data: { confirm: 'Are you sure?' }
+
+  %br

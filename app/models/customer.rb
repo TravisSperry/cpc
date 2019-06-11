@@ -11,6 +11,7 @@ class Customer < ApplicationRecord
                             class_name: 'Contact'
   has_many :customers_users
   has_many :users, through: :customers_users
+  has_many :parts
 
   enum account_type: %i[company individual]
 
