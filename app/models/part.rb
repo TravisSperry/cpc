@@ -4,4 +4,8 @@ class Part < ApplicationRecord
   acts_as_paranoid
 
   delegate :name, to: :customer, prefix: true
+
+  def quantity
+    1
+  end
 end

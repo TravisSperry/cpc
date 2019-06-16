@@ -12,7 +12,10 @@
     = @part.description
   %p
     %b Customer:
-    = link_to @part.customer_name, @part.customer
+    - if current_user.customer?
+      = link_to @part.customer_name, root_path
+    - else
+      = link_to @part.customer_name, @part.customer
 
   = link_to 'Edit', edit_customer_part_path(@part)
   \|

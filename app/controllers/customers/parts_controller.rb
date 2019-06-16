@@ -1,7 +1,10 @@
 module Customers
   class PartsController < ApplicationController
-    load_and_authorize_resource :customer
-    load_and_authorize_resource through: :customer
+    authorize_resource :customer
+    authorize_resource through: :customer
+
+    before_action :set_part, only: [:destroy, :new, :show, :update ]
+    before_action :set_customer
 
     # GET /customers/parts
     def index
@@ -44,7 +47,7 @@ module Customers
     # DELETE /customers/parts/1
     def destroy
       @part.destroy
-      redirect_to parts_url, notice: 'Part was successfully destroyed.'
+      redirect_to customer_parts_url, notice: 'Part was successfully archived.'
     end
 
     private
@@ -53,8 +56,16 @@ module Customers
       def part_params
         params
           .require(:part)
-          .permit(:sku, :label, :description)
+          .permit(:sku, :label, :description, :deleted_at)
           .merge(customer_id: params[:customer_id])
+      end
+
+      def set_part
+        @part = Part.with_deleted.find(params[:id])
+      end
+
+      def set_customer
+        @customer = Customer.find(params[:customer_id])
       end
   end
 end
