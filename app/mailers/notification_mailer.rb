@@ -5,7 +5,7 @@ class NotificationMailer < ActionMailer::Base
   default to:
     [
       'paul@columbuspowdercoat.com',
-      'nsmals@columbuspowdercoat.com',
+      'sgabalac@columbuspowdercoat.com',
       'jbuehler@columbuspowdercoat.com'
     ]
 
