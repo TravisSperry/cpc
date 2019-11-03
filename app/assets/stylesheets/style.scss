@@ -323,7 +323,6 @@ and (max-device-width: 667px) {
     font-family: $global-font-family;
     font-weight: bold;
     font-size: 15px;
-    letter-spacing: -0.6px;
     color: #4D4D4D;
     color: rgb(77, 77, 77);
     width: 100%;
@@ -333,7 +332,6 @@ and (max-device-width: 667px) {
     font-family: $global-font-family;
     font-weight: bold;
     font-size: 15px;
-    letter-spacing: -0.6px;
     color: #4D4D4D;
     color: rgb(77, 77, 77);
   }
@@ -387,9 +385,8 @@ footer {
 
   .footer-one {
     p {
-      font-weight: 100;
+      font-weight: 300;
       font-size: 19px;
-      letter-spacing: -0.76px;
       color: #999999;
       color: rgb(153, 153, 153);
     }
