@@ -12,7 +12,7 @@ module QRCodeHelper
       module_px_size: 6,
       resize_exactly_to: false,
       resize_gte_to: false,
-      size: 400
+      size: 200
     )
     ['data:image/png;base64,', qr_code.to_blob].pack('A*m').gsub(/\n/, '')
   end
