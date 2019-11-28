@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :contact_type do
-    name 'MyString'
+    name { :customer }
   end
 end

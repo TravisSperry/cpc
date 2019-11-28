@@ -11,6 +11,6 @@ FactoryBot.define do
   end
 
   trait :company_type do
-    account_type :company
+    account_type { :company }
   end
 end
