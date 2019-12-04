@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_13_140430) do
+ActiveRecord::Schema.define(version: 2019_12_04_021928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -120,6 +120,18 @@ ActiveRecord::Schema.define(version: 2019_04_13_140430) do
     t.index ["notable_type", "notable_id"], name: "index_notes_on_notable_type_and_notable_id"
   end
 
+  create_table "parts", force: :cascade do |t|
+    t.string "sku"
+    t.string "label"
+    t.text "description"
+    t.bigint "customer_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "attachments", default: [], array: true
+    t.index ["customer_id"], name: "index_parts_on_customer_id"
+  end
+
   create_table "powders", id: :serial, force: :cascade do |t|
     t.integer "manufacturer_id"
     t.integer "color_id"
@@ -187,6 +199,15 @@ ActiveRecord::Schema.define(version: 2019_04_13_140430) do
     t.index ["work_order_schedule_id"], name: "index_service_schedules_on_work_order_schedule_id"
   end
 
+  create_table "service_trackings", force: :cascade do |t|
+    t.bigint "work_order_id"
+    t.bigint "tracking_entries_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tracking_entries_id"], name: "index_service_trackings_on_tracking_entries_id"
+    t.index ["work_order_id"], name: "index_service_trackings_on_work_order_id"
+  end
+
   create_table "services", id: :serial, force: :cascade do |t|
     t.string "name"
   end
@@ -196,6 +217,16 @@ ActiveRecord::Schema.define(version: 2019_04_13_140430) do
     t.integer "work_order_id"
     t.index ["service_id"], name: "index_services_work_orders_on_service_id"
     t.index ["work_order_id"], name: "index_services_work_orders_on_work_order_id"
+  end
+
+  create_table "tracking_entries", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "deleted_at"
+    t.bigint "service_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_id"], name: "index_tracking_entries_on_service_id"
   end
 
   create_table "user_types", force: :cascade do |t|
@@ -266,8 +297,12 @@ ActiveRecord::Schema.define(version: 2019_04_13_140430) do
 
   add_foreign_key "contacts", "contact_types"
   add_foreign_key "contacts", "customers"
+  add_foreign_key "parts", "customers"
   add_foreign_key "service_schedules", "services"
   add_foreign_key "service_schedules", "work_order_schedules"
+  add_foreign_key "service_trackings", "tracking_entries", column: "tracking_entries_id"
+  add_foreign_key "service_trackings", "work_orders"
+  add_foreign_key "tracking_entries", "services"
   add_foreign_key "users", "user_types"
   add_foreign_key "work_order_schedules", "work_orders"
   add_foreign_key "work_orders", "contacts"

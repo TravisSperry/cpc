@@ -14,6 +14,7 @@ class WorkOrder < ApplicationRecord
   has_many :line_items, inverse_of: :work_order, dependent: :destroy
   has_many :notes, as: :notable
   has_one :work_order_schedule
+  has_one :service_tracking
 
   # TODO: Validates presence of - customer, contact, name
 

@@ -1,0 +1,27 @@
+%h1 Listing tracking_entries
+
+%table
+  %thead
+    %tr
+      %th Start time
+      %th End time
+      %th Deleted at
+      %th Service
+      %th
+      %th
+      %th
+
+  %tbody
+    - @tracking_entries.each do |tracking_entry|
+      %tr
+        %td= tracking_entry.start_time
+        %td= tracking_entry.end_time
+        %td= tracking_entry.deleted_at
+        %td= tracking_entry.service
+        %td= link_to 'Show', tracking_entry
+        %td= link_to 'Edit', edit_tracking_entry_path(tracking_entry)
+        %td= link_to 'Destroy', tracking_entry, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Tracking entry', new_tracking_entry_path
