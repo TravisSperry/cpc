@@ -60,11 +60,11 @@ class Powder < ApplicationRecord
   }.freeze
 
   def list_name
-    "#{manufacturer.name} - #{name}"
+    "#{manufacturer&.name} - #{name}"
   end
 
   def list_select_name
-    "#{manufacturer.name} - #{name}#{" (#{part_number})" if part_number}"
+    "#{manufacturer&.name} - #{name}#{" (#{part_number})" if part_number}"
   end
 
   def total_weight
