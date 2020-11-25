@@ -14,25 +14,25 @@ Service.find_or_create_by(name: 'Other/Repair/Shop Service')
 ContactType.find_or_create_by(name: 'Primary')
 
 if Rails.env.development?
-  unless User.find_by email: 'admin@columbuspowdercoat.com'
-    User.create(
-      email: 'admin@columbuspowdercoat.com',
-      first_name: 'Admin',
-      last_name: 'User',
-      user_type: UserType.for(:internal),
-      password: 'password',
-      password_confirmation: 'password'
-    )
-  end
+  User.create_with(
+    first_name: 'Admin',
+    last_name: 'User',
+    user_type: UserType.for(:internal),
+    password: 'password',
+    password_confirmation: 'password'
+  ).find_or_create_by(
+    email: 'admin@columbuspowdercoat.com'
+  )
 
 
-  customer_user = User.find_or_create_by(
-    email: 'customer@columbuspowdercoat.com',
+  customer_user = User.create_with(
     first_name: 'Customer',
     last_name: 'User',
     user_type: UserType.for(:customer),
     password: 'password',
     password_confirmation: 'password'
+  ).find_or_create_by(
+    email: 'customer@columbuspowdercoat.com'
   )
 
   30.times do |n|
