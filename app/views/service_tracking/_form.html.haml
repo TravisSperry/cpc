@@ -1,0 +1,16 @@
+= form_for @service_tracking do |f|
+  - if @service_tracking.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@service_tracking.errors.count, "error")} prohibited this service_tracking from being saved:"
+      %ul
+        - @service_tracking.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :work_order
+    = f.text_field :work_order
+  .field
+    = f.label :tracking_entries
+    = f.text_field :tracking_entries
+  .actions
+    = f.submit 'Save'

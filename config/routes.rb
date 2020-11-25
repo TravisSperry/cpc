@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Cpc::Application.routes.draw do
-
   constraints AdminConstraint do
     mount Flipper::UI.app(Flipper) => '/flipper'
   end
@@ -26,7 +25,7 @@ Cpc::Application.routes.draw do
     resources :contacts
     resources :notes
     resources :users, controller: 'customers/users'
-      resources :work_orders
+    resources :work_orders
   end
   resources :manufacturers
   resources :notes
@@ -54,6 +53,10 @@ Cpc::Application.routes.draw do
   devise_for :users
   resources :users
   resources :work_orders do
+    resources :service_tracking do
+      resources :tracking_entries
+    end
+
     resources :attachments, only: [:create]
     resources :notes
 

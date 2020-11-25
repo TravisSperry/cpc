@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Work order:
+  = @service_tracking.work_order
+%p
+  %b Tracking entries:
+  = @service_tracking.tracking_entries
+
+= link_to 'Edit', edit_service_tracking_path(@service_tracking)
+\|
+= link_to 'Back', service_trackings_path
