@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_13_140430) do
+ActiveRecord::Schema.define(version: 2020_11_25_022506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -260,8 +260,10 @@ ActiveRecord::Schema.define(version: 2019_04_13_140430) do
     t.integer "production_stage_id"
     t.string "estimated_price"
     t.string "attachments", default: [], array: true
+    t.bigint "quote_request_id"
     t.index ["contact_id"], name: "index_work_orders_on_contact_id"
     t.index ["customer_id"], name: "index_work_orders_on_customer_id"
+    t.index ["quote_request_id"], name: "index_work_orders_on_quote_request_id", unique: true
   end
 
   add_foreign_key "contacts", "contact_types"
@@ -272,4 +274,5 @@ ActiveRecord::Schema.define(version: 2019_04_13_140430) do
   add_foreign_key "work_order_schedules", "work_orders"
   add_foreign_key "work_orders", "contacts"
   add_foreign_key "work_orders", "customers"
+  add_foreign_key "work_orders", "quote_requests"
 end

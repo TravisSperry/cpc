@@ -47,6 +47,7 @@ Cpc::Application.routes.draw do
     end
   end
   resources :quote_request_attachments
+  resource :quote_request_conversions, only: [:create]
   resources :service_schedules
   get 'static_pages/home'
   get 'static_pages/about'

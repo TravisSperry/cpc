@@ -9,6 +9,7 @@ class WorkOrder < ApplicationRecord
   belongs_to :customer
   belongs_to :contact
   belongs_to :production_stage
+  belongs_to :quote_request
   has_and_belongs_to_many :services
   has_many :quality_assurance_approvals
   has_many :line_items, inverse_of: :work_order, dependent: :destroy

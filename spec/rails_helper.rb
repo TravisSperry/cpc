@@ -30,6 +30,8 @@ RSpec.configure do |config|
 
   config.include Warden::Test::Helpers
   config.include FactoryBot::Syntax::Methods
+  config.include Devise::Test::IntegrationHelpers, type: :request
+
 
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
@@ -48,8 +50,8 @@ Capybara.register_driver :headless_chrome do |app|
   )
 
   Capybara::Selenium::Driver.new app,
-                                 browser: :chrome,
-                                 desired_capabilities: capabilities
+    browser: :chrome,
+    desired_capabilities: capabilities
 end
 
 Capybara.default_driver = :selenium
