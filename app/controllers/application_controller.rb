@@ -16,7 +16,15 @@ class ApplicationController < ActionController::Base
     signed_in? ? current_user.id : 'Public user' # or whatever
   end
 
+  def verify_internal_user!
+    insufficient_rights_redirect unless authenticate_user! && current_user.internal?
+  end
+
   protected
+
+  def insufficient_rights_redirect
+    redirect_to root_path, flash: { error: "You don't have access to this page." }
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:account_update, keys: %i[first_name last_name])

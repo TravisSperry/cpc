@@ -1,5 +1,5 @@
 class WorkOrdersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :verify_internal_user!
   before_action :assert_company!, only: [:new]
   before_action :set_work_order, only: %i[
     show edit update destroy mark_completed
