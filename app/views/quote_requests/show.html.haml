@@ -35,7 +35,7 @@
           - if @quote_request.work_order
             = link_to "View Work Order", @quote_request.work_order, class: 'btn btn-primary float-right'
           - else
-            = link_to 'Convert To Work Order', quote_request_conversions_path(quote_request_id: @quote_request.id), method: :post, class: 'btn btn-warning float-right'
+            = link_to 'Convert To Work Order', quote_request_conversions_path(quote_request_id: @quote_request.id), method: :post, class: 'btn btn-warning float-right', data: { confirm: 'Are you sure? This will create a new work order.' }
       .row
         .col
           %h2 Add Note
