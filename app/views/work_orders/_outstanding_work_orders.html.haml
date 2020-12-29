@@ -12,7 +12,7 @@
     - outstanding_work_orders.each do |work_order|
       %tr
         %td= work_order.date_due&.strftime('%b %e')
-        %td= link_to work_order.customer&.name, customer_path(work_order.customer)
+        %td= work_order.customer.present? ? link_to(work_order.customer&.name, customer_path(work_order.customer)) : "No customer assigned to work order"
         %td= work_order.contact&.full_name
         %td= work_order.name
         %td= work_order.id

@@ -15,7 +15,7 @@
           - @user_dashboard.active_customer_users.each do |user|
             %tr
               %td= user.full_name
-              %td= link_to user.customers.first.name, user.customers.first if user.customers
+              %td= link_to user.customers.first&.name, user.customers.first if user.customers
               %td= link_to 'edit', edit_user_path(user)
               %td= link_to 'Deactivate User',
                             user,
