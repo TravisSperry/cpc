@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module CPC
+module Cpc
   class QuoteRequestConverter
     def self.convert(quote_request)
       new.convert(quote_request)

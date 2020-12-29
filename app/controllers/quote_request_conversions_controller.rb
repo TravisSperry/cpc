@@ -4,7 +4,7 @@ class QuoteRequestConversionsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    work_order = ::CPC::QuoteRequestConverter.convert(quote_request)
+    work_order = ::Cpc::QuoteRequestConverter.convert(quote_request)
     redirect_to work_order
   end
 
