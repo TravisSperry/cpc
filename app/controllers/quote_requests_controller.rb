@@ -98,12 +98,12 @@ class QuoteRequestsController < ApplicationController
 
   def calculator
     @powder_costs = [['stock', 10], ['exotic', 15], ['custom', 25]]
-    @oven_sizes = { small: 25, large: 55 }
+    @oven_sizes = { small: 35, large: 70 }
   end
 
   def sand_blasting_quote_calculator
     @powder_costs = [['stock', 10], ['exotic', 15], ['custom', 25]]
-    @oven_sizes = { small: 25, large: 55 }
+    @oven_sizes = { small: 35, large: 70 }
   end
 
   def mark_as_viewed

@@ -8,29 +8,29 @@
         .row.mb-3
           .col-sm-6
             = label_tag 'Labor Hours'
-            = text_field_tag :labor_hours, nil, placeholder: 'Estimated # of hours', class: 'form-control', data: { rate: 115 }
+            = text_field_tag :labor_hours, nil, placeholder: 'Estimated # of hours', class: 'form-control', data: { rate: 130 }
         .row.mb-3
           .col-sm-6
             = label_tag 'Oven Hours'
             = text_field_tag :oven_hours, nil, placeholder: 'Estimated # of hours', class: 'form-control'
           .col-sm-6
             = label_tag 'Oven Size'
-            = select_tag :oven_size,                                          
-              options_from_collection_for_select(@oven_sizes, :last, :first), 
-              class: 'form-control'                                           
+            = select_tag :oven_size,
+              options_from_collection_for_select(@oven_sizes, :last, :first),
+              class: 'form-control'
         .row.mb-4
           .col-sm-6
             = label_tag 'Powder Pounds'
-            = text_field_tag :powder_weight,     
-              nil,                               
-              placeholder: 'Estimated # of lbs', 
-              class: 'form-control'              
+            = text_field_tag :powder_weight,
+              nil,
+              placeholder: 'Estimated # of lbs',
+              class: 'form-control'
           .col-sm-6
             = label_tag 'Price per pound'
-            = select_tag :powder_price,                                                                                            
-              options_for_select([['Basic ($10.50/lb.)', 10.50], ['Exotic ($15.75/lb.)', 15.75], ['Custom ($26.25/lb.)', 26.25]]), 
-              prompt: 'Select a powder price',                                                                                     
-              class: 'form-control'                                                                                                
+            = select_tag :powder_price,
+              options_for_select([['Basic ($13.00/lb.)', 13.00], ['Exotic ($18.75/lb.)', 18.75], ['Custom ($31.50/lb.)', 31.50]]),
+              prompt: 'Select a powder price',
+              class: 'form-control'
         .row.mt-3
           .col-lg-12.text-center.mb-2
             %label{:for => "margin"} Cost Of Business
