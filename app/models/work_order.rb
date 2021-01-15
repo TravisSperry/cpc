@@ -6,7 +6,7 @@ class WorkOrder < ApplicationRecord
 
   mount_uploaders :attachments, AttachmentUploader
 
-  belongs_to :customer
+  belongs_to :customer, required: true
   belongs_to :contact
   belongs_to :production_stage
   belongs_to :quote_request

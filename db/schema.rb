@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_022506) do
+ActiveRecord::Schema.define(version: 2021_01_08_025432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -173,6 +173,8 @@ ActiveRecord::Schema.define(version: 2020_11_25_022506) do
     t.integer "user_id"
     t.string "status", default: "New", null: false
     t.string "source"
+    t.bigint "customer_id"
+    t.index ["customer_id"], name: "index_quote_requests_on_customer_id"
   end
 
   create_table "service_schedules", force: :cascade do |t|
@@ -268,6 +270,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_022506) do
 
   add_foreign_key "contacts", "contact_types"
   add_foreign_key "contacts", "customers"
+  add_foreign_key "quote_requests", "customers"
   add_foreign_key "service_schedules", "services"
   add_foreign_key "service_schedules", "work_order_schedules"
   add_foreign_key "users", "user_types"

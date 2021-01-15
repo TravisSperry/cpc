@@ -7,7 +7,7 @@ module Cpc
     end
 
     def convert(quote_request)
-      WorkOrder.create! quote_request: quote_request
+      WorkOrder.create! quote_request: quote_request, customer: quote_request.customer
     end
   end
 end

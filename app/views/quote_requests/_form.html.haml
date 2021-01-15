@@ -45,6 +45,14 @@
         - if user_signed_in?
           = f.input :status, collection: ["New", "Viewed", "Submitted", "Won", "Lost"], |
             input_html: { class: 'chosen' }                                             |
-          = f.association :user, label_method: :email, input_html: { class: 'chosen' }
+          - if !@quote_request.user || current_user.admin?
+            = f.association :user, label_method: :email, input_html: { class: 'chosen' }
+          - else
+            = f.input :user, readonly: true, input_html: { value: @quote_request&.user.full_name }
+          - if !@quote_request.customer || current_user.admin?
+            = f.association :customer, label_method: :name, input_html: { class: 'chosen' }
+          - else
+            = f.input :customer, readonly: true, input_html: { value: @quote_request&.customer.name }
+
   .form-actions
     = f.submit "Submit Request", class: "btn btn-lg btn-success"
