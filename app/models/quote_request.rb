@@ -7,6 +7,7 @@ class QuoteRequest < ApplicationRecord
   has_one :work_order
 
   belongs_to :user
+  belongs_to :customer
 
   SOURCES = ['Word Of Mouth', 'Online Search', 'Social Media'].freeze
 end

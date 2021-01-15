@@ -5,6 +5,12 @@
         %b Quote Request #:
         = @quote_request.id
       %p
+        %b Customer:
+        - if @quote_request.customer
+          = @quote_request.customer.name
+        - else
+          %span.text-danger Not Assigned
+      %p
         %b First name:
         = @quote_request.first_name
       %p
@@ -35,7 +41,10 @@
           - if @quote_request.work_order
             = link_to "View Work Order", @quote_request.work_order, class: 'btn btn-primary float-right'
           - else
-            = link_to 'Convert To Work Order', quote_request_conversions_path(quote_request_id: @quote_request.id), method: :post, class: 'btn btn-warning float-right', data: { confirm: 'Are you sure? This will create a new work order.' }
+            - if @quote_request.customer
+              = link_to 'Convert To Work Order', quote_request_conversions_path(quote_request_id: @quote_request.id), method: :post, class: 'btn btn-warning float-right', data: { confirm: 'Are you sure? This will create a new work order.' }
+            - else
+              = button_to 'Convert To Work Order', {}, disabled: true, class: 'btn btn-warning float-right', title: 'Please add a customer to convert to a work order'
       .row
         .col
           %h2 Add Note
