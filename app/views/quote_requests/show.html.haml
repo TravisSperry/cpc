@@ -42,7 +42,7 @@
             = link_to "View Work Order", @quote_request.work_order, class: 'btn btn-primary float-right'
           - else
             - if @quote_request.customer
-              = link_to 'Convert To Work Order', quote_request_conversions_path(quote_request_id: @quote_request.id), method: :post, class: 'btn btn-warning float-right', data: { confirm: 'Are you sure? This will create a new work order.' }
+              = link_to 'Convert To Work Order', quote_request_conversions_path(quote_request_id: @quote_request.id), method: :post, class: 'btn btn-warning float-right', data: { confirm: 'Are you sure? This will mark the current quote request as \'Won\' and will create a new work order assigned to this company.' }
             - else
               = button_to 'Convert To Work Order', {}, disabled: true, class: 'btn btn-warning float-right', title: 'Please add a customer to convert to a work order'
       .row

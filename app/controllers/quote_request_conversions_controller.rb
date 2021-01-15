@@ -9,7 +9,7 @@ class QuoteRequestConversionsController < ApplicationController
   end
 
   def create
-    work_order = ::Cpc::QuoteRequestConverter.convert(quote_request)
+    work_order = ::Cpc::QuoteRequestConverter.convert!(quote_request)
     redirect_to work_order
   end
 
