@@ -10,4 +10,5 @@ class QuoteRequest < ApplicationRecord
   belongs_to :customer
 
   SOURCES = ['Word Of Mouth', 'Online Search', 'Social Media'].freeze
+  STATUSES = %w[New Viewed Submitted Won Lost].freeze
 end

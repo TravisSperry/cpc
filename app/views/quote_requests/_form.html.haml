@@ -43,8 +43,7 @@
         %div{:style => "margin-bottom:25px;"}
           = recaptcha_tags unless Rails.env.development? || current_user
         - if user_signed_in?
-          = f.input :status, collection: ["New", "Viewed", "Submitted", "Won", "Lost"], |
-            input_html: { class: 'chosen' }                                             |
+          = f.input :status, collection: QuoteRequest::STATUSES, input_html: { class: 'chosen' }
           - if !@quote_request.user || current_user.admin?
             = f.association :user, label_method: :email, input_html: { class: 'chosen' }
           - else
