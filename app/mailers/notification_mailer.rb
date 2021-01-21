@@ -6,7 +6,7 @@ class NotificationMailer < ActionMailer::Base
     [
       'paul@columbuspowdercoat.com',
       'sgabalac@columbuspowdercoat.com',
-      'jbuehler@columbuspowdercoat.com'
+      'agerhardt@columbuspowdercoat.com'
     ]
 
   def new_message(message)
