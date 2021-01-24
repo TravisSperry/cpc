@@ -6,7 +6,7 @@ ruby '2.6.3'
 
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'rails', '~> 5.2.1'
+gem 'rails', '~> 5.2.4.4'
 
 gem 'acts_as_paranoid', '~> 0.6.0'
 gem 'barby', '~> 0.6.2'
