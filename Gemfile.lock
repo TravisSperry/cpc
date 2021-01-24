@@ -222,7 +222,7 @@ GEM
     mime-types-data (3.2018.0812)
     mimemagic (0.3.5)
     mini_mime (1.0.2)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.5.0)
     minitest (5.14.1)
     modernizr-rails (2.7.1)
     momentjs-rails (2.20.1)
@@ -230,8 +230,9 @@ GEM
     msgpack (1.2.6)
     multi_json (1.13.1)
     nio4r (2.5.2)
-    nokogiri (1.10.10)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.11.1)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     paper_trail (10.1.0)
       activerecord (>= 4.2, < 6.0)
@@ -257,6 +258,7 @@ GEM
       railties (>= 3.0.0)
     public_suffix (3.0.3)
     puma (3.12.6)
+    racc (1.5.2)
     rack (2.1.4)
     rack-protection (2.0.5)
       rack
@@ -448,6 +450,7 @@ DEPENDENCIES
   loofah (>= 2.2.3)
   modernizr-rails
   momentjs-rails (>= 2.9.0)
+  nokogiri (>= 1.11.0.rc4)
   paper_trail
   pg (= 0.21)
   pry-rails
