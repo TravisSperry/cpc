@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'QuoteRequestConversions', type: :request do
-  let(:quote_request) { create(:quote_request, user: user) }
+  let(:quote_request) { create(:quote_request, user: user, customer: customer) }
   let(:user) { create(:user, :internal) }
+  let(:customer) { create(:customer, :company_type) }
 
   before do
     sign_in user

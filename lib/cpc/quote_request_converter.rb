@@ -7,6 +7,8 @@ module Cpc
     end
 
     def convert!(quote_request)
+      raise ActiveRecord::AssociationTypeMismatch unless quote_request.is_a?(QuoteRequest)
+
       ActiveRecord::Base.transaction do
         quote_request.update!(status: 'Won')
         WorkOrder.create! quote_request: quote_request, customer: quote_request.customer
