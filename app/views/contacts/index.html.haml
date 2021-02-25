@@ -1,5 +1,9 @@
 %p#notice= notice
 %h1 Listing Contacts
+
+.mt-3.mb-3
+  %strong Download:
+  = link_to 'CSV', contacts_path(format: 'csv')
 %table
   %thead
     %tr
@@ -8,7 +12,7 @@
       %th Phone
       %th Email
       %th Title
-      %th{:colspan => "3"}
+      %th { colspan: '3' }
   %tbody
     - @contacts.each do |contact|
       %tr

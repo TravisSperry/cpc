@@ -6,6 +6,11 @@ class ContactsController < ApplicationController
   # GET /contacts
   def index
     @contacts = Contact.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.csv { send_data @contacts.to_csv, filename: "contacts-#{Date.today}.csv" }
+    end
   end
 
   # GET /contacts/1
