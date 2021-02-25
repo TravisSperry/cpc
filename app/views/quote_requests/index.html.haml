@@ -2,6 +2,9 @@
   .row
     .col-lg-12
       %h1 Quote Requests
+      .mt-3.mb-3
+        %strong Download:
+        = link_to 'CSV', quote_requests_path(format: 'csv')
       .d-none.d-md-block.mt-4.mb-4
         = link_to 'New Quote Request', new_quote_request_path, class: "btn btn-success"
       .d-block.d-md-none.mt-4.mb-4

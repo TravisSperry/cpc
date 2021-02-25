@@ -11,7 +11,8 @@ class QuoteRequestsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @quotes }
+      format.json { render json: @quote_requests }
+      format.csv { send_data @quote_requests.to_csv, filename: "quote-requests-#{Date.today}.csv" }
     end
   end
 
@@ -51,11 +52,7 @@ class QuoteRequestsController < ApplicationController
 
     respond_to do |format|
       if (verify_recaptcha(model: @quote_request) || Rails.env.development? || current_user) && @quote_request.save
-        if params[:quote_request_attachments]
-          params[:quote_request_attachments]['attachment'].each do |a|
-            @quote_request_attachment = @quote_request.quote_request_attachments.create!(attachment: a)
-          end
-        end
+        process_attachments
         NotificationMailer.new_quote(@quote_request).deliver unless current_user || Rails.env.development?
         # Redirect to thank you page with request_type in params
         format.html { redirect_to static_pages_thank_you_url(request_type: 'quote'), notice: 'Request received. We will contact you shortly.' }
@@ -75,6 +72,7 @@ class QuoteRequestsController < ApplicationController
 
     respond_to do |format|
       if @quote_request.update_attributes(quote_request_params)
+        process_attachments
         format.html { redirect_to @quote_request, notice: 'RFQ was successfully updated.' }
         format.json { head :no_content }
       else
@@ -138,6 +136,14 @@ class QuoteRequestsController < ApplicationController
     redirect_to quote_requests_url, notice: 'Quote request has been marked as lost.'
   end
 
+  def process_attachments
+    return unless params[:quote_request_attachments]
+
+    quote_request_attachement_params['attachment'].each do |a|
+      @quote_request.quote_request_attachments.create!(attachment: a)
+    end
+  end
+
   private
 
   # Using a private method to encapsulate the permissible parameters
@@ -145,6 +151,11 @@ class QuoteRequestsController < ApplicationController
   # permit list between create and update. Also, you can specialize
   # this method with per-user checking of permissible attributes.
   def quote_request_params
-    params.require(:quote_request).permit(:address_1, :address_2, :city, :coating_requirements, :company_name, :email, :fax, :first_name, :job_title, :last_name, :masking_requirements, :note, :packaging_requirements, :paint_specs, :part_description, :part_number, :part_size, :powder_color, :powder_product_code, :powder_product_manufacturer, :quantity_run, :quantity_year, :state, :substrate, :telephone, :zip, :status, :user_id, :source, :customer_id, quote_request_attachments_attributes: %i[id quote_request_id attachment], notes_attributes: %i[user_id content])
+    params.require(:quote_request).permit(:address_1, :address_2, :city, :coating_requirements, :company_name, :email, :fax, :first_name, :job_title, :last_name, :masking_requirements, :note, :packaging_requirements, :paint_specs, :part_description, :part_number, :part_size, :powder_color, :powder_product_code, :powder_product_manufacturer, :quantity_run, :quantity_year, :state, :substrate, :telephone, :zip, :status, :user_id, :source, :customer_id, notes_attributes: %i[user_id content])
+  end
+
+  def quote_request_attachement_params
+    return unless params[:quote_request_attachments]
+    params.require(:quote_request_attachments).permit(attachment: [])
   end
 end
