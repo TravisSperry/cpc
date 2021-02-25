@@ -5,6 +5,11 @@ class CustomersController < ApplicationController
   # GET /customers
   def index
     @customers = Customer.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.csv { send_data @customers.to_csv, filename: "customers-#{Date.today}.csv" }
+    end
   end
 
   # GET /customers/1

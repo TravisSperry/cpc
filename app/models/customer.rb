@@ -21,4 +21,13 @@ class Customer < ApplicationRecord
       state.present? &&
       zip_code.present?
   end
+
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << ['name', 'phone', 'fax', 'address1', 'address2', 'city', 'state', 'zip_code', 'primary contact first name', 'email', 'account_type']
+      all.each do |customer|
+        csv << [customer.name, customer.phone, customer.fax, customer.address1, customer.address2, customer.city, customer.state, customer.zip_code, customer.primary_contact&.first_name, customer.email, customer.account_type]
+      end
+    end
+  end
 end

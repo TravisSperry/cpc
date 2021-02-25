@@ -7,6 +7,9 @@
           = link_to new_customer_path, class: "btn btn-primary float-right mt-1" do
             %i.fas.fa-plus
             Add Customer
+          .mt-3.mb-3
+            %strong Download:
+            = link_to 'CSV', customers_path(format: 'csv')
         .card-body
           %table.table.datatable
             %thead
