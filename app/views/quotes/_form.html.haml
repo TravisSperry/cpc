@@ -1,44 +1,49 @@
-= simple_form_for(@quote) do |f|
-  = f.error_notification
-  .form-inputs
-    %h3{:style => "padding-top:10px; border-bottom: solid gray 1px;"} General Information
-    = f.input :first_name
-    = f.input :last_name
-    = f.input :job_title
-    = f.input :company_name
-    = f.input :address_1
-    = f.input :address_2
-    = f.input :city
-    = f.input :state, collection: us_states
-    = f.input :zip
-    = f.input :email
-    = f.input :telephone
-    = f.input :fax
-    %h3{:style => "padding-top:10px; border-bottom: solid gray 1px;"} Product Information
-    = f.input :part_number
-    = f.input :part_description
-    = f.input :powder_color
-    = f.input :powder_product_code
-    = f.input :powder_product_manufacturer
-    = f.input :part_size
-    = f.input :substrate
-    = f.input :coating_requirements
-    = f.input :paint_specs, label: "Paint Specs Available?"
-    = f.input :masking_requirements
-    = f.input :packaging_requirements
-    = f.input :quantity_year, label: "Quantity Per Year"
-    = f.input :quantity_run, label: "Quantity Per Run"
-    = f.input :note, placeholder: "Anything additional you might want to add.", :input_html => { :rows => 5 }
-    - if user_signed_in?
-      = f.input :status, collection: ["New", "Viewed", "Submitted", "Won", "Lost"]
-      = f.association :user, label_method: :email
-  .form-actions
-    = f.submit "Submit Quote", class: "btn btn-special btn-color"
-:javascript
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-45387699-1', 'columbuspowdercoat.com');
-  ga('send', 'pageview');
+.row
+  .col-sm-8
+    = form_tag '#', onSubmit: "return false", id: 'calculator-form' do
+      .row.mb-3
+        .col-sm-6
+          = label_tag 'Labor Hours'
+          = text_field_tag :labor_hours, nil, placeholder: 'Estimated # of hours', class: 'form-control', data: { rate: @quote_form.labor_rate }
+      .row.mb-3
+        .col-sm-6
+          = label_tag 'Oven Hours'
+          = text_field_tag :oven_hours, nil, placeholder: 'Estimated # of hours', class: 'form-control'
+        .col-sm-6
+          = label_tag 'Oven Size'
+          = select_tag :oven_size,
+            options_from_collection_for_select(@quote_form.oven_sizes, :last, :first),
+            class: 'form-control'
+      .row.mb-4
+        .col-sm-6
+          = label_tag 'Powder Pounds'
+          = text_field_tag :powder_weight,
+            nil,
+            placeholder: 'Estimated # of lbs',
+            class: 'form-control'
+        .col-sm-6
+          = label_tag 'Price per pound'
+          = select_tag :powder_price,
+            options_for_select(@quote_form.powder_costs),
+            prompt: 'Select a powder price',
+            class: 'form-control'
+      .row.mt-3
+        .col-lg-12.text-center.mb-2
+          %label{:for => "margin"} Cost Of Business
+          %br/
+          %input{"data-provide" => "slider", "data-slider-max" => "8", "data-slider-min" => "0", "data-slider-step" => "1", "data-slider-ticks" => "[0, 1, 2, 3, 4, 5, 6, 7, 8]", "data-slider-ticks-labels" => "[\"IGT\", \"\", \"\", \"\", \"ITIGT\", \"\", \"\", \"\", \"IDHAFC\"]", "data-slider-tooltip" => "hide", "data-slider-value" => "2", :name => "cost-of-business", :type => "integer"}/
+        .col-lg-12.text-center.mb-4
+          %label{:for => "margin"} Pricing Scale
+          %br/
+          %input{"data-provide" => "slider", "data-slider-max" => "4", "data-slider-min" => "0", "data-slider-step" => "1", "data-slider-ticks" => "[0, 1, 2, 3, 4]", "data-slider-ticks-labels" => "[\"A\", \"B\", \"C\", \"R\", \"F\"]", "data-slider-tooltip" => "hide", "data-slider-value" => "0", :name => "margin", :type => "integer"}/
+  / /.col-sm-8
+  .col-sm-4
+    %table.table.tabl-bordered
+      %thead
+        %tr
+          %th Total
+      %tbody
+        %td#total
+          $
+          %span 0.00

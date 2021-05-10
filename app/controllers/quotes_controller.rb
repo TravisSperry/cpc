@@ -28,7 +28,7 @@ class QuotesController < ApplicationController
   # GET /quotes/new
   # GET /quotes/new.json
   def new
-    @quote = Quote.new
+    @quote_form = Cpc::QuoteForm.new(quote_request)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -84,5 +84,9 @@ class QuotesController < ApplicationController
       format.html { redirect_to quotes_url }
       format.json { head :no_content }
     end
+  end
+
+  def quote_request
+    QuoteRequest.find(params[:quote_request_id])
   end
 end
