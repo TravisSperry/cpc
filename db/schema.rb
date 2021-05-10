@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_08_025432) do
+ActiveRecord::Schema.define(version: 2021_05_09_233057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -177,6 +177,20 @@ ActiveRecord::Schema.define(version: 2021_01_08_025432) do
     t.index ["customer_id"], name: "index_quote_requests_on_customer_id"
   end
 
+  create_table "quotes", force: :cascade do |t|
+    t.bigint "quote_request_id"
+    t.decimal "labor_hours", precision: 10, scale: 2
+    t.decimal "oven_hours", precision: 10, scale: 2
+    t.decimal "powder_pounds", precision: 10, scale: 2
+    t.integer "cost_of_business"
+    t.integer "pricing_scale"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quote_request_id"], name: "index_quotes_on_quote_request_id"
+    t.index ["user_id"], name: "index_quotes_on_user_id"
+  end
+
   create_table "service_schedules", force: :cascade do |t|
     t.bigint "work_order_schedule_id"
     t.bigint "service_id"
@@ -271,6 +285,8 @@ ActiveRecord::Schema.define(version: 2021_01_08_025432) do
   add_foreign_key "contacts", "contact_types"
   add_foreign_key "contacts", "customers"
   add_foreign_key "quote_requests", "customers"
+  add_foreign_key "quotes", "quote_requests"
+  add_foreign_key "quotes", "users"
   add_foreign_key "service_schedules", "services"
   add_foreign_key "service_schedules", "work_order_schedules"
   add_foreign_key "users", "user_types"
