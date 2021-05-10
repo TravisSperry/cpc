@@ -45,6 +45,8 @@ Cpc::Application.routes.draw do
       get 'calculator'
       get 'sand_blasting_quote_calculator'
     end
+
+    resources :quotes
   end
   resources :quote_request_attachments
   resource :quote_request_conversions, only: [:create]
