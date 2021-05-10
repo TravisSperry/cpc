@@ -38,6 +38,9 @@
       %strong Date completed:
       = @work_order.date_completed ? @work_order.date_completed.strftime('%b %e, %l:%M %p') : 'Not yet completed.'
       = ", by: #{@work_order.completed_by.try :full_name}" if @work_order.completed_by
+    %p
+      %strong Quickbooks Invoice #:
+      = @work_order.quickbooks_invoice_id
     - if current_user.can_approve_work_orders?
       %p
         %strong Pricing Estimate:
