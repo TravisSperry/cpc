@@ -38,18 +38,18 @@ class QuotesController < ApplicationController
 
   # GET /quotes/1/edit
   def edit
-    @quote = Quote.find(params[:id])
+    @quote_form = Cpc::QuoteForm.new(quote_request)
   end
 
   # POST /quotes
   # POST /quotes.json
   def create
-    @quote = Quote.new(params[:quote])
+    @quote = Quote.new(quote_params.merge(quote_request_id: params[:quote_request_id]))
 
     respond_to do |format|
       if @quote.save
-        NotificationMailer.new_quote(@quote).deliver
-        format.html { redirect_to root_url, notice: 'Request received. We will contact you shortly.' }
+        # NotificationMailer.new_quote(@quote).deliver
+        format.html { redirect_to @quote.quote_request, notice: 'Quote saved' }
         format.json { render json: @quote, status: :created, location: @quote }
       else
         format.html { render action: 'new' }
@@ -88,5 +88,9 @@ class QuotesController < ApplicationController
 
   def quote_request
     QuoteRequest.find(params[:quote_request_id])
+  end
+
+  def quote_params
+    params.require(:quote).permit(:labor_hours, :oven_hours, :hourly_oven_price, :powder_pounds, :powder_price, :cost_of_business, :pricing_scale)
   end
 end
