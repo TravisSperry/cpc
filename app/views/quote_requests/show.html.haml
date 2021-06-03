@@ -1,6 +1,6 @@
 .container.contact
   .row
-    .col-md-8
+    .col-md-4
       %p
         %b Quote Request #:
         = @quote_request.id
@@ -34,7 +34,12 @@
           - @quote_request.quote_request_attachments.each_with_index do |qra, i|
             = link_to "Attachment #{i+1}", qra.attachment.url
       = link_to 'Edit', edit_quote_request_path(@quote_request)
-      | #{link_to "Generate Calcuation", calculator_quote_requests_path} | #{link_to 'Destroy', @quote_request, method: :delete, data: { confirm: 'Are you sure you want to delete this quote request?' }}
+      | #{link_to "Generate Calcuation", calculator_quote_requests_path} | #{link_to 'Destroy', @quote_request, method: :delete, data: { confirm: 'Are you sure you want to delete this quote request?' }} | #{ link_to 'New Quote', new_quote_request_quote_path(@quote_request), target: :_blank }
+    .col-md-4
+      %h2 Quotes
+      - @quote_request.quotes.each_with_index do |quote, i|
+        = link_to "Quote #{ i+1 }", quote_request_quote_path(@quote_request, quote)
+
     .col-md-4.mt-md-0.mt-lg-0.mt-5
       .row.mb-3
         .col
