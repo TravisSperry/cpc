@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_10_020703) do
+ActiveRecord::Schema.define(version: 2021_06_03_004823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -187,6 +187,8 @@ ActiveRecord::Schema.define(version: 2021_05_10_020703) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "hourly_oven_price"
+    t.decimal "powder_price"
     t.index ["quote_request_id"], name: "index_quotes_on_quote_request_id"
     t.index ["user_id"], name: "index_quotes_on_user_id"
   end
