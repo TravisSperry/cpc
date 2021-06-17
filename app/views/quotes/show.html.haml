@@ -1,2 +1,12 @@
-.container.contact
+.container
+  %h1 Quote
+
+  %p Labor hours: #{@quote.labor_hours}
+  %p Labor cost: $#{@quote.labor_cost}
+  %p Powder pounds: #{@quote.powder_pounds}
+  %p Powder cost: $#{@quote.powder_cost}
+
+  %p Margin: #{@quote.pricing_scale.to_f}
+  %p Total: $#{@quote.total}
+  = link_to 'Quote request', @quote.quote_request |
   = link_to 'Edit', edit_quote_request_quote_path(@quote.quote_request, @quote)
