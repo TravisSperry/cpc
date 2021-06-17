@@ -5,6 +5,8 @@ module Cpc
     attr_accessor :quote
     attr_reader :quote_request
 
+    LABOR_RATE = 130
+
     def initialize(quote_request)
       @quote_request = quote_request
       @quote = Quote.new
@@ -19,7 +21,7 @@ module Cpc
     end
 
     def labor_rate
-      130
+      LABOR_RATE
     end
   end
 end

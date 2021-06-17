@@ -7,13 +7,13 @@ if $(document.getElementById('calculator-form')).length > 0
     oven_cost = $('#quote_oven_hours').val() * $('#quote_hourly_oven_price').val()
     powder_cost = $('#quote_powder_pounds').val() * (parseFloat($('#quote_powder_price').val()) || 0)
     soft_costs = labor_cost + oven_cost + powder_cost
-    cobs = soft_costs * (cost_of_business($("input[name='cost-of-business']").val()))
+    cob = soft_costs * (cost_of_business($("input[name='cost-of-business']").val()))
     margins = margin($("input[name='margin']").val())
-    total_cost = (cobs + soft_costs) / (1 - margins)
+    total_cost = (cob + soft_costs) / (1 - margins)
 
-    $('#quote_cost_of_business').val(cobs)
+    $('#quote_cost_of_business').val(cob)
     $('#quote_pricing_scale').val(margins)
-    
+
     $('#total').find('span').html(total_cost.toFixed(2))
 
   cost_of_business = (selection) ->
