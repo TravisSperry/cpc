@@ -38,7 +38,7 @@ class QuotesController < ApplicationController
 
   # GET /quotes/1/edit
   def edit
-    @quote_form = Cpc::QuoteForm.new(quote_request)
+    @quote_form = Cpc::QuoteForm.new(quote_request, quote)
   end
 
   # POST /quotes
@@ -64,8 +64,8 @@ class QuotesController < ApplicationController
     @quote = Quote.find(params[:id])
 
     respond_to do |format|
-      if @quote.update_attributes(params[:quote])
-        format.html { redirect_to @quote, notice: 'Quote was successfully updated.' }
+      if @quote.update_attributes(quote_params)
+        format.html { redirect_to @quote.quote_request, notice: 'Quote was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -86,11 +86,15 @@ class QuotesController < ApplicationController
     end
   end
 
+  def quote
+    Quote.find(params[:id])
+  end
+
   def quote_request
     QuoteRequest.find(params[:quote_request_id])
   end
 
   def quote_params
-    params.require(:quote).permit(:labor_hours, :oven_hours, :hourly_oven_price, :powder_pounds, :powder_price, :cost_of_business, :pricing_scale)
+    params.require(:quote).permit(:labor_hours, :oven_hours, :hourly_oven_price, :powder_pounds, :powder_price, :sandblasting_rate, :sandblasting_hours, :cost_of_business, :pricing_scale, :labor_rate, :sandblasting_media_multiplier)
   end
 end

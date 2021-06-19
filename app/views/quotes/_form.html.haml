@@ -1,30 +1,74 @@
 .row
   .col-sm-8
-    = simple_form_for [@quote_form.quote_request, @quote_form.quote], html: { id: 'calculator-form' } do |f|
+    = simple_form_for [quote_form.quote_request, quote_form.quote], html: { id: 'calculator-form' } do |f|
       .row.mb-3
         .col-sm-6
-          = f.input :labor_hours, placeholder: 'Estimated # of hours', input_html: { data: { rate: @quote_form.labor_rate } }
+          = f.input :labor_hours,
+                    placeholder: 'Estimated # of hours',
+                    input_html: { data: { rate: quote_form.labor_rate } }
+        .col-sm-6
+          = f.input :labor_rate,
+                    readonly: true,
+                    input_html: { value: quote_form.quote.labor_rate || quote_form.labor_rate }
       .row.mb-3
         .col-sm-6
           = f.input :oven_hours, placeholder: 'Estimated # of hours'
         .col-sm-6
-          = f.input :hourly_oven_price, label: 'Oven size', collection: @quote_form.oven_sizes, prompt: 'Select an oven size'
-      .row.mb-4
+          = f.input :hourly_oven_price,
+                    label: 'Oven size',
+                    collection: quote_form.oven_sizes,
+                    prompt: 'Select an oven size'
+      .row.mb-3
         .col-sm-6
           = f.input :powder_pounds, label: 'Powder pounds', placeholder: 'Estimated # of lbs'
         .col-sm-6
-          = f.input :powder_price, collection: @quote_form.powder_costs, prompt: 'Select a powder price'
+          = f.input :powder_price,
+                    collection: quote_form.powder_costs,
+                    prompt: 'Select a powder price'
+      .row.mb-3
+        .col-sm-6
+          = f.input :sandblasting_hours,
+                    label: 'Sandblasting hours',
+                    placeholder: 'Estimated # of lbs',
+                    input_html: { data: { rate: quote_form.labor_rate } }
+        .col-sm-6
+          = f.input :sandblasting_rate,
+                    readonly: true,
+                    input_html: { value: quote_form.quote.sandblasting_rate || quote_form.sandblasting_rate }
+      .row.mb-4
+        .col-sm-6
+          = f.input :sandblasting_media_multiplier,
+                    readonly: true,
+                    input_html: { value: quote_form.sandblasting_media_multiplier }
       .row.mt-3
         .col-lg-12.text-center.mb-2
           = f.input :cost_of_business, readonly: true
-          %label{:for => "margin"} Cost Of Business
+          %label{ for: 'cost of business' } Cost Of Business
           %br/
-          %input{"data-provide" => "slider", "data-slider-max" => "8", "data-slider-min" => "0", "data-slider-step" => "1", "data-slider-ticks" => "[0, 1, 2, 3, 4, 5, 6, 7, 8]", "data-slider-ticks-labels" => "[\"IGT\", \"\", \"\", \"\", \"ITIGT\", \"\", \"\", \"\", \"IDHAFC\"]", "data-slider-tooltip" => "hide", "data-slider-value" => "2", :name => "cost-of-business", :type => "integer"}/
+          %input{ 'data-provide' => 'slider',
+                  'data-slider-max' => '8',
+                  'data-slider-min' => '0',
+                  'data-slider-step' => '1',
+                  'data-slider-ticks' => quote_form.cost_of_business_ticks,
+                  'data-slider-ticks-labels' => quote_form.cost_of_business_labels,
+                  'data-slider-tooltip' => 'hide',
+                  'data-slider-value' => quote_form.cost_of_business_slider_location,
+                  :name => 'cost-of-business',
+                  :type => "integer" }
         .col-lg-12.text-center.mb-4
           = f.input :pricing_scale, readonly: true
-          %label{:for => "margin"} Pricing Scale
+          %label{ for: 'margin' } Pricing Scale
           %br/
-          %input{"data-provide" => "slider", "data-slider-max" => "4", "data-slider-min" => "0", "data-slider-step" => "1", "data-slider-ticks" => "[0, 1, 2, 3, 4]", "data-slider-ticks-labels" => "[\"A\", \"B\", \"C\", \"R\", \"F\"]", "data-slider-tooltip" => "hide", "data-slider-value" => "0", :name => "margin", :type => "integer"}/
+          %input{ 'data-provide' => 'slider',
+                  'data-slider-max' => '4',
+                  'data-slider-min' => '0',
+                  'data-slider-step' => '1',
+                  'data-slider-ticks' => quote_form.margin_ticks,
+                  'data-slider-ticks-labels' => quote_form.margin_labels,
+                  'data-slider-tooltip' => 'hide',
+                  'data-slider-value' => quote_form.margin_slider_location,
+                  :name => 'margin',
+                  :type => "integer"}/
       .row.mt-3
         .col-12
           = f.submit "Save quote", class: 'btn btn-success float-right'

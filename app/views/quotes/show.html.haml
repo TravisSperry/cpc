@@ -1,12 +1,21 @@
 .container
   %h1 Quote
 
-  %p Labor hours: #{@quote.labor_hours}
-  %p Labor cost: $#{@quote.labor_cost}
-  %p Powder pounds: #{@quote.powder_pounds}
-  %p Powder cost: $#{@quote.powder_cost}
+  %p Labor hours: #{number_with_precision @quote.labor_hours, :precision => 2}
+  %p Labor rate: $#{number_with_precision @quote.labor_rate, :precision => 2}
+  %p Labor cost: $#{number_with_precision @quote.labor_cost, :precision => 2}
+  %p Powder pounds: #{number_with_precision @quote.powder_pounds, :precision => 2}
+  %p Powder price: $#{number_with_precision @quote.powder_price, :precision => 2}
+  %p Powder cost: $#{number_with_precision @quote.powder_cost, :precision => 2}
+  %p Oven hours: #{number_with_precision @quote.oven_hours, :precision => 2}
+  %p Oven rate: $#{number_with_precision @quote.hourly_oven_price, :precision => 2}
+  %p Oven cost: $#{number_with_precision @quote.oven_cost, :precision => 2}
+  %p Sandblasting hours: #{number_with_precision @quote.sandblasting_hours, :precision => 2}
+  %p Sandblasting rate: $#{number_with_precision @quote.sandblasting_rate, :precision => 2}
+  %p Sandblasting cost: $#{number_with_precision @quote.total_sandblasting_cost, :precision => 2}
 
-  %p Margin: #{@quote.pricing_scale.to_f}
-  %p Total: $#{@quote.total}
+  %p Margin: #{number_with_precision @quote.pricing_scale, :precision => 2}
+  %p Cost of Business Mult: #{number_with_precision @quote.cost_of_business, :precision => 2}
+  %p Total: $#{number_with_precision @quote.total, :precision => 2}
   = link_to 'Quote request', @quote.quote_request |
   = link_to 'Edit', edit_quote_request_quote_path(@quote.quote_request, @quote)
