@@ -5,26 +5,34 @@ class Quote < ApplicationRecord
   belongs_to :user
 
   def total
-    (cob + soft_costs) / (1 - pricing_scale.to_f)
+    ((cost_of_business * soft_costs) + soft_costs) / (1.0 - pricing_scale)
   end
 
   def labor_cost
-    labor_hours.to_f * Cpc::QuoteForm::LABOR_RATE
+    labor_hours * (labor_rate || Cpc::QuoteForm::LABOR_RATE)
   end
 
   def powder_cost
-    powder_pounds.to_f * powder_price.to_f
+    powder_pounds * powder_price
   end
 
   def oven_cost
-    oven_hours.to_f * hourly_oven_price.to_f
+    oven_hours * hourly_oven_price
+  end
+
+  def sandblasting_media_cost
+    sandblasting_labor_cost * (sandblasting_media_multiplier || Cpc::QuoteForm::SANDBLASTING_MEDIA_MULTIPLIER)
+  end
+
+  def sandblasting_labor_cost
+    sandblasting_hours * sandblasting_rate
+  end
+
+  def total_sandblasting_cost
+    sandblasting_labor_cost + sandblasting_media_cost
   end
 
   def soft_costs
-    labor_cost + oven_cost + powder_cost
-  end
-
-  def cob
-    soft_costs * cost_of_business
+    labor_cost + oven_cost + powder_cost + total_sandblasting_cost
   end
 end

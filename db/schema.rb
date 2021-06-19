@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_004823) do
+ActiveRecord::Schema.define(version: 2021_06_19_164445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -182,13 +182,17 @@ ActiveRecord::Schema.define(version: 2021_06_03_004823) do
     t.decimal "labor_hours", precision: 10, scale: 2
     t.decimal "oven_hours", precision: 10, scale: 2
     t.decimal "powder_pounds", precision: 10, scale: 2
-    t.integer "cost_of_business"
-    t.integer "pricing_scale"
+    t.decimal "cost_of_business"
+    t.decimal "pricing_scale"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "hourly_oven_price"
     t.decimal "powder_price"
+    t.decimal "sandblasting_hours"
+    t.decimal "sandblasting_rate"
+    t.decimal "sandblasting_media_multiplier"
+    t.decimal "labor_rate"
     t.index ["quote_request_id"], name: "index_quotes_on_quote_request_id"
     t.index ["user_id"], name: "index_quotes_on_user_id"
   end
