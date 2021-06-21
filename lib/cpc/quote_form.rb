@@ -8,6 +8,7 @@ module Cpc
     LABOR_RATE = 130
     COST_OF_BUSINESS_MULTIPLIERS = [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45]
     MARGIN_MULTIPLIERS = [0.40, 0.48, 0.55, 0.62, 0.75]
+    POWDER_PRICES = [['Exotic ($18.75/lb.)', 18.75], ['Custom ($31.50/lb.)', 31.50]]
     SANDBLASTING_RATE = 100
     SANDBLASTING_MEDIA_MULTIPLIER = 0.125
 
@@ -17,7 +18,7 @@ module Cpc
     end
 
     def powder_costs
-      [['Exotic ($18.75/lb.)', 18.75], ['Custom ($31.50/lb.)', 31.50]]
+      POWDER_PRICES
     end
 
     def oven_sizes
