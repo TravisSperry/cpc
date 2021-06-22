@@ -27,6 +27,7 @@ class Quote < ApplicationRecord
   end
 
   def sandblasting_labor_cost
+    return 0 unless sandblasting_hours
     (sandblasting_hours * sandblasting_rate).to_f
   end
 
