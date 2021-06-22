@@ -49,11 +49,12 @@ class QuotesController < ApplicationController
     respond_to do |format|
       if @quote.save
         # NotificationMailer.new_quote(@quote).deliver
-        format.html { redirect_to @quote.quote_request, notice: 'Quote saved' }
-        format.json { render json: @quote, status: :created, location: @quote }
+        format.html do
+          redirect_to quote_request_quote_path(quote_request, @quote), 
+                      notice: 'Quote saved'
+        end
       else
         format.html { render action: 'new' }
-        format.json { render json: @quote.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -65,11 +66,12 @@ class QuotesController < ApplicationController
 
     respond_to do |format|
       if @quote.update_attributes(quote_params)
-        format.html { redirect_to @quote.quote_request, notice: 'Quote was successfully updated.' }
-        format.json { head :no_content }
+        format.html do
+          redirect_to quote_request_quote_path(quote_request, @quote),
+                      notice: 'Quote was successfully updated.'
+        end
       else
         format.html { render action: 'edit' }
-        format.json { render json: @quote.errors, status: :unprocessable_entity }
       end
     end
   end

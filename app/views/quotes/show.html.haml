@@ -1,23 +1,41 @@
 .container
-  %h1 Quote
+  %h1 Quote #{@quote.id}
+  %p
+    %b Customer:
+    #{ @quote.quote_request&.customer&.name }
 
-  %p Labor hours: #{number_with_precision @quote.labor_hours, :precision => 2}
-  %p Labor rate: $#{number_with_precision @quote.labor_rate, :precision => 2}
-  %p Labor cost: $#{number_with_precision @quote.labor_cost, :precision => 2}
-  %p Powder pounds: #{number_with_precision @quote.powder_pounds, :precision => 2}
-  %p Powder price: $#{number_with_precision @quote.powder_price, :precision => 2}
-  %p Powder cost: $#{number_with_precision @quote.powder_cost, :precision => 2}
-  %p Oven hours: #{number_with_precision @quote.oven_hours, :precision => 2}
-  %p Oven rate: $#{number_with_precision @quote.hourly_oven_price, :precision => 2}
-  %p Oven cost: $#{number_with_precision @quote.oven_cost, :precision => 2}
-  %p Sandblasting hours: #{number_with_precision @quote.sandblasting_hours, :precision => 2}
-  %p Sandblasting rate: $#{number_with_precision @quote.sandblasting_rate, :precision => 2}
-  %p Sandblasting cost: $#{number_with_precision @quote.total_sandblasting_cost, :precision => 2}
-  %p Coating cost: $#{number_with_precision @quote.coating_costs, :precision => 2}
+  %table.table.table-bordered
+    %tbody
+      %tr
+        %td Labor
+        %td #{number_with_precision @quote.labor_hours, :precision => 2} (hours)
+        %td $#{number_with_precision @quote.labor_rate, :precision => 2} ($/hour)
+        %td 
+      %tr
+        %td Powder
+        %td #{number_with_precision @quote.powder_pounds, :precision => 2} (lbs)
+        %td $#{number_with_precision @quote.powder_price, :precision => 2}
+        %td
+      %tr
+        %td Oven
+        %td #{number_with_precision @quote.oven_hours, :precision => 2} (hours)
+        %td $#{number_with_precision @quote.hourly_oven_price, :precision => 2} ($/hour)
+        %td
+      %tr
+        %td Coating Costs
+        %td
+        %td
+        %td $#{number_with_precision @quote.coating_costs, :precision => 2}
+      %tr
+        %td Sandblasting
+        %td #{number_with_precision @quote.sandblasting_hours, :precision => 2}
+        %td $#{number_with_precision @quote.sandblasting_rate, :precision => 2}
+        %td $#{number_with_precision @quote.total_sandblasting_cost, :precision => 2}
+      %tr
+        %th Total
+        %td
+        %td
+        %th $#{number_with_precision @quote.total, :precision => 2}
 
-
-  %p Margin: #{number_with_precision @quote.pricing_scale, :precision => 2}
-  %p Cost of Business Mult: #{number_with_precision @quote.cost_of_business, :precision => 2}
-  %p Total: $#{number_with_precision @quote.total, :precision => 2}
-  = link_to 'Quote request', @quote.quote_request |
-  = link_to 'Edit', edit_quote_request_quote_path(@quote.quote_request, @quote)
+  = link_to 'View quote request', @quote.quote_request
+  | #{link_to 'Edit', edit_quote_request_quote_path(@quote.quote_request, @quote)}
