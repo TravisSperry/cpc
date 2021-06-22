@@ -14,7 +14,7 @@ class Quote < ApplicationRecord
 
   def powder_cost
     return 0 unless powder_pounds
-    (powder_pounds * powder_price).to_f
+    (powder_pounds * (powder_price || Cpc::QuoteForm::POWDER_PRICES.first.last)).to_f
   end
 
   def oven_cost
