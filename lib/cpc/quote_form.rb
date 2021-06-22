@@ -46,7 +46,7 @@ module Cpc
     end
 
     def cost_of_business_slider_location
-      Cpc::QuoteForm::COST_OF_BUSINESS_MULTIPLIERS.index(quote.cost_of_business) ||
+      Cpc::QuoteForm::COST_OF_BUSINESS_MULTIPLIERS.index(quote.cost_of_business.to_f) ||
         0
     end
 
