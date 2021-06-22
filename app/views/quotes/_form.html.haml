@@ -30,7 +30,7 @@
           = f.input :sandblasting_hours,
                     label: 'Sandblasting hours',
                     placeholder: 'Estimated # of lbs',
-                    input_html: { data: { rate: quote_form.labor_rate } }
+                    input_html: { data: { rate: quote_form.quote.sandblasting_rate || quote_form.sandblasting_rate } }
         .col-sm-6
           = f.input :sandblasting_rate,
                     readonly: true,
@@ -42,7 +42,7 @@
                     input_html: { value: quote_form.sandblasting_media_multiplier }
       .row.mt-3
         .col-lg-12.text-center.mb-2
-          = f.input :cost_of_business, readonly: true
+          = f.input :cost_of_business, readonly: true, input_html: { value: quote_form.quote.cost_of_business }
           %label{ for: 'cost of business' } Cost Of Business
           %br/
           %input{ 'data-provide' => 'slider',
@@ -56,7 +56,7 @@
                   :name => 'cost-of-business',
                   :type => "integer" }
         .col-lg-12.text-center.mb-4
-          = f.input :pricing_scale, readonly: true
+          = f.input :pricing_scale, readonly: true, input_html: { value: quote_form.quote&.pricing_scale }
           %label{ for: 'margin' } Pricing Scale
           %br/
           %input{ 'data-provide' => 'slider',
@@ -74,11 +74,23 @@
           = f.submit "Save quote", class: 'btn btn-success float-right'
 
   .col-sm-4
-    %table.table.tabl-bordered
-      %thead
-        %tr
-          %th Total
+    %table.table.table-bordered
       %tbody
-        %td#total
-          $
-          %span 0.00
+        %tr
+          %td
+            Coating Costs
+          %td#coating_costs
+            $
+            %span 0.00
+        %tr
+          %td
+            Sandblasting Costs
+          %td#sandblasting_costs
+            $
+            %span 0.00
+        %tr
+          %td
+            Total
+          %td#total
+            $
+            %span 0.00

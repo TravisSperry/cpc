@@ -28,7 +28,7 @@ class QuotesController < ApplicationController
   # GET /quotes/new
   # GET /quotes/new.json
   def new
-    @quote_form = Cpc::QuoteForm.new(quote_request)
+    @quote_form = Cpc::QuoteForm.new(quote_request, nil)
 
     respond_to do |format|
       format.html # new.html.erb
