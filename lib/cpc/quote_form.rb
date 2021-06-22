@@ -11,6 +11,7 @@ module Cpc
     POWDER_PRICES = [['Exotic ($18.75/lb.)', 18.75], ['Custom ($31.50/lb.)', 31.50]]
     SANDBLASTING_RATE = 100
     SANDBLASTING_MEDIA_MULTIPLIER = 0.125
+    OVEN_SIZES = { small: 35, large: 70 }
 
     def initialize(quote_request, quote)
       @quote_request = quote_request
@@ -22,7 +23,7 @@ module Cpc
     end
 
     def oven_sizes
-      { small: 35, large: 70 }
+      OVEN_SIZES
     end
 
     def labor_rate

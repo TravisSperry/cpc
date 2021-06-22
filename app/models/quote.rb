@@ -19,7 +19,7 @@ class Quote < ApplicationRecord
 
   def oven_cost
     return 0 unless oven_hours
-    (oven_hours * hourly_oven_price).to_f
+    (oven_hours * (hourly_oven_price || Cpc::QuoteForm::OVEN_SIZES[:small])).to_f
   end
 
   def sandblasting_media_cost
