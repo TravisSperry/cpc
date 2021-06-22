@@ -9,7 +9,7 @@ class Quote < ApplicationRecord
   end
 
   def labor_cost
-    (labor_hours * (labor_rate || Cpc::QuoteForm::LABOR_RATE)).to_f
+    ((labor_hours || 0) * (labor_rate || Cpc::QuoteForm::LABOR_RATE)).to_f
   end
 
   def powder_cost
